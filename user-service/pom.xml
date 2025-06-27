@@ -7,29 +7,45 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.5.3</version>
-		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.cloudkart</groupId>
 	<artifactId>user-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>user-service</name>
-	<description>Demo project for Spring Boot</description>
-	<url />
-	<licenses>
-		<license />
-	</licenses>
+	<packaging>jar</packaging>
+	<description>User Service module for Cloud Kart application. Handles user management, authentication, and integration with Keycloak and Spring Cloud ecosystem.</description>
+	<url>https://github.com/harshal5-dev/cloud-kart</url>
+
+	<!-- Developer Information -->
 	<developers>
-		<developer />
+		<developer>
+			<id>harshal5-dev</id>
+			<name>Harshal</name>
+			<email>harshalganbote55@gmail.com</email>
+			<url>https://github.com/harshal5-dev</url>
+			<roles>
+				<role>Lead Developer</role>
+			</roles>
+		</developer>
 	</developers>
+
+	<!-- SCM Information -->
 	<scm>
-		<connection />
-		<developerConnection />
-		<tag />
-		<url />
+		<connection>scm:git:git://github.com/harshal5-dev/cloud-kart.git</connection>
+		<developerConnection>scm:git:ssh://github.com:harshal5-dev/cloud-kart.git</developerConnection>
+		<url>https://github.com/harshal5-dev/cloud-kart/tree/main</url>
 	</scm>
+
 	<properties>
 		<java.version>21</java.version>
 		<spring-cloud.version>2025.0.0</spring-cloud.version>
+
+		<!-- Docker -->
+		<jib-maven-plugin.version>3.4.6</jib-maven-plugin.version>
+
+		<!-- Docker Registry Configuration -->
+		<docker.username>harshaldev55</docker.username>
+		<docker.tag.strategy>v1</docker.tag.strategy>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -135,6 +151,39 @@
 						</exclude>
 					</excludes>
 				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>com.google.cloud.tools</groupId>
+				<artifactId>jib-maven-plugin</artifactId>
+				<version>3.4.5</version>
+				<configuration>
+					<from>
+						<platforms>
+							<platform>
+								<architecture>amd64</architecture>
+								<os>linux</os>
+							</platform>
+							<platform>
+								<architecture>arm64</architecture>
+								<os>linux</os>
+							</platform>
+						</platforms>
+					</from>
+					<to>
+						<image>${docker.username}/${project.artifactId}:${docker.tag.strategy}</image>
+					</to>
+					<allowInsecureRegistries>false</allowInsecureRegistries>
+					<skip>false</skip>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>build</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
