@@ -1,0 +1,16 @@
+INSERT INTO user (username, email, password, first_name, last_name, phone_number, roles) VALUES
+('jdoe', 'jdoe@example.com', 'Password123!', 'John', 'Doe', '555-123-1001', 'USER'),
+('asmith', 'asmith@example.com', 'Password123!', 'Alice', 'Smith', '555-123-1002', 'USER'),
+('bwayne', 'bwayne@example.com', 'Password123!', 'Bruce', 'Wayne', '555-123-1003', 'MANAGER'),
+('ckent', 'ckent@example.com', 'Password123!', 'Clark', 'Kent', '555-123-1004', 'USER'),
+('dprince', 'dprince@example.com', 'Password123!', 'Diana', 'Prince', '555-123-1005', 'USER'),
+('pparker', 'pparker@example.com', 'Password123!', 'Peter', 'Parker', '555-123-1006', 'USER'),
+('tstark', 'tstark@example.com', 'Password123!', 'Tony', 'Stark', '555-123-1007', 'MANAGER'),
+('ssmith', 'ssmith@example.com', 'Password123!', 'Steve', 'Smith', '555-123-1008', 'USER'),
+('bwilliams', 'bwilliams@example.com', 'Password123!', 'Barbara', 'Williams', '555-123-1009', 'USER'),
+('djohnson', 'djohnson@example.com', 'Password123!', 'David', 'Johnson', '555-123-1010', 'USER'),
+('rthomas', 'rthomas@example.com', 'Password123!', 'Robert', 'Thomas', '555-123-1011', 'USER,MANAGER'),
+('kmiller', 'kmiller@example.com', 'Password123!', 'Karen', 'Miller', '555-123-1012', 'USER'),
+('lscott', 'lscott@example.com', 'Password123!', 'Linda', 'Scott', '555-123-1013', 'USER'),
+('jwilson', 'jwilson@example.com', 'Password123!', 'James', 'Wilson', '555-123-1014', 'USER'),
+('cmartin', 'cmartin@example.com', 'Password123!', 'Carol', 'Martin', '555-123-1015', 'USER');
