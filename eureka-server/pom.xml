@@ -108,6 +108,7 @@
 					</to>
 					<allowInsecureRegistries>false</allowInsecureRegistries>
 					<skip>false</skip>
+					<creationTime>USE_CURRENT_TIMESTAMP</creationTime>
 				</configuration>
 				<executions>
 					<execution>
