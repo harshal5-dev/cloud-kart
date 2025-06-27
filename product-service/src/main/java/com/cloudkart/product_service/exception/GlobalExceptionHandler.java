@@ -1,4 +1,4 @@
-package com.cloudkart.user_service.exception;
+package com.cloudkart.product_service.exception;
 
 import java.util.HashMap;
 import java.util.List;
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
-import com.cloudkart.user_service.dto.ErrorResponseDto;
+import com.cloudkart.product_service.dto.ErrorResponseDto;
 
 @ControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
@@ -32,9 +32,18 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
       String validationMsg = error.getDefaultMessage();
       validationErrors.put(fieldName, validationMsg);
     });
+
     ErrorResponseDto errorResponseDTO = new ErrorResponseDto(request.getDescription(false),
         HttpStatus.BAD_REQUEST, "Validation failed for one or more fields", validationErrors);
 
+    return new ResponseEntity<>(errorResponseDTO, HttpStatus.BAD_REQUEST);
+  }
+
+  @ExceptionHandler(CategoryAlreadyExists.class)
+  public ResponseEntity<ErrorResponseDto> handleCategoryAlreadyExistsException(
+      CategoryAlreadyExists exception, WebRequest webRequest) {
+    ErrorResponseDto errorResponseDTO = new ErrorResponseDto(webRequest.getDescription(false),
+        HttpStatus.BAD_REQUEST, exception.getMessage());
     return new ResponseEntity<>(errorResponseDTO, HttpStatus.BAD_REQUEST);
   }
 
@@ -46,27 +55,25 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     return new ResponseEntity<>(errorResponseDTO, HttpStatus.NOT_FOUND);
   }
 
-  @ExceptionHandler(UserAlreadyExistsException.class)
-  public ResponseEntity<ErrorResponseDto> handleUserAlreadyExistsException(
-      UserAlreadyExistsException exception, WebRequest webRequest) {
+  @ExceptionHandler(ProductAlreadyExists.class)
+  public ResponseEntity<ErrorResponseDto> handleProductAlreadyExistsException(
+      ProductAlreadyExists exception, WebRequest webRequest) {
     ErrorResponseDto errorResponseDTO = new ErrorResponseDto(webRequest.getDescription(false),
         HttpStatus.BAD_REQUEST, exception.getMessage());
     return new ResponseEntity<>(errorResponseDTO, HttpStatus.BAD_REQUEST);
   }
 
-
+  @ExceptionHandler(ProductImageAlreadyExists.class)
+  public ResponseEntity<ErrorResponseDto> handleProductImageAlreadyExistsException(
+      ProductImageAlreadyExists exception, WebRequest webRequest) {
+    ErrorResponseDto errorResponseDTO = new ErrorResponseDto(webRequest.getDescription(false),
+        HttpStatus.BAD_REQUEST, exception.getMessage());
+    return new ResponseEntity<>(errorResponseDTO, HttpStatus.BAD_REQUEST);
+  }
 
   @ExceptionHandler(IllegalArgumentException.class)
   public ResponseEntity<ErrorResponseDto> handleIllegalArgumentException(
       IllegalArgumentException exception, WebRequest webRequest) {
-    ErrorResponseDto errorResponseDTO = new ErrorResponseDto(webRequest.getDescription(false),
-        HttpStatus.BAD_REQUEST, exception.getMessage());
-    return new ResponseEntity<>(errorResponseDTO, HttpStatus.BAD_REQUEST);
-  }
-
-  @ExceptionHandler(UserRegistrationException.class)
-  public ResponseEntity<ErrorResponseDto> handleUserRegistrationException(
-      UserRegistrationException exception, WebRequest webRequest) {
     ErrorResponseDto errorResponseDTO = new ErrorResponseDto(webRequest.getDescription(false),
         HttpStatus.BAD_REQUEST, exception.getMessage());
     return new ResponseEntity<>(errorResponseDTO, HttpStatus.BAD_REQUEST);

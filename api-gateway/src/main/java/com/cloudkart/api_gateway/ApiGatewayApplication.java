@@ -18,15 +18,15 @@ public class ApiGatewayApplication {
 		return builder.routes()
 
 				// Business API Routes
-				// .route("product-catalog-service",
-				// r -> r.path("/api/v1/products/**", "/api/v1/categories/**", "/api/v1/admin/products/**",
-				// "/api/v1/admin/categories/**").uri("lb://PRODUCT-CATALOG-SERVICE"))
+				.route("product-service",
+						r -> r.path("/api/v1/products/**", "/api/v1/categories/**", "/api/v1/admin/products/**",
+								"/api/v1/admin/categories/**").uri("lb://PRODUCT-SERVICE"))
 
 				// Swagger API docs route
-				// .route("product-catalog-docs", r -> r.path("/v3/api-docs/product-catalog/public")
-				// .filters(
-				// f -> f.rewritePath("/v3/api-docs/product-catalog/public", "/v3/api-docs/public"))
-				// .uri("lb://PRODUCT-CATALOG-SERVICE"))
+				.route("product-service-docs", r -> r.path("/v3/api-docs/product-service/public")
+						.filters(
+								f -> f.rewritePath("/v3/api-docs/product-service/public", "/v3/api-docs/public"))
+						.uri("lb://PRODUCT-SERVICE"))
 
 				.route("user-service",
 						r -> r.path("/api/v1/auth/**", "/api/v1/users/**", "/api/v1/admin/users/**")

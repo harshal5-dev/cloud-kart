@@ -38,110 +38,100 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @Tag(name = "Admin APIs",
-                description = "This controller provides administrative operations such as user management.")
+    description = "This controller provides administrative operations such as user management.")
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(path = "/api/v1/admin", produces = MediaType.APPLICATION_JSON_VALUE)
 @Validated
 @SecurityRequirement(name = "bearerAuth")
 public class AdminController {
-        private final IUserService userService;
-        private final ICommonUtil commonUtil;
-        private final IAuthService authService;
+  private final IUserService userService;
+  private final ICommonUtil commonUtil;
+  private final IAuthService authService;
 
 
-        @Operation(summary = "Get all users",
-                        description = "Fetches all users with optional search criteria and pagination.")
-        @ApiResponses({@ApiResponse(responseCode = "200", description = "HTTP Status OK",
-                        content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
-                                        schema = @Schema(implementation = PagedResDto.class))),
-                        @ApiResponse(responseCode = "500",
-                                        description = "HTTP Status Internal Server Error",
-                                        content = @Content(schema = @Schema(
-                                                        implementation = ErrorResponseDto.class)))})
-        @GetMapping("/users/search")
-        public ResponseEntity<PagedResDto<UserDto>> getAllUsers(
-                        @RequestParam(required = false) String searchTerm,
-                        @RequestParam(defaultValue = "0") int page,
-                        @RequestParam(defaultValue = "10") int size,
-                        @RequestParam(defaultValue = "id") String sortBy,
-                        @RequestParam(defaultValue = "asc") String sortDir,
-                        Authentication authentication) {
-                String keycloakUserId = commonUtil.extractKeycloakUserId(authentication);
-                UserSearchCriteria criteria = new UserSearchCriteria();
-                if (searchTerm != null && !searchTerm.isEmpty()) {
-                        criteria.setSearchTerm(searchTerm);
-                }
+  @Operation(summary = "Get all users",
+      description = "Fetches all users with optional search criteria and pagination.")
+  @ApiResponses({
+      @ApiResponse(responseCode = "200", description = "HTTP Status OK",
+          content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
+              schema = @Schema(implementation = PagedResDto.class))),
+      @ApiResponse(responseCode = "500", description = "HTTP Status Internal Server Error",
+          content = @Content(schema = @Schema(implementation = ErrorResponseDto.class)))})
+  @GetMapping("/users/search")
+  public ResponseEntity<PagedResDto<UserDto>> getAllUsers(
+      @RequestParam(required = false) String searchTerm, @RequestParam(defaultValue = "0") int page,
+      @RequestParam(defaultValue = "10") int size, @RequestParam(defaultValue = "id") String sortBy,
+      @RequestParam(defaultValue = "asc") String sortDir, Authentication authentication) {
+    String keycloakUserId = commonUtil.extractKeycloakUserId(authentication);
+    UserSearchCriteria criteria = new UserSearchCriteria();
+    if (searchTerm != null && !searchTerm.isEmpty()) {
+      criteria.setSearchTerm(searchTerm);
+    }
 
-                Pageable pageable = PageRequest.of(page, size,
-                                Sort.by(Sort.Direction.fromString(sortDir), sortBy));
+    Pageable pageable =
+        PageRequest.of(page, size, Sort.by(Sort.Direction.fromString(sortDir), sortBy));
 
-                PagedResDto<UserDto> users =
-                                userService.fetchAllUsers(keycloakUserId, criteria, pageable);
-                return ResponseEntity.status(HttpStatus.OK).body(users);
-        }
+    PagedResDto<UserDto> users = userService.fetchAllUsers(keycloakUserId, criteria, pageable);
+    return ResponseEntity.status(HttpStatus.OK).body(users);
+  }
 
-        @Operation(summary = "Get user by ID", description = "Fetches a user by their unique ID.")
-        @ApiResponses({@ApiResponse(responseCode = "200", description = "HTTP Status OK",
-                        content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
-                                        schema = @Schema(implementation = UserDto.class))),
-                        @ApiResponse(responseCode = "404", description = "HTTP Status Not Found",
-                                        content = @Content(schema = @Schema(
-                                                        implementation = ErrorResponseDto.class))),
-                        @ApiResponse(responseCode = "500",
-                                        description = "HTTP Status Internal Server Error",
-                                        content = @Content(schema = @Schema(
-                                                        implementation = ErrorResponseDto.class)))})
-        @PostMapping("/users/create")
-        public ResponseEntity<ResponseDto<UserDto>> createUser(
-                        @Valid @RequestBody CreateUserDto createUserDto) {
-                UserDto userDto = authService.createUser(createUserDto);
+  @Operation(summary = "Get user by ID", description = "Fetches a user by their unique ID.")
+  @ApiResponses({
+      @ApiResponse(responseCode = "200", description = "HTTP Status OK",
+          content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
+              schema = @Schema(implementation = UserDto.class))),
+      @ApiResponse(responseCode = "404", description = "HTTP Status Not Found",
+          content = @Content(schema = @Schema(implementation = ErrorResponseDto.class))),
+      @ApiResponse(responseCode = "500", description = "HTTP Status Internal Server Error",
+          content = @Content(schema = @Schema(implementation = ErrorResponseDto.class)))})
+  @PostMapping("/users/create")
+  public ResponseEntity<ResponseDto<UserDto>> createUser(
+      @Valid @RequestBody CreateUserDto createUserDto) {
+    UserDto userDto = authService.createUser(createUserDto);
 
-                ResponseDto<UserDto> response = new ResponseDto<>(HttpStatus.CREATED, userDto,
-                                "User created successfully");
-                return ResponseEntity.status(HttpStatus.CREATED).body(response);
-        }
+    ResponseDto<UserDto> response =
+        new ResponseDto<>(HttpStatus.CREATED, userDto, "User created successfully");
+    return ResponseEntity.status(HttpStatus.CREATED).body(response);
+  }
 
-        @Operation(summary = "Update user profile",
-                        description = "Updates the profile of a user identified by their unique ID.")
-        @ApiResponses({@ApiResponse(responseCode = "200", description = "HTTP Status OK",
-                        content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
-                                        schema = @Schema(implementation = UserDto.class))),
-                        @ApiResponse(responseCode = "404", description = "HTTP Status Not Found",
-                                        content = @Content(schema = @Schema(
-                                                        implementation = ErrorResponseDto.class))),
-                        @ApiResponse(responseCode = "400", description = "HTTP Status Bad Request",
-                                        content = @Content(schema = @Schema(
-                                                        implementation = ErrorResponseDto.class))),})
-        @PutMapping("/users/{userId}/update")
-        public ResponseEntity<ResponseDto<UserDto>> updateUser(@PathVariable String userId,
-                        @Valid @RequestBody UpdateUserDto updateUserDto) {
-                UserDto updatedUser = userService.updateUserProfile(userId, updateUserDto);
+  @Operation(summary = "Update user profile",
+      description = "Updates the profile of a user identified by their unique ID.")
+  @ApiResponses({
+      @ApiResponse(responseCode = "200", description = "HTTP Status OK",
+          content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
+              schema = @Schema(implementation = UserDto.class))),
+      @ApiResponse(responseCode = "404", description = "HTTP Status Not Found",
+          content = @Content(schema = @Schema(implementation = ErrorResponseDto.class))),
+      @ApiResponse(responseCode = "400", description = "HTTP Status Bad Request",
+          content = @Content(schema = @Schema(implementation = ErrorResponseDto.class))),})
+  @PutMapping("/users/{userId}/update")
+  public ResponseEntity<ResponseDto<UserDto>> updateUser(@PathVariable String userId,
+      @Valid @RequestBody UpdateUserDto updateUserDto) {
+    UserDto updatedUser = userService.updateUserProfile(userId, updateUserDto);
 
-                ResponseDto<UserDto> response = new ResponseDto<>(HttpStatus.OK, updatedUser,
-                                "User updated successfully");
-                return ResponseEntity.status(HttpStatus.OK).body(response);
-        }
+    ResponseDto<UserDto> response =
+        new ResponseDto<>(HttpStatus.OK, updatedUser, "User updated successfully");
+    return ResponseEntity.status(HttpStatus.OK).body(response);
+  }
 
 
-        @Operation(summary = "Delete user by ID",
-                        description = "Deletes a user identified by their unique ID from the system.")
-        @ApiResponses({@ApiResponse(responseCode = "200", description = "HTTP Status OK",
-                        content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
-                                        schema = @Schema(implementation = Void.class))),
-                        @ApiResponse(responseCode = "404", description = "HTTP Status Not Found",
-                                        content = @Content(schema = @Schema(
-                                                        implementation = ErrorResponseDto.class))),
-                        @ApiResponse(responseCode = "500",
-                                        description = "HTTP Status Internal Server Error",
-                                        content = @Content(schema = @Schema(
-                                                        implementation = ErrorResponseDto.class)))})
-        @DeleteMapping("/users/{userId}/delete")
-        public ResponseEntity<ResponseDto<Void>> deleteUser(@PathVariable String userId) {
-                userService.deleteUserById(userId);
+  @Operation(summary = "Delete user by ID",
+      description = "Deletes a user identified by their unique ID from the system.")
+  @ApiResponses({
+      @ApiResponse(responseCode = "200", description = "HTTP Status OK",
+          content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
+              schema = @Schema(implementation = Void.class))),
+      @ApiResponse(responseCode = "404", description = "HTTP Status Not Found",
+          content = @Content(schema = @Schema(implementation = ErrorResponseDto.class))),
+      @ApiResponse(responseCode = "500", description = "HTTP Status Internal Server Error",
+          content = @Content(schema = @Schema(implementation = ErrorResponseDto.class)))})
+  @DeleteMapping("/users/{userId}/delete")
+  public ResponseEntity<ResponseDto<Void>> deleteUser(@PathVariable String userId) {
+    userService.deleteUserById(userId);
 
-                ResponseDto<Void> response =
-                                new ResponseDto<>(HttpStatus.OK, null, "User deleted successfully");
-                return ResponseEntity.status(HttpStatus.OK).body(response);
-        }
+    ResponseDto<Void> response =
+        new ResponseDto<>(HttpStatus.OK, null, "User deleted successfully");
+    return ResponseEntity.status(HttpStatus.OK).body(response);
+  }
 }

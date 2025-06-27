@@ -1,4 +1,4 @@
-package com.cloudkart.user_service.dto;
+package com.cloudkart.product_service.dto;
 
 import java.time.LocalDateTime;
 import java.util.Map;
