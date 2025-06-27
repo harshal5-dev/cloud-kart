@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: user-service
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:7080/realms/ecommerce
+  datasource:
+    url: jdbc:postgresql://localhost:5545/cloudkart_users_db
+    username: root
+    password: 12345
+  jpa:
+    hibernate:
+      ddl-auto: update
+  config:
+    import: optional:configserver:http://localhost:5555/
