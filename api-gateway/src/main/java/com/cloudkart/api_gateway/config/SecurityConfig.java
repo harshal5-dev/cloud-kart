@@ -52,7 +52,7 @@ public class SecurityConfig {
                 "/webjars/**")
             .permitAll().pathMatchers("/api/v1/admin/categories/**", "/api/v1/admin/products/**")
             .hasAnyRole("ADMIN", "MANAGER").pathMatchers("/api/v1/admin/**").hasRole("ADMIN")
-            .pathMatchers("/api/users/**").hasAnyRole("USER", "ADMIN", "MANAGER").anyExchange()
+            .pathMatchers("/api/v1/users/**").hasAnyRole("USER", "ADMIN", "MANAGER").anyExchange()
             .authenticated())
         .oauth2ResourceServer(oAuth2 -> oAuth2
             .jwt(jwtSpec -> jwtSpec.jwtAuthenticationConverter(jwtAuthenticationConverter())))
