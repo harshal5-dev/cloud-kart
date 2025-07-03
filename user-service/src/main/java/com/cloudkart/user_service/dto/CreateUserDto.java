@@ -34,7 +34,8 @@ public class CreateUserDto {
 
   @Schema(description = "Phone number of the user", example = "+1234567890", required = true)
   @NotEmpty(message = "Phone number is required")
-  @Pattern(regexp = "^[+]?[0-9]{10,15}$", message = "Phone number should be valid")
+  @Pattern(regexp = "^\\+?[0-9\\-() ]{7,20}$",
+      message = "Phone number should be valid and may include '+', digits, spaces, dashes, and parentheses")
   private String phoneNumber;
 
   @Schema(description = "Roles assigned to the user", example = "USER, MANAGER, ADMIN")

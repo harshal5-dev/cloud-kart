@@ -64,9 +64,9 @@ public class AuthService implements IAuthService {
 
     User user = new User();
     UserMapper.toUser(user, registerUserDto, keycloakUserId);
-    user = userRepository.save(user);
+    User createdUser = userRepository.save(user);
 
-    return UserMapper.toUserDto(user);
+    return UserMapper.toUserDto(createdUser);
   }
 
   /**
@@ -93,9 +93,9 @@ public class AuthService implements IAuthService {
 
     User user = new User();
     UserMapper.toUser(user, createUserDto, keycloakUserId);
-    user = userRepository.save(user);
+    User createdUser = userRepository.save(user);
 
-    return UserMapper.toUserDto(user);
+    return UserMapper.toUserDto(createdUser);
   }
 
 }

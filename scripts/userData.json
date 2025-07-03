@@ -1,0 +1,137 @@
+[
+  {
+    "username": "jdoe",
+    "email": "jdoe@example.com",
+    "password": "Password123!",
+    "firstName": "John",
+    "lastName": "Doe",
+    "phoneNumber": "555-123-1001",
+    "roles": ["USER"]
+  },
+  {
+    "username": "asmith",
+    "email": "asmith@example.com",
+    "password": "Password123!",
+    "firstName": "Alice",
+    "lastName": "Smith",
+    "phoneNumber": "555-123-1002",
+    "roles": ["USER"]
+  },
+  {
+    "username": "bwayne",
+    "email": "bwayne@example.com",
+    "password": "Password123!",
+    "firstName": "Bruce",
+    "lastName": "Wayne",
+    "phoneNumber": "555-123-1003",
+    "roles": ["MANAGER"]
+  },
+  {
+    "username": "ckent",
+    "email": "ckent@example.com",
+    "password": "Password123!",
+    "firstName": "Clark",
+    "lastName": "Kent",
+    "phoneNumber": "555-123-1004",
+    "roles": ["USER"]
+  },
+  {
+    "username": "dprince",
+    "email": "dprince@example.com",
+    "password": "Password123!",
+    "firstName": "Diana",
+    "lastName": "Prince",
+    "phoneNumber": "555-123-1005",
+    "roles": ["USER"]
+  },
+  {
+    "username": "pparker",
+    "email": "pparker@example.com",
+    "password": "Password123!",
+    "firstName": "Peter",
+    "lastName": "Parker",
+    "phoneNumber": "555-123-1006",
+    "roles": ["USER"]
+  },
+  {
+    "username": "tstark",
+    "email": "tstark@example.com",
+    "password": "Password123!",
+    "firstName": "Tony",
+    "lastName": "Stark",
+    "phoneNumber": "555-123-1007",
+    "roles": ["MANAGER"]
+  },
+  {
+    "username": "ssmith",
+    "email": "ssmith@example.com",
+    "password": "Password123!",
+    "firstName": "Steve",
+    "lastName": "Smith",
+    "phoneNumber": "555-123-1008",
+    "roles": ["USER"]
+  },
+  {
+    "username": "bwilliams",
+    "email": "bwilliams@example.com",
+    "password": "Password123!",
+    "firstName": "Barbara",
+    "lastName": "Williams",
+    "phoneNumber": "555-123-1009",
+    "roles": ["USER"]
+  },
+  {
+    "username": "djohnson",
+    "email": "djohnson@example.com",
+    "password": "Password123!",
+    "firstName": "David",
+    "lastName": "Johnson",
+    "phoneNumber": "555-123-1010",
+    "roles": ["USER"]
+  },
+  {
+    "username": "rthomas",
+    "email": "rthomas@example.com",
+    "password": "Password123!",
+    "firstName": "Robert",
+    "lastName": "Thomas",
+    "phoneNumber": "555-123-1011",
+    "roles": ["USER", "MANAGER"]
+  },
+  {
+    "username": "kmiller",
+    "email": "kmiller@example.com",
+    "password": "Password123!",
+    "firstName": "Karen",
+    "lastName": "Miller",
+    "phoneNumber": "555-123-1012",
+    "roles": ["USER"]
+  },
+  {
+    "username": "lscott",
+    "email": "lscott@example.com",
+    "password": "Password123!",
+    "firstName": "Linda",
+    "lastName": "Scott",
+    "phoneNumber": "555-123-1013",
+    "roles": ["USER"]
+  },
+  {
+    "username": "jwilson",
+    "email": "jwilson@example.com",
+    "password": "Password123!",
+    "firstName": "James",
+    "lastName": "Wilson",
+    "phoneNumber": "555-123-1014",
+    "roles": ["USER"]
+  },
+  {
+    "username": "cmartin",
+    "email": "cmartin@example.com",
+    "password": "Password123!",
+    "firstName": "Carol",
+    "lastName": "Martin",
+    "phoneNumber": "555-123-1015",
+    "roles": ["USER"]
+  }
+]
