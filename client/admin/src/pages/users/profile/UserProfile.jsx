@@ -231,7 +231,6 @@ const UserProfile = () => {
                   prefix={<BiSolidRename />}
                   suffix={isEditProfileLoading && <LoadingOutlined />}
                   disabled={isEditProfileLoading}
-                  variant="filled"
                 />
               </Form.Item>
             </Col>
@@ -242,7 +241,6 @@ const UserProfile = () => {
                   suffix={isEditProfileLoading && <LoadingOutlined />}
                   disabled={isEditProfileLoading}
                   prefix={<BiSolidRename />}
-                  variant="filled"
                 />
               </Form.Item>
             </Col>
@@ -263,7 +261,6 @@ const UserProfile = () => {
                   prefix={<FaPhoneAlt />}
                   suffix={isEditProfileLoading && <LoadingOutlined />}
                   disabled={isEditProfileLoading}
-                  variant="filled"
                 />
               </Form.Item>
             </Col>

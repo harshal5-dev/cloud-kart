@@ -3,6 +3,7 @@ package com.cloudkart.user_service.mapper;
 import com.cloudkart.user_service.dto.AddressDto;
 import com.cloudkart.user_service.dto.AddressReqDto;
 import com.cloudkart.user_service.entity.Address;
+import com.cloudkart.user_service.entity.AddressType;
 import com.cloudkart.user_service.entity.User;
 
 public final class AddressMapper {
@@ -32,7 +33,7 @@ public final class AddressMapper {
     address.setPostalCode(addressReqDto.getPostalCode());
     address.setCountry(addressReqDto.getCountry());
     address.setPhoneNumber(addressReqDto.getPhoneNumber());
-    address.setAddressType(addressReqDto.getAddressType());
+    address.setAddressType(AddressType.valueOf(addressReqDto.getAddressType().toUpperCase()));
     address.setIsDefault(Boolean.TRUE.equals(addressReqDto.getIsDefault()));
     address.setUser(user);
 

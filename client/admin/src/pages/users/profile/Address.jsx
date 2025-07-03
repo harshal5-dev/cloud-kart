@@ -242,7 +242,7 @@ const Address = ({ userId }) => {
             city: "",
             state: "",
             postalCode: "",
-            phoneNumber: "",
+            phoneNumber: null,
             isDefault: "",
           }}
           requiredMark={customizeRequiredMark}

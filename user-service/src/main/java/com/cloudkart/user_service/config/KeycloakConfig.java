@@ -24,14 +24,14 @@ public class KeycloakConfig {
   private String clientSecret;
 
   @Bean
-  public Keycloak keycloakAdmin() {
+  Keycloak keycloakAdmin() {
     return KeycloakBuilder.builder().serverUrl(keycloakServerUrl).realm(realm)
         .grantType(OAuth2Constants.CLIENT_CREDENTIALS).clientId(clientId).clientSecret(clientSecret)
         .scope("openid profile email").build();
   }
 
   @Bean
-  public RealmResource realmResource(Keycloak keycloak) {
+  RealmResource realmResource(Keycloak keycloak) {
     return keycloak.realm(realm);
   }
 }

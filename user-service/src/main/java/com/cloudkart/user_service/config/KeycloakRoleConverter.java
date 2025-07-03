@@ -27,6 +27,7 @@ public class KeycloakRoleConverter implements Converter<Jwt, Collection<GrantedA
 
       Object rolesObject = realmAccess.get("roles");
       if (rolesObject instanceof Collection<?> roleCollection) {
+        log.debug("Converting JWT roles to authorities: {}", roleCollection);
         return roleCollection.stream().filter(String.class::isInstance).map(String.class::cast)
             .map(role -> "ROLE_" + role.toUpperCase()).map(SimpleGrantedAuthority::new)
             .collect(Collectors.toList());

@@ -1,7 +1,6 @@
 package com.cloudkart.user_service.dto;
 
 import java.util.UUID;
-import com.cloudkart.user_service.entity.AddressType;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
@@ -21,7 +20,9 @@ public class AddressReqDto {
   @Schema(description = "Type of address, e.g., HOME, OFFICE, BILLING, SHIPPING", example = "HOME",
       required = true, allowableValues = "HOME, OFFICE, BILLING, SHIPPING")
   @NotEmpty(message = "Address type is required")
-  private AddressType addressType;
+  @Pattern(regexp = "^(HOME|OFFICE|BILLING|SHIPPING)$",
+      message = "Address type should be one of HOME, OFFICE, BILLING, SHIPPING")
+  private String addressType;
 
   @Schema(description = "Street address of the user", example = "123 Main St, Apt 4B",
       required = true)

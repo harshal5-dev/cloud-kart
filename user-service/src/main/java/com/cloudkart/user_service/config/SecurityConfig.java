@@ -1,5 +1,6 @@
 package com.cloudkart.user_service.config;
 
+import java.util.logging.Logger;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -11,11 +12,13 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
+  Logger logger = Logger.getLogger(SecurityConfig.class.getName());
 
   @Bean
-  public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+  SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
     http.csrf(AbstractHttpConfigurer::disable)
         .authorizeHttpRequests(authz -> authz.requestMatchers("/api/v1/auth/**").permitAll()
+            .requestMatchers("/actuator/**").permitAll()
             .requestMatchers("/swagger-ui/**", "/v3/api-docs/**", "/swagger-resources/**",
                 "/webjars/**")
             .permitAll().requestMatchers("/api/v1/users/**").hasAnyRole("USER", "ADMIN", "MANAGER")
@@ -27,9 +30,10 @@ public class SecurityConfig {
   }
 
   @Bean
-  public JwtAuthenticationConverter jwtAuthenticationConverter() {
+  JwtAuthenticationConverter jwtAuthenticationConverter() {
     JwtAuthenticationConverter converter = new JwtAuthenticationConverter();
     converter.setJwtGrantedAuthoritiesConverter(new KeycloakRoleConverter());
+    logger.info("JWT Authentication Converter configured with KeycloakRoleConverter");
     return converter;
   }
 }

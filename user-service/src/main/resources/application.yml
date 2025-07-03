@@ -5,7 +5,7 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://localhost:7080/realms/ecommerce
+          jwk-set-uri: http://localhost:7080/realms/ecommerce/protocol/openid-connect/certs
   datasource:
     url: jdbc:postgresql://localhost:5545/cloudkart_users_db
     username: root
