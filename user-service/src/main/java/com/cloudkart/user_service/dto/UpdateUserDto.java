@@ -21,7 +21,7 @@ public class UpdateUserDto {
 
   @Schema(description = "Phone number of the user", example = "+1234567890", required = true)
   @NotEmpty(message = "Phone number is required")
-  @Pattern(regexp = "^\\+?[0-9\\-() ]{7,20}$",
+  @Pattern(regexp = "^[+]?[0-9\\-() ]{7,20}$",
       message = "Phone number should be valid and may include '+', digits, spaces, dashes, and parentheses")
   private String phoneNumber;
 }

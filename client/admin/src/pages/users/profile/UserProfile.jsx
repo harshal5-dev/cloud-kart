@@ -6,7 +6,6 @@ import {
   Button,
   Modal,
   Form,
-  Input,
   Row,
   Col,
   Space,
@@ -15,35 +14,19 @@ import {
   Spin,
   App,
 } from "antd";
-import {
-  UserOutlined,
-  MailOutlined,
-  PhoneOutlined,
-  LoadingOutlined,
-} from "@ant-design/icons";
-import { FaPhoneAlt, FaSave } from "react-icons/fa";
+import { UserOutlined, MailOutlined, PhoneOutlined } from "@ant-design/icons";
+import { FaSave } from "react-icons/fa";
 import { GrEdit } from "react-icons/gr";
-import { BiSolidRename } from "react-icons/bi";
 
 import {
   useGetUserProfileQuery,
   useUpdateUserProfileMutation,
 } from "../usersApi";
-import Address from "./Address";
+import Address from "./Address/Address";
 import { getRoleColor, isEmpty } from "../../../lib/utils";
+import UserProfileForm from "./UserProfileForm";
 
 const { Title, Text } = Typography;
-
-const customizeRequiredMark = (label, { required }) => (
-  <Text>
-    {required ? (
-      <Tag color="error">Required</Tag>
-    ) : (
-      <Tag color="warning">optional</Tag>
-    )}
-    {label}
-  </Text>
-);
 
 const UserProfile = () => {
   const userResponse = useGetUserProfileQuery();
@@ -73,6 +56,12 @@ const UserProfile = () => {
     form
       .validateFields()
       .then(async (values) => {
+        if (!form.isFieldsTouched()) {
+          message.warning("No changes made to the profile");
+          setIsEditProfileModal(false);
+          return;
+        }
+
         try {
           await updateUserProfile({
             id: userProfile.keycloakId,
@@ -208,64 +197,10 @@ const UserProfile = () => {
         width={500}
         maskClosable={false}
       >
-        <Form
+        <UserProfileForm
           form={form}
-          layout="vertical"
-          initialValues={{
-            firstName: "",
-            lastName: "",
-            phoneNumber: "",
-          }}
-          requiredMark={customizeRequiredMark}
-        >
-          <Row gutter={24}>
-            <Col span={24}>
-              <Form.Item
-                label="First Name"
-                name="firstName"
-                rules={[{ required: true, message: "Please enter first name" }]}
-                hasFeedback
-              >
-                <Input
-                  placeholder="Enter First Name"
-                  prefix={<BiSolidRename />}
-                  suffix={isEditProfileLoading && <LoadingOutlined />}
-                  disabled={isEditProfileLoading}
-                />
-              </Form.Item>
-            </Col>
-            <Col span={24}>
-              <Form.Item label="Last Name" name="lastName" hasFeedback>
-                <Input
-                  placeholder="Enter Last Name"
-                  suffix={isEditProfileLoading && <LoadingOutlined />}
-                  disabled={isEditProfileLoading}
-                  prefix={<BiSolidRename />}
-                />
-              </Form.Item>
-            </Col>
-            <Col span={24}>
-              <Form.Item
-                label="Phone Number"
-                name="phoneNumber"
-                rules={[
-                  {
-                    pattern: /^\+?[0-9\s-]+$/,
-                    message: "Please enter a valid phone number",
-                  },
-                ]}
-                hasFeedback
-              >
-                <Input
-                  placeholder="Enter Phone Number"
-                  prefix={<FaPhoneAlt />}
-                  suffix={isEditProfileLoading && <LoadingOutlined />}
-                  disabled={isEditProfileLoading}
-                />
-              </Form.Item>
-            </Col>
-          </Row>
-        </Form>
+          isEditProfileLoading={isEditProfileLoading}
+        />
       </Modal>
     </div>
   );

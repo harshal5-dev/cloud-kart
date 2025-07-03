@@ -47,7 +47,8 @@ public class AddressReqDto {
   private String country;
 
   @Schema(description = "Phone number of the user", example = "+1234567890", required = true)
-  @Pattern(regexp = "^[+]?[0-9]{10,15}$", message = "Phone number should be valid")
+  @Pattern(regexp = "^[+]?[0-9\\-() ]{7,20}$",
+      message = "Phone number should be valid and may include '+', digits, spaces, dashes, and parentheses")
   private String phoneNumber;
 
   @Schema(description = "Indicates if this address is the default address for the user",

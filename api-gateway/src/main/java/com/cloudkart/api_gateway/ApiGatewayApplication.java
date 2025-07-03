@@ -14,7 +14,7 @@ public class ApiGatewayApplication {
 	}
 
 	@Bean
-	public RouteLocator gatewayRoutes(RouteLocatorBuilder builder) {
+	RouteLocator gatewayRoutes(RouteLocatorBuilder builder) {
 		return builder.routes()
 
 				// Business API Routes

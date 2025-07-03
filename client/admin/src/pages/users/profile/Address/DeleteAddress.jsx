@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { App, Button, Popconfirm } from "antd";
 import { FaTrashAlt } from "react-icons/fa";
 
-import { useDeleteUserAddressMutation } from "../addressApi";
+import { useDeleteUserAddressMutation } from "../../addressApi";
 
 const DeleteAddress = ({ userId, id }) => {
   const [open, setOpen] = useState(false);
