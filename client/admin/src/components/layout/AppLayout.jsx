@@ -1,13 +1,9 @@
 import { useEffect, useState } from "react";
-import {
-  LogoutOutlined,
-  SettingOutlined,
-  TeamOutlined,
-} from "@ant-design/icons";
+import { LogoutOutlined } from "@ant-design/icons";
 import { Dropdown, Typography } from "antd";
 import { MdCategory, MdDashboard, MdViewModule } from "react-icons/md";
 import { Link, useLocation, useNavigate } from "react-router";
-import { FaImage, FaUserCircle, FaUsers } from "react-icons/fa";
+import { FaUserCircle, FaUsers } from "react-icons/fa";
 import ProLayout, { PageContainer } from "@ant-design/pro-layout";
 import { AiFillProduct } from "react-icons/ai";
 
@@ -20,7 +16,7 @@ import AuthWrapper from "../AuthWrapper";
 const { Text } = Typography;
 
 const getAvatar = () => {
-  return "/assets/images/avatarMale.svg";
+  return "/assets/images/developer.svg";
 };
 
 const route = {
@@ -36,6 +32,7 @@ const route = {
       path: "/dashboard",
       name: "Dashboard",
       icon: <MdDashboard />,
+      access: "canAdmin",
     },
     {
       path: "/users",
@@ -47,11 +44,13 @@ const route = {
       path: "/categories",
       name: "Categories",
       icon: <MdCategory />,
+      access: "canManage",
     },
     {
       name: "Products",
       path: "/products",
       icon: <AiFillProduct />,
+      access: "canManage",
     },
   ],
 };
@@ -62,6 +61,39 @@ const AppLayout = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
+
+  const userRoles = userInfo?.realm_access?.roles || [];
+
+  const hasAccess = (access) => {
+    if (!access) return true;
+
+    const roleMap = {
+      canAdmin: ["ADMIN"],
+      canManage: ["ADMIN", "MANAGER"],
+    };
+
+    const requiredRoles = roleMap[access] || [];
+    return requiredRoles.some((role) => userRoles.includes(role));
+  };
+
+  const filterRoutesByRole = (routes) => {
+    return routes.filter((route) => {
+      if (route.access && !hasAccess(route.access)) {
+        return false;
+      }
+      if (route.routes) {
+        route.routes = filterRoutesByRole(route.routes);
+      }
+
+      return true;
+    });
+  };
+
+  // Create filtered route object
+  const filteredRoute = {
+    ...route,
+    routes: filterRoutesByRole(route.routes),
+  };
 
   async function handleLogout() {
     logout();
@@ -107,7 +139,7 @@ const AppLayout = () => {
         title="Cloud Kart Admin"
         logo="/logo.svg"
         fixSiderbar
-        route={route}
+        route={filteredRoute}
         siderWidth={230}
         layout="mix"
         ghost
@@ -127,6 +159,7 @@ const AppLayout = () => {
         avatarProps={{
           src: getAvatar(),
           size: "small",
+          shape: "square",
           title: userInfo?.given_name || "Guest",
           render: (_, dom) => {
             return (
@@ -156,17 +189,18 @@ const AppLayout = () => {
             </div>
           );
         }}
-        menuItemRender={(item, dom) => (
-          <div
-            onClick={() => {
-              if (item?.path !== "#") {
+        menuItemRender={(item, dom) => {
+          return (
+            <div
+              onClick={() => {
                 navigate(item.path || "/dashboard");
-              }
-            }}
-          >
-            {dom}
-          </div>
-        )}
+              }}
+              className={`${item?.disabled ? "pointer-events-none" : ""}`}
+            >
+              {dom}
+            </div>
+          );
+        }}
       >
         <AppRoutes />
       </ProLayout>

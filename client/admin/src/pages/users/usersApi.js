@@ -1,6 +1,10 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
 
-import { baseQuery, transformResponse } from "../../lib/utils";
+import {
+  baseQuery,
+  transformErrorResponse,
+  transformResponse,
+} from "../../lib/utils";
 
 const userBaseUrl = "/users";
 
@@ -8,11 +12,17 @@ export const userApi = createApi({
   reducerPath: "userApi",
   baseQuery: baseQuery,
   tagTypes: ["Users"],
+  refetchOnMountOrArgChange: false,
+  refetchOnFocus: false,
+  refetchOnReconnect: true,
+
   endpoints: (builder) => ({
     getUserProfile: builder.query({
       query: () => `${userBaseUrl}/me`,
       providesTags: ["Users"],
       transformResponse: transformResponse,
+      transformErrorResponse: transformErrorResponse,
+      keepUnusedDataFor: 555,
     }),
     updateUserProfile: builder.mutation({
       query: ({ id, user }) => ({
@@ -21,6 +31,8 @@ export const userApi = createApi({
         body: user,
       }),
       invalidatesTags: ["Users"],
+      transformResponse: transformResponse,
+      transformErrorResponse: transformErrorResponse,
     }),
   }),
 });

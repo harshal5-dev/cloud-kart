@@ -5,7 +5,7 @@ import { FaTrashAlt } from "react-icons/fa";
 
 import { useDeleteUserMutation } from "../adminApi";
 
-const DeleteUser = ({ id, onDelete }) => {
+const DeleteUser = ({ id }) => {
   const [open, setOpen] = useState(false);
 
   const { message } = App.useApp();
@@ -16,7 +16,6 @@ const DeleteUser = ({ id, onDelete }) => {
     try {
       await deleteProduct(id).unwrap();
       message.success("User deleted successfully!");
-      onDelete();
     } catch (error) {
       const { errorMessage } = error;
       message.error(errorMessage);
@@ -55,7 +54,6 @@ const DeleteUser = ({ id, onDelete }) => {
 
 DeleteUser.propTypes = {
   sku: PropTypes.string.isRequired,
-  onDelete: PropTypes.func.isRequired,
 };
 
 export default DeleteUser;

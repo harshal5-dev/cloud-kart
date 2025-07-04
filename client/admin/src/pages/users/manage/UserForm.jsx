@@ -145,7 +145,11 @@ const UserForm = ({ form, defaultValues, isLoading, isUpdate }) => {
             name="phoneNumber"
             rules={[
               {
-                pattern: /^\+?[0-9\s-]+$/,
+                required: true,
+                message: "Please enter your phone number",
+              },
+              {
+                pattern: /^[+]?[0-9\-() ]{7,20}$/,
                 message: "Please enter a valid phone number",
               },
             ]}
@@ -156,7 +160,7 @@ const UserForm = ({ form, defaultValues, isLoading, isUpdate }) => {
               prefix={<FaPhoneAlt />}
               suffix={isLoading && <LoadingOutlined />}
               disabled={isLoading}
-              count={{ max: 10, show: true }}
+              count={{ max: 20, show: true }}
             />
           </Form.Item>
         </Col>

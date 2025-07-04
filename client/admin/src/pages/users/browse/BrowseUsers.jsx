@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import PropTypes from "prop-types";
 import {
   Card,
   Table,
-  Button,
   Space,
   Tag,
   Avatar,
@@ -10,10 +10,10 @@ import {
   Typography,
   Result,
   Empty,
+  Flex,
 } from "antd";
-import { UserOutlined, SearchOutlined } from "@ant-design/icons";
+import { UserOutlined } from "@ant-design/icons";
 
-import { useGetUsersMutation } from "../adminApi";
 import { getRoleColor } from "../../../lib/utils";
 import ManageUser from "../manage/ManageUser";
 import DeleteUser from "./DeleteUser";
@@ -21,21 +21,30 @@ import DeleteUser from "./DeleteUser";
 const { Text } = Typography;
 const { Search } = Input;
 
-const pageSize = 5;
-
-const BrowseUsers = () => {
+const BrowseUsers = ({
+  usersResponse,
+  setSearchTerm,
+  setCurrentPage,
+  pageSize,
+}) => {
   const [searchText, setSearchText] = useState("");
-  const [currentPage, setCurrentPage] = useState(1);
-  const usersResponse = useGetUsersMutation();
-  const [getUsers, { isLoading, data, isError }] = usersResponse;
+
+  const { isLoading, data, isError } = usersResponse;
   const { totalElements, content } = data || {};
 
-  const handleOnDelete = () => {
-    getUsers({ page: currentPage, pageSize, searchTerm: searchText });
+  const handleSearch = (value) => {
+    const trimmedValue = value.trim();
+
+    if (trimmedValue !== "") {
+      setSearchTerm(trimmedValue);
+      setCurrentPage(1);
+    }
   };
 
-  const handleOnUpdate = () => {
-    getUsers({ page: currentPage, pageSize, searchTerm: searchText });
+  const handleOnClear = () => {
+    setSearchText("");
+    setSearchTerm("");
+    setCurrentPage(1);
   };
 
   const columns = [
@@ -43,7 +52,11 @@ const BrowseUsers = () => {
       title: "User",
       render: (_, record) => (
         <Space>
-          <Avatar icon={<UserOutlined />} />
+          <Avatar
+            src="assets/images/avatarMan.svg"
+            shape="square"
+            icon={<UserOutlined />}
+          />
           <div className="flex flex-col">
             <Text strong className="capitalize">
               {record.firstName} {record.lastName}
@@ -62,10 +75,12 @@ const BrowseUsers = () => {
             {role}
           </Tag>
         )),
+      responsive: ["md"],
     },
     {
       title: "Username",
       dataIndex: "username",
+      responsive: ["md"],
     },
     {
       title: "Phone Number",
@@ -75,37 +90,37 @@ const BrowseUsers = () => {
           {phoneNumber || "Not provided"}
         </Text>
       ),
+      responsive: ["md"],
     },
     {
       title: "Actions",
       key: "actions",
       render: (_, record) => (
         <Space size={1}>
-          <ManageUser
-            operation="UPDATE"
-            user={record}
-            onSuccess={handleOnUpdate}
-          />
-          <DeleteUser id={record.keycloakId} onDelete={handleOnDelete} />
+          <ManageUser operation="UPDATE" user={record} />
+          <DeleteUser id={record.keycloakId} />
         </Space>
       ),
     },
   ];
 
-  useEffect(() => {
-    getUsers({ page: currentPage, pageSize, searchTerm: searchText });
-  }, [searchText, currentPage, getUsers]);
-
   return (
     <Card>
       <Space direction="vertical" size="middle" className="w-full">
-        <Search
-          placeholder="Search users..."
-          prefix={<SearchOutlined />}
-          value={searchText}
-          onChange={(e) => setSearchText(e.target.value)}
-          style={{ maxWidth: 300 }}
-        />
+        <Flex align="center" wrap="wrap" gap={16} justify="right">
+          <Search
+            placeholder="Search users..."
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+            style={{ maxWidth: 300 }}
+            enterButton
+            allowClear
+            loading={isLoading}
+            onSearch={(value) => handleSearch(value)}
+            onClear={handleOnClear}
+          />
+        </Flex>
+
         <Table
           columns={columns}
           dataSource={content}
@@ -137,6 +152,14 @@ const BrowseUsers = () => {
       </Space>
     </Card>
   );
+};
+
+BrowseUsers.propTypes = {
+  usersResponse: PropTypes.object,
+  searchText: PropTypes.string,
+  setSearchText: PropTypes.func,
+  setCurrentPage: PropTypes.func,
+  pageSize: PropTypes.number,
 };
 
 export default BrowseUsers;

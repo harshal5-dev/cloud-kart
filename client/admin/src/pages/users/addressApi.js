@@ -1,6 +1,10 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
 
-import { baseQuery, transformResponse } from "../../lib/utils";
+import {
+  baseQuery,
+  transformErrorResponse,
+  transformResponse,
+} from "../../lib/utils";
 
 const addressBaseUrl = "/users";
 
@@ -8,11 +12,17 @@ export const addressApi = createApi({
   reducerPath: "addressApi",
   baseQuery: baseQuery,
   tagTypes: ["Address"],
+
+  refetchOnMountOrArgChange: false,
+  refetchOnFocus: false,
+  refetchOnReconnect: true,
   endpoints: (builder) => ({
     getUserAddresses: builder.query({
       query: (userId) => `${addressBaseUrl}/${userId}/addresses`,
       providesTags: ["Address"],
       transformResponse: transformResponse,
+      transformErrorResponse: transformErrorResponse,
+      keepUnusedDataFor: 555,
     }),
     createUserAddress: builder.mutation({
       query: ({ userId, address }) => ({
@@ -21,6 +31,7 @@ export const addressApi = createApi({
         body: address,
       }),
       invalidatesTags: ["Address"],
+      transformErrorResponse: transformErrorResponse,
     }),
     updateUserAddress: builder.mutation({
       query: ({ userId, id, address }) => ({
@@ -28,6 +39,7 @@ export const addressApi = createApi({
         method: "PUT",
         body: address,
       }),
+      transformErrorResponse: transformErrorResponse,
       invalidatesTags: ["Address"],
     }),
     deleteUserAddress: builder.mutation({
@@ -35,6 +47,7 @@ export const addressApi = createApi({
         url: `${addressBaseUrl}/${userId}/addresses/${id}`,
         method: "DELETE",
       }),
+      transformErrorResponse: transformErrorResponse,
       invalidatesTags: ["Address"],
     }),
   }),

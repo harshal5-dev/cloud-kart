@@ -16,6 +16,8 @@ public final class UserSpecifications {
     }
     return (root, query, cb) -> cb.or(
         cb.like(cb.lower(root.get("username")), "%" + text.toLowerCase() + "%"),
-        cb.like(cb.lower(root.get("email")), "%" + text.toLowerCase() + "%"));
+        cb.like(cb.lower(root.get("email")), "%" + text.toLowerCase() + "%"),
+        cb.like(cb.lower(root.get("firstName")), "%" + text.toLowerCase() + "%"),
+        cb.like(cb.lower(root.get("lastName")), "%" + text.toLowerCase() + "%"));
   }
 }

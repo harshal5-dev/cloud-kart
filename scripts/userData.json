@@ -1,7 +1,7 @@
 [
   {
     "username": "jdoe",
-    "email": "jdoe@example.com",
+    "email": "jdoe@mailinator.com",
     "password": "Password123!",
     "firstName": "John",
     "lastName": "Doe",
@@ -10,7 +10,7 @@
   },
   {
     "username": "asmith",
-    "email": "asmith@example.com",
+    "email": "asmith@mailinator.com",
     "password": "Password123!",
     "firstName": "Alice",
     "lastName": "Smith",
@@ -19,7 +19,7 @@
   },
   {
     "username": "bwayne",
-    "email": "bwayne@example.com",
+    "email": "bwayne@mailinator.com",
     "password": "Password123!",
     "firstName": "Bruce",
     "lastName": "Wayne",
@@ -28,7 +28,7 @@
   },
   {
     "username": "ckent",
-    "email": "ckent@example.com",
+    "email": "ckent@mailinator.com",
     "password": "Password123!",
     "firstName": "Clark",
     "lastName": "Kent",
@@ -37,7 +37,7 @@
   },
   {
     "username": "dprince",
-    "email": "dprince@example.com",
+    "email": "dprince@mailinator.com",
     "password": "Password123!",
     "firstName": "Diana",
     "lastName": "Prince",
@@ -46,7 +46,7 @@
   },
   {
     "username": "pparker",
-    "email": "pparker@example.com",
+    "email": "pparker@mailinator.com",
     "password": "Password123!",
     "firstName": "Peter",
     "lastName": "Parker",
@@ -55,7 +55,7 @@
   },
   {
     "username": "tstark",
-    "email": "tstark@example.com",
+    "email": "tstark@mailinator.com",
     "password": "Password123!",
     "firstName": "Tony",
     "lastName": "Stark",
@@ -64,7 +64,7 @@
   },
   {
     "username": "ssmith",
-    "email": "ssmith@example.com",
+    "email": "ssmith@mailinator.com",
     "password": "Password123!",
     "firstName": "Steve",
     "lastName": "Smith",
@@ -73,7 +73,7 @@
   },
   {
     "username": "bwilliams",
-    "email": "bwilliams@example.com",
+    "email": "bwilliams@mailinator.com",
     "password": "Password123!",
     "firstName": "Barbara",
     "lastName": "Williams",
@@ -82,7 +82,7 @@
   },
   {
     "username": "djohnson",
-    "email": "djohnson@example.com",
+    "email": "djohnson@mailinator.com",
     "password": "Password123!",
     "firstName": "David",
     "lastName": "Johnson",
@@ -91,7 +91,7 @@
   },
   {
     "username": "rthomas",
-    "email": "rthomas@example.com",
+    "email": "rthomas@mailinator.com",
     "password": "Password123!",
     "firstName": "Robert",
     "lastName": "Thomas",
@@ -100,7 +100,7 @@
   },
   {
     "username": "kmiller",
-    "email": "kmiller@example.com",
+    "email": "kmiller@mailinator.com",
     "password": "Password123!",
     "firstName": "Karen",
     "lastName": "Miller",
@@ -109,7 +109,7 @@
   },
   {
     "username": "lscott",
-    "email": "lscott@example.com",
+    "email": "lscott@mailinator.com",
     "password": "Password123!",
     "firstName": "Linda",
     "lastName": "Scott",
@@ -118,7 +118,7 @@
   },
   {
     "username": "jwilson",
-    "email": "jwilson@example.com",
+    "email": "jwilson@mailinator.com",
     "password": "Password123!",
     "firstName": "James",
     "lastName": "Wilson",
@@ -127,7 +127,7 @@
   },
   {
     "username": "cmartin",
-    "email": "cmartin@example.com",
+    "email": "cmartin@mailinator.com",
     "password": "Password123!",
     "firstName": "Carol",
     "lastName": "Martin",

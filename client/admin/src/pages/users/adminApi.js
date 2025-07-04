@@ -1,10 +1,6 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
 
-import {
-  baseQuery,
-  transformErrorResponse,
-  transformResponse,
-} from "../../lib/utils";
+import { baseQuery, transformErrorResponse } from "../../lib/utils";
 
 const adminBaseUrl = "/admin";
 
@@ -12,13 +8,18 @@ export const adminApi = createApi({
   reducerPath: "adminApi",
   baseQuery: baseQuery,
   tagTypes: ["Users"],
+
+  refetchOnMountOrArgChange: false,
+  refetchOnFocus: false,
+  refetchOnReconnect: true,
   endpoints: (builder) => ({
-    getUsers: builder.mutation({
+    getUsers: builder.query({
       query: ({ page, pageSize, searchTerm = "" }) =>
         `${adminBaseUrl}/users/search?searchTerm=${searchTerm}&page=${
           page - 1
         }&size=${pageSize}&sortBy=id&sortDir=desc`,
       providesTags: ["Users"],
+      keepUnusedDataFor: 555,
     }),
     createUser: builder.mutation({
       query: (user) => ({
@@ -27,7 +28,6 @@ export const adminApi = createApi({
         body: user,
       }),
       invalidatesTags: ["Users"],
-      transformResponse: transformResponse,
       transformErrorResponse: transformErrorResponse,
     }),
     updateUser: builder.mutation({
@@ -37,7 +37,6 @@ export const adminApi = createApi({
         body: user,
       }),
       invalidatesTags: ["Users"],
-      transformResponse: transformResponse,
       transformErrorResponse: transformErrorResponse,
     }),
     deleteUser: builder.mutation({
@@ -45,14 +44,13 @@ export const adminApi = createApi({
         url: `${adminBaseUrl}/users/${id}/delete`,
         method: "DELETE",
       }),
-      transformResponse: transformResponse,
       transformErrorResponse: transformErrorResponse,
     }),
   }),
 });
 
 export const {
-  useGetUsersMutation,
+  useGetUsersQuery,
   useCreateUserMutation,
   useUpdateUserMutation,
   useDeleteUserMutation,

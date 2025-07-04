@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 import { App, Button, Form, Modal } from "antd";
 import { BsPersonAdd } from "react-icons/bs";
 import { FaPencilAlt, FaSave } from "react-icons/fa";
@@ -6,7 +7,7 @@ import { FaPencilAlt, FaSave } from "react-icons/fa";
 import { useCreateUserMutation, useUpdateUserMutation } from "../adminApi";
 import UserForm from "./UserForm";
 
-const ManageUser = ({ operation, user, onSuccess }) => {
+const ManageUser = ({ operation, user }) => {
   const isUpdate = operation === "UPDATE";
   const [form] = Form.useForm();
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -38,6 +39,12 @@ const ManageUser = ({ operation, user, onSuccess }) => {
       .validateFields()
       .then(async (values) => {
         if (user) {
+          if (!form.isFieldsTouched()) {
+            message.warning("No changes made to the user");
+            setIsModalVisible(false);
+            return;
+          }
+
           const payload = {
             user: values,
             id: user.keycloakId,
@@ -47,7 +54,6 @@ const ManageUser = ({ operation, user, onSuccess }) => {
             await updateUser(payload).unwrap();
             setIsModalVisible(false);
             message.success("User updated successfully");
-            onSuccess();
           } catch (error) {
             const { errorMessage } = error;
             message.error(errorMessage);
@@ -118,6 +124,11 @@ const ManageUser = ({ operation, user, onSuccess }) => {
       </Modal>
     </>
   );
+};
+
+ManageUser.propTypes = {
+  operation: PropTypes.oneOf(["CREATE", "UPDATE"]),
+  user: PropTypes.object,
 };
 
 export default ManageUser;
