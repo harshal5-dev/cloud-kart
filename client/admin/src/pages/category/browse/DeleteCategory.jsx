@@ -8,23 +8,17 @@ import { useDeleteCategoryMutation } from "../categoryApi";
 const DeleteCategory = ({ slug }) => {
   const [open, setOpen] = useState(false);
 
-  const { notification } = App.useApp();
+  const { message } = App.useApp();
 
   const [deleteCategory, { isLoading }] = useDeleteCategoryMutation();
 
   async function handleOnDelete() {
     try {
       const res = await deleteCategory(slug).unwrap();
-      notification.success({
-        message: "Success",
-        description: res?.statusMessage,
-      });
+      message.success(res?.statusMessage);
     } catch (errorRes) {
       const error = errorRes.data;
-      notification.error({
-        message: "Error",
-        description: error.errorMessage,
-      });
+      message.error(error.errorMessage);
     } finally {
       setOpen(false);
     }
@@ -59,7 +53,7 @@ const DeleteCategory = ({ slug }) => {
 };
 
 DeleteCategory.propTypes = {
-  categoryId: PropTypes.string.isRequired,
+  slug: PropTypes.string,
 };
 
 export default DeleteCategory;

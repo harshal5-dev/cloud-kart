@@ -1,37 +1,20 @@
-import { useEffect } from "react";
+import { useState } from "react";
 import PropTypes from "prop-types";
-import { App, Col, Flex, Row, Space, Switch, Typography } from "antd";
-import { useDispatch, useSelector } from "react-redux";
+import { App, Button, Form, Modal } from "antd";
+import { FiPlusCircle } from "react-icons/fi";
+import { FaPencilAlt, FaSave } from "react-icons/fa";
 
-import CategoryForm from "./CategoryForm";
 import {
   useCreateCategoryMutation,
   useUpdateCategoryMutation,
 } from "../categoryApi";
-import {
-  clearCategoryOperation,
-  clearSelectedCategory,
-} from "../categorySlice";
-import { pick } from "../../../lib/utils";
-import { FcAddDatabase, FcDataConfiguration } from "react-icons/fc";
+import CategoryForm from "./CategoryForm";
 
-const { Text } = Typography;
-
-const ManageCategory = ({ onSuccess }) => {
-  const { notification } = App.useApp();
-
-  const selectedCategory = useSelector(
-    (state) => state.category.selectedCategory,
-  );
-
-  const [createCategory, { isLoading: isCreating }] =
-    useCreateCategoryMutation();
-  const [updateCategory, { isLoading: isUpdating }] =
-    useUpdateCategoryMutation();
-
-  let title = "Create Category";
-  let description = "create a new category to the database.";
-  let HeaderIcon = FcAddDatabase;
+const ManageCategory = ({ operation, category }) => {
+  const isUpdate = operation === "UPDATE";
+  const [form] = Form.useForm();
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const { message } = App.useApp();
   let defaultValues = {
     name: "",
     description: null,
@@ -39,95 +22,114 @@ const ManageCategory = ({ onSuccess }) => {
     imageUrl: null,
   };
 
-  const operation = useSelector((state) => state.category.categoryOperation);
-  const dispatch = useDispatch();
+  const [createCategory, { isLoading: isCreating }] =
+    useCreateCategoryMutation();
+  const [updateCategory, { isLoading: isUpdating }] =
+    useUpdateCategoryMutation();
 
-  async function handleOnSubmit(values) {
-    if (operation === "CREATE") {
-      try {
-        const payload = {
-          ...values,
-        };
-        const res = await createCategory(payload).unwrap();
-        notification.success({
-          message: "Success",
-          description: res.statusMessage,
-        });
-        onSuccess();
-      } catch (errorRes) {
-        const error = errorRes.data;
-        notification.error({
-          message: "Error",
-          description: error.errorMessage,
-        });
-      }
-    } else {
-      try {
-        const payload = {
-          curSlug: selectedCategory.slug,
-          ...values,
-        };
-        const res = await updateCategory(payload).unwrap();
-        notification.success({
-          message: "Success",
-          description: res.statusMessage,
-        });
-        onSuccess();
-      } catch (errorRes) {
-        const error = errorRes.data;
-        notification.error({
-          message: "Error",
-          description: error.errorMessage,
-        });
-      }
-    }
-  }
+  const handleAddCategory = () => {
+    form.resetFields();
+    setIsModalVisible(true);
+  };
 
-  if (operation === "UPDATE") {
-    title = "Update Category";
-    description = "update the selected category in the database.";
-    HeaderIcon = FcDataConfiguration;
-    defaultValues = pick(selectedCategory, [
-      "name",
-      "description",
-      "slug",
-      "imageUrl",
-    ]);
-  }
+  const handleEditCategory = (category) => {
+    form.setFieldsValue(category);
+    setIsModalVisible(true);
+  };
 
-  useEffect(() => {
-    return () => {
-      dispatch(clearSelectedCategory());
-      dispatch(clearCategoryOperation());
-    };
-  }, [dispatch]);
+  const handleModalOk = () => {
+    form
+      .validateFields()
+      .then(async (values) => {
+        if (category) {
+          if (!form.isFieldsTouched()) {
+            message.warning("No changes made to the user");
+            setIsModalVisible(false);
+            return;
+          }
+
+          try {
+            const payload = {
+              curSlug: category.slug,
+              ...values,
+            };
+            const res = await updateCategory(payload).unwrap();
+            message.success(res.statusMessage);
+            setIsModalVisible(false);
+          } catch (errorRes) {
+            const error = errorRes.data;
+            message.error(error.errorMessage);
+          }
+        } else {
+          try {
+            const payload = {
+              ...values,
+            };
+            const res = await createCategory(payload).unwrap();
+            message.success(res.statusMessage);
+            setIsModalVisible(false);
+          } catch (errorRes) {
+            const error = errorRes.data;
+            message.error(error.errorMessage);
+          }
+        }
+      })
+      .catch(() => {
+        message.error("Please fill in all required fields");
+      });
+  };
+
+  const handleModalCancel = () => {
+    setIsModalVisible(false);
+  };
 
   return (
-    <Row gutter={[0, 20]}>
-      <Col span={24}>
-        <Flex gap={10}>
-          <HeaderIcon className="size-10" />
-          <Space direction="vertical" size={0}>
-            <Text strong>{title}</Text>
-            <Text type="secondary" italic ellipsis>
-              {description}
-            </Text>
-          </Space>
-        </Flex>
-      </Col>
-      <Col span={24}>
-        <CategoryForm
-          defaultValues={defaultValues}
-          onSubmit={handleOnSubmit}
-          isCategorySaveLoading={isCreating || isUpdating}
+    <>
+      {isUpdate ? (
+        <Button
+          variant="text"
+          shape="circle"
+          color="gold"
+          icon={<FaPencilAlt />}
+          onClick={() => handleEditCategory(category)}
         />
-      </Col>
-    </Row>
+      ) : (
+        <Button
+          type="primary"
+          className="ml-auto"
+          icon={<FiPlusCircle />}
+          onClick={handleAddCategory}
+        >
+          Category
+        </Button>
+      )}
+      {/* Modal for adding/editing category */}
+      <Modal
+        title={isUpdate ? "Edit Category" : "Add New Category"}
+        open={isModalVisible}
+        onOk={handleModalOk}
+        onCancel={handleModalCancel}
+        width={600}
+        okText="Save"
+        okButtonProps={{
+          icon: <FaSave />,
+        }}
+        maskClosable={false}
+        confirmLoading={isCreating || isUpdating}
+      >
+        <CategoryForm
+          form={form}
+          defaultValues={defaultValues}
+          isLoading={isCreating || isUpdating}
+        />
+      </Modal>
+    </>
   );
 };
 
 ManageCategory.propTypes = {
-  onSuccess: PropTypes.func,
+  operation: PropTypes.oneOf(["CREATE", "UPDATE"]),
+  category: PropTypes.object,
 };
 
 export default ManageCategory;

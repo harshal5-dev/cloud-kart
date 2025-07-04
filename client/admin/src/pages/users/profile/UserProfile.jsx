@@ -87,7 +87,20 @@ const UserProfile = () => {
   } else if (isEmpty(userProfile)) {
     return (
       <div className="flex items-center justify-center h-screen">
-        <Text type="danger">User profile not found</Text>
+        <Card>
+          <Space direction="vertical" align="center">
+            <Title level={4} type="danger">
+              User profile not found
+            </Title>
+            <Typography.Text type="secondary">
+              Please try refreshing the page or contact support if the problem
+              persists.
+            </Typography.Text>
+            <Button type="primary" onClick={() => window.location.reload()}>
+              Reload
+            </Button>
+          </Space>
+        </Card>
       </div>
     );
   }

@@ -8,16 +8,22 @@ export const categoryApi = createApi({
   reducerPath: "categoryApi",
   baseQuery: baseQuery,
   tagTypes: ["Category"],
+
+  refetchOnMountOrArgChange: false,
+  refetchOnFocus: false,
+  refetchOnReconnect: true,
   endpoints: (builder) => ({
     getCategories: builder.query({
       query: () => categoryBaseUrl,
       providesTags: ["Category"],
       transformResponse: transformResponse,
+      keepUnusedDataFor: 555,
     }),
     getCategoryCount: builder.query({
       query: () => `${categoryBaseUrl}/count`,
       providesTags: ["Category"],
       transformResponse: transformResponse,
+      keepUnusedDataFor: 555,
     }),
     createCategory: builder.mutation({
       query: (category) => ({

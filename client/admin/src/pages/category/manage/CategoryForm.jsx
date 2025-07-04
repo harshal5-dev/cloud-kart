@@ -1,7 +1,6 @@
-import { LoadingOutlined, ProductFilled, SaveFilled } from "@ant-design/icons";
+import { LoadingOutlined, ProductFilled } from "@ant-design/icons";
 import PropTypes from "prop-types";
-import { Button, Col, Flex, Form, Input, Row, Tag, Typography } from "antd";
-import { BiReset } from "react-icons/bi";
+import { Col, Form, Input, Row, Tag, Typography } from "antd";
 import { MdCategory } from "react-icons/md";
 import { FaCode } from "react-icons/fa";
 
@@ -18,19 +17,16 @@ const customizeRequiredMark = (label, { required }) => (
   </Text>
 );
 
-const CategoryForm = ({ defaultValues, isCategorySaveLoading, onSubmit }) => {
-  const [form] = Form.useForm();
-
+const CategoryForm = ({ form, defaultValues, isLoading }) => {
   return (
     <Form
       form={form}
       layout="vertical"
       requiredMark={customizeRequiredMark}
-      onFinish={onSubmit}
       initialValues={defaultValues}
     >
       <Row gutter={16}>
-        <Col span={24} xs={24} sm={24} md={12} lg={12} xl={12}>
+        <Col span={24}>
           <Form.Item
             name="name"
             label="Name"
@@ -45,15 +41,14 @@ const CategoryForm = ({ defaultValues, isCategorySaveLoading, onSubmit }) => {
             <Input
               prefix={<MdCategory />}
               placeholder="category name"
-              suffix={isCategorySaveLoading && <LoadingOutlined />}
+              suffix={isLoading && <LoadingOutlined />}
               count={{ max: 300, show: true }}
-              disabled={isCategorySaveLoading}
-              variant="filled"
+              disabled={isLoading}
             />
           </Form.Item>
         </Col>
 
-        <Col span={24} xs={24} sm={24} md={12} lg={12} xl={12}>
+        <Col span={24}>
           <Form.Item
             name="slug"
             label="Slug"
@@ -72,70 +67,43 @@ const CategoryForm = ({ defaultValues, isCategorySaveLoading, onSubmit }) => {
             <Input
               prefix={<FaCode />}
               placeholder="category slug"
-              suffix={isCategorySaveLoading && <LoadingOutlined />}
-              disabled={isCategorySaveLoading}
-              variant="filled"
+              suffix={isLoading && <LoadingOutlined />}
+              disabled={isLoading}
             />
           </Form.Item>
         </Col>
       </Row>
 
       <Row gutter={16}>
-        <Col span={24} xs={24} sm={24} md={12} lg={12} xl={12}>
+        <Col span={24}>
           <Form.Item name="imageUrl" label="Image URL" hasFeedback>
             <Input
               prefix={<ProductFilled />}
               placeholder="product image url"
-              variant="filled"
-              suffix={isCategorySaveLoading && <LoadingOutlined />}
-              disabled={isCategorySaveLoading}
+              suffix={isLoading && <LoadingOutlined />}
+              disabled={isLoading}
             />
           </Form.Item>
         </Col>
-        <Col span={24} xs={24} sm={24} md={12} lg={12} xl={12}>
+        <Col span={24}>
           <Form.Item label="Description" name="description">
             <Input.TextArea
               count={{ max: 500, show: true }}
-              disabled={isCategorySaveLoading}
+              disabled={isLoading}
               rows={3}
-              variant="filled"
               placeholder="category description"
             />
           </Form.Item>
         </Col>
       </Row>
-
-      <Form.Item>
-        <Flex justify="end" gap={10}>
-          <Button
-            color="primary"
-            htmlType="button"
-            variant="outlined"
-            icon={<BiReset />}
-            onClick={() => form.resetFields()}
-            disabled={isCategorySaveLoading}
-          >
-            Reset
-          </Button>
-          <Button
-            type="primary"
-            htmlType="submit"
-            loading={isCategorySaveLoading}
-            icon={<SaveFilled />}
-          >
-            Submit
-          </Button>
-        </Flex>
-      </Form.Item>
     </Form>
   );
 };
 
 CategoryForm.propTypes = {
   defaultValues: PropTypes.object,
-  isCategorySaveLoading: PropTypes.bool,
-  isParentCategoryRequired: PropTypes.bool,
-  onSubmit: PropTypes.func,
+  form: PropTypes.object,
+  isLoading: PropTypes.bool,
 };
 
 export default CategoryForm;

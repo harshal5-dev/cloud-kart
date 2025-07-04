@@ -1,86 +1,49 @@
-import { useCallback, useMemo } from "react";
 import PropTypes from "prop-types";
-import { Button, Empty, Flex, Result, Space, Table, Tag } from "antd";
-import { useDispatch } from "react-redux";
+import { Card, Empty, Result, Space, Table, Tag } from "antd";
 
-import { useGetCategoriesQuery } from "../categoryApi";
-import { setCategoryOperation, setSelectedCategory } from "../categorySlice";
-import { RiRefreshFill } from "react-icons/ri";
 import DeleteCategory from "./DeleteCategory";
-import { FaPencilAlt } from "react-icons/fa";
 import { getRandomTagColor } from "../../../lib/utils";
+import ManageCategory from "../manage/ManageCategory";
 
-const BrowseCategory = ({ onCategoryUpdate }) => {
-  const categoryResponse = useGetCategoriesQuery();
-  const { data, isLoading, refetch, isError } = categoryResponse;
+const BrowseCategory = ({ categoryResponse }) => {
+  const { data, isLoading, isError } = categoryResponse;
 
-  const dispatch = useDispatch();
-
-  const handleUpdateCategory = useCallback(
-    (selectedCategory) => {
-      dispatch(setCategoryOperation("UPDATE"));
-      dispatch(setSelectedCategory(selectedCategory));
-      onCategoryUpdate();
+  const column = [
+    {
+      title: "Slug",
+      dataIndex: "slug",
+      render: (slug) => (
+        <Tag bordered={false} color={getRandomTagColor()}>
+          {slug}
+        </Tag>
+      ),
+      responsive: ["md"],
     },
-    [dispatch, onCategoryUpdate]
-  );
-
-  const column = useMemo(
-    () => [
-      {
-        title: "Slug",
-        dataIndex: "slug",
-        render: (slug) => (
-          <Tag bordered={false} color={getRandomTagColor()}>
-            {slug}
-          </Tag>
-        ),
-        responsive: ["md"],
-      },
-      {
-        title: "Name",
-        dataIndex: "name",
-      },
-      {
-        title: "Description",
-        dataIndex: "description",
-        width: "50%",
-        ellipsis: true,
-        responsive: ["md"],
-      },
-      {
-        title: "Action",
-        align: "center",
-        render: (_, record) => (
-          <Space size={2}>
-            <Button
-              variant="text"
-              shape="circle"
-              color="gold"
-              icon={<FaPencilAlt />}
-              onClick={() => handleUpdateCategory(record)}
-            />
-            <DeleteCategory slug={record.slug} />
-          </Space>
-        ),
-      },
-    ],
-    [handleUpdateCategory]
-  );
+    {
+      title: "Name",
+      dataIndex: "name",
+    },
+    {
+      title: "Description",
+      dataIndex: "description",
+      width: "50%",
+      ellipsis: true,
+      responsive: ["md"],
+    },
+    {
+      title: "Action",
+      align: "center",
+      render: (_, record) => (
+        <Space size={2}>
+          <ManageCategory operation={"UPDATE"} category={record} />
+          <DeleteCategory slug={record.slug} />
+        </Space>
+      ),
+    },
+  ];
 
   return (
-    <Flex vertical gap={16}>
-      <Flex justify="end" gap={10}>
-        <Button
-          color="primary"
-          variant="outlined"
-          icon={<RiRefreshFill />}
-          onClick={refetch}
-          loading={isLoading}
-        >
-          Refetch
-        </Button>
-      </Flex>
+    <Card>
       <Table
         columns={column}
         dataSource={data}
@@ -107,12 +70,12 @@ const BrowseCategory = ({ onCategoryUpdate }) => {
             `${range[0]}-${range[1]} of ${total} items`,
         }}
       />
-    </Flex>
+    </Card>
   );
 };
 
 BrowseCategory.propTypes = {
-  onCategoryUpdate: PropTypes.func,
+  categoryResponse: PropTypes.object,
 };
 
 export default BrowseCategory;

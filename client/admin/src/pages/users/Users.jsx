@@ -29,8 +29,8 @@ const Users = () => {
           </Title>
           <Space>
             <Button
-              color="primary"
-              variant="outlined"
+              color="green"
+              variant="filled"
               icon={<RiRefreshFill />}
               onClick={refetch}
               loading={isLoading}

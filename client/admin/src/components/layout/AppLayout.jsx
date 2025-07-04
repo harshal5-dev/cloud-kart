@@ -155,6 +155,9 @@ const AppLayout = () => {
             colorTextMenuItemHover: cssVariables.hoverColor,
             colorBgMenuItemSelected: cssVariables.colorBgSelected,
           },
+          pageContainer: {
+            paddingInlinePageContainerContent: 25,
+          },
         }}
         avatarProps={{
           src: getAvatar(),
