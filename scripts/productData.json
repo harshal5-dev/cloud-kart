@@ -1,0 +1,2312 @@
+[
+  {
+    "title": "iPhone 14 Pro",
+    "description": "Latest Apple smartphone with A16 Bionic chip",
+    "price": 1044.74,
+    "stock": 67,
+    "brand": "Apple",
+    "sku": "SKU101",
+    "isFeatured": true,
+    "totalSales": 909,
+    "categorySlug": "electronics",
+    "images": [
+      {
+        "imageUrl": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-14-pro-deep-purple-select?wid=470&hei=556&fmt=jpeg&qlt=95&.v=1663703841896",
+        "altText": "iPhone 14 Pro - Apple - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-14-pro-model-unselect-gallery-2-202209?wid=640&hei=640&fmt=p-jpg&qlt=95&.v=1663703841896",
+        "altText": "iPhone 14 Pro - Apple - Side view",
+        "sortOrder": 2
+      }
+    ]
+  },
+  {
+    "title": "Samsung Galaxy S23",
+    "description": "Flagship Android phone with AMOLED display",
+    "price": 719.52,
+    "stock": 178,
+    "brand": "Samsung",
+    "sku": "SKU102",
+    "isFeatured": false,
+    "totalSales": 287,
+    "categorySlug": "electronics",
+    "images": [
+      {
+        "imageUrl": "https://images.samsung.com/is/image/samsung/p6pim/us/2302/gallery/us-galaxy-s23-s911-sm-s911uzaaxaa-534859970?$650_519_PNG$",
+        "altText": "Samsung Galaxy S23 - Samsung - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://images.samsung.com/is/image/samsung/p6pim/us/2302/gallery/us-galaxy-s23-s911-sm-s911uzaaxaa-534859971?$650_519_PNG$",
+        "altText": "Samsung Galaxy S23 - Samsung - Side view",
+        "sortOrder": 2
+      },
+      {
+        "imageUrl": "https://images.samsung.com/is/image/samsung/p6pim/us/2302/gallery/us-galaxy-s23-s911-sm-s911uzaaxaa-534859972?$650_519_PNG$",
+        "altText": "Samsung Galaxy S23 - Samsung - Detail view",
+        "sortOrder": 3
+      }
+    ]
+  },
+  {
+    "title": "Sony WH-1000XM5",
+    "description": "Noise-cancelling wireless headphones",
+    "price": 368.73,
+    "stock": 45,
+    "brand": "Sony",
+    "sku": "SKU103",
+    "isFeatured": false,
+    "totalSales": 608,
+    "categorySlug": "electronics",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/51QEieaRTDL._AC_SL1500_.jpg",
+        "altText": "Sony WH-1000XM5 - Sony - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/51C7ZVXyVnL._AC_SL1500_.jpg",
+        "altText": "Sony WH-1000XM5 - Sony - Side view",
+        "sortOrder": 2
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/51CpOdGX2kL._AC_SL1500_.jpg",
+        "altText": "Sony WH-1000XM5 - Sony - Detail view",
+        "sortOrder": 3
+      }
+    ]
+  },
+  {
+    "title": "Dell XPS 13",
+    "description": "13-inch ultra-portable laptop",
+    "price": 760.56,
+    "stock": 116,
+    "brand": "Dell",
+    "sku": "SKU104",
+    "isFeatured": false,
+    "totalSales": 407,
+    "categorySlug": "electronics",
+    "images": [
+      {
+        "imageUrl": "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/notebooks/xps-notebooks/xps-13-9315/media-gallery/notebook-xps-13-9315-nt-blue-gallery-4.psd?fmt=pjpg&pscan=auto&scl=1&wid=3500&hei=2625&qlt=100,1&resMode=sharp2&size=3500,2625&chrss=full&imwidth=5000",
+        "altText": "Dell XPS 13 - Dell - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/notebooks/xps-notebooks/xps-13-9315/media-gallery/notebook-xps-13-9315-nt-blue-gallery-2.psd?fmt=pjpg&pscan=auto&scl=1&wid=3500&hei=2625&qlt=100,1&resMode=sharp2&size=3500,2625&chrss=full&imwidth=5000",
+        "altText": "Dell XPS 13 - Dell - Side view",
+        "sortOrder": 2
+      }
+    ]
+  },
+  {
+    "title": "Apple MacBook Air M2",
+    "description": "Lightweight laptop with M2 chip",
+    "price": 1413.11,
+    "stock": 122,
+    "brand": "Apple",
+    "sku": "SKU105",
+    "isFeatured": false,
+    "totalSales": 1874,
+    "categorySlug": "electronics",
+    "images": [
+      {
+        "imageUrl": "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/notebooks/xps-notebooks/xps-13-9315/media-gallery/notebook-xps-13-9315-nt-blue-gallery-4.psd?fmt=pjpg&pscan=auto&scl=1&wid=3500&hei=2625&qlt=100,1&resMode=sharp2&size=3500,2625&chrss=full&imwidth=5000",
+        "altText": "Apple MacBook Air M2 - Apple - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/notebooks/xps-notebooks/xps-13-9315/media-gallery/notebook-xps-13-9315-nt-blue-gallery-2.psd?fmt=pjpg&pscan=auto&scl=1&wid=3500&hei=2625&qlt=100,1&resMode=sharp2&size=3500,2625&chrss=full&imwidth=5000",
+        "altText": "Apple MacBook Air M2 - Apple - Side view",
+        "sortOrder": 2
+      },
+      {
+        "imageUrl": "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/notebooks/xps-notebooks/xps-13-9315/media-gallery/notebook-xps-13-9315-nt-blue-gallery-1.psd?fmt=pjpg&pscan=auto&scl=1&wid=3500&hei=2625&qlt=100,1&resMode=sharp2&size=3500,2625&chrss=full&imwidth=5000",
+        "altText": "Apple MacBook Air M2 - Apple - Detail view",
+        "sortOrder": 3
+      }
+    ]
+  },
+  {
+    "title": "Canon EOS R10",
+    "description": "Mirrorless camera with 24.2MP sensor",
+    "price": 1106.09,
+    "stock": 158,
+    "brand": "Canon",
+    "sku": "SKU106",
+    "isFeatured": false,
+    "totalSales": 890,
+    "categorySlug": "electronics",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71nTgJoFZgL._AC_SL1500_.jpg",
+        "altText": "Canon EOS R10 - Canon - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71-m8sRKsyL._AC_SL1500_.jpg",
+        "altText": "Canon EOS R10 - Canon - Side view",
+        "sortOrder": 2
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71J9k6KyS2L._AC_SL1500_.jpg",
+        "altText": "Canon EOS R10 - Canon - Detail view",
+        "sortOrder": 3
+      }
+    ]
+  },
+  {
+    "title": "Bose SoundLink Flex",
+    "description": "Waterproof Bluetooth speaker",
+    "price": 125.22,
+    "stock": 96,
+    "brand": "Bose",
+    "sku": "SKU107",
+    "isFeatured": false,
+    "totalSales": 1674,
+    "categorySlug": "electronics",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81h-pQZhsYL._AC_SL1500_.jpg",
+        "altText": "Bose SoundLink Flex - Bose - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81WuMGIJJyL._AC_SL1500_.jpg",
+        "altText": "Bose SoundLink Flex - Bose - Side view",
+        "sortOrder": 2
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81v7qtzQpvL._AC_SL1500_.jpg",
+        "altText": "Bose SoundLink Flex - Bose - Detail view",
+        "sortOrder": 3
+      }
+    ]
+  },
+  {
+    "title": "Nike Air Max 270",
+    "description": "Mens running shoes with max air cushioning",
+    "price": 155.25,
+    "stock": 131,
+    "brand": "Nike",
+    "sku": "SKU108",
+    "isFeatured": true,
+    "totalSales": 329,
+    "categorySlug": "apparel",
+    "images": [
+      {
+        "imageUrl": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/8439f823-86cf-4086-81d2-4f9ff9a66866/air-max-270-mens-shoes-KkLcGR.png",
+        "altText": "Nike Air Max 270 - Nike - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/8439f823-86cf-4086-81d2-4f9ff9a66866/air-max-270-mens-shoes-KkLcGR.png",
+        "altText": "Nike Air Max 270 - Nike - Side view",
+        "sortOrder": 2
+      },
+      {
+        "imageUrl": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/8439f823-86cf-4086-81d2-4f9ff9a66866/air-max-270-mens-shoes-KkLcGR.png",
+        "altText": "Nike Air Max 270 - Nike - Detail view",
+        "sortOrder": 3
+      }
+    ]
+  },
+  {
+    "title": "Levis 511 Slim Jeans",
+    "description": "Slim fit denim jeans for men",
+    "price": 88.52,
+    "stock": 179,
+    "brand": "Levis",
+    "sku": "SKU109",
+    "isFeatured": false,
+    "totalSales": 1756,
+    "categorySlug": "apparel",
+    "images": [
+      {
+        "imageUrl": "https://lsco.scene7.com/is/image/lsco/511810177-front-pdp-ld?fmt=jpeg&qlt=70&resMode=bisharp&fit=crop,1&op_usm=0.6,0.6,8&wid=400&hei=500",
+        "altText": "Levis 511 Slim Jeans - Levis - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://lsco.scene7.com/is/image/lsco/511810177-back-pdp-ld?fmt=jpeg&qlt=70&resMode=bisharp&fit=crop,1&op_usm=0.6,0.6,8&wid=400&hei=500",
+        "altText": "Levis 511 Slim Jeans - Levis - Side view",
+        "sortOrder": 2
+      }
+    ]
+  },
+  {
+    "title": "Adidas Essentials Hoodie",
+    "description": "Fleece hoodie for casual wear",
+    "price": 55.17,
+    "stock": 28,
+    "brand": "Adidas",
+    "sku": "SKU110",
+    "isFeatured": false,
+    "totalSales": 613,
+    "categorySlug": "apparel",
+    "images": [
+      {
+        "imageUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/3515f7c4c7f44b8c9c5cad7e00a9c8f6_9366/Essentials_Fleece_3-Stripes_Pullover_Hoodie_Black_H12161_21_model.jpg",
+        "altText": "Adidas Essentials Hoodie - Adidas - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/3515f7c4c7f44b8c9c5cad7e00a9c8f6_9366/Essentials_Fleece_3-Stripes_Pullover_Hoodie_Black_H12161_01_laydown.jpg",
+        "altText": "Adidas Essentials Hoodie - Adidas - Side view",
+        "sortOrder": 2
+      },
+      {
+        "imageUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/3515f7c4c7f44b8c9c5cad7e00a9c8f6_9366/Essentials_Fleece_3-Stripes_Pullover_Hoodie_Black_H12161_42_detail.jpg",
+        "altText": "Adidas Essentials Hoodie - Adidas - Detail view",
+        "sortOrder": 3
+      }
+    ]
+  },
+  {
+    "title": "Zara Printed Dress",
+    "description": "Floral midi dress for women",
+    "price": 74.42,
+    "stock": 126,
+    "brand": "Zara",
+    "sku": "SKU111",
+    "isFeatured": false,
+    "totalSales": 874,
+    "categorySlug": "apparel",
+    "images": [
+      {
+        "imageUrl": "https://static.zara.net/photos///2023/V/0/1/p/1165/264/800/2/w/563/1165264800_6_1_1.jpg",
+        "altText": "Zara Printed Dress - Zara - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://static.zara.net/photos///2023/V/0/1/p/1165/264/800/2/w/563/1165264800_6_2_1.jpg",
+        "altText": "Zara Printed Dress - Zara - Side view",
+        "sortOrder": 2
+      }
+    ]
+  },
+  {
+    "title": "Uniqlo Ultra Light Down Jacket",
+    "description": "Compact, lightweight puffer jacket",
+    "price": 53.12,
+    "stock": 168,
+    "brand": "Uniqlo",
+    "sku": "SKU112",
+    "isFeatured": false,
+    "totalSales": 64,
+    "categorySlug": "apparel",
+    "images": [
+      {
+        "imageUrl": "https://www2.hm.com/content/dam/hm/men/mens_shirts/long_sleeve_shirts/0685816/0685816008_23_1.jpg",
+        "altText": "Uniqlo Ultra Light Down Jacket - Uniqlo - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://www2.hm.com/content/dam/hm/men/mens_shirts/long_sleeve_shirts/0685816/0685816008_23_2.jpg",
+        "altText": "Uniqlo Ultra Light Down Jacket - Uniqlo - Side view",
+        "sortOrder": 2
+      },
+      {
+        "imageUrl": "https://www2.hm.com/content/dam/hm/men/mens_shirts/long_sleeve_shirts/0685816/0685816008_23_3.jpg",
+        "altText": "Uniqlo Ultra Light Down Jacket - Uniqlo - Detail view",
+        "sortOrder": 3
+      }
+    ]
+  },
+  {
+    "title": "H&M Cotton Shirt",
+    "description": "Formal slim-fit cotton shirt",
+    "price": 28.46,
+    "stock": 128,
+    "brand": "H&M",
+    "sku": "SKU113",
+    "isFeatured": false,
+    "totalSales": 102,
+    "categorySlug": "apparel",
+    "images": [
+      {
+        "imageUrl": "https://www2.hm.com/content/dam/hm/men/mens_shirts/long_sleeve_shirts/0685816/0685816008_23_1.jpg",
+        "altText": "H&M Cotton Shirt - H&M - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://www2.hm.com/content/dam/hm/men/mens_shirts/long_sleeve_shirts/0685816/0685816008_23_2.jpg",
+        "altText": "H&M Cotton Shirt - H&M - Side view",
+        "sortOrder": 2
+      }
+    ]
+  },
+  {
+    "title": "Philips Air Fryer",
+    "description": "Digital air fryer with rapid air technology",
+    "price": 247.12,
+    "stock": 133,
+    "brand": "Philips",
+    "sku": "SKU114",
+    "isFeatured": false,
+    "totalSales": 821,
+    "categorySlug": "home-kitchen",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/61-QSHfDUZL._AC_SL1500_.jpg",
+        "altText": "Philips Air Fryer - Philips - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/61knD7HGfHL._AC_SL1500_.jpg",
+        "altText": "Philips Air Fryer - Philips - Side view",
+        "sortOrder": 2
+      }
+    ]
+  },
+  {
+    "title": "Prestige Pressure Cooker",
+    "description": "5L stainless steel pressure cooker",
+    "price": 48.5,
+    "stock": 34,
+    "brand": "Prestige",
+    "sku": "SKU115",
+    "isFeatured": true,
+    "totalSales": 1999,
+    "categorySlug": "home-kitchen",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81lmYHEJnjL._AC_SL1500_.jpg",
+        "altText": "Prestige Pressure Cooker - Prestige - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81lmYHEJnjL._AC_SL1500_.jpg",
+        "altText": "Prestige Pressure Cooker - Prestige - Side view",
+        "sortOrder": 2
+      }
+    ]
+  },
+  {
+    "title": "Dyson V8 Vacuum Cleaner",
+    "description": "Cordless vacuum for home cleaning",
+    "price": 295.77,
+    "stock": 12,
+    "brand": "Dyson",
+    "sku": "SKU116",
+    "isFeatured": false,
+    "totalSales": 587,
+    "categorySlug": "home-kitchen",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71CBHfkVeaL._AC_SL1500_.jpg",
+        "altText": "Dyson V8 Vacuum Cleaner - Dyson - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71CBHfkVeaL._AC_SL1500_.jpg",
+        "altText": "Dyson V8 Vacuum Cleaner - Dyson - Side view",
+        "sortOrder": 2
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71CBHfkVeaL._AC_SL1500_.jpg",
+        "altText": "Dyson V8 Vacuum Cleaner - Dyson - Detail view",
+        "sortOrder": 3
+      }
+    ]
+  },
+  {
+    "title": "Instant Pot Duo",
+    "description": "7-in-1 electric pressure cooker",
+    "price": 134.35,
+    "stock": 193,
+    "brand": "Instant",
+    "sku": "SKU117",
+    "isFeatured": false,
+    "totalSales": 1218,
+    "categorySlug": "home-kitchen",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81MHXpNLXyL._AC_SL1500_.jpg",
+        "altText": "Instant Pot Duo - Instant - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81MHXpNLXyL._AC_SL1500_.jpg",
+        "altText": "Instant Pot Duo - Instant - Side view",
+        "sortOrder": 2
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81MHXpNLXyL._AC_SL1500_.jpg",
+        "altText": "Instant Pot Duo - Instant - Detail view",
+        "sortOrder": 3
+      }
+    ]
+  },
+  {
+    "title": "Milton Thermosteel Flask",
+    "description": "Insulated steel water bottle",
+    "price": 47.84,
+    "stock": 32,
+    "brand": "Milton",
+    "sku": "SKU118",
+    "isFeatured": false,
+    "totalSales": 58,
+    "categorySlug": "home-kitchen",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81MHXpNLXyL._AC_SL1500_.jpg",
+        "altText": "Milton Thermosteel Flask - Milton - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81MHXpNLXyL._AC_SL1500_.jpg",
+        "altText": "Milton Thermosteel Flask - Milton - Side view",
+        "sortOrder": 2
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81MHXpNLXyL._AC_SL1500_.jpg",
+        "altText": "Milton Thermosteel Flask - Milton - Detail view",
+        "sortOrder": 3
+      }
+    ]
+  },
+  {
+    "title": "LaOpala Dinner Set",
+    "description": "35-piece opal glass dinnerware",
+    "price": 123.54,
+    "stock": 139,
+    "brand": "LaOpala",
+    "sku": "SKU119",
+    "isFeatured": false,
+    "totalSales": 974,
+    "categorySlug": "home-kitchen",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81MHXpNLXyL._AC_SL1500_.jpg",
+        "altText": "LaOpala Dinner Set - LaOpala - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81MHXpNLXyL._AC_SL1500_.jpg",
+        "altText": "LaOpala Dinner Set - LaOpala - Side view",
+        "sortOrder": 2
+      }
+    ]
+  },
+  {
+    "title": "Atomic Habits",
+    "description": "Tiny changes, remarkable results - by James Clear",
+    "price": 17.22,
+    "stock": 89,
+    "brand": "Penguin",
+    "sku": "SKU120",
+    "isFeatured": false,
+    "totalSales": 1508,
+    "categorySlug": "books",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/51-nXsSRfZL._SX328_BO1,204,203,200_.jpg",
+        "altText": "Atomic Habits - Penguin - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/51-nXsSRfZL._SX328_BO1,204,203,200_.jpg",
+        "altText": "Atomic Habits - Penguin - Side view",
+        "sortOrder": 2
+      }
+    ]
+  },
+  {
+    "title": "The Alchemist",
+    "description": "A journey of self-discovery - by Paulo Coelho",
+    "price": 11.73,
+    "stock": 32,
+    "brand": "HarperOne",
+    "sku": "SKU121",
+    "isFeatured": false,
+    "totalSales": 701,
+    "categorySlug": "books",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/51-nXsSRfZL._SX328_BO1,204,203,200_.jpg",
+        "altText": "The Alchemist - HarperOne - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/51-nXsSRfZL._SX328_BO1,204,203,200_.jpg",
+        "altText": "The Alchemist - HarperOne - Side view",
+        "sortOrder": 2
+      }
+    ]
+  },
+  {
+    "title": "Rich Dad Poor Dad",
+    "description": "Personal finance classic - by Robert Kiyosaki",
+    "price": 10.37,
+    "stock": 104,
+    "brand": "Plata Publishing",
+    "sku": "SKU122",
+    "isFeatured": true,
+    "totalSales": 1619,
+    "categorySlug": "books",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/51-nXsSRfZL._SX328_BO1,204,203,200_.jpg",
+        "altText": "Rich Dad Poor Dad - Plata Publishing - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/51-nXsSRfZL._SX328_BO1,204,203,200_.jpg",
+        "altText": "Rich Dad Poor Dad - Plata Publishing - Side view",
+        "sortOrder": 2
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/51-nXsSRfZL._SX328_BO1,204,203,200_.jpg",
+        "altText": "Rich Dad Poor Dad - Plata Publishing - Detail view",
+        "sortOrder": 3
+      }
+    ]
+  },
+  {
+    "title": "Ikigai",
+    "description": "Japanese secret to a long and happy life",
+    "price": 10.9,
+    "stock": 21,
+    "brand": "Penguin",
+    "sku": "SKU123",
+    "isFeatured": false,
+    "totalSales": 1234,
+    "categorySlug": "books",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/51-nXsSRfZL._SX328_BO1,204,203,200_.jpg",
+        "altText": "Ikigai - Penguin - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/51-nXsSRfZL._SX328_BO1,204,203,200_.jpg",
+        "altText": "Ikigai - Penguin - Side view",
+        "sortOrder": 2
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/51-nXsSRfZL._SX328_BO1,204,203,200_.jpg",
+        "altText": "Ikigai - Penguin - Detail view",
+        "sortOrder": 3
+      }
+    ]
+  },
+  {
+    "title": "Wings of Fire",
+    "description": "Autobiography of Dr. A.P.J. Abdul Kalam",
+    "price": 28.89,
+    "stock": 66,
+    "brand": "Universities Press",
+    "sku": "SKU124",
+    "isFeatured": false,
+    "totalSales": 1886,
+    "categorySlug": "books",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/51-nXsSRfZL._SX328_BO1,204,203,200_.jpg",
+        "altText": "Wings of Fire - Universities Press - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/51-nXsSRfZL._SX328_BO1,204,203,200_.jpg",
+        "altText": "Wings of Fire - Universities Press - Side view",
+        "sortOrder": 2
+      }
+    ]
+  },
+  {
+    "title": "Sapiens",
+    "description": "Brief history of humankind - by Yuval Noah Harari",
+    "price": 16.71,
+    "stock": 28,
+    "brand": "Harper",
+    "sku": "SKU125",
+    "isFeatured": false,
+    "totalSales": 1333,
+    "categorySlug": "books",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/51-nXsSRfZL._SX328_BO1,204,203,200_.jpg",
+        "altText": "Sapiens - Harper - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/51-nXsSRfZL._SX328_BO1,204,203,200_.jpg",
+        "altText": "Sapiens - Harper - Side view",
+        "sortOrder": 2
+      }
+    ]
+  },
+  {
+    "title": "LEGO Classic Bricks Set",
+    "description": "Creative building blocks for kids",
+    "price": 50.5,
+    "stock": 183,
+    "brand": "LEGO",
+    "sku": "SKU126",
+    "isFeatured": false,
+    "totalSales": 70,
+    "categorySlug": "toys-games",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/91YgLhQyIzL._AC_SL1500_.jpg",
+        "altText": "LEGO Classic Bricks Set - LEGO - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/91YgLhQyIzL._AC_SL1500_.jpg",
+        "altText": "LEGO Classic Bricks Set - LEGO - Side view",
+        "sortOrder": 2
+      }
+    ]
+  },
+  {
+    "title": "Hot Wheels Track Set",
+    "description": "Looping racetrack with toy cars",
+    "price": 17.38,
+    "stock": 114,
+    "brand": "Hot Wheels",
+    "sku": "SKU127",
+    "isFeatured": false,
+    "totalSales": 1145,
+    "categorySlug": "toys-games",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81rEI8GRN4L._AC_SL1500_.jpg",
+        "altText": "Hot Wheels Track Set - Hot Wheels - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81rEI8GRN4L._AC_SL1500_.jpg",
+        "altText": "Hot Wheels Track Set - Hot Wheels - Side view",
+        "sortOrder": 2
+      }
+    ]
+  },
+  {
+    "title": "Uno Card Game",
+    "description": "Family card game for all ages",
+    "price": 39.24,
+    "stock": 155,
+    "brand": "Mattel",
+    "sku": "SKU128",
+    "isFeatured": false,
+    "totalSales": 1637,
+    "categorySlug": "toys-games",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81rEI8GRN4L._AC_SL1500_.jpg",
+        "altText": "Uno Card Game - Mattel - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81rEI8GRN4L._AC_SL1500_.jpg",
+        "altText": "Uno Card Game - Mattel - Side view",
+        "sortOrder": 2
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81rEI8GRN4L._AC_SL1500_.jpg",
+        "altText": "Uno Card Game - Mattel - Detail view",
+        "sortOrder": 3
+      }
+    ]
+  },
+  {
+    "title": "Barbie Dreamhouse",
+    "description": "3-story playset with accessories",
+    "price": 42.62,
+    "stock": 73,
+    "brand": "Mattel",
+    "sku": "SKU129",
+    "isFeatured": true,
+    "totalSales": 480,
+    "categorySlug": "toys-games",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81rEI8GRN4L._AC_SL1500_.jpg",
+        "altText": "Barbie Dreamhouse - Mattel - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81rEI8GRN4L._AC_SL1500_.jpg",
+        "altText": "Barbie Dreamhouse - Mattel - Side view",
+        "sortOrder": 2
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81rEI8GRN4L._AC_SL1500_.jpg",
+        "altText": "Barbie Dreamhouse - Mattel - Detail view",
+        "sortOrder": 3
+      }
+    ]
+  },
+  {
+    "title": "Nerf Elite 2.0 Blaster",
+    "description": "Foam dart gun with 12-dart clip",
+    "price": 62.79,
+    "stock": 91,
+    "brand": "Nerf",
+    "sku": "SKU130",
+    "isFeatured": false,
+    "totalSales": 623,
+    "categorySlug": "toys-games",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81rEI8GRN4L._AC_SL1500_.jpg",
+        "altText": "Nerf Elite 2.0 Blaster - Nerf - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81rEI8GRN4L._AC_SL1500_.jpg",
+        "altText": "Nerf Elite 2.0 Blaster - Nerf - Side view",
+        "sortOrder": 2
+      }
+    ]
+  },
+  {
+    "title": "Yonex Badminton Racket",
+    "description": "Lightweight graphite racket",
+    "price": 99.87,
+    "stock": 118,
+    "brand": "Yonex",
+    "sku": "SKU131",
+    "isFeatured": false,
+    "totalSales": 1265,
+    "categorySlug": "sports-outdoors",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71qsQjCOPGL._AC_SL1500_.jpg",
+        "altText": "Yonex Badminton Racket - Yonex - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71qsQjCOPGL._AC_SL1500_.jpg",
+        "altText": "Yonex Badminton Racket - Yonex - Side view",
+        "sortOrder": 2
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71qsQjCOPGL._AC_SL1500_.jpg",
+        "altText": "Yonex Badminton Racket - Yonex - Detail view",
+        "sortOrder": 3
+      }
+    ]
+  },
+  {
+    "title": "Nivia Football",
+    "description": "Standard size 5 football",
+    "price": 38.19,
+    "stock": 58,
+    "brand": "Nivia",
+    "sku": "SKU132",
+    "isFeatured": false,
+    "totalSales": 327,
+    "categorySlug": "sports-outdoors",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71qsQjCOPGL._AC_SL1500_.jpg",
+        "altText": "Nivia Football - Nivia - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71qsQjCOPGL._AC_SL1500_.jpg",
+        "altText": "Nivia Football - Nivia - Side view",
+        "sortOrder": 2
+      }
+    ]
+  },
+  {
+    "title": "Cosco Yoga Mat",
+    "description": "Anti-skid 6mm yoga mat",
+    "price": 42.92,
+    "stock": 28,
+    "brand": "Cosco",
+    "sku": "SKU133",
+    "isFeatured": false,
+    "totalSales": 730,
+    "categorySlug": "sports-outdoors",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71qsQjCOPGL._AC_SL1500_.jpg",
+        "altText": "Cosco Yoga Mat - Cosco - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71qsQjCOPGL._AC_SL1500_.jpg",
+        "altText": "Cosco Yoga Mat - Cosco - Side view",
+        "sortOrder": 2
+      }
+    ]
+  },
+  {
+    "title": "Wildcraft Backpack",
+    "description": "35L waterproof hiking backpack",
+    "price": 59.82,
+    "stock": 104,
+    "brand": "Wildcraft",
+    "sku": "SKU134",
+    "isFeatured": false,
+    "totalSales": 77,
+    "categorySlug": "sports-outdoors",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71qsQjCOPGL._AC_SL1500_.jpg",
+        "altText": "Wildcraft Backpack - Wildcraft - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71qsQjCOPGL._AC_SL1500_.jpg",
+        "altText": "Wildcraft Backpack - Wildcraft - Side view",
+        "sortOrder": 2
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71qsQjCOPGL._AC_SL1500_.jpg",
+        "altText": "Wildcraft Backpack - Wildcraft - Detail view",
+        "sortOrder": 3
+      }
+    ]
+  },
+  {
+    "title": "Puma Running Shorts",
+    "description": "Lightweight polyester sports shorts",
+    "price": 29.93,
+    "stock": 73,
+    "brand": "Puma",
+    "sku": "SKU135",
+    "isFeatured": false,
+    "totalSales": 1822,
+    "categorySlug": "sports-outdoors",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71qsQjCOPGL._AC_SL1500_.jpg",
+        "altText": "Puma Running Shorts - Puma - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71qsQjCOPGL._AC_SL1500_.jpg",
+        "altText": "Puma Running Shorts - Puma - Side view",
+        "sortOrder": 2
+      }
+    ]
+  },
+  {
+    "title": "Cetaphil Gentle Cleanser",
+    "description": "Non-irritating face wash",
+    "price": 27.82,
+    "stock": 181,
+    "brand": "Cetaphil",
+    "sku": "SKU136",
+    "isFeatured": true,
+    "totalSales": 1009,
+    "categorySlug": "health-beauty",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/61JdKzYbJKL._SL1500_.jpg",
+        "altText": "Cetaphil Gentle Cleanser - Cetaphil - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/61JdKzYbJKL._SL1500_.jpg",
+        "altText": "Cetaphil Gentle Cleanser - Cetaphil - Side view",
+        "sortOrder": 2
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/61JdKzYbJKL._SL1500_.jpg",
+        "altText": "Cetaphil Gentle Cleanser - Cetaphil - Detail view",
+        "sortOrder": 3
+      }
+    ]
+  },
+  {
+    "title": "Philips Trimmer BT3211",
+    "description": "Beard trimmer with USB charging",
+    "price": 133.58,
+    "stock": 72,
+    "brand": "Philips",
+    "sku": "SKU137",
+    "isFeatured": false,
+    "totalSales": 1106,
+    "categorySlug": "health-beauty",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/61JdKzYbJKL._SL1500_.jpg",
+        "altText": "Philips Trimmer BT3211 - Philips - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/61JdKzYbJKL._SL1500_.jpg",
+        "altText": "Philips Trimmer BT3211 - Philips - Side view",
+        "sortOrder": 2
+      }
+    ]
+  },
+  {
+    "title": "Maybelline Fit Me Foundation",
+    "description": "Matte + poreless liquid foundation",
+    "price": 34.15,
+    "stock": 191,
+    "brand": "Maybelline",
+    "sku": "SKU138",
+    "isFeatured": false,
+    "totalSales": 1832,
+    "categorySlug": "health-beauty",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/61JdKzYbJKL._SL1500_.jpg",
+        "altText": "Maybelline Fit Me Foundation - Maybelline - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/61JdKzYbJKL._SL1500_.jpg",
+        "altText": "Maybelline Fit Me Foundation - Maybelline - Side view",
+        "sortOrder": 2
+      }
+    ]
+  },
+  {
+    "title": "Mamaearth Onion Hair Oil",
+    "description": "Natural hair fall control oil",
+    "price": 23.45,
+    "stock": 137,
+    "brand": "Mamaearth",
+    "sku": "SKU139",
+    "isFeatured": false,
+    "totalSales": 1897,
+    "categorySlug": "health-beauty",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/61JdKzYbJKL._SL1500_.jpg",
+        "altText": "Mamaearth Onion Hair Oil - Mamaearth - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/61JdKzYbJKL._SL1500_.jpg",
+        "altText": "Mamaearth Onion Hair Oil - Mamaearth - Side view",
+        "sortOrder": 2
+      }
+    ]
+  },
+  {
+    "title": "Nivea Body Lotion",
+    "description": "48hr nourishing body milk",
+    "price": 21.5,
+    "stock": 72,
+    "brand": "Nivea",
+    "sku": "SKU140",
+    "isFeatured": false,
+    "totalSales": 699,
+    "categorySlug": "health-beauty",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/61JdKzYbJKL._SL1500_.jpg",
+        "altText": "Nivea Body Lotion - Nivea - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/61JdKzYbJKL._SL1500_.jpg",
+        "altText": "Nivea Body Lotion - Nivea - Side view",
+        "sortOrder": 2
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/61JdKzYbJKL._SL1500_.jpg",
+        "altText": "Nivea Body Lotion - Nivea - Detail view",
+        "sortOrder": 3
+      }
+    ]
+  },
+  {
+    "title": "Michelin Car Tyre",
+    "description": "Tubeless radial tyre for sedans",
+    "price": 142.89,
+    "stock": 128,
+    "brand": "Michelin",
+    "sku": "SKU141",
+    "isFeatured": false,
+    "totalSales": 342,
+    "categorySlug": "automotive",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71bKzZ6VseL._AC_SL1500_.jpg",
+        "altText": "Michelin Car Tyre - Michelin - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71bKzZ6VseL._AC_SL1500_.jpg",
+        "altText": "Michelin Car Tyre - Michelin - Side view",
+        "sortOrder": 2
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71bKzZ6VseL._AC_SL1500_.jpg",
+        "altText": "Michelin Car Tyre - Michelin - Detail view",
+        "sortOrder": 3
+      }
+    ]
+  },
+  {
+    "title": "Bosch Wiper Blade",
+    "description": "Durable wiper blade 16-inch",
+    "price": 130.25,
+    "stock": 163,
+    "brand": "Bosch",
+    "sku": "SKU142",
+    "isFeatured": false,
+    "totalSales": 745,
+    "categorySlug": "automotive",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71bKzZ6VseL._AC_SL1500_.jpg",
+        "altText": "Bosch Wiper Blade - Bosch - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71bKzZ6VseL._AC_SL1500_.jpg",
+        "altText": "Bosch Wiper Blade - Bosch - Side view",
+        "sortOrder": 2
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71bKzZ6VseL._AC_SL1500_.jpg",
+        "altText": "Bosch Wiper Blade - Bosch - Detail view",
+        "sortOrder": 3
+      }
+    ]
+  },
+  {
+    "title": "Castrol Engine Oil",
+    "description": "Synthetic oil for 4-stroke engines",
+    "price": 70.44,
+    "stock": 77,
+    "brand": "Castrol",
+    "sku": "SKU143",
+    "isFeatured": true,
+    "totalSales": 730,
+    "categorySlug": "automotive",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71bKzZ6VseL._AC_SL1500_.jpg",
+        "altText": "Castrol Engine Oil - Castrol - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71bKzZ6VseL._AC_SL1500_.jpg",
+        "altText": "Castrol Engine Oil - Castrol - Side view",
+        "sortOrder": 2
+      }
+    ]
+  },
+  {
+    "title": "3M Car Care Kit",
+    "description": "Exterior polish and interior cleaner",
+    "price": 96.54,
+    "stock": 88,
+    "brand": "3M",
+    "sku": "SKU144",
+    "isFeatured": false,
+    "totalSales": 780,
+    "categorySlug": "automotive",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71bKzZ6VseL._AC_SL1500_.jpg",
+        "altText": "3M Car Care Kit - 3M - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71bKzZ6VseL._AC_SL1500_.jpg",
+        "altText": "3M Car Care Kit - 3M - Side view",
+        "sortOrder": 2
+      }
+    ]
+  },
+  {
+    "title": "Philips Car Headlight",
+    "description": "Halogen headlamp bulb H4",
+    "price": 104.72,
+    "stock": 142,
+    "brand": "Philips",
+    "sku": "SKU145",
+    "isFeatured": false,
+    "totalSales": 494,
+    "categorySlug": "automotive",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71bKzZ6VseL._AC_SL1500_.jpg",
+        "altText": "Philips Car Headlight - Philips - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71bKzZ6VseL._AC_SL1500_.jpg",
+        "altText": "Philips Car Headlight - Philips - Side view",
+        "sortOrder": 2
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71bKzZ6VseL._AC_SL1500_.jpg",
+        "altText": "Philips Car Headlight - Philips - Detail view",
+        "sortOrder": 3
+      }
+    ]
+  },
+  {
+    "title": "Google Pixel 7",
+    "description": "Affordable and reliable",
+    "price": 457.01,
+    "stock": 197,
+    "brand": "Ray-Ban",
+    "sku": "SKU146",
+    "isFeatured": true,
+    "totalSales": 414,
+    "categorySlug": "electronics",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/51QEieaRTDL._AC_SL1500_.jpg",
+        "altText": "Google Pixel 7 - Ray-Ban - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/51C7ZVXyVnL._AC_SL1500_.jpg",
+        "altText": "Google Pixel 7 - Ray-Ban - Side view",
+        "sortOrder": 2
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/51CpOdGX2kL._AC_SL1500_.jpg",
+        "altText": "Google Pixel 7 - Ray-Ban - Detail view",
+        "sortOrder": 3
+      }
+    ]
+  },
+  {
+    "title": "H&M Women Skirt",
+    "description": "Latest edition with great reviews",
+    "price": 146.74,
+    "stock": 200,
+    "brand": "Beardo",
+    "sku": "SKU147",
+    "isFeatured": true,
+    "totalSales": 1211,
+    "categorySlug": "automotive",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71bKzZ6VseL._AC_SL1500_.jpg",
+        "altText": "H&M Women Skirt - Beardo - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71bKzZ6VseL._AC_SL1500_.jpg",
+        "altText": "H&M Women Skirt - Beardo - Side view",
+        "sortOrder": 2
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71bKzZ6VseL._AC_SL1500_.jpg",
+        "altText": "H&M Women Skirt - Beardo - Detail view",
+        "sortOrder": 3
+      }
+    ]
+  },
+  {
+    "title": "Apple iPad Air",
+    "description": "Latest edition with great reviews",
+    "price": 56.2,
+    "stock": 39,
+    "brand": "Bosch",
+    "sku": "SKU148",
+    "isFeatured": true,
+    "totalSales": 467,
+    "categorySlug": "apparel",
+    "images": [
+      {
+        "imageUrl": "https://www2.hm.com/content/dam/hm/men/mens_shirts/long_sleeve_shirts/0685816/0685816008_23_1.jpg",
+        "altText": "Apple iPad Air - Bosch - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://www2.hm.com/content/dam/hm/men/mens_shirts/long_sleeve_shirts/0685816/0685816008_23_2.jpg",
+        "altText": "Apple iPad Air - Bosch - Side view",
+        "sortOrder": 2
+      },
+      {
+        "imageUrl": "https://www2.hm.com/content/dam/hm/men/mens_shirts/long_sleeve_shirts/0685816/0685816008_23_3.jpg",
+        "altText": "Apple iPad Air - Bosch - Detail view",
+        "sortOrder": 3
+      }
+    ]
+  },
+  {
+    "title": "HRX Joggers",
+    "description": "Eco-friendly and sustainable",
+    "price": 117.75,
+    "stock": 137,
+    "brand": "Pigeon",
+    "sku": "SKU149",
+    "isFeatured": true,
+    "totalSales": 332,
+    "categorySlug": "sports-outdoors",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71qsQjCOPGL._AC_SL1500_.jpg",
+        "altText": "HRX Joggers - Pigeon - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71qsQjCOPGL._AC_SL1500_.jpg",
+        "altText": "HRX Joggers - Pigeon - Side view",
+        "sortOrder": 2
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71qsQjCOPGL._AC_SL1500_.jpg",
+        "altText": "HRX Joggers - Pigeon - Detail view",
+        "sortOrder": 3
+      }
+    ]
+  },
+  {
+    "title": "The Psychology of Money",
+    "description": "Latest edition with great reviews",
+    "price": 48.56,
+    "stock": 86,
+    "brand": "Cosco",
+    "sku": "SKU150",
+    "isFeatured": true,
+    "totalSales": 1275,
+    "categorySlug": "automotive",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71bKzZ6VseL._AC_SL1500_.jpg",
+        "altText": "The Psychology of Money - Cosco - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71bKzZ6VseL._AC_SL1500_.jpg",
+        "altText": "The Psychology of Money - Cosco - Side view",
+        "sortOrder": 2
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71bKzZ6VseL._AC_SL1500_.jpg",
+        "altText": "The Psychology of Money - Cosco - Detail view",
+        "sortOrder": 3
+      }
+    ]
+  },
+  {
+    "title": "Hot Wheels Mega Garage",
+    "description": "New launch",
+    "price": 70.95,
+    "stock": 176,
+    "brand": "Mattel",
+    "sku": "SKU151",
+    "isFeatured": true,
+    "totalSales": 953,
+    "categorySlug": "apparel",
+    "images": [
+      {
+        "imageUrl": "https://www2.hm.com/content/dam/hm/men/mens_shirts/long_sleeve_shirts/0685816/0685816008_23_1.jpg",
+        "altText": "Hot Wheels Mega Garage - Mattel - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://www2.hm.com/content/dam/hm/men/mens_shirts/long_sleeve_shirts/0685816/0685816008_23_2.jpg",
+        "altText": "Hot Wheels Mega Garage - Mattel - Side view",
+        "sortOrder": 2
+      },
+      {
+        "imageUrl": "https://www2.hm.com/content/dam/hm/men/mens_shirts/long_sleeve_shirts/0685816/0685816008_23_3.jpg",
+        "altText": "Hot Wheels Mega Garage - Mattel - Detail view",
+        "sortOrder": 3
+      }
+    ]
+  },
+  {
+    "title": "Think and Grow Rich",
+    "description": "New launch",
+    "price": 267.97,
+    "stock": 198,
+    "brand": "Allen Solly",
+    "sku": "SKU152",
+    "isFeatured": false,
+    "totalSales": 837,
+    "categorySlug": "electronics",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/51QEieaRTDL._AC_SL1500_.jpg",
+        "altText": "Think and Grow Rich - Allen Solly - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/51C7ZVXyVnL._AC_SL1500_.jpg",
+        "altText": "Think and Grow Rich - Allen Solly - Side view",
+        "sortOrder": 2
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/51CpOdGX2kL._AC_SL1500_.jpg",
+        "altText": "Think and Grow Rich - Allen Solly - Detail view",
+        "sortOrder": 3
+      }
+    ]
+  },
+  {
+    "title": "Play-Doh Super Pack",
+    "description": "Best seller in its category",
+    "price": 84.39,
+    "stock": 190,
+    "brand": "Logitech",
+    "sku": "SKU153",
+    "isFeatured": false,
+    "totalSales": 822,
+    "categorySlug": "apparel",
+    "images": [
+      {
+        "imageUrl": "https://www2.hm.com/content/dam/hm/men/mens_shirts/long_sleeve_shirts/0685816/0685816008_23_1.jpg",
+        "altText": "Play-Doh Super Pack - Logitech - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://www2.hm.com/content/dam/hm/men/mens_shirts/long_sleeve_shirts/0685816/0685816008_23_2.jpg",
+        "altText": "Play-Doh Super Pack - Logitech - Side view",
+        "sortOrder": 2
+      }
+    ]
+  },
+  {
+    "title": "Cosco Volleyball",
+    "description": "High performance device with modern features",
+    "price": 22.17,
+    "stock": 103,
+    "brand": "Logitech",
+    "sku": "SKU154",
+    "isFeatured": true,
+    "totalSales": 252,
+    "categorySlug": "home-kitchen",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81MHXpNLXyL._AC_SL1500_.jpg",
+        "altText": "Cosco Volleyball - Logitech - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81MHXpNLXyL._AC_SL1500_.jpg",
+        "altText": "Cosco Volleyball - Logitech - Side view",
+        "sortOrder": 2
+      }
+    ]
+  },
+  {
+    "title": "Play-Doh Super Pack",
+    "description": "Limited edition product",
+    "price": 109.29,
+    "stock": 173,
+    "brand": "Hot Wheels",
+    "sku": "SKU155",
+    "isFeatured": true,
+    "totalSales": 1945,
+    "categorySlug": "home-kitchen",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81MHXpNLXyL._AC_SL1500_.jpg",
+        "altText": "Play-Doh Super Pack - Hot Wheels - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81MHXpNLXyL._AC_SL1500_.jpg",
+        "altText": "Play-Doh Super Pack - Hot Wheels - Side view",
+        "sortOrder": 2
+      }
+    ]
+  },
+  {
+    "title": "Wildcraft Cap",
+    "description": "Latest edition with great reviews",
+    "price": 193.93,
+    "stock": 178,
+    "brand": "Penguin",
+    "sku": "SKU156",
+    "isFeatured": false,
+    "totalSales": 1545,
+    "categorySlug": "electronics",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/51QEieaRTDL._AC_SL1500_.jpg",
+        "altText": "Wildcraft Cap - Penguin - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/51C7ZVXyVnL._AC_SL1500_.jpg",
+        "altText": "Wildcraft Cap - Penguin - Side view",
+        "sortOrder": 2
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/51CpOdGX2kL._AC_SL1500_.jpg",
+        "altText": "Wildcraft Cap - Penguin - Detail view",
+        "sortOrder": 3
+      }
+    ]
+  },
+  {
+    "title": "Logitech MX Master 3S",
+    "description": "Latest edition with great reviews",
+    "price": 146.19,
+    "stock": 54,
+    "brand": "Apple",
+    "sku": "SKU157",
+    "isFeatured": false,
+    "totalSales": 1724,
+    "categorySlug": "home-kitchen",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81MHXpNLXyL._AC_SL1500_.jpg",
+        "altText": "Logitech MX Master 3S - Apple - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81MHXpNLXyL._AC_SL1500_.jpg",
+        "altText": "Logitech MX Master 3S - Apple - Side view",
+        "sortOrder": 2
+      }
+    ]
+  },
+  {
+    "title": "Play-Doh Super Pack",
+    "description": "Limited edition product",
+    "price": 77.04,
+    "stock": 115,
+    "brand": "Samsung",
+    "sku": "SKU158",
+    "isFeatured": false,
+    "totalSales": 1858,
+    "categorySlug": "apparel",
+    "images": [
+      {
+        "imageUrl": "https://www2.hm.com/content/dam/hm/men/mens_shirts/long_sleeve_shirts/0685816/0685816008_23_1.jpg",
+        "altText": "Play-Doh Super Pack - Samsung - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://www2.hm.com/content/dam/hm/men/mens_shirts/long_sleeve_shirts/0685816/0685816008_23_2.jpg",
+        "altText": "Play-Doh Super Pack - Samsung - Side view",
+        "sortOrder": 2
+      },
+      {
+        "imageUrl": "https://www2.hm.com/content/dam/hm/men/mens_shirts/long_sleeve_shirts/0685816/0685816008_23_3.jpg",
+        "altText": "Play-Doh Super Pack - Samsung - Detail view",
+        "sortOrder": 3
+      }
+    ]
+  },
+  {
+    "title": "Pigeon Non-stick Cookware",
+    "description": "Affordable and reliable",
+    "price": 43.54,
+    "stock": 46,
+    "brand": "HarperOne",
+    "sku": "SKU159",
+    "isFeatured": false,
+    "totalSales": 1084,
+    "categorySlug": "home-kitchen",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81MHXpNLXyL._AC_SL1500_.jpg",
+        "altText": "Pigeon Non-stick Cookware - HarperOne - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81MHXpNLXyL._AC_SL1500_.jpg",
+        "altText": "Pigeon Non-stick Cookware - HarperOne - Side view",
+        "sortOrder": 2
+      }
+    ]
+  },
+  {
+    "title": "Nivia Cricket Bat",
+    "description": "New launch",
+    "price": 46.64,
+    "stock": 148,
+    "brand": "Realme",
+    "sku": "SKU160",
+    "isFeatured": true,
+    "totalSales": 669,
+    "categorySlug": "apparel",
+    "images": [
+      {
+        "imageUrl": "https://www2.hm.com/content/dam/hm/men/mens_shirts/long_sleeve_shirts/0685816/0685816008_23_1.jpg",
+        "altText": "Nivia Cricket Bat - Realme - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://www2.hm.com/content/dam/hm/men/mens_shirts/long_sleeve_shirts/0685816/0685816008_23_2.jpg",
+        "altText": "Nivia Cricket Bat - Realme - Side view",
+        "sortOrder": 2
+      },
+      {
+        "imageUrl": "https://www2.hm.com/content/dam/hm/men/mens_shirts/long_sleeve_shirts/0685816/0685816008_23_3.jpg",
+        "altText": "Nivia Cricket Bat - Realme - Detail view",
+        "sortOrder": 3
+      }
+    ]
+  },
+  {
+    "title": "Mamaearth Face Wash",
+    "description": "Top rated by users",
+    "price": 154.05,
+    "stock": 192,
+    "brand": "Hot Wheels",
+    "sku": "SKU161",
+    "isFeatured": true,
+    "totalSales": 815,
+    "categorySlug": "automotive",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71bKzZ6VseL._AC_SL1500_.jpg",
+        "altText": "Mamaearth Face Wash - Hot Wheels - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71bKzZ6VseL._AC_SL1500_.jpg",
+        "altText": "Mamaearth Face Wash - Hot Wheels - Side view",
+        "sortOrder": 2
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71bKzZ6VseL._AC_SL1500_.jpg",
+        "altText": "Mamaearth Face Wash - Hot Wheels - Detail view",
+        "sortOrder": 3
+      }
+    ]
+  },
+  {
+    "title": "SG Test Ball",
+    "description": "Top rated by users",
+    "price": 67.5,
+    "stock": 147,
+    "brand": "Zara",
+    "sku": "SKU162",
+    "isFeatured": false,
+    "totalSales": 181,
+    "categorySlug": "apparel",
+    "images": [
+      {
+        "imageUrl": "https://www2.hm.com/content/dam/hm/men/mens_shirts/long_sleeve_shirts/0685816/0685816008_23_1.jpg",
+        "altText": "SG Test Ball - Zara - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://www2.hm.com/content/dam/hm/men/mens_shirts/long_sleeve_shirts/0685816/0685816008_23_2.jpg",
+        "altText": "SG Test Ball - Zara - Side view",
+        "sortOrder": 2
+      }
+    ]
+  },
+  {
+    "title": "Realme Buds Wireless 2",
+    "description": "Limited edition product",
+    "price": 25.75,
+    "stock": 34,
+    "brand": "Logitech",
+    "sku": "SKU163",
+    "isFeatured": true,
+    "totalSales": 1901,
+    "categorySlug": "books",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/51-nXsSRfZL._SX328_BO1,204,203,200_.jpg",
+        "altText": "Realme Buds Wireless 2 - Logitech - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/51-nXsSRfZL._SX328_BO1,204,203,200_.jpg",
+        "altText": "Realme Buds Wireless 2 - Logitech - Side view",
+        "sortOrder": 2
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/51-nXsSRfZL._SX328_BO1,204,203,200_.jpg",
+        "altText": "Realme Buds Wireless 2 - Logitech - Detail view",
+        "sortOrder": 3
+      }
+    ]
+  },
+  {
+    "title": "Puma Sports Tee",
+    "description": "Eco-friendly and sustainable",
+    "price": 38.53,
+    "stock": 117,
+    "brand": "L'Oreal",
+    "sku": "SKU164",
+    "isFeatured": false,
+    "totalSales": 737,
+    "categorySlug": "health-beauty",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/61JdKzYbJKL._SL1500_.jpg",
+        "altText": "Puma Sports Tee - L'Oreal - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/61JdKzYbJKL._SL1500_.jpg",
+        "altText": "Puma Sports Tee - L'Oreal - Side view",
+        "sortOrder": 2
+      }
+    ]
+  },
+  {
+    "title": "Apple iPad Air",
+    "description": "High performance device with modern features",
+    "price": 90.72,
+    "stock": 113,
+    "brand": "Shell",
+    "sku": "SKU165",
+    "isFeatured": false,
+    "totalSales": 1408,
+    "categorySlug": "sports-outdoors",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71qsQjCOPGL._AC_SL1500_.jpg",
+        "altText": "Apple iPad Air - Shell - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71qsQjCOPGL._AC_SL1500_.jpg",
+        "altText": "Apple iPad Air - Shell - Side view",
+        "sortOrder": 2
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71qsQjCOPGL._AC_SL1500_.jpg",
+        "altText": "Apple iPad Air - Shell - Detail view",
+        "sortOrder": 3
+      }
+    ]
+  },
+  {
+    "title": "H&M Women Skirt",
+    "description": "New launch",
+    "price": 107.79,
+    "stock": 180,
+    "brand": "Allen Solly",
+    "sku": "SKU166",
+    "isFeatured": false,
+    "totalSales": 252,
+    "categorySlug": "home-kitchen",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81MHXpNLXyL._AC_SL1500_.jpg",
+        "altText": "H&M Women Skirt - Allen Solly - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81MHXpNLXyL._AC_SL1500_.jpg",
+        "altText": "H&M Women Skirt - Allen Solly - Side view",
+        "sortOrder": 2
+      }
+    ]
+  },
+  {
+    "title": "Mac Mini M2",
+    "description": "Eco-friendly and sustainable",
+    "price": 25.34,
+    "stock": 109,
+    "brand": "Google",
+    "sku": "SKU167",
+    "isFeatured": true,
+    "totalSales": 55,
+    "categorySlug": "apparel",
+    "images": [
+      {
+        "imageUrl": "https://www2.hm.com/content/dam/hm/men/mens_shirts/long_sleeve_shirts/0685816/0685816008_23_1.jpg",
+        "altText": "Mac Mini M2 - Google - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://www2.hm.com/content/dam/hm/men/mens_shirts/long_sleeve_shirts/0685816/0685816008_23_2.jpg",
+        "altText": "Mac Mini M2 - Google - Side view",
+        "sortOrder": 2
+      }
+    ]
+  },
+  {
+    "title": "Sony WF-1000XM5",
+    "description": "Affordable and reliable",
+    "price": 58.79,
+    "stock": 30,
+    "brand": "OnePlus",
+    "sku": "SKU168",
+    "isFeatured": false,
+    "totalSales": 1808,
+    "categorySlug": "toys-games",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81rEI8GRN4L._AC_SL1500_.jpg",
+        "altText": "Sony WF-1000XM5 - OnePlus - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81rEI8GRN4L._AC_SL1500_.jpg",
+        "altText": "Sony WF-1000XM5 - OnePlus - Side view",
+        "sortOrder": 2
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81rEI8GRN4L._AC_SL1500_.jpg",
+        "altText": "Sony WF-1000XM5 - OnePlus - Detail view",
+        "sortOrder": 3
+      }
+    ]
+  },
+  {
+    "title": "Nivia Cricket Bat",
+    "description": "New launch",
+    "price": 59.05,
+    "stock": 99,
+    "brand": "Pigeon",
+    "sku": "SKU169",
+    "isFeatured": false,
+    "totalSales": 962,
+    "categorySlug": "toys-games",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81rEI8GRN4L._AC_SL1500_.jpg",
+        "altText": "Nivia Cricket Bat - Pigeon - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81rEI8GRN4L._AC_SL1500_.jpg",
+        "altText": "Nivia Cricket Bat - Pigeon - Side view",
+        "sortOrder": 2
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81rEI8GRN4L._AC_SL1500_.jpg",
+        "altText": "Nivia Cricket Bat - Pigeon - Detail view",
+        "sortOrder": 3
+      }
+    ]
+  },
+  {
+    "title": "Beardo Hair Wax",
+    "description": "Top rated by users",
+    "price": 129.77,
+    "stock": 80,
+    "brand": "Nivia",
+    "sku": "SKU170",
+    "isFeatured": true,
+    "totalSales": 795,
+    "categorySlug": "home-kitchen",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81MHXpNLXyL._AC_SL1500_.jpg",
+        "altText": "Beardo Hair Wax - Nivia - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81MHXpNLXyL._AC_SL1500_.jpg",
+        "altText": "Beardo Hair Wax - Nivia - Side view",
+        "sortOrder": 2
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81MHXpNLXyL._AC_SL1500_.jpg",
+        "altText": "Beardo Hair Wax - Nivia - Detail view",
+        "sortOrder": 3
+      }
+    ]
+  },
+  {
+    "title": "Mamaearth Face Wash",
+    "description": "Compact and powerful",
+    "price": 27.74,
+    "stock": 83,
+    "brand": "Gillette",
+    "sku": "SKU171",
+    "isFeatured": true,
+    "totalSales": 716,
+    "categorySlug": "automotive",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71bKzZ6VseL._AC_SL1500_.jpg",
+        "altText": "Mamaearth Face Wash - Gillette - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71bKzZ6VseL._AC_SL1500_.jpg",
+        "altText": "Mamaearth Face Wash - Gillette - Side view",
+        "sortOrder": 2
+      }
+    ]
+  },
+  {
+    "title": "Michelin Bike Tyre",
+    "description": "Compact and powerful",
+    "price": 21.99,
+    "stock": 10,
+    "brand": "Turtle Wax",
+    "sku": "SKU172",
+    "isFeatured": false,
+    "totalSales": 1173,
+    "categorySlug": "books",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/51-nXsSRfZL._SX328_BO1,204,203,200_.jpg",
+        "altText": "Michelin Bike Tyre - Turtle Wax - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/51-nXsSRfZL._SX328_BO1,204,203,200_.jpg",
+        "altText": "Michelin Bike Tyre - Turtle Wax - Side view",
+        "sortOrder": 2
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/51-nXsSRfZL._SX328_BO1,204,203,200_.jpg",
+        "altText": "Michelin Bike Tyre - Turtle Wax - Detail view",
+        "sortOrder": 3
+      }
+    ]
+  },
+  {
+    "title": "The Psychology of Money",
+    "description": "Compact and powerful",
+    "price": 51.51,
+    "stock": 181,
+    "brand": "Turtle Wax",
+    "sku": "SKU173",
+    "isFeatured": false,
+    "totalSales": 71,
+    "categorySlug": "apparel",
+    "images": [
+      {
+        "imageUrl": "https://www2.hm.com/content/dam/hm/men/mens_shirts/long_sleeve_shirts/0685816/0685816008_23_1.jpg",
+        "altText": "The Psychology of Money - Turtle Wax - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://www2.hm.com/content/dam/hm/men/mens_shirts/long_sleeve_shirts/0685816/0685816008_23_2.jpg",
+        "altText": "The Psychology of Money - Turtle Wax - Side view",
+        "sortOrder": 2
+      }
+    ]
+  },
+  {
+    "title": "The Monk Who Sold His Ferrari",
+    "description": "High performance device with modern features",
+    "price": 12.35,
+    "stock": 112,
+    "brand": "Bosch",
+    "sku": "SKU174",
+    "isFeatured": false,
+    "totalSales": 875,
+    "categorySlug": "books",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/51-nXsSRfZL._SX328_BO1,204,203,200_.jpg",
+        "altText": "The Monk Who Sold His Ferrari - Bosch - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/51-nXsSRfZL._SX328_BO1,204,203,200_.jpg",
+        "altText": "The Monk Who Sold His Ferrari - Bosch - Side view",
+        "sortOrder": 2
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/51-nXsSRfZL._SX328_BO1,204,203,200_.jpg",
+        "altText": "The Monk Who Sold His Ferrari - Bosch - Detail view",
+        "sortOrder": 3
+      }
+    ]
+  },
+  {
+    "title": "Samsung Smart TV 43\"",
+    "description": "Comfortable and stylish",
+    "price": 873.83,
+    "stock": 164,
+    "brand": "Turtle Wax",
+    "sku": "SKU175",
+    "isFeatured": true,
+    "totalSales": 539,
+    "categorySlug": "home-kitchen",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81MHXpNLXyL._AC_SL1500_.jpg",
+        "altText": "Samsung Smart TV 43\" - Turtle Wax - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81MHXpNLXyL._AC_SL1500_.jpg",
+        "altText": "Samsung Smart TV 43\" - Turtle Wax - Side view",
+        "sortOrder": 2
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81MHXpNLXyL._AC_SL1500_.jpg",
+        "altText": "Samsung Smart TV 43\" - Turtle Wax - Detail view",
+        "sortOrder": 3
+      }
+    ]
+  },
+  {
+    "title": "Samsung Smart TV 43\"",
+    "description": "New launch",
+    "price": 76.4,
+    "stock": 116,
+    "brand": "Cosco",
+    "sku": "SKU176",
+    "isFeatured": false,
+    "totalSales": 1060,
+    "categorySlug": "sports-outdoors",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71qsQjCOPGL._AC_SL1500_.jpg",
+        "altText": "Samsung Smart TV 43\" - Cosco - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71qsQjCOPGL._AC_SL1500_.jpg",
+        "altText": "Samsung Smart TV 43\" - Cosco - Side view",
+        "sortOrder": 2
+      }
+    ]
+  },
+  {
+    "title": "Think and Grow Rich",
+    "description": "Eco-friendly and sustainable",
+    "price": 81.83,
+    "stock": 95,
+    "brand": "Penguin",
+    "sku": "SKU177",
+    "isFeatured": false,
+    "totalSales": 1836,
+    "categorySlug": "apparel",
+    "images": [
+      {
+        "imageUrl": "https://www2.hm.com/content/dam/hm/men/mens_shirts/long_sleeve_shirts/0685816/0685816008_23_1.jpg",
+        "altText": "Think and Grow Rich - Penguin - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://www2.hm.com/content/dam/hm/men/mens_shirts/long_sleeve_shirts/0685816/0685816008_23_2.jpg",
+        "altText": "Think and Grow Rich - Penguin - Side view",
+        "sortOrder": 2
+      },
+      {
+        "imageUrl": "https://www2.hm.com/content/dam/hm/men/mens_shirts/long_sleeve_shirts/0685816/0685816008_23_3.jpg",
+        "altText": "Think and Grow Rich - Penguin - Detail view",
+        "sortOrder": 3
+      }
+    ]
+  },
+  {
+    "title": "Samsung Smart TV 43\"",
+    "description": "Comfortable and stylish",
+    "price": 74.03,
+    "stock": 84,
+    "brand": "HP",
+    "sku": "SKU178",
+    "isFeatured": true,
+    "totalSales": 1557,
+    "categorySlug": "sports-outdoors",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71qsQjCOPGL._AC_SL1500_.jpg",
+        "altText": "Samsung Smart TV 43\" - HP - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71qsQjCOPGL._AC_SL1500_.jpg",
+        "altText": "Samsung Smart TV 43\" - HP - Side view",
+        "sortOrder": 2
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71qsQjCOPGL._AC_SL1500_.jpg",
+        "altText": "Samsung Smart TV 43\" - HP - Detail view",
+        "sortOrder": 3
+      }
+    ]
+  },
+  {
+    "title": "The Psychology of Money",
+    "description": "New launch",
+    "price": 82.51,
+    "stock": 134,
+    "brand": "Wonderchef",
+    "sku": "SKU179",
+    "isFeatured": false,
+    "totalSales": 1979,
+    "categorySlug": "apparel",
+    "images": [
+      {
+        "imageUrl": "https://www2.hm.com/content/dam/hm/men/mens_shirts/long_sleeve_shirts/0685816/0685816008_23_1.jpg",
+        "altText": "The Psychology of Money - Wonderchef - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://www2.hm.com/content/dam/hm/men/mens_shirts/long_sleeve_shirts/0685816/0685816008_23_2.jpg",
+        "altText": "The Psychology of Money - Wonderchef - Side view",
+        "sortOrder": 2
+      },
+      {
+        "imageUrl": "https://www2.hm.com/content/dam/hm/men/mens_shirts/long_sleeve_shirts/0685816/0685816008_23_3.jpg",
+        "altText": "The Psychology of Money - Wonderchef - Detail view",
+        "sortOrder": 3
+      }
+    ]
+  },
+  {
+    "title": "Amaron Car Battery",
+    "description": "High performance device with modern features",
+    "price": 22.83,
+    "stock": 51,
+    "brand": "Penguin",
+    "sku": "SKU180",
+    "isFeatured": true,
+    "totalSales": 466,
+    "categorySlug": "health-beauty",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/61JdKzYbJKL._SL1500_.jpg",
+        "altText": "Amaron Car Battery - Penguin - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/61JdKzYbJKL._SL1500_.jpg",
+        "altText": "Amaron Car Battery - Penguin - Side view",
+        "sortOrder": 2
+      }
+    ]
+  },
+  {
+    "title": "Apple iPad Air",
+    "description": "New launch",
+    "price": 155.24,
+    "stock": 131,
+    "brand": "Hot Wheels",
+    "sku": "SKU181",
+    "isFeatured": true,
+    "totalSales": 1147,
+    "categorySlug": "automotive",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71bKzZ6VseL._AC_SL1500_.jpg",
+        "altText": "Apple iPad Air - Hot Wheels - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71bKzZ6VseL._AC_SL1500_.jpg",
+        "altText": "Apple iPad Air - Hot Wheels - Side view",
+        "sortOrder": 2
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71bKzZ6VseL._AC_SL1500_.jpg",
+        "altText": "Apple iPad Air - Hot Wheels - Detail view",
+        "sortOrder": 3
+      }
+    ]
+  },
+  {
+    "title": "Jenga Classic",
+    "description": "High performance device with modern features",
+    "price": 180.88,
+    "stock": 22,
+    "brand": "Shell",
+    "sku": "SKU182",
+    "isFeatured": true,
+    "totalSales": 1708,
+    "categorySlug": "electronics",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/51QEieaRTDL._AC_SL1500_.jpg",
+        "altText": "Jenga Classic - Shell - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/51C7ZVXyVnL._AC_SL1500_.jpg",
+        "altText": "Jenga Classic - Shell - Side view",
+        "sortOrder": 2
+      }
+    ]
+  },
+  {
+    "title": "Rubik's Cube",
+    "description": "Affordable and reliable",
+    "price": 21.74,
+    "stock": 136,
+    "brand": "Nivia",
+    "sku": "SKU183",
+    "isFeatured": true,
+    "totalSales": 721,
+    "categorySlug": "sports-outdoors",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71qsQjCOPGL._AC_SL1500_.jpg",
+        "altText": "Rubik's Cube - Nivia - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71qsQjCOPGL._AC_SL1500_.jpg",
+        "altText": "Rubik's Cube - Nivia - Side view",
+        "sortOrder": 2
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/71qsQjCOPGL._AC_SL1500_.jpg",
+        "altText": "Rubik's Cube - Nivia - Detail view",
+        "sortOrder": 3
+      }
+    ]
+  },
+  {
+    "title": "Wonderchef Mixer",
+    "description": "Latest edition with great reviews",
+    "price": 70.28,
+    "stock": 145,
+    "brand": "Wonderchef",
+    "sku": "SKU184",
+    "isFeatured": false,
+    "totalSales": 404,
+    "categorySlug": "toys-games",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81rEI8GRN4L._AC_SL1500_.jpg",
+        "altText": "Wonderchef Mixer - Wonderchef - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81rEI8GRN4L._AC_SL1500_.jpg",
+        "altText": "Wonderchef Mixer - Wonderchef - Side view",
+        "sortOrder": 2
+      }
+    ]
+  },
+  {
+    "title": "Play-Doh Super Pack",
+    "description": "Comfortable and stylish",
+    "price": 35.9,
+    "stock": 25,
+    "brand": "Michelin",
+    "sku": "SKU185",
+    "isFeatured": false,
+    "totalSales": 133,
+    "categorySlug": "toys-games",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81rEI8GRN4L._AC_SL1500_.jpg",
+        "altText": "Play-Doh Super Pack - Michelin - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81rEI8GRN4L._AC_SL1500_.jpg",
+        "altText": "Play-Doh Super Pack - Michelin - Side view",
+        "sortOrder": 2
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81rEI8GRN4L._AC_SL1500_.jpg",
+        "altText": "Play-Doh Super Pack - Michelin - Detail view",
+        "sortOrder": 3
+      }
+    ]
+  },
+  {
+    "title": "L'Oreal Shampoo",
+    "description": "New launch",
+    "price": 86.09,
+    "stock": 60,
+    "brand": "Eveready",
+    "sku": "SKU186",
+    "isFeatured": false,
+    "totalSales": 1603,
+    "categorySlug": "toys-games",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81rEI8GRN4L._AC_SL1500_.jpg",
+        "altText": "L'Oreal Shampoo - Eveready - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81rEI8GRN4L._AC_SL1500_.jpg",
+        "altText": "L'Oreal Shampoo - Eveready - Side view",
+        "sortOrder": 2
+      }
+    ]
+  },
+  {
+    "title": "Allen Solly Men Blazer",
+    "description": "Eco-friendly and sustainable",
+    "price": 129.39,
+    "stock": 163,
+    "brand": "Michelin",
+    "sku": "SKU187",
+    "isFeatured": false,
+    "totalSales": 974,
+    "categorySlug": "home-kitchen",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81MHXpNLXyL._AC_SL1500_.jpg",
+        "altText": "Allen Solly Men Blazer - Michelin - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81MHXpNLXyL._AC_SL1500_.jpg",
+        "altText": "Allen Solly Men Blazer - Michelin - Side view",
+        "sortOrder": 2
+      }
+    ]
+  },
+  {
+    "title": "Wildcraft Cap",
+    "description": "New launch",
+    "price": 296.79,
+    "stock": 29,
+    "brand": "Pigeon",
+    "sku": "SKU188",
+    "isFeatured": true,
+    "totalSales": 1331,
+    "categorySlug": "electronics",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/51QEieaRTDL._AC_SL1500_.jpg",
+        "altText": "Wildcraft Cap - Pigeon - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/51C7ZVXyVnL._AC_SL1500_.jpg",
+        "altText": "Wildcraft Cap - Pigeon - Side view",
+        "sortOrder": 2
+      }
+    ]
+  },
+  {
+    "title": "Beardo Hair Wax",
+    "description": "Latest edition with great reviews",
+    "price": 138.52,
+    "stock": 35,
+    "brand": "Wonderchef",
+    "sku": "SKU189",
+    "isFeatured": false,
+    "totalSales": 1045,
+    "categorySlug": "electronics",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/51QEieaRTDL._AC_SL1500_.jpg",
+        "altText": "Beardo Hair Wax - Wonderchef - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/51C7ZVXyVnL._AC_SL1500_.jpg",
+        "altText": "Beardo Hair Wax - Wonderchef - Side view",
+        "sortOrder": 2
+      }
+    ]
+  },
+  {
+    "title": "Jenga Classic",
+    "description": "Latest edition with great reviews",
+    "price": 50.35,
+    "stock": 165,
+    "brand": "Turtle Wax",
+    "sku": "SKU190",
+    "isFeatured": false,
+    "totalSales": 1206,
+    "categorySlug": "home-kitchen",
+    "images": [
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81MHXpNLXyL._AC_SL1500_.jpg",
+        "altText": "Jenga Classic - Turtle Wax - Main product image",
+        "sortOrder": 1
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81MHXpNLXyL._AC_SL1500_.jpg",
+        "altText": "Jenga Classic - Turtle Wax - Side view",
+        "sortOrder": 2
+      },
+      {
+        "imageUrl": "https://m.media-amazon.com/images/I/81MHXpNLXyL._AC_SL1500_.jpg",
+        "altText": "Jenga Classic - Turtle Wax - Detail view",
+        "sortOrder": 3
+      }
+    ]
+  }
+]

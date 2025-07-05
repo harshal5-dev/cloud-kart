@@ -5,7 +5,7 @@ import { FaTrashAlt } from "react-icons/fa";
 
 import { useDeleteProductMutation } from "../productApi";
 
-const DeleteProduct = ({ sku, onDelete }) => {
+const DeleteProduct = ({ sku }) => {
   const [open, setOpen] = useState(false);
 
   const { notification } = App.useApp();
@@ -19,7 +19,6 @@ const DeleteProduct = ({ sku, onDelete }) => {
         message: "Success",
         description: res.statusMessage,
       });
-      onDelete();
     } catch (errorRes) {
       const error = errorRes.data;
       notification.error({
@@ -60,8 +59,7 @@ const DeleteProduct = ({ sku, onDelete }) => {
 };
 
 DeleteProduct.propTypes = {
-  sku: PropTypes.string.isRequired,
-  onDelete: PropTypes.func.isRequired,
+  sku: PropTypes.string,
 };
 
 export default DeleteProduct;

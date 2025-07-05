@@ -1,89 +1,54 @@
-import { useMemo, useState } from "react";
-import {
-  FileSearchOutlined,
-  PlusCircleFilled,
-  SignatureOutlined,
-} from "@ant-design/icons";
-import { Button, Card } from "antd";
-import { IoArrowBackCircle } from "react-icons/io5";
+import { useState } from "react";
+import { Button, Card, Flex, Space, Typography } from "antd";
+import { RiRefreshFill } from "react-icons/ri";
 
-import BrowseProduct from "./browse/BrowseProduct";
 import ManageProduct from "./manage/ManageProduct";
+import { useGetProductsInfoQuery } from "./productApi";
+import BrowseProduct from "./browse/BrowseProduct";
 
-const tabList = [
-  {
-    key: "1",
-    label: "Browse",
-    icon: <FileSearchOutlined />,
-  },
-  {
-    key: "2",
-    label: "Manage",
-    icon: <SignatureOutlined />,
-  },
-];
+const { Title } = Typography;
 
-const contentList = {
-  1: BrowseProduct,
-  2: ManageProduct,
-};
+const pageSize = 5;
 
 const Product = () => {
-  const [activeTabKey, setActiveTabKey] = useState("1");
-  const TabComp = contentList[activeTabKey];
+  const [searchTerm, setSearchTerm] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
 
-  const tabBarExtraContent = useMemo(
-    () => ({
-      1: (
-        <Button
-          type="primary"
-          icon={<PlusCircleFilled />}
-          onClick={() => setActiveTabKey("2")}
-        >
-          Product
-        </Button>
-      ),
-      2: (
-        <Button
-          type="primary"
-          icon={<IoArrowBackCircle />}
-          onClick={() => setActiveTabKey("1")}
-        >
-          Back
-        </Button>
-      ),
-    }),
-    []
-  );
-
-  function onTabChange(key) {
-    setActiveTabKey(key);
-  }
-
-  function handleOnSuccess() {
-    setActiveTabKey("1");
-  }
-
-  function handleOnProductUpdate() {
-    setActiveTabKey("2");
-  }
+  const productResponse = useGetProductsInfoQuery({
+    page: currentPage,
+    pageSize,
+    keyword: searchTerm,
+  });
+  const { refetch, isLoading } = productResponse;
 
   return (
-    <Card
-      variant="bordered"
-      tabList={tabList}
-      activeTabKey={activeTabKey}
-      onTabChange={onTabChange}
-      tabProps={{
-        size: "middle",
-      }}
-      tabBarExtraContent={tabBarExtraContent[activeTabKey]}
-    >
-      <TabComp
-        onSuccess={handleOnSuccess}
-        onProductUpdate={handleOnProductUpdate}
+    <Space direction="vertical" size="large" className="w-full">
+      <Card>
+        <Flex justify="space-between" align="center" wrap="wrap" gap={16}>
+          <Title level={3} style={{ margin: 0 }}>
+            Products
+          </Title>
+          <Space>
+            <Button
+              color="green"
+              variant="filled"
+              icon={<RiRefreshFill />}
+              onClick={refetch}
+              loading={isLoading}
+            >
+              Refresh
+            </Button>
+            <ManageProduct operation="CREATE" />
+          </Space>
+        </Flex>
+      </Card>
+      <BrowseProduct
+        productResponse={productResponse}
+        setCurrentPage={setCurrentPage}
+        setSearchTerm={setSearchTerm}
+        pageSize={pageSize}
       />
-    </Card>
+    </Space>
   );
 };
 

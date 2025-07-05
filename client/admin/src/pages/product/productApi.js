@@ -7,18 +7,24 @@ export const productApi = createApi({
   reducerPath: "productApi",
   baseQuery: baseQuery,
   tagTypes: ["Product"],
+
+  refetchOnMountOrArgChange: false,
+  refetchOnFocus: false,
+  refetchOnReconnect: true,
   endpoints: (builder) => ({
-    getProductsInfo: builder.mutation({
-      query: ({ page, pageSize, category = "" }) =>
+    getProductsInfo: builder.query({
+      query: ({ page, pageSize, keyword = "" }) =>
         `${productBaseUrl}?page=${
           page - 1
-        }&size=${pageSize}&category=${category}&sortBy=id&sortDir=desc`,
+        }&size=${pageSize}&keyword=${keyword}&sortBy=id&sortDir=desc`,
       providesTags: ["Product"],
+      keepUnusedDataFor: 555,
     }),
     getProductCount: builder.query({
       query: () => `${productBaseUrl}/count`,
       providesTags: ["Product"],
       transformResponse: transformResponse,
+      keepUnusedDataFor: 555,
     }),
     createProduct: builder.mutation({
       query: (product) => ({
@@ -47,7 +53,7 @@ export const productApi = createApi({
 });
 
 export const {
-  useGetProductsInfoMutation,
+  useGetProductsInfoQuery,
   useGetProductCountQuery,
   useCreateProductMutation,
   useUpdateProductMutation,

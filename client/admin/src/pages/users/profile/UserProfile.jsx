@@ -17,6 +17,7 @@ import {
 import { UserOutlined, MailOutlined, PhoneOutlined } from "@ant-design/icons";
 import { FaSave } from "react-icons/fa";
 import { GrEdit } from "react-icons/gr";
+import { RiRefreshFill } from "react-icons/ri";
 
 import {
   useGetUserProfileQuery,
@@ -30,7 +31,7 @@ const { Title, Text } = Typography;
 
 const UserProfile = () => {
   const userResponse = useGetUserProfileQuery();
-  const { data: userProfile, isLoading } = userResponse;
+  const { data: userProfile, isLoading, refetch } = userResponse;
   const [updateUserProfile, { isLoading: isEditProfileLoading }] =
     useUpdateUserProfileMutation();
 
@@ -96,7 +97,12 @@ const UserProfile = () => {
               Please try refreshing the page or contact support if the problem
               persists.
             </Typography.Text>
-            <Button type="primary" onClick={() => window.location.reload()}>
+            <Button
+              color="green"
+              variant="solid"
+              icon={<RiRefreshFill />}
+              onClick={refetch}
+            >
               Reload
             </Button>
           </Space>

@@ -1,8 +1,6 @@
-import { LoadingOutlined, ProductFilled, SaveFilled } from "@ant-design/icons";
+import { LoadingOutlined, ProductFilled } from "@ant-design/icons";
 import {
-  Button,
   Col,
-  Flex,
   Form,
   Input,
   InputNumber,
@@ -12,11 +10,11 @@ import {
   Typography,
 } from "antd";
 import PropTypes from "prop-types";
-import { BiReset } from "react-icons/bi";
 import { LuLassoSelect } from "react-icons/lu";
 import { AiFillDollarCircle } from "react-icons/ai";
 import { GoNumber } from "react-icons/go";
 import { FaCode } from "react-icons/fa";
+import { TbBrandBootstrap } from "react-icons/tb";
 
 import { mapToSelect } from "../../../lib/utils";
 import { useGetCategoriesQuery } from "../../category/categoryApi";
@@ -34,22 +32,19 @@ const customizeRequiredMark = (label, { required }) => (
   </Text>
 );
 
-const ProductForm = ({ defaultValues, onSubmit, isProductSaveLoading }) => {
-  const [form] = Form.useForm();
-
+const ProductForm = ({ defaultValues, isLoading, form }) => {
   const categoryResponse = useGetCategoriesQuery();
-  const { data: categories, isLoading } = categoryResponse;
+  const { data: categories, isLoading: isCategoryLoading } = categoryResponse;
 
   return (
     <Form
       form={form}
       layout="vertical"
       requiredMark={customizeRequiredMark}
-      onFinish={onSubmit}
       initialValues={defaultValues}
     >
-      <Row gutter={[16, 16]}>
-        <Col span={24} xs={24} sm={24} md={12} lg={12} xl={12}>
+      <Row gutter={16} style={{ marginTop: "1.3rem" }}>
+        <Col span={24}>
           <Form.Item
             name="title"
             label="Title"
@@ -64,15 +59,14 @@ const ProductForm = ({ defaultValues, onSubmit, isProductSaveLoading }) => {
             <Input
               prefix={<ProductFilled />}
               placeholder="product title"
-              variant="filled"
-              suffix={isProductSaveLoading && <LoadingOutlined />}
+              suffix={isLoading && <LoadingOutlined />}
               count={{ max: 300, show: true }}
-              disabled={isProductSaveLoading}
+              disabled={isLoading}
             />
           </Form.Item>
         </Col>
 
-        <Col span={24} xs={24} sm={24} md={12} lg={12} xl={12}>
+        <Col span={24}>
           <Form.Item
             name="sku"
             label="SKU"
@@ -91,16 +85,27 @@ const ProductForm = ({ defaultValues, onSubmit, isProductSaveLoading }) => {
             <Input
               prefix={<FaCode />}
               placeholder="product sku"
-              variant="filled"
-              suffix={isProductSaveLoading && <LoadingOutlined />}
-              disabled={isProductSaveLoading}
+              suffix={isLoading && <LoadingOutlined />}
+              disabled={isLoading}
+            />
+          </Form.Item>
+        </Col>
+
+        <Col span={24}>
+          <Form.Item name="brand" label="Brand" hasFeedback>
+            <Input
+              prefix={<TbBrandBootstrap />}
+              placeholder="brand name"
+              suffix={isLoading && <LoadingOutlined />}
+              count={{ max: 100, show: true }}
+              disabled={isLoading}
             />
           </Form.Item>
         </Col>
       </Row>
 
-      <Row gutter={[16, 16]}>
-        <Col span={24} xs={24} sm={24} md={12} lg={12} xl={12}>
+      <Row gutter={16}>
+        <Col span={24}>
           <Form.Item
             name="price"
             label="Price"
@@ -119,14 +124,13 @@ const ProductForm = ({ defaultValues, onSubmit, isProductSaveLoading }) => {
               min={0}
               step={0.01}
               precision={2}
-              variant="filled"
-              suffix={isProductSaveLoading && <LoadingOutlined />}
-              disabled={isProductSaveLoading}
+              suffix={isLoading && <LoadingOutlined />}
+              disabled={isLoading}
             />
           </Form.Item>
         </Col>
 
-        <Col span={24} xs={24} sm={24} md={12} lg={12} xl={12}>
+        <Col span={24}>
           <Form.Item
             label="Select Category"
             name="categorySlug"
@@ -140,8 +144,7 @@ const ProductForm = ({ defaultValues, onSubmit, isProductSaveLoading }) => {
           >
             <Select
               prefix={<LuLassoSelect />}
-              variant="filled"
-              loading={isLoading || isProductSaveLoading}
+              loading={isLoading || isCategoryLoading}
               placeholder="category"
               options={mapToSelect(categories, "slug")}
             />
@@ -150,7 +153,7 @@ const ProductForm = ({ defaultValues, onSubmit, isProductSaveLoading }) => {
       </Row>
 
       <Row gutter={16}>
-        <Col span={24} xs={24} sm={24} md={12} lg={12} xl={12}>
+        <Col span={24}>
           <Form.Item
             name="stock"
             label="Stock"
@@ -167,57 +170,31 @@ const ProductForm = ({ defaultValues, onSubmit, isProductSaveLoading }) => {
               placeholder="product stock"
               min={0}
               style={{ width: "100%" }}
-              variant="filled"
-              suffix={isProductSaveLoading && <LoadingOutlined />}
-              disabled={isProductSaveLoading}
+              suffix={isLoading && <LoadingOutlined />}
+              disabled={isLoading}
             />
           </Form.Item>
         </Col>
 
-        <Col span={24} xs={24} sm={24} md={12} lg={12} xl={12}>
+        <Col span={24}>
           <Form.Item label="Description" name="description" hasFeedback>
             <Input.TextArea
               count={{ max: 500, show: true }}
-              disabled={isProductSaveLoading}
+              disabled={isLoading}
               rows={3}
-              variant="filled"
               placeholder="product description"
             />
           </Form.Item>
         </Col>
-
-        <Col span={24} xs={24} sm={24} md={12} lg={12} xl={12}></Col>
       </Row>
-
-      <Form.Item>
-        <Flex justify="end" gap={10}>
-          <Button
-            color="primary"
-            variant="outlined"
-            icon={<BiReset />}
-            onClick={() => form.resetFields()}
-            disabled={isProductSaveLoading}
-          >
-            Reset
-          </Button>
-          <Button
-            type="primary"
-            htmlType="submit"
-            loading={isProductSaveLoading}
-            icon={<SaveFilled />}
-          >
-            Submit
-          </Button>
-        </Flex>
-      </Form.Item>
     </Form>
   );
 };
 
 ProductForm.propTypes = {
   defaultValues: PropTypes.object,
-  onSubmit: PropTypes.func,
-  isProductSaveLoading: PropTypes.bool,
+  isLoading: PropTypes.bool,
+  form: PropTypes.object,
 };
 
 export default ProductForm;

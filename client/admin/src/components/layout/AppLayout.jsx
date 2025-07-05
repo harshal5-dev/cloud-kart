@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { LogoutOutlined } from "@ant-design/icons";
-import { Dropdown, Typography } from "antd";
+import { Dropdown, Spin, Typography } from "antd";
 import { MdCategory, MdDashboard, MdViewModule } from "react-icons/md";
 import { Link, useLocation, useNavigate } from "react-router";
 import { FaUserCircle, FaUsers } from "react-icons/fa";
-import ProLayout, { PageContainer } from "@ant-design/pro-layout";
+import ProLayout from "@ant-design/pro-layout";
 import { AiFillProduct } from "react-icons/ai";
 
 import ToggleTheme from "./ToggleTheme";
@@ -12,6 +12,7 @@ import { cssVariables } from "../../config/themeConfig";
 import { useKeycloak } from "../../hooks/useKeycloak";
 import AppRoutes from "../../routes";
 import AuthWrapper from "../AuthWrapper";
+import { useGetUserProfileQuery } from "../../pages/users/usersApi";
 
 const { Text } = Typography;
 
@@ -57,12 +58,19 @@ const route = {
 
 const AppLayout = () => {
   const [pathname, setPathname] = useState("");
-  const { userInfo, logout } = useKeycloak();
+  const { logout, isAuthenticated } = useKeycloak();
+  const {
+    data: userData,
+    isLoading,
+    isError,
+  } = useGetUserProfileQuery(undefined, {
+    skip: !isAuthenticated,
+  });
 
   const navigate = useNavigate();
   const location = useLocation();
 
-  const userRoles = userInfo?.realm_access?.roles || [];
+  const userRoles = userData?.roles || [];
 
   const hasAccess = (access) => {
     if (!access) return true;
@@ -89,7 +97,6 @@ const AppLayout = () => {
     });
   };
 
-  // Create filtered route object
   const filteredRoute = {
     ...route,
     routes: filterRoutesByRole(route.routes),
@@ -163,8 +170,37 @@ const AppLayout = () => {
           src: getAvatar(),
           size: "small",
           shape: "square",
-          title: userInfo?.given_name || "Guest",
+          title: userData?.firstName || "Guest",
           render: (_, dom) => {
+            if (isLoading) {
+              return <Spin size="small" className="flex items-center" />;
+            }
+            if (isError) {
+              return (
+                <Dropdown
+                  menu={{
+                    items: [
+                      {
+                        key: "retry",
+                        label: "Retry",
+                        onClick: () => window.location.reload(),
+                      },
+                    ],
+                  }}
+                  trigger={["click"]}
+                >
+                  <Text
+                    type="danger"
+                    className="flex items-center cursor-pointer"
+                  >
+                    Failed to load user&nbsp;
+                    <span role="img" aria-label="error">
+                      ⚠️
+                    </span>
+                  </Text>
+                </Dropdown>
+              );
+            }
             return (
               <Dropdown
                 menu={{

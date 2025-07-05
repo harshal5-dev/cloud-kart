@@ -1,23 +1,20 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { App, Col, Flex, Row, Space, Typography } from "antd";
+import { useState } from "react";
 import PropTypes from "prop-types";
-import { FcAddDatabase, FcDataConfiguration } from "react-icons/fc";
+import { App, Button, Form, Modal } from "antd";
+import { FaPencilAlt, FaSave } from "react-icons/fa";
+import { LuPackagePlus } from "react-icons/lu";
 
-import ProductForm from "./ProductForm";
 import {
   useCreateProductMutation,
   useUpdateProductMutation,
 } from "../productApi";
-import { clearProductOperation, clearSelectedProduct } from "../productSlice";
-import { pick } from "../../../lib/utils";
+import ProductForm from "./ProductForm";
 
-const { Text } = Typography;
-
-const ManageProduct = ({ onSuccess }) => {
-  let title = "Create Product";
-  let description = "create a new product to the database.";
-  let HeaderIcon = FcAddDatabase;
+const ManageProduct = ({ operation, product }) => {
+  const isUpdate = operation === "UPDATE";
+  const [form] = Form.useForm();
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const { message } = App.useApp();
   let defaultValues = {
     title: "",
     description: "",
@@ -25,105 +22,115 @@ const ManageProduct = ({ onSuccess }) => {
     price: null,
     stock: null,
     sku: "",
+    brand: "",
   };
-
-  const { notification } = App.useApp();
-  const operation = useSelector((state) => state.product.productOperation);
-  const selectedProduct = useSelector((state) => state.product.selectedProduct);
-
-  const dispatch = useDispatch();
 
   const [createProduct, { isLoading: isCreating }] = useCreateProductMutation();
   const [updateProduct, { isLoading: isUpdating }] = useUpdateProductMutation();
 
-  if (operation === "UPDATE") {
-    title = "Update Product";
-    description = "update the selected product in the database.";
-    HeaderIcon = FcDataConfiguration;
-    defaultValues = pick(selectedProduct, [
-      "title",
-      "description",
-      "categorySlug",
-      "price",
-      "stock",
-      "sku",
-    ]);
-  }
+  const handleAddProduct = () => {
+    form.resetFields();
+    setIsModalVisible(true);
+  };
 
-  async function handleOnSubmit(values) {
-    if (operation === "CREATE") {
-      try {
-        const payload = {
-          ...values,
-        };
-        const res = await createProduct(payload).unwrap();
-        notification.success({
-          message: "Success",
-          description: res.statusMessage,
-        });
-        onSuccess();
-      } catch (errorRes) {
-        const error = errorRes.data;
-        notification.error({
-          message: "Error",
-          description: error.errorMessage,
-        });
-      }
-    } else {
-      try {
-        const payload = {
-          ...values,
-          curSku: selectedProduct.sku,
-        };
-        const res = await updateProduct(payload).unwrap();
-        notification.success({
-          message: "Success",
-          description: res.statusMessage,
-        });
-        onSuccess();
-      } catch (errorRes) {
-        const error = errorRes.data;
-        notification.error({
-          message: "Error",
-          description: error.errorMessage,
-        });
-      }
-    }
-  }
+  const handleEditProduct = (product) => {
+    form.setFieldsValue(product);
+    setIsModalVisible(true);
+  };
 
-  useEffect(() => {
-    return () => {
-      dispatch(clearProductOperation());
-      dispatch(clearSelectedProduct());
-    };
-  }, [dispatch]);
+  const handleModalOk = () => {
+    form
+      .validateFields()
+      .then(async (values) => {
+        if (product) {
+          if (!form.isFieldsTouched()) {
+            message.warning("No changes made to the product");
+            setIsModalVisible(false);
+            return;
+          }
+
+          try {
+            const payload = {
+              ...values,
+              curSku: product.sku,
+            };
+            const res = await updateProduct(payload).unwrap();
+            message.success(res.statusMessage);
+            setIsModalVisible(false);
+          } catch (errorRes) {
+            const error = errorRes.data;
+            message.error(error.errorMessage);
+          }
+        } else {
+          try {
+            const payload = {
+              ...values,
+            };
+            const res = await createProduct(payload).unwrap();
+            message.success(res.statusMessage);
+            setIsModalVisible(false);
+          } catch (errorRes) {
+            const error = errorRes.data;
+            message.error(error.errorMessage);
+          }
+        }
+      })
+      .catch(() => {
+        message.error("Please fill in all required fields");
+      });
+  };
+
+  const handleModalCancel = () => {
+    setIsModalVisible(false);
+  };
 
   return (
-    <Row gutter={[0, 24]}>
-      <Col span={24}>
-        <Flex gap={10}>
-          <HeaderIcon className="size-10" />
-          <Space direction="vertical" size={0}>
-            <Text strong>{title}</Text>
-            <Text type="secondary" italic ellipsis>
-              {description}
-            </Text>
-          </Space>
-        </Flex>
-      </Col>
-      <Col span={24}>
+    <>
+      {isUpdate ? (
+        <Button
+          variant="text"
+          shape="circle"
+          color="gold"
+          icon={<FaPencilAlt />}
+          onClick={() => handleEditProduct(product)}
+        />
+      ) : (
+        <Button
+          type="primary"
+          className="ml-auto"
+          icon={<LuPackagePlus />}
+          onClick={handleAddProduct}
+        >
+          Product
+        </Button>
+      )}
+      {/* Modal for adding/editing product */}
+      <Modal
+        title={isUpdate ? "Edit Product" : "Add New Product"}
+        open={isModalVisible}
+        onOk={handleModalOk}
+        onCancel={handleModalCancel}
+        width={600}
+        okText="Save"
+        okButtonProps={{
+          icon: <FaSave />,
+        }}
+        maskClosable={false}
+        confirmLoading={isCreating || isUpdating}
+      >
         <ProductForm
           defaultValues={defaultValues}
-          onSubmit={handleOnSubmit}
-          isProductSaveLoading={isCreating || isUpdating}
+          form={form}
+          isLoading={isCreating || isUpdating}
         />
-      </Col>
-    </Row>
+      </Modal>
+    </>
   );
 };
 
 ManageProduct.propTypes = {
-  onSuccess: PropTypes.func,
+  operation: PropTypes.oneOf(["CREATE", "UPDATE"]),
+  product: PropTypes.object,
 };
 
 export default ManageProduct;

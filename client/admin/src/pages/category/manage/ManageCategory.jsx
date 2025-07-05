@@ -43,7 +43,7 @@ const ManageCategory = ({ operation, category }) => {
       .then(async (values) => {
         if (category) {
           if (!form.isFieldsTouched()) {
-            message.warning("No changes made to the user");
+            message.warning("No changes made to the category");
             setIsModalVisible(false);
             return;
           }

@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Electronics",
+    "slug": "electronics",
+    "description": "Gadgets, devices and more",
+    "imageUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/Electronics.jpeg"
+  },
+  {
+    "name": "Apparel",
+    "slug": "apparel",
+    "description": "Clothing and fashion items",
+    "imageUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/Apparel.jpeg"
+  },
+  {
+    "name": "Home & Kitchen",
+    "slug": "home-kitchen",
+    "description": "Furniture and home accessories",
+    "imageUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/Home+and+Kitchen.jpeg"
+  },
+  {
+    "name": "Books",
+    "slug": "books",
+    "description": "Fiction, non-fiction, and educational",
+    "imageUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/Books.jpeg"
+  },
+  {
+    "name": "Toys & Games",
+    "slug": "toys-games",
+    "description": "Kids toys, board games, and more",
+    "imageUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/Toys+and+Games.jpeg"
+  },
+  {
+    "name": "Sports & Outdoors",
+    "slug": "sports-outdoors",
+    "description": "Active lifestyle and sports equipment",
+    "imageUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/Sports+and+Outdoors.jpeg"
+  },
+  {
+    "name": "Health & Beauty",
+    "slug": "health-beauty",
+    "description": "Personal care products",
+    "imageUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/Health+and+Beauty.jpeg"
+  },
+  {
+    "name": "Automotive",
+    "slug": "automotive",
+    "description": "Car parts and accessories",
+    "imageUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/Automotive.jpeg"
+  }
+]
