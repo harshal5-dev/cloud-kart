@@ -2,6 +2,8 @@ package com.cloudkart.product_service.controller.v1;
 
 import java.util.List;
 import java.util.UUID;
+
+import com.cloudkart.product_service.dto.CreateDataDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -114,5 +116,21 @@ public class AdminProductImageController {
     ResponseDto<Void> responseDto =
         new ResponseDto<>(HttpStatus.OK, null, ProductImageConstants.MESSAGE_DELETED);
     return ResponseEntity.status(HttpStatus.OK).body(responseDto);
+  }
+
+  @Operation(summary = "Create Sample Product Images REST API",
+      description = "REST API to create sample product images for testing purposes")
+  @ApiResponses({
+      @ApiResponse(responseCode = "201", description = "HTTP Status CREATED",
+          content = @Content(schema = @Schema())),
+      @ApiResponse(responseCode = "500", description = "HTTP Status Internal Server Error",
+          content = @Content(schema = @Schema(implementation = ErrorResponseDto.class)))})
+  @PostMapping("/create-sample-product-images")
+  public ResponseEntity<ResponseDto<Void>> createSampleProductImages(
+      @RequestBody CreateDataDto createDataDto) {
+    iProductImageService.createSampleProductImages(createDataDto);
+    ResponseDto<Void> responseDto =
+        new ResponseDto<>(HttpStatus.CREATED, null, ProductImageConstants.MESSAGE_CREATED);
+    return ResponseEntity.status(HttpStatus.CREATED).body(responseDto);
   }
 }

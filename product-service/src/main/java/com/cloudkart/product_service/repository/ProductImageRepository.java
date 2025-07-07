@@ -9,4 +9,8 @@ import com.cloudkart.product_service.entity.ProductImage;
 @Repository
 public interface ProductImageRepository extends JpaRepository<ProductImage, UUID> {
   List<ProductImage> findByProductSku(String productSku);
+
+  long countByProduct_Id(UUID productId);
+
+  List<ProductImage> findByProduct_IdAndIsPrimary(UUID productId, boolean isPrimary);
 }

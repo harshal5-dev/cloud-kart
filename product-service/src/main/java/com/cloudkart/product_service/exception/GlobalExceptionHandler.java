@@ -71,6 +71,14 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     return new ResponseEntity<>(errorResponseDTO, HttpStatus.BAD_REQUEST);
   }
 
+  @ExceptionHandler(MaxImageCountException.class)
+  public ResponseEntity<ErrorResponseDto> handleMaxImageCountException(
+      MaxImageCountException exception, WebRequest webRequest) {
+    ErrorResponseDto errorResponseDTO = new ErrorResponseDto(webRequest.getDescription(false),
+        HttpStatus.BAD_REQUEST, exception.getMessage());
+    return new ResponseEntity<>(errorResponseDTO, HttpStatus.BAD_REQUEST);
+  }
+
   @ExceptionHandler(IllegalArgumentException.class)
   public ResponseEntity<ErrorResponseDto> handleIllegalArgumentException(
       IllegalArgumentException exception, WebRequest webRequest) {

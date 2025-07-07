@@ -4,10 +4,12 @@ import java.util.List;
 import java.util.UUID;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import com.cloudkart.user_service.constants.AddressConstants;
 import com.cloudkart.user_service.dto.AddressDto;
 import com.cloudkart.user_service.dto.AddressReqDto;
 import com.cloudkart.user_service.entity.Address;
 import com.cloudkart.user_service.entity.User;
+import com.cloudkart.user_service.exception.MaxAddressCountException;
 import com.cloudkart.user_service.exception.ResourceNotFoundException;
 import com.cloudkart.user_service.mapper.AddressMapper;
 import com.cloudkart.user_service.repository.AddressRepository;
@@ -69,10 +71,16 @@ public class AddressService implements IAddressService {
 
     User user = userService.getUserById(addressReqDto.getUserId());
 
+    long addressCount = addressRepository.countByUser_Id(user.getId());
+    if (addressCount > AddressConstants.MAX_ADDRESS_COUNT) {
+      throw new MaxAddressCountException(AddressConstants.MAX_ADDRESS_MSS);
+    }
+
     Address address = new Address();
     AddressMapper.toAddress(address, addressReqDto, user);
 
     Address savedAddress = addressRepository.save(address);
+    updateIsDefault(addressReqDto.getIsDefault(), savedAddress.getId(), user.getId());
     return AddressMapper.toAddressDto(savedAddress);
   }
 
@@ -90,20 +98,10 @@ public class AddressService implements IAddressService {
         .orElseThrow(() -> new ResourceNotFoundException("Address", "id", id.toString()));
 
     User user = userService.getUserById(addressReqDto.getUserId());
-
     AddressMapper.toAddress(address, addressReqDto, user);
 
     Address updatedAddress = addressRepository.save(address);
-
-    if (addressReqDto.getIsDefault()) {
-      List<Address> otherAddresses = addressRepository.findByUser_Id(user.getId());
-      for (Address otherAddress : otherAddresses) {
-        if (!otherAddress.getId().equals(id)) {
-          otherAddress.setIsDefault(false);
-          addressRepository.save(otherAddress);
-        }
-      }
-    }
+    updateIsDefault(addressReqDto.getIsDefault(), updatedAddress.getId(), user.getId());
 
     return AddressMapper.toAddressDto(updatedAddress);
   }
@@ -120,5 +118,17 @@ public class AddressService implements IAddressService {
     addressRepository.findById(id)
         .orElseThrow(() -> new ResourceNotFoundException("Address", "id", id.toString()));
     addressRepository.deleteByIdAndUser_Id(id, userId);
+  }
+
+  private void updateIsDefault(boolean isDefault, UUID id, UUID userId) {
+    if (isDefault) {
+      List<Address> addresses = addressRepository.findByUser_IdAndIsDefault(userId, true);
+      for (Address address : addresses) {
+        if (!address.getId().equals(id)) {
+          address.setIsDefault(false);
+          addressRepository.save(address);
+        }
+      }
+    }
   }
 }

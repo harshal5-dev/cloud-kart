@@ -1,10 +1,24 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-import { Card, Empty, Flex, Input, Result, Space, Table, Tag } from "antd";
+import {
+  Button,
+  Card,
+  Drawer,
+  Empty,
+  Flex,
+  Input,
+  Result,
+  Space,
+  Table,
+  Tag,
+  Tooltip,
+} from "antd";
+import { FaImages } from "react-icons/fa";
 
 import DeleteProduct from "./DeleteProduct";
 import { getCategorySlugColor, getRandomTagColor } from "../../../lib/utils";
 import ManageProduct from "../manage/ManageProduct";
+import ProductImages from "../productImage/ProductImages";
 
 const { Search } = Input;
 
@@ -15,6 +29,8 @@ const BrowseProduct = ({
   pageSize,
 }) => {
   const [searchText, setSearchText] = useState("");
+  const [imageDrawerOpen, setImageDrawerOpen] = useState(false);
+  const [product, setProduct] = useState(null);
 
   const { isLoading, data, isError } = productResponse;
   const { totalElements, content } = data || {};
@@ -32,6 +48,11 @@ const BrowseProduct = ({
     setSearchText("");
     setSearchTerm("");
     setCurrentPage(1);
+  };
+
+  const handleEditImages = (record) => {
+    setImageDrawerOpen(true);
+    setProduct(record);
   };
 
   const column = [
@@ -94,15 +115,14 @@ const BrowseProduct = ({
         <Space size={1}>
           <ManageProduct product={record} operation="UPDATE" />
           <DeleteProduct sku={record.sku} />
-          {/* <Tooltip title="add images">
-              <Button
-                variant="text"
-                shape="circle"
-                color="cyan"
-                icon={<FaImage />}
-                onClick={() => goToProductImages(record.sku)}
-              />
-            </Tooltip> */}
+          <Tooltip title="Images">
+            <Button
+              type="text"
+              shape="circle"
+              icon={<FaImages />}
+              onClick={() => handleEditImages(record)}
+            />
+          </Tooltip>
         </Space>
       ),
     },
@@ -153,6 +173,16 @@ const BrowseProduct = ({
             ),
           }}
         />
+
+        {/* Image Gallery Drawer */}
+        <Drawer
+          title={(product ? product.title : "Product") + " Images"}
+          open={imageDrawerOpen}
+          onClose={() => setImageDrawerOpen(false)}
+          width={555}
+        >
+          <ProductImages product={product} />
+        </Drawer>
       </Space>
     </Card>
   );

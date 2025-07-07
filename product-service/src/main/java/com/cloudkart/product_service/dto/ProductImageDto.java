@@ -3,6 +3,7 @@ package com.cloudkart.product_service.dto;
 import java.util.UUID;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -26,7 +27,12 @@ public class ProductImageDto {
 
   @Schema(description = "Sort order for the image in the product gallery", example = "0",
       type = "integer", format = "int32")
+  @NotNull(message = "sort order cannot be null")
   private Integer sortOrder = 0;
+
+  @Schema(description = "Indicates if the image is the primary image for the product",
+      example = "true", type = "boolean")
+  private Boolean isPrimary = false;
 
   @Schema(description = "Product SKU associated with the image", example = "IPHONE-14-PRO-MAX")
   @NotEmpty(message = "product SKU cannot be null or empty")

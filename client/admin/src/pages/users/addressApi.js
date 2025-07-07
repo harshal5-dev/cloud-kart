@@ -22,7 +22,7 @@ export const addressApi = createApi({
       providesTags: ["Address"],
       transformResponse: transformResponse,
       transformErrorResponse: transformErrorResponse,
-      keepUnusedDataFor: 555,
+      keepUnusedDataFor: 5555,
     }),
     createUserAddress: builder.mutation({
       query: ({ userId, address }) => ({

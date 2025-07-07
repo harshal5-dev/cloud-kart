@@ -35,7 +35,7 @@ const UserForm = ({ form, defaultValues, isLoading, isUpdate }) => {
       initialValues={defaultValues}
       requiredMark={customizeRequiredMark}
     >
-      <Row gutter={24}>
+      <Row gutter={24} style={{ marginTop: "1.3rem" }}>
         <Col span={24}>
           <Form.Item
             label="First Name"

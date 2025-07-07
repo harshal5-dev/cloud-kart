@@ -7,6 +7,7 @@ public final class ProductConstants {
   public static final String MESSAGE_UPDATED = "Product updated successfully";
   public static final String MESSAGE_DELETED = "Product deleted successfully";
   public static final String MESSAGE_COUNTED = "Total number of products counted successfully";
+  public static final String MESSAGE_SAMPLE_CREATED = "Sample product data created successfully";
 
   private ProductConstants() {
     // Prevent instantiation

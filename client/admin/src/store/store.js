@@ -1,7 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 
 import authReducer from "../features/auth/authSlice";
-import productImageReducer from "../pages/product/productImage/productImageSlice";
 import themeReducer from "../features/themeSlice";
 import { categoryApi } from "../pages/category/categoryApi";
 import { productApi } from "../pages/product/productApi";
@@ -14,7 +13,6 @@ const store = configureStore({
   reducer: {
     auth: authReducer,
     theme: themeReducer,
-    productImage: productImageReducer,
     [categoryApi.reducerPath]: categoryApi.reducer,
     [userApi.reducerPath]: userApi.reducer,
     [addressApi.reducerPath]: addressApi.reducer,

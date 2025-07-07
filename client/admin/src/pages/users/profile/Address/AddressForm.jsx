@@ -42,9 +42,10 @@ const AddressForm = ({ form, isLoading, addressTypes }) => {
         state: "",
         postalCode: "",
         phoneNumber: null,
-        isDefault: "",
+        isDefault: false,
       }}
       requiredMark={customizeRequiredMark}
+      style={{ marginTop: "1.3rem" }}
     >
       <Form.Item
         label="Address Type"

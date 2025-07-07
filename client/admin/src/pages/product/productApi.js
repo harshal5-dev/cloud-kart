@@ -18,13 +18,13 @@ export const productApi = createApi({
           page - 1
         }&size=${pageSize}&keyword=${keyword}&sortBy=id&sortDir=desc`,
       providesTags: ["Product"],
-      keepUnusedDataFor: 555,
+      keepUnusedDataFor: 5555,
     }),
     getProductCount: builder.query({
       query: () => `${productBaseUrl}/count`,
       providesTags: ["Product"],
       transformResponse: transformResponse,
-      keepUnusedDataFor: 555,
+      keepUnusedDataFor: 5555,
     }),
     createProduct: builder.mutation({
       query: (product) => ({

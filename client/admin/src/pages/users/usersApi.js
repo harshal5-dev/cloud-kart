@@ -22,7 +22,7 @@ export const userApi = createApi({
       providesTags: ["Users"],
       transformResponse: transformResponse,
       transformErrorResponse: transformErrorResponse,
-      keepUnusedDataFor: 555,
+      keepUnusedDataFor: 5555,
     }),
     updateUserProfile: builder.mutation({
       query: ({ id, user }) => ({

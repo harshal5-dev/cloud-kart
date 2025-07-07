@@ -188,9 +188,10 @@ const Address = ({ userId }) => {
                 <div>
                   <div>{address.streetAddress}</div>
                   <div>
-                    {address.city}, {address.state} {address.postalCode}
+                    {address.city}, {address.state} {address.postalCode},{" "}
+                    {address.country}
                   </div>
-                  <div>{address.country}</div>
+                  <div>Phone no.: {address.phoneNumber}</div>
                 </div>
               }
             />

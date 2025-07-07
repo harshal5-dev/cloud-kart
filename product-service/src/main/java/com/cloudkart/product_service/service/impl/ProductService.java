@@ -2,6 +2,8 @@ package com.cloudkart.product_service.service.impl;
 
 import java.util.List;
 import java.util.Optional;
+
+import com.cloudkart.product_service.dto.CreateDataDto;
 import org.springframework.stereotype.Service;
 import com.cloudkart.product_service.dto.ProductDto;
 import com.cloudkart.product_service.entity.Category;
@@ -132,5 +134,24 @@ public class ProductService implements IProductService {
     Product product = productRepository.findBySku(sku)
         .orElseThrow(() -> new ResourceNotFoundException("Product", "sku", sku));
     productRepository.deleteById(product.getId());
+  }
+
+  /**
+   * Creates sample products based on the provided data.
+   *
+   * @param createDataDto the data containing sample products to create
+   */
+  @Override
+  public void createSampleProducts(CreateDataDto createDataDto) {
+    for (ProductDto productDto : createDataDto.getProducts()) {
+      if (productRepository.findBySku(productDto.getSku()).isPresent()) {
+        continue; // Skip if product already exists
+      }
+      Category category = iCategoryService.fetchCategoryBySlug(productDto.getCategorySlug());
+      Product product = new Product();
+      product.setCategory(category);
+      ProductMapper.toModel(productDto, product);
+      productRepository.save(product);
+    }
   }
 }

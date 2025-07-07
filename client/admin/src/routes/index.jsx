@@ -3,7 +3,6 @@ import { Navigate, Route, Routes } from "react-router";
 import Dashboard from "../pages/dashboard/Dashboard";
 import Category from "../pages/category/Category";
 import Product from "../pages/product/Product";
-import ProductImage from "../pages/product/productImage/ProductImage";
 import PageNotFound from "../pages/result/PageNotFound";
 import Users from "../pages/users/Users";
 import AuthWrapper from "../components/AuthWrapper";
@@ -43,14 +42,6 @@ const AppRoutes = () => (
       element={
         <AuthWrapper requiredRoles={["ADMIN", "MANAGER"]}>
           <Product />
-        </AuthWrapper>
-      }
-    />
-    <Route
-      path="/products/images"
-      element={
-        <AuthWrapper requiredRoles={["ADMIN", "MANAGER"]}>
-          <ProductImage />
         </AuthWrapper>
       }
     />

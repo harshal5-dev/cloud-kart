@@ -20,8 +20,11 @@ public class ProductImage extends BaseModel {
   @Column(name = "alt_text")
   private String altText;
 
-  @Column(name = "sort_order")
+  @Column(name = "sort_order", nullable = false)
   private Integer sortOrder = 0;
+
+  @Column(name = "is_primary", nullable = false)
+  private Boolean isPrimary = false;
 
   @ManyToOne
   @JoinColumn(name = "product_id")

@@ -1,5 +1,6 @@
 package com.cloudkart.product_service.controller.v1;
 
+import com.cloudkart.product_service.dto.*;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -15,10 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.cloudkart.product_service.constants.ProductConstants;
-import com.cloudkart.product_service.dto.ErrorResponseDto;
-import com.cloudkart.product_service.dto.ProductDto;
-import com.cloudkart.product_service.dto.ProductResDto;
-import com.cloudkart.product_service.dto.ResponseDto;
 import com.cloudkart.product_service.service.IProductService;
 import com.cloudkart.product_service.service.IPublicProductService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -147,5 +144,20 @@ public class AdminProductController {
     ResponseDto<Long> responseDto =
         new ResponseDto<>(HttpStatus.OK, count, ProductConstants.MESSAGE_COUNTED);
     return ResponseEntity.status(HttpStatus.OK).body(responseDto);
+  }
+
+  @Operation(summary = "Create Sample Products REST API",
+      description = "REST API to create sample products for testing purposes")
+  @ApiResponses({
+      @ApiResponse(responseCode = "201", description = "HTTP Status CREATED",
+          content = @Content(schema = @Schema())),
+      @ApiResponse(responseCode = "500", description = "HTTP Status Internal Server Error",
+          content = @Content(schema = @Schema(implementation = ErrorResponseDto.class)))})
+  @PostMapping("/create-sample-products")
+  public ResponseEntity<ResponseDto<Void>> createSampleProducts(@RequestBody CreateDataDto createDataDto) {
+    iProductService.createSampleProducts(createDataDto);
+    ResponseDto<Void> responseDto =
+        new ResponseDto<>(HttpStatus.CREATED, null, ProductConstants.MESSAGE_SAMPLE_CREATED);
+    return ResponseEntity.status(HttpStatus.CREATED).body(responseDto);
   }
 }

@@ -20,4 +20,6 @@ public interface AddressRepository extends JpaRepository<Address, UUID> {
   long countByUser_Id(UUID userId);
 
   void deleteByIdAndUser_Id(UUID id, UUID userId);
+
+  List<Address> findByUser_IdAndIsDefault(UUID userId, boolean isDefault);
 }

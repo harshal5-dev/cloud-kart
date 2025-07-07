@@ -19,7 +19,7 @@ export const adminApi = createApi({
           page - 1
         }&size=${pageSize}&sortBy=id&sortDir=desc`,
       providesTags: ["Users"],
-      keepUnusedDataFor: 555,
+      keepUnusedDataFor: 5555,
     }),
     createUser: builder.mutation({
       query: (user) => ({

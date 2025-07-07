@@ -2,6 +2,8 @@ package com.cloudkart.product_service.service.impl;
 
 import java.util.List;
 import java.util.Optional;
+
+import com.cloudkart.product_service.dto.CreateDataDto;
 import org.springframework.stereotype.Service;
 import com.cloudkart.product_service.dto.CategoryDto;
 import com.cloudkart.product_service.entity.Category;
@@ -127,5 +129,16 @@ public class CategoryService implements ICategoryService {
         .orElseThrow(() -> new ResourceNotFoundException("Category", "slug", slug));
 
     categoryRepository.deleteById(category.getId());
+  }
+
+  @Override
+  public void createSampleCategories(CreateDataDto createDataDto) {
+    for (CategoryDto categoryDto : createDataDto.getCategories()) {
+      if (categoryRepository.findBySlug(categoryDto.getSlug()).isEmpty()) {
+        Category category = new Category();
+        CategoryMapper.toModel(categoryDto, category);
+        categoryRepository.save(category);
+      }
+    }
   }
 }

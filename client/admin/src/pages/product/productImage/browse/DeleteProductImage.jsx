@@ -5,27 +5,20 @@ import { FaTrashAlt } from "react-icons/fa";
 
 import { useDeleteProductImageMutation } from "../productImageApi";
 
-const DeleteProductImage = ({ id, onDelete, productSku }) => {
+const DeleteProductImage = ({ id, productSku }) => {
   const [open, setOpen] = useState(false);
 
-  const { notification } = App.useApp();
+  const { message } = App.useApp();
 
   const [deleteProductImage, { isLoading }] = useDeleteProductImageMutation();
 
   async function handleOnDelete(id) {
     try {
       const res = await deleteProductImage({ productSku, id }).unwrap();
-      notification.success({
-        message: "Success",
-        description: res.statusMessage,
-      });
-      onDelete();
+      message.success(res.statusMessage);
     } catch (errorRes) {
       const error = errorRes.data;
-      notification.error({
-        message: "Error",
-        description: error.errorMessage,
-      });
+      message.error(error.errorMessage);
     } finally {
       setOpen(false);
     }

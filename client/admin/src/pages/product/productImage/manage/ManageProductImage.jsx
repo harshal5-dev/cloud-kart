@@ -1,136 +1,135 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { App, Col, Flex, Row, Space, Typography } from "antd";
+import { useState } from "react";
 import PropTypes from "prop-types";
-import { FcAddDatabase, FcDataConfiguration } from "react-icons/fc";
+import { App, Button, Form, Modal } from "antd";
+import { FaPencilAlt, FaSave } from "react-icons/fa";
+import { RiImageAddFill } from "react-icons/ri";
 
-import { pick } from "../../../../lib/utils";
 import {
   useCreateProductImageMutation,
   useUpdateProductImageMutation,
 } from "../productImageApi";
-import {
-  clearProductImageOperation,
-  clearSelectedProductImage,
-} from "../productImageSlice";
 import ProductImageForm from "./ProductImageForm";
 
-const { Text } = Typography;
-
-const ManageProductImage = ({ onSuccess }) => {
-  let title = "Create Product Image";
-  let description = "create a new product image to the database.";
-  let HeaderIcon = FcAddDatabase;
+const ManageProductImage = ({ operation, productImage, productSku }) => {
+  const isUpdate = operation === "UPDATE";
+  const [form] = Form.useForm();
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const { message } = App.useApp();
   let defaultValues = {
     imageUrl: "",
     altText: "",
     sortOrder: null,
+    isPrimary: false,
   };
 
-  const { notification } = App.useApp();
-  const operation = useSelector(
-    (state) => state.productImage.productImageOperation
-  );
-  const selectedProductImage = useSelector(
-    (state) => state.productImage.selectedProductImage
-  );
-  const productSku = useSelector(
-    (state) => state.productImage.selectedProductSku
-  );
-
-  const dispatch = useDispatch();
   const [createProductImage, { isLoading: isCreating }] =
     useCreateProductImageMutation();
   const [updateProductImage, { isLoading: isUpdating }] =
     useUpdateProductImageMutation();
 
-  if (operation === "UPDATE") {
-    title = "Update Product Image";
-    description = "update the selected product image in the database.";
-    HeaderIcon = FcDataConfiguration;
-    defaultValues = pick(selectedProductImage, [
-      "imageUrl",
-      "altText",
-      "sortOrder",
-    ]);
-  }
+  const handleAddProductImage = () => {
+    form.resetFields();
+    setIsModalVisible(true);
+  };
 
-  async function handleOnSubmit(values) {
-    if (operation === "CREATE") {
-      try {
-        const payload = {
-          ...values,
-          productSku,
-        };
-        const res = await createProductImage(payload).unwrap();
-        notification.success({
-          message: "Success",
-          description: res.statusMessage,
-        });
-        onSuccess();
-      } catch (errorRes) {
-        const error = errorRes.data;
-        notification.error({
-          message: "Error",
-          description: error.errorMessage,
-        });
-      }
-    } else {
-      try {
-        const payload = {
-          ...values,
-          id: selectedProductImage.id,
-          productSku,
-        };
-        const res = await updateProductImage(payload).unwrap();
-        notification.success({
-          message: "Success",
-          description: res.statusMessage,
-        });
-        onSuccess();
-      } catch (errorRes) {
-        const error = errorRes.data;
-        notification.error({
-          message: "Error",
-          description: error.errorMessage,
-        });
-      }
-    }
-  }
+  const handleEditProductImage = (productImage) => {
+    form.setFieldsValue(productImage);
+    setIsModalVisible(true);
+  };
 
-  useEffect(() => {
-    return () => {
-      dispatch(clearProductImageOperation());
-      dispatch(clearSelectedProductImage());
-    };
-  }, [dispatch]);
+  const handleModalOk = () => {
+    form
+      .validateFields()
+      .then(async (values) => {
+        if (productImage) {
+          if (!form.isFieldsTouched()) {
+            message.warning("No changes made to the product image");
+            setIsModalVisible(false);
+            return;
+          }
+
+          try {
+            const payload = {
+              ...values,
+              id: productImage.id,
+              productSku,
+            };
+            const res = await updateProductImage(payload).unwrap();
+            message.success(res.statusMessage);
+            setIsModalVisible(false);
+          } catch (error) {
+            message.error(error.errorMessage);
+          }
+        } else {
+          try {
+            const payload = {
+              ...values,
+              productSku,
+            };
+            const res = await createProductImage(payload).unwrap();
+            message.success(res.statusMessage);
+            setIsModalVisible(false);
+          } catch (error) {
+            message.error(error.errorMessage);
+          }
+        }
+      })
+      .catch(() => {
+        message.error("Please fill in all required fields");
+      });
+  };
+
+  const handleModalCancel = () => {
+    setIsModalVisible(false);
+  };
 
   return (
-    <Row gutter={[0, 24]}>
-      <Col span={24}>
-        <Flex gap={10}>
-          <HeaderIcon className="size-10" />
-          <Space direction="vertical" size={0}>
-            <Text strong>{title}</Text>
-            <Text type="secondary" italic ellipsis>
-              {description}
-            </Text>
-          </Space>
-        </Flex>
-      </Col>
-      <Col span={24}>
-        <ProductImageForm
-          defaultValues={defaultValues}
-          onSubmit={handleOnSubmit}
-          isProductSaveLoading={isCreating || isUpdating}
+    <>
+      {isUpdate ? (
+        <Button
+          variant="text"
+          shape="circle"
+          color="gold"
+          icon={<FaPencilAlt />}
+          onClick={() => handleEditProductImage(productImage)}
         />
-      </Col>
-    </Row>
+      ) : (
+        <Button
+          type="primary"
+          icon={<RiImageAddFill />}
+          onClick={handleAddProductImage}
+        >
+          Image
+        </Button>
+      )}
+      {/* Modal for adding/editing user */}
+      <Modal
+        title={isUpdate ? "Edit Product Image" : "Add New Product Image"}
+        open={isModalVisible}
+        onOk={handleModalOk}
+        onCancel={handleModalCancel}
+        width={600}
+        okText="Save"
+        okButtonProps={{
+          icon: <FaSave />,
+        }}
+        maskClosable={false}
+        confirmLoading={isCreating || isUpdating}
+      >
+        <ProductImageForm
+          form={form}
+          defaultValues={defaultValues}
+          isLoading={isCreating || isUpdating}
+        />
+      </Modal>
+    </>
   );
 };
 
 ManageProductImage.propTypes = {
-  onSuccess: PropTypes.func,
+  operation: PropTypes.oneOf(["CREATE", "UPDATE"]),
+  productImage: PropTypes.object,
+  productSku: PropTypes.string,
 };
 
 export default ManageProductImage;

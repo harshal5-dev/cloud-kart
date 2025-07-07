@@ -14,6 +14,7 @@ public final class ProductImageMapper {
     productImageDto.setImageUrl(productImage.getImageUrl());
     productImageDto.setAltText(productImage.getAltText());
     productImageDto.setSortOrder(productImage.getSortOrder());
+    productImageDto.setIsPrimary(productImage.getIsPrimary());
 
     return productImageDto;
   }
@@ -23,6 +24,7 @@ public final class ProductImageMapper {
     productImage.setImageUrl(productImageDto.getImageUrl());
     productImage.setAltText(productImageDto.getAltText());
     productImage.setSortOrder(productImageDto.getSortOrder());
+    productImage.setIsPrimary(productImageDto.getIsPrimary());
 
   }
 
@@ -32,6 +34,7 @@ public final class ProductImageMapper {
     productImageResDto.setImageUrl(productImage.getImageUrl());
     productImageResDto.setAltText(productImage.getAltText());
     productImageResDto.setSortOrder(productImage.getSortOrder());
+    productImageResDto.setIsPrimary(productImage.getIsPrimary());
 
     return productImageResDto;
   }

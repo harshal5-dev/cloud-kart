@@ -17,13 +17,13 @@ export const categoryApi = createApi({
       query: () => categoryBaseUrl,
       providesTags: ["Category"],
       transformResponse: transformResponse,
-      keepUnusedDataFor: 555,
+      keepUnusedDataFor: 5555,
     }),
     getCategoryCount: builder.query({
       query: () => `${categoryBaseUrl}/count`,
       providesTags: ["Category"],
       transformResponse: transformResponse,
-      keepUnusedDataFor: 555,
+      keepUnusedDataFor: 5555,
     }),
     createCategory: builder.mutation({
       query: (category) => ({

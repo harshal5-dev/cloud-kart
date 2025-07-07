@@ -72,6 +72,14 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     return new ResponseEntity<>(errorResponseDTO, HttpStatus.BAD_REQUEST);
   }
 
+  @ExceptionHandler(MaxAddressCountException.class)
+  public ResponseEntity<ErrorResponseDto> handleMaxAddressCountException(
+      MaxAddressCountException exception, WebRequest webRequest) {
+    ErrorResponseDto errorResponseDTO = new ErrorResponseDto(webRequest.getDescription(false),
+        HttpStatus.BAD_REQUEST, exception.getMessage());
+    return new ResponseEntity<>(errorResponseDTO, HttpStatus.BAD_REQUEST);
+  }
+
   @ExceptionHandler(RuntimeException.class)
   public ResponseEntity<ErrorResponseDto> handleRuntimeException(RuntimeException exception,
       WebRequest webRequest) {

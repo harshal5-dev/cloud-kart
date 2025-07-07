@@ -1,6 +1,9 @@
 package com.cloudkart.product_service.controller.v1;
 
 import java.util.List;
+
+import com.cloudkart.product_service.dto.CreateDataDto;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -35,13 +38,10 @@ import jakarta.validation.constraints.NotNull;
 @RequestMapping(path = "/api/v1/admin/categories", produces = {MediaType.APPLICATION_JSON_VALUE})
 @Validated
 @SecurityRequirement(name = "bearerAuth")
+@RequiredArgsConstructor
 public class AdminCategoryController {
 
   private final ICategoryService iCategoryService;
-
-  public AdminCategoryController(ICategoryService iCategoryService) {
-    this.iCategoryService = iCategoryService;
-  }
 
   @Operation(summary = "Create Category REST API",
       description = "REST API to create new Category inside Cloud Kart")
@@ -137,4 +137,19 @@ public class AdminCategoryController {
     return ResponseEntity.status(HttpStatus.OK)
         .body(new ResponseDto<>(HttpStatus.OK, count, CategoryConstants.MESSAGE_COUNTED));
   }
+
+  @Operation(summary = "Create Sample Categories REST API",
+      description = "REST API to create sample categories for testing purposes")
+  @ApiResponses({
+      @ApiResponse(responseCode = "201", description = "HTTP Status CREATED",
+          content = @Content(schema = @Schema(implementation = ResponseDto.class))),
+      @ApiResponse(responseCode = "500", description = "HTTP Status Internal Server Error",
+          content = @Content(schema = @Schema(implementation = ErrorResponseDto.class)))})
+  @PostMapping("/create-sample-categories")
+  public ResponseEntity<ResponseDto<Void>> createSampleCategories(@RequestBody CreateDataDto createDataDto) {
+    iCategoryService.createSampleCategories(createDataDto);
+    return ResponseEntity.status(HttpStatus.CREATED)
+        .body(new ResponseDto<>(HttpStatus.CREATED, null, CategoryConstants.MESSAGE_CREATED));
+  }
+
 }

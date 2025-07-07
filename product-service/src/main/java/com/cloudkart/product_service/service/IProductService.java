@@ -1,6 +1,8 @@
 package com.cloudkart.product_service.service;
 
 import java.util.List;
+
+import com.cloudkart.product_service.dto.CreateDataDto;
 import com.cloudkart.product_service.dto.ProductDto;
 import com.cloudkart.product_service.entity.Product;
 
@@ -61,4 +63,11 @@ public interface IProductService {
    * @param sku the SKU of the product to delete
    */
   void deleteProduct(String sku);
+
+  /**
+   * Creates sample products based on the provided data.
+   *
+   * @param createDataDto the data for creating sample products
+   */
+  void createSampleProducts(CreateDataDto createDataDto);
 }

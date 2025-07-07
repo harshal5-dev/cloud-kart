@@ -25,7 +25,7 @@ const CategoryForm = ({ form, defaultValues, isLoading }) => {
       requiredMark={customizeRequiredMark}
       initialValues={defaultValues}
     >
-      <Row gutter={16}>
+      <Row gutter={16} style={{ marginTop: "1.3rem" }}>
         <Col span={24}>
           <Form.Item
             name="name"
