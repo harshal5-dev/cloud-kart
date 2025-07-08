@@ -43,6 +43,7 @@
 		<jib-maven-plugin.version>3.4.6</jib-maven-plugin.version>
 
 		<!-- Docker Registry Configuration -->
+		<app.prefix>ck</app.prefix>
 		<docker.username>harshaldev55</docker.username>
 		<docker.tag.strategy>v1</docker.tag.strategy>
 	</properties>
@@ -143,7 +144,7 @@
 						</platforms>
 					</from>
 					<to>
-						<image>${docker.username}/${project.artifactId}:${docker.tag.strategy}</image>
+						<image>${docker.username}/${app.prefix}-${project.artifactId}:${docker.tag.strategy}</image>
 					</to>
 					<allowInsecureRegistries>false</allowInsecureRegistries>
 					<skip>false</skip>
