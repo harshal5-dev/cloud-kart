@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import org.slf4j.Logger;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.convert.converter.Converter;
@@ -32,6 +33,9 @@ public class SecurityConfig {
   private final CustomAccessDeniedHandler accessDeniedHandler;
 
   private static final Logger log = org.slf4j.LoggerFactory.getLogger(SecurityConfig.class);
+
+  @Value("${app.frontend.url}")
+  private String frontendUrl;
 
   public SecurityConfig(CustomAuthenticationEntryPoint authenticationEntryPoint,
       CustomAccessDeniedHandler accessDeniedHandler) {
@@ -88,9 +92,9 @@ public class SecurityConfig {
   }
 
   @Bean
-  public CorsConfigurationSource corsConfigurationSource() {
+  CorsConfigurationSource corsConfigurationSource() {
     CorsConfiguration configuration = new CorsConfiguration();
-    configuration.setAllowedOrigins(List.of("http://localhost:5173"));
+    configuration.setAllowedOrigins(List.of(frontendUrl));
     configuration
         .setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
     configuration.setAllowedHeaders(Arrays.asList("authorization", "content-type", "x-auth-token"));

@@ -36,7 +36,7 @@ export const isEmpty = (object) =>
   object === null || object === undefined || Object.keys(object).length === 0;
 
 export const baseQuery = fetchBaseQuery({
-  baseUrl: "http://localhost:5558/api/v1",
+  baseUrl: import.meta.env.VITE_API_BASE_URL,
   prepareHeaders: (headers) => {
     const token = keycloakService.getToken();
     if (token) {

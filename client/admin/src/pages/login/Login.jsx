@@ -37,7 +37,9 @@ const Login = () => {
               <img src="/logo.svg" alt="Logo" className="size-20" />
             </Link>
             <Title level={3}>Welcome to Cloud kart</Title>
-            {error && <Alert message={error} type="error" showIcon />}
+            {!isLoading && error && (
+              <Alert message={error} type="error" showIcon />
+            )}
           </Flex>
           <Button
             type="primary"

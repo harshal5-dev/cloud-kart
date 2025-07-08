@@ -1,9 +1,9 @@
 import Keycloak from "keycloak-js";
 
 const keycloakConfig = {
-  url: "http://localhost:7080",
-  realm: "ecommerce",
-  clientId: "ck-admin-ui-client",
+  url: import.meta.env.VITE_KEYCLOAK_URL,
+  realm: import.meta.env.VITE_KEYCLOAK_REALM,
+  clientId: import.meta.env.VITE_KEYCLOAK_CLIENT_ID,
 };
 
 const keycloak = new Keycloak(keycloakConfig);

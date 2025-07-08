@@ -21,7 +21,7 @@ const getAvatar = () => {
 };
 
 const route = {
-  path: "/dashboard",
+  path: "/",
   routes: [
     {
       path: "#",
@@ -33,7 +33,7 @@ const route = {
       path: "/dashboard",
       name: "Dashboard",
       icon: <MdDashboard />,
-      access: "canAdmin",
+      access: "canManage",
     },
     {
       path: "/users",
