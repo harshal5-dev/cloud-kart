@@ -3,8 +3,6 @@ package com.cloudkart.product_service.service;
 
 import java.util.List;
 import java.util.UUID;
-
-import com.cloudkart.product_service.dto.CreateDataDto;
 import com.cloudkart.product_service.dto.ProductImageDto;
 
 public interface IProductImageService {
@@ -49,5 +47,5 @@ public interface IProductImageService {
    *
    * @param createDataDto the CreateDataDto containing product image data
    */
-  void createSampleProductImages(CreateDataDto createDataDto);
+  void createSampleProductImages(List<ProductImageDto> productImages);
 }

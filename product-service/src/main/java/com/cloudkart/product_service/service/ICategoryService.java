@@ -3,7 +3,6 @@ package com.cloudkart.product_service.service;
 
 import java.util.List;
 import com.cloudkart.product_service.dto.CategoryDto;
-import com.cloudkart.product_service.dto.CreateDataDto;
 import com.cloudkart.product_service.entity.Category;
 
 public interface ICategoryService {
@@ -69,5 +68,5 @@ public interface ICategoryService {
    *
    * @param createDataDto the data transfer object containing sample category data
    */
-  void createSampleCategories(CreateDataDto createDataDto);
+  void createSampleCategories(List<CategoryDto> categories);
 }

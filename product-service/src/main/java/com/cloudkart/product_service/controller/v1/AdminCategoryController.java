@@ -1,9 +1,6 @@
 package com.cloudkart.product_service.controller.v1;
 
 import java.util.List;
-
-import com.cloudkart.product_service.dto.CreateDataDto;
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -18,9 +15,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.cloudkart.product_service.constants.CategoryConstants;
 import com.cloudkart.product_service.dto.CategoryDto;
+import com.cloudkart.product_service.dto.CreateDataDto;
 import com.cloudkart.product_service.dto.ErrorResponseDto;
 import com.cloudkart.product_service.dto.ResponseDto;
 import com.cloudkart.product_service.service.ICategoryService;
+import com.cloudkart.product_service.service.ICreateDataService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -31,6 +30,7 @@ import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
+import lombok.RequiredArgsConstructor;
 
 @Tag(name = "Admin CRUD REST APIs for Category in Cloud Kart",
     description = "CRUD REST APIs in Cloud kart to CREATE, READ, UPDATE and DELETE category details.")
@@ -42,6 +42,7 @@ import jakarta.validation.constraints.NotNull;
 public class AdminCategoryController {
 
   private final ICategoryService iCategoryService;
+  private final ICreateDataService iCreateDataService;
 
   @Operation(summary = "Create Category REST API",
       description = "REST API to create new Category inside Cloud Kart")
@@ -146,8 +147,9 @@ public class AdminCategoryController {
       @ApiResponse(responseCode = "500", description = "HTTP Status Internal Server Error",
           content = @Content(schema = @Schema(implementation = ErrorResponseDto.class)))})
   @PostMapping("/create-sample-categories")
-  public ResponseEntity<ResponseDto<Void>> createSampleCategories(@RequestBody CreateDataDto createDataDto) {
-    iCategoryService.createSampleCategories(createDataDto);
+  public ResponseEntity<ResponseDto<Void>> createSampleCategories(
+      @RequestBody CreateDataDto createDataDto) {
+    iCreateDataService.createCategoriesSampleData(createDataDto);
     return ResponseEntity.status(HttpStatus.CREATED)
         .body(new ResponseDto<>(HttpStatus.CREATED, null, CategoryConstants.MESSAGE_CREATED));
   }

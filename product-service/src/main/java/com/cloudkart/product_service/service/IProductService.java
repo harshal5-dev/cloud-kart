@@ -1,8 +1,6 @@
 package com.cloudkart.product_service.service;
 
 import java.util.List;
-
-import com.cloudkart.product_service.dto.CreateDataDto;
 import com.cloudkart.product_service.dto.ProductDto;
 import com.cloudkart.product_service.entity.Product;
 
@@ -69,5 +67,5 @@ public interface IProductService {
    *
    * @param createDataDto the data for creating sample products
    */
-  void createSampleProducts(CreateDataDto createDataDto);
+  void createSampleProducts(List<ProductDto> products);
 }

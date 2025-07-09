@@ -1,6 +1,5 @@
 package com.cloudkart.product_service.controller.v1;
 
-import com.cloudkart.product_service.dto.*;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -16,6 +15,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.cloudkart.product_service.constants.ProductConstants;
+import com.cloudkart.product_service.constants.ProductImageConstants;
+import com.cloudkart.product_service.dto.CreateDataDto;
+import com.cloudkart.product_service.dto.ErrorResponseDto;
+import com.cloudkart.product_service.dto.ProductDto;
+import com.cloudkart.product_service.dto.ProductResDto;
+import com.cloudkart.product_service.dto.ResponseDto;
+import com.cloudkart.product_service.service.ICreateDataService;
 import com.cloudkart.product_service.service.IProductService;
 import com.cloudkart.product_service.service.IPublicProductService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -27,6 +33,7 @@ import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
+import lombok.RequiredArgsConstructor;
 
 
 @Tag(name = "Admin CRUD REST APIs for Product in Cloud Kart",
@@ -35,16 +42,12 @@ import jakarta.validation.constraints.NotNull;
 @RequestMapping(path = "/api/v1/admin/products", produces = {MediaType.APPLICATION_JSON_VALUE})
 @Validated
 @SecurityRequirement(name = "bearerAuth")
+@RequiredArgsConstructor
 public class AdminProductController {
 
   private final IProductService iProductService;
   private final IPublicProductService iPublicProductService;
-
-  public AdminProductController(IProductService iProductService,
-      IPublicProductService iPublicProductService) {
-    this.iProductService = iProductService;
-    this.iPublicProductService = iPublicProductService;
-  }
+  private final ICreateDataService iCreateDataService;
 
   @Operation(summary = "Search Products REST API",
       description = "REST API to search products with various filters like category, keyword, brand, price range, and pagination.")
@@ -154,10 +157,27 @@ public class AdminProductController {
       @ApiResponse(responseCode = "500", description = "HTTP Status Internal Server Error",
           content = @Content(schema = @Schema(implementation = ErrorResponseDto.class)))})
   @PostMapping("/create-sample-products")
-  public ResponseEntity<ResponseDto<Void>> createSampleProducts(@RequestBody CreateDataDto createDataDto) {
-    iProductService.createSampleProducts(createDataDto);
+  public ResponseEntity<ResponseDto<Void>> createSampleProducts(
+      @RequestBody CreateDataDto createDataDto) {
+    iCreateDataService.createProductsSampleData(createDataDto);
     ResponseDto<Void> responseDto =
         new ResponseDto<>(HttpStatus.CREATED, null, ProductConstants.MESSAGE_SAMPLE_CREATED);
+    return ResponseEntity.status(HttpStatus.CREATED).body(responseDto);
+  }
+
+  @Operation(summary = "Create Sample Product Images REST API",
+      description = "REST API to create sample product images for testing purposes")
+  @ApiResponses({
+      @ApiResponse(responseCode = "201", description = "HTTP Status CREATED",
+          content = @Content(schema = @Schema())),
+      @ApiResponse(responseCode = "500", description = "HTTP Status Internal Server Error",
+          content = @Content(schema = @Schema(implementation = ErrorResponseDto.class)))})
+  @PostMapping("/create-sample-product-images")
+  public ResponseEntity<ResponseDto<Void>> createSampleProductImages(
+      @RequestBody CreateDataDto createDataDto) {
+    iCreateDataService.createProductImagesSampleData(createDataDto);
+    ResponseDto<Void> responseDto =
+        new ResponseDto<>(HttpStatus.CREATED, null, ProductImageConstants.MESSAGE_CREATED);
     return ResponseEntity.status(HttpStatus.CREATED).body(responseDto);
   }
 }

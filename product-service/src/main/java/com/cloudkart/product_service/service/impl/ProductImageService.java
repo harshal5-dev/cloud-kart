@@ -2,8 +2,6 @@ package com.cloudkart.product_service.service.impl;
 
 import java.util.List;
 import java.util.UUID;
-
-import com.cloudkart.product_service.dto.CreateDataDto;
 import org.springframework.stereotype.Service;
 import com.cloudkart.product_service.constants.ProductImageConstants;
 import com.cloudkart.product_service.dto.ProductImageDto;
@@ -112,6 +110,25 @@ public class ProductImageService implements IProductImageService {
 
   }
 
+  /**
+   * Updates the primary status of product images.
+   *
+   * @param isPrimary the primary status to set
+   * @param id the ID of the product image
+   * @param productId the ID of the product to which the image belongs
+   */
+  private void updateIsPrimary(boolean isPrimary, UUID id, UUID productId) {
+    if (isPrimary) {
+      List<ProductImage> productImages =
+          productImageRepository.findByProduct_IdAndIsPrimary(productId, true);
+      for (ProductImage productImage : productImages) {
+        if (!productImage.getId().equals(id)) {
+          productImage.setIsPrimary(false);
+          productImageRepository.save(productImage);
+        }
+      }
+    }
+  }
 
   /**
    * Creates sample product images based on the provided CreateDataDto.
@@ -119,8 +136,8 @@ public class ProductImageService implements IProductImageService {
    * @param createDataDto the CreateDataDto containing product image data
    */
   @Override
-  public void createSampleProductImages(CreateDataDto createDataDto) {
-    for (ProductImageDto productImageDto : createDataDto.getProductImages()) {
+  public void createSampleProductImages(List<ProductImageDto> productImages) {
+    for (ProductImageDto productImageDto : productImages) {
       Product product = iProductService.fetchProductBySku(productImageDto.getProductSku());
 
       long imageCount = productImageRepository.countByProduct_Id(product.getId());
@@ -134,25 +151,6 @@ public class ProductImageService implements IProductImageService {
       ProductImageMapper.toModel(productImageDto, productImage);
       ProductImage savedProductImage = productImageRepository.save(productImage);
       updateIsPrimary(productImageDto.getIsPrimary(), savedProductImage.getId(), product.getId());
-    }
-  }
-
-  /**
-   * Updates the primary status of product images.
-   *
-   * @param isPrimary the primary status to set
-   * @param id the ID of the product image
-   * @param productId the ID of the product to which the image belongs
-   */
-  private void updateIsPrimary(boolean isPrimary, UUID id, UUID productId) {
-    if (isPrimary) {
-      List<ProductImage> productImages = productImageRepository.findByProduct_IdAndIsPrimary(productId, true);
-      for (ProductImage productImage : productImages) {
-        if (!productImage.getId().equals(id)) {
-          productImage.setIsPrimary(false);
-          productImageRepository.save(productImage);
-        }
-      }
     }
   }
 

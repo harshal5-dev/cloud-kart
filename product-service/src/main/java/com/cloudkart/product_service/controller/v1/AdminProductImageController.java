@@ -2,8 +2,6 @@ package com.cloudkart.product_service.controller.v1;
 
 import java.util.List;
 import java.util.UUID;
-
-import com.cloudkart.product_service.dto.CreateDataDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -31,6 +29,7 @@ import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
+import lombok.RequiredArgsConstructor;
 
 @Tag(name = "Admin CRUD REST APIs for Product Image in Cloud Kart",
     description = "CRUD REST APIs in Cloud kart to CREATE, READ, UPDATE and DELETE product image details.")
@@ -39,13 +38,11 @@ import jakarta.validation.constraints.NotNull;
     produces = {MediaType.APPLICATION_JSON_VALUE})
 @Validated
 @SecurityRequirement(name = "bearerAuth")
+@RequiredArgsConstructor
 public class AdminProductImageController {
 
   private final IProductImageService iProductImageService;
 
-  public AdminProductImageController(IProductImageService iProductImageService) {
-    this.iProductImageService = iProductImageService;
-  }
 
   @Operation(summary = "Fetch Product Images Details REST API",
       description = "REST API to fetch Product images details based on a product SKU")
@@ -116,21 +113,5 @@ public class AdminProductImageController {
     ResponseDto<Void> responseDto =
         new ResponseDto<>(HttpStatus.OK, null, ProductImageConstants.MESSAGE_DELETED);
     return ResponseEntity.status(HttpStatus.OK).body(responseDto);
-  }
-
-  @Operation(summary = "Create Sample Product Images REST API",
-      description = "REST API to create sample product images for testing purposes")
-  @ApiResponses({
-      @ApiResponse(responseCode = "201", description = "HTTP Status CREATED",
-          content = @Content(schema = @Schema())),
-      @ApiResponse(responseCode = "500", description = "HTTP Status Internal Server Error",
-          content = @Content(schema = @Schema(implementation = ErrorResponseDto.class)))})
-  @PostMapping("/create-sample-product-images")
-  public ResponseEntity<ResponseDto<Void>> createSampleProductImages(
-      @RequestBody CreateDataDto createDataDto) {
-    iProductImageService.createSampleProductImages(createDataDto);
-    ResponseDto<Void> responseDto =
-        new ResponseDto<>(HttpStatus.CREATED, null, ProductImageConstants.MESSAGE_CREATED);
-    return ResponseEntity.status(HttpStatus.CREATED).body(responseDto);
   }
 }
