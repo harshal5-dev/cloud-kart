@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import org.slf4j.Logger;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.convert.converter.Converter;
@@ -22,6 +21,7 @@ import org.springframework.security.web.server.SecurityWebFilterChain;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.reactive.CorsConfigurationSource;
 import org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource;
+import com.cloudkart.api_gateway.dto.AppConfigDto;
 import com.cloudkart.api_gateway.security.CustomAccessDeniedHandler;
 import com.cloudkart.api_gateway.security.CustomAuthenticationEntryPoint;
 import reactor.core.publisher.Mono;
@@ -31,16 +31,15 @@ import reactor.core.publisher.Mono;
 public class SecurityConfig {
   private final CustomAuthenticationEntryPoint authenticationEntryPoint;
   private final CustomAccessDeniedHandler accessDeniedHandler;
+  private final AppConfigDto appConfigDto;
 
   private static final Logger log = org.slf4j.LoggerFactory.getLogger(SecurityConfig.class);
 
-  @Value("${app.frontend.url}")
-  private String frontendUrl;
-
   public SecurityConfig(CustomAuthenticationEntryPoint authenticationEntryPoint,
-      CustomAccessDeniedHandler accessDeniedHandler) {
+      CustomAccessDeniedHandler accessDeniedHandler, AppConfigDto appConfigDto) {
     this.authenticationEntryPoint = authenticationEntryPoint;
     this.accessDeniedHandler = accessDeniedHandler;
+    this.appConfigDto = appConfigDto;
   }
 
   @Bean
@@ -64,7 +63,7 @@ public class SecurityConfig {
   }
 
   @Bean
-  public Converter<Jwt, Mono<AbstractAuthenticationToken>> jwtAuthenticationConverter() {
+  Converter<Jwt, Mono<AbstractAuthenticationToken>> jwtAuthenticationConverter() {
     return jwt -> {
       Collection<GrantedAuthority> authorities = extractAuthorities(jwt);
       return Mono.just(new JwtAuthenticationToken(jwt, authorities));
@@ -94,7 +93,7 @@ public class SecurityConfig {
   @Bean
   CorsConfigurationSource corsConfigurationSource() {
     CorsConfiguration configuration = new CorsConfiguration();
-    configuration.setAllowedOrigins(List.of(frontendUrl));
+    configuration.setAllowedOrigins(appConfigDto.getFrontendUrls());
     configuration
         .setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
     configuration.setAllowedHeaders(Arrays.asList("authorization", "content-type", "x-auth-token"));

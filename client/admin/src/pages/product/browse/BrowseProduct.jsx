@@ -157,6 +157,8 @@ const BrowseProduct = ({
             total: totalElements,
             showTotal: (total, range) =>
               `${range[0]}-${range[1]} of ${total} items`,
+            current: (data?.pageable?.pageNumber || 0) + 1,
+            pageSizeOptions: ["5"],
           }}
           locale={{
             emptyText: isError ? (
