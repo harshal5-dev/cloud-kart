@@ -3,6 +3,7 @@ package com.cloudkart.product_service.mapper;
 import java.util.UUID;
 import com.cloudkart.product_service.dto.ProductDto;
 import com.cloudkart.product_service.dto.ProductResDto;
+import com.cloudkart.product_service.entity.AvailabilityStatus;
 import com.cloudkart.product_service.entity.Product;
 
 public final class ProductMapper {
@@ -32,7 +33,17 @@ public final class ProductMapper {
     productDto.setSku(product.getSku());
     productDto.setBrand(product.getBrand());
     productDto.setFeatured(product.isFeatured());
-    productDto.setTotalSales(product.getTotalSales());
+    productDto.setDiscountPercentage(product.getDiscountPercentage());
+    productDto.setWeight(product.getWeight());
+    productDto.setWidth(product.getWidth());
+    productDto.setHeight(product.getHeight());
+    productDto.setDepth(product.getDepth());
+    productDto.setMinimumOrderQuantity(product.getMinimumOrderQuantity());
+    productDto.setAvailabilityStatus(product.getAvailabilityStatus().name());
+    productDto.setShippingDetails(product.getShippingDetails());
+    productDto.setWarrantyDetails(product.getWarrantyDetails());
+    productDto.setReturnPolicy(product.getReturnPolicy());
+    productDto.setThumbnail(product.getThumbnail());
 
     return productDto;
   }
@@ -45,8 +56,23 @@ public final class ProductMapper {
     product.setStock(productDto.getStock());
     product.setBrand(productDto.getBrand());
     product.setFeatured(productDto.isFeatured());
-    product.setTotalSales(productDto.getTotalSales());
     product.setSku(normalizeSlug(productDto.getTitle(), productDto.getSku()));
+    product.setDiscountPercentage(productDto.getDiscountPercentage());
+    product.setWeight(productDto.getWeight());
+    product.setWidth(productDto.getWidth());
+    product.setHeight(productDto.getHeight());
+    product.setDepth(productDto.getDepth());
+    product.setMinimumOrderQuantity(productDto.getMinimumOrderQuantity());
+
+    // Convert string to enum for availability status
+    if (productDto.getAvailabilityStatus() != null) {
+      product.setAvailabilityStatus(AvailabilityStatus.valueOf(productDto.getAvailabilityStatus()));
+    }
+
+    product.setShippingDetails(productDto.getShippingDetails());
+    product.setWarrantyDetails(productDto.getWarrantyDetails());
+    product.setReturnPolicy(productDto.getReturnPolicy());
+    product.setThumbnail(productDto.getThumbnail());
 
   }
 
@@ -63,6 +89,18 @@ public final class ProductMapper {
     productResDto.setBrand(product.getBrand());
     productResDto.setFeatured(product.isFeatured());
     productResDto.setTotalSales(product.getTotalSales());
+    productResDto.setAverageRating(product.getAverageRating());
+    productResDto.setDiscountPercentage(product.getDiscountPercentage());
+    productResDto.setWeight(product.getWeight());
+    productResDto.setWidth(product.getWidth());
+    productResDto.setHeight(product.getHeight());
+    productResDto.setDepth(product.getDepth());
+    productResDto.setMinimumOrderQuantity(product.getMinimumOrderQuantity());
+    productResDto.setAvailabilityStatus(product.getAvailabilityStatus().name());
+    productResDto.setShippingDetails(product.getShippingDetails());
+    productResDto.setWarrantyDetails(product.getWarrantyDetails());
+    productResDto.setReturnPolicy(product.getReturnPolicy());
+    productResDto.setThumbnail(product.getThumbnail());
     productResDto.setProductImages(
         product.getProductImages().stream().map(ProductImageMapper::toResDto).toList());
 

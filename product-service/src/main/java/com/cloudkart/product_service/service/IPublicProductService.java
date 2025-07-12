@@ -1,7 +1,7 @@
 package com.cloudkart.product_service.service;
 
 import java.util.List;
-import org.springframework.data.domain.Page;
+import com.cloudkart.product_service.dto.PagedResDto;
 import com.cloudkart.product_service.dto.ProductResDto;
 
 public interface IPublicProductService {
@@ -20,8 +20,8 @@ public interface IPublicProductService {
    * @param sortDir the direction of sorting (asc/desc)
    * @return a paginated list of products matching the search criteria
    */
-  Page<ProductResDto> searchProducts(String category, String keyword, String brand, Double minPrice,
-      Double maxPrice, int page, int size, String sortBy, String sortDir);
+  PagedResDto<ProductResDto> searchProducts(String category, String keyword, String brand,
+      Double minPrice, Double maxPrice, int page, int size, String sortBy, String sortDir);
 
 
   /**

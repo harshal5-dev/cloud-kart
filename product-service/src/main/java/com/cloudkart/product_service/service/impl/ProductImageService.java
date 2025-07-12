@@ -64,7 +64,6 @@ public class ProductImageService implements IProductImageService {
     productImage.setProduct(product);
     ProductImageMapper.toModel(productImageDto, productImage);
     ProductImage savedProductImage = productImageRepository.save(productImage);
-    updateIsPrimary(productImageDto.getIsPrimary(), savedProductImage.getId(), product.getId());
 
     return ProductImageMapper.toDto(savedProductImage);
   }
@@ -88,7 +87,6 @@ public class ProductImageService implements IProductImageService {
     productImage.setProduct(product);
     ProductImageMapper.toModel(productImageDto, productImage);
     ProductImage updatedProductImage = productImageRepository.save(productImage);
-    updateIsPrimary(productImageDto.getIsPrimary(), updatedProductImage.getId(), product.getId());
 
     return ProductImageMapper.toDto(updatedProductImage);
   }
@@ -111,26 +109,6 @@ public class ProductImageService implements IProductImageService {
   }
 
   /**
-   * Updates the primary status of product images.
-   *
-   * @param isPrimary the primary status to set
-   * @param id the ID of the product image
-   * @param productId the ID of the product to which the image belongs
-   */
-  private void updateIsPrimary(boolean isPrimary, UUID id, UUID productId) {
-    if (isPrimary) {
-      List<ProductImage> productImages =
-          productImageRepository.findByProduct_IdAndIsPrimary(productId, true);
-      for (ProductImage productImage : productImages) {
-        if (!productImage.getId().equals(id)) {
-          productImage.setIsPrimary(false);
-          productImageRepository.save(productImage);
-        }
-      }
-    }
-  }
-
-  /**
    * Creates sample product images based on the provided CreateDataDto.
    *
    * @param createDataDto the CreateDataDto containing product image data
@@ -149,8 +127,7 @@ public class ProductImageService implements IProductImageService {
       ProductImage productImage = new ProductImage();
       productImage.setProduct(product);
       ProductImageMapper.toModel(productImageDto, productImage);
-      ProductImage savedProductImage = productImageRepository.save(productImage);
-      updateIsPrimary(productImageDto.getIsPrimary(), savedProductImage.getId(), product.getId());
+      productImageRepository.save(productImage);
     }
   }
 

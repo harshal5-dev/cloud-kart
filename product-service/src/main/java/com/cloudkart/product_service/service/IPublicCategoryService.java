@@ -17,6 +17,14 @@ public interface IPublicCategoryService {
    * Fetches a category by its slug.
    *
    * @param slug the slug of the category to retrieve
+   * @return the category details
+   */
+  CategoryResDto getCategoryBySlug(String slug);
+
+  /**
+   * Fetches products by category slug.
+   *
+   * @param slug the slug of the category to retrieve
    * @return the products associated with the category
    */
   List<ProductResDto> fetchProductsByCategorySlug(String slug);

@@ -22,8 +22,10 @@ public class ApiGatewayApplication {
 
 				// Business API Routes
 				.route("product-service",
-						r -> r.path("/api/v1/products/**", "/api/v1/categories/**", "/api/v1/admin/products/**",
-								"/api/v1/admin/categories/**").uri("lb://PRODUCT-SERVICE"))
+						r -> r
+								.path("/api/v1/products/**", "/api/v1/categories/**", "/api/v1/admin/products/**",
+										"/api/v1/admin/categories/**", "/api/v1/reviews/**", "/api/v1/search/**")
+								.uri("lb://PRODUCT-SERVICE"))
 
 				// Swagger API docs route
 				.route("product-service-docs", r -> r.path("/v3/api-docs/product-service/public")

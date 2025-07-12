@@ -9,8 +9,8 @@ public class SwaggerConfig {
 
   @Bean
   public GroupedOpenApi publicApi() {
-    return GroupedOpenApi.builder().group("public")
-        .pathsToMatch("/api/v1/products/**", "/api/v1/categories/**").build();
+    return GroupedOpenApi.builder().group("public").pathsToMatch("/api/v1/products/**",
+        "/api/v1/categories/**", "/api/v1/reviews/**", "/api/v1/search/**").build();
   }
 
   @Bean

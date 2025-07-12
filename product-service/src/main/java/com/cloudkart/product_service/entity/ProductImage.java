@@ -23,9 +23,6 @@ public class ProductImage extends BaseModel {
   @Column(name = "sort_order", nullable = false)
   private Integer sortOrder = 0;
 
-  @Column(name = "is_primary", nullable = false)
-  private Boolean isPrimary = false;
-
   @ManyToOne
   @JoinColumn(name = "product_id")
   private Product product;

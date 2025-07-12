@@ -32,6 +32,19 @@ public class PublicCategoryService implements IPublicCategoryService {
    * Fetches a category by its slug.
    *
    * @param slug the slug of the category to retrieve
+   * @return the category details
+   */
+  @Override
+  public CategoryResDto getCategoryBySlug(String slug) {
+    Category category = categoryRepository.findBySlug(slug)
+        .orElseThrow(() -> new ResourceNotFoundException("Category", "slug", slug));
+    return CategoryMapper.toResDto(category);
+  }
+
+  /**
+   * Fetches products by category slug.
+   *
+   * @param slug the slug of the category to retrieve
    * @return the products associated with the category
    */
   @Override

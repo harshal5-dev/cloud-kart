@@ -7,8 +7,10 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+import com.cloudkart.product_service.dto.PagedResDto;
 import com.cloudkart.product_service.dto.ProductResDto;
 import com.cloudkart.product_service.entity.Product;
+import com.cloudkart.product_service.mapper.CommonMapper;
 import com.cloudkart.product_service.mapper.ProductMapper;
 import com.cloudkart.product_service.repository.ProductRepository;
 import com.cloudkart.product_service.service.IPublicProductService;
@@ -36,7 +38,7 @@ public class PublicProductService implements IPublicProductService {
    * @return a paginated list of products matching the search criteria
    */
   @Override
-  public Page<ProductResDto> searchProducts(String category, String keyword, String brand,
+  public PagedResDto<ProductResDto> searchProducts(String category, String keyword, String brand,
       Double minPrice, Double maxPrice, int page, int size, String sortBy, String sortDir) {
     Specification<Product> spec =
         ProductSpecification.getProductsByFilters(category, keyword, brand, minPrice, maxPrice);
@@ -46,7 +48,9 @@ public class PublicProductService implements IPublicProductService {
     Pageable pageable = PageRequest.of(page, size, sort);
 
     Page<Product> productPage = productRepository.findAll(spec, pageable);
-    return productPage.map(ProductMapper::toResDto);
+    Page<ProductResDto> productResDtoPage = productPage.map(ProductMapper::toResDto);
+
+    return CommonMapper.mapToPagedResDto(productResDtoPage);
   }
 
   /**

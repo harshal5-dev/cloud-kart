@@ -30,10 +30,6 @@ public class ProductImageDto {
   @NotNull(message = "sort order cannot be null")
   private Integer sortOrder = 0;
 
-  @Schema(description = "Indicates if the image is the primary image for the product",
-      example = "true", type = "boolean")
-  private Boolean isPrimary = false;
-
   @Schema(description = "Product SKU associated with the image", example = "IPHONE-14-PRO-MAX")
   @NotEmpty(message = "product SKU cannot be null or empty")
   private String productSku;

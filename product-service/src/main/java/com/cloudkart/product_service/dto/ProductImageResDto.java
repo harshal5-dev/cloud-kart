@@ -18,10 +18,6 @@ public class ProductImageResDto {
       example = "Apple iPhone 14 Pro Max")
   private String altText;
 
-  @Schema(description = "Indicates if the image is the primary image for the product",
-      example = "true", type = "boolean")
-  private Boolean isPrimary = false;
-
   @Schema(description = "Sort order for the image in the product gallery", example = "0",
       type = "integer", format = "int32")
   private Integer sortOrder = 0;

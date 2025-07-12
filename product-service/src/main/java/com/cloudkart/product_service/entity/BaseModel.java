@@ -25,6 +25,10 @@ public abstract class BaseModel {
   @Column(name = "id", updatable = false, nullable = false)
   private UUID id;
 
+
+  @Column(name = "created_by", updatable = false)
+  private String createdBy = "harshal5-dev";
+
   @CreatedDate
   @Column(name = "created_at", updatable = false)
   private LocalDateTime createdAt;
