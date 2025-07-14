@@ -23,6 +23,18 @@ const ManageProduct = ({ operation, product }) => {
     stock: null,
     sku: "",
     brand: "",
+    thumbnail: "",
+    featured: false,
+    discountPercentage: 0,
+    weight: null,
+    width: null,
+    height: null,
+    depth: null,
+    minimumOrderQuantity: 1,
+    availabilityStatus: "IN_STOCK",
+    shippingDetails: "",
+    warrantyDetails: "",
+    returnPolicy: "",
   };
 
   const [createProduct, { isLoading: isCreating }] = useCreateProductMutation();
@@ -42,6 +54,9 @@ const ManageProduct = ({ operation, product }) => {
     form
       .validateFields()
       .then(async (values) => {
+        const formValues = form.getFieldsValue();
+        console.log("Form Values:", formValues);
+        console.log("values:", values);
         if (product) {
           if (!form.isFieldsTouched()) {
             message.warning("No changes made to the product");
@@ -106,22 +121,25 @@ const ManageProduct = ({ operation, product }) => {
       )}
       {/* Modal for adding/editing product */}
       <Modal
-        title={isUpdate ? "Edit Product" : "Add New Product"}
+        // title={isUpdate ? "Edit Product" : "Add New Product"}
         open={isModalVisible}
-        onOk={handleModalOk}
+        // onOk={handleModalOk}
         onCancel={handleModalCancel}
-        width={600}
-        okText="Save"
-        okButtonProps={{
-          icon: <FaSave />,
-        }}
+        width={695}
+        // okText="Save"
+        // okButtonProps={{
+        //   icon: <FaSave />,
+        // }}
         maskClosable={false}
         confirmLoading={isCreating || isUpdating}
+        centered
+        footer=""
       >
         <ProductForm
           defaultValues={defaultValues}
           form={form}
           isLoading={isCreating || isUpdating}
+          onSubmit={handleModalOk}
         />
       </Modal>
     </>

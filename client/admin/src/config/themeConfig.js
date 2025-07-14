@@ -8,6 +8,7 @@ export const cssVariables = {
   colorWhite: "#ffffff",
   colorSelected: "#173763",
   colorBgSelected: "#bdc5c9",
+  colorTitle: "#3b82f6",
 };
 
 export const themeConfig = {

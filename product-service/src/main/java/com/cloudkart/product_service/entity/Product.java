@@ -39,7 +39,7 @@ public class Product extends BaseModel {
   @Column(name = "price", nullable = false)
   private Double price;
 
-  @Column(name = "discounted_price")
+  @Column(name = "discount_percentage")
   private Double discountPercentage = 0.0;
 
   // Product Identifiers
@@ -75,7 +75,7 @@ public class Product extends BaseModel {
   private AvailabilityStatus availabilityStatus = AvailabilityStatus.IN_STOCK;
 
   // Product Policies (Simple text fields)
-  @Column(name = "shipping_information", length = 500)
+  @Column(name = "shipping_details", length = 500)
   private String shippingDetails;
 
   @Column(name = "warranty_details", length = 500)

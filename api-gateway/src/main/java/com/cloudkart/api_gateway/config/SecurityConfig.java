@@ -53,10 +53,12 @@ public class SecurityConfig {
             .permitAll()
             .pathMatchers("/swagger-ui/**", "/v3/api-docs/**", "/swagger-resources/**",
                 "/webjars/**")
-            .permitAll().pathMatchers("/api/v1/admin/categories/**", "/api/v1/admin/products/**")
+            .permitAll()
+            .pathMatchers("/api/v1/admin/categories/**", "/api/v1/admin/products/**",
+                "/api/v1/search/**")
             .hasAnyRole("ADMIN", "MANAGER").pathMatchers("/api/v1/admin/**").hasRole("ADMIN")
-            .pathMatchers("/api/v1/users/**").hasAnyRole("USER", "ADMIN", "MANAGER").anyExchange()
-            .authenticated())
+            .pathMatchers("/api/v1/users/**", "/api/v1/reviews/**")
+            .hasAnyRole("USER", "ADMIN", "MANAGER").anyExchange().authenticated())
         .oauth2ResourceServer(oAuth2 -> oAuth2
             .jwt(jwtSpec -> jwtSpec.jwtAuthenticationConverter(jwtAuthenticationConverter())))
         .build();
