@@ -404,7 +404,6 @@ const Dashboard = () => {
             title={
               <Flex align="center" gap={8}>
                 <Avatar
-                  size="small"
                   style={{
                     backgroundColor: cssVariables.colorPrimary + "55",
                     color: cssVariables.colorPrimary,
@@ -517,7 +516,6 @@ const Dashboard = () => {
             title={
               <Flex align="center" gap={8}>
                 <Avatar
-                  size="small"
                   style={{
                     backgroundColor: cssVariables.colorSecondary + "65",
                     color: cssVariables.colorSecondary,
