@@ -242,7 +242,7 @@ const Dashboard = () => {
                 minWidth: "120px",
                 transition: "all 0.3s ease",
               }}
-              onClick={() => navigate("/products/create")}
+              onClick={() => navigate("/products")}
             >
               Add Product
             </Button>
