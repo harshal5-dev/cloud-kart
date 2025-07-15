@@ -12,6 +12,10 @@ import { cssVariables } from "../../config/themeConfig";
 import { useKeycloak } from "../../hooks/useKeycloak";
 import AppRoutes from "../../routes";
 import AuthWrapper from "../AuthWrapper";
+import {
+  initializeLogoTheme,
+  injectLogoStyles,
+} from "../../utils/logoThemeAdapter";
 
 const getAvatar = () => {
   return "/assets/images/developer.svg";
@@ -56,6 +60,17 @@ const AppLayout = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
+
+  // Set CSS variables for theme-adaptive logo
+  useEffect(() => {
+    const cleanupTheme = initializeLogoTheme(cssVariables);
+    const cleanupStyles = injectLogoStyles();
+
+    return () => {
+      cleanupTheme();
+      cleanupStyles();
+    };
+  }, []);
 
   async function handleLogout() {
     logout();
@@ -245,8 +260,8 @@ const AppLayout = () => {
   return (
     <AuthWrapper>
       <ProLayout
-        title="Cloud Kart Admin"
-        logo="/logo.svg"
+        title="Cloud Kart"
+        logo="/assets/images/cloud-kart-logo-ultimate.svg"
         fixSiderbar
         route={route}
         siderWidth={230}
@@ -372,9 +387,82 @@ const AppLayout = () => {
           },
         }}
         headerTitleRender={(logo, title) => (
-          <Link to="/dashboard">
-            {logo}
-            {title}
+          <Link
+            to="/dashboard"
+            style={{
+              textDecoration: "none",
+            }}
+          >
+            <Flex align="center" gap={12}>
+              <div
+                className="logo-container"
+                style={{
+                  width: "48px",
+                  height: "48px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  position: "relative",
+                  transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+                  cursor: "pointer",
+                  borderRadius: "12px",
+                  padding: "4px",
+                  background: `linear-gradient(135deg, ${cssVariables.colorPrimary}10, ${cssVariables.colorSecondary}10)`,
+                  border: `1px solid ${cssVariables.colorPrimary}20`,
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = "scale(1.08) rotate(2deg)";
+                  e.currentTarget.style.background = `linear-gradient(135deg, ${cssVariables.colorPrimary}20, ${cssVariables.colorSecondary}20)`;
+                  e.currentTarget.style.borderColor = `${cssVariables.colorPrimary}40`;
+                  e.currentTarget.style.boxShadow = `0 8px 25px ${cssVariables.colorPrimary}30, 0 4px 10px ${cssVariables.colorSecondary}20`;
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = "scale(1) rotate(0deg)";
+                  e.currentTarget.style.background = `linear-gradient(135deg, ${cssVariables.colorPrimary}10, ${cssVariables.colorSecondary}10)`;
+                  e.currentTarget.style.borderColor = `${cssVariables.colorPrimary}20`;
+                  e.currentTarget.style.boxShadow = "none";
+                }}
+              >
+                <img
+                  src="/assets/images/cloud-kart-logo-ultimate.svg"
+                  alt="Cloud Kart Logo"
+                  style={{
+                    width: "40px",
+                    height: "40px",
+                    filter: `drop-shadow(0 4px 12px ${cssVariables.colorPrimary}25) drop-shadow(0 2px 4px ${cssVariables.colorSecondary}15)`,
+                    transition: "all 0.3s ease",
+                  }}
+                />
+              </div>
+              <Flex vertical gap={0}>
+                <Typography.Text
+                  style={{
+                    fontSize: "20px",
+                    fontWeight: 700,
+                    lineHeight: "24px",
+                    background: `linear-gradient(155deg, ${cssVariables.colorPrimary} 0%, ${cssVariables.colorSecondary} 100%)`,
+                    backgroundClip: "text",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    letterSpacing: "-0.5px",
+                  }}
+                >
+                  {title}
+                </Typography.Text>
+                <Typography.Text
+                  type="secondary"
+                  style={{
+                    fontSize: "11px",
+                    lineHeight: "14px",
+                    fontWeight: 500,
+                    letterSpacing: "0.5px",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  Management Portal
+                </Typography.Text>
+              </Flex>
+            </Flex>
           </Link>
         )}
         menuFooterRender={({ collapsed }) => {
@@ -415,7 +503,7 @@ const AppLayout = () => {
         menuItemRender={(item, dom) => (
           <div
             onClick={() => {
-              if (item?.path !== "#") {
+              if (item?.path !== "/#") {
                 navigate(item.path || "/dashboard");
               }
             }}
