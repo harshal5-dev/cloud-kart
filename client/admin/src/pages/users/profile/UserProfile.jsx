@@ -88,22 +88,8 @@ const UserProfile = () => {
 
   if (isLoading) {
     return (
-      <Flex
-        justify="center"
-        align="center"
-        style={{
-          height: "100vh",
-          background: `linear-gradient(135deg, ${cssVariables.colorPrimary}10 0%, ${cssVariables.colorTitle}08 100%)`,
-        }}
-      >
-        <Card
-          style={{
-            border: "none",
-            boxShadow: cssVariables.boxShadowLight,
-            background: cssVariables.colorWhite,
-          }}
-          styles={{ body: { padding: "20px", textAlign: "center" } }}
-        >
+      <Flex justify="center" align="center" style={{ height: "85vh" }}>
+        <Card styles={{ body: { padding: "20px", textAlign: "center" } }}>
           <Spin size="large" />
           <Title
             level={4}
@@ -119,22 +105,8 @@ const UserProfile = () => {
     );
   } else if (isEmpty(userProfile)) {
     return (
-      <Flex
-        justify="center"
-        align="center"
-        style={{
-          height: "100vh",
-          background: `linear-gradient(135deg, ${cssVariables.colorPrimary}10 0%, ${cssVariables.colorTitle}08 100%)`,
-        }}
-      >
-        <Card
-          style={{
-            border: `1px solid ${cssVariables.colorPrimary}20`,
-            boxShadow: cssVariables.boxShadowLight,
-            background: cssVariables.colorWhite,
-          }}
-          styles={{ body: { padding: "40px", textAlign: "center" } }}
-        >
+      <Flex justify="center" align="center" style={{ height: "85vh" }}>
+        <Card styles={{ body: { padding: "40px", textAlign: "center" } }}>
           <Avatar
             size={64}
             style={{
@@ -303,9 +275,9 @@ const UserProfile = () => {
             title={
               <Flex align="center" gap={8}>
                 <Avatar
-                  size="small"
+                  // size="large"
                   style={{
-                    backgroundColor: cssVariables.colorPrimary + "15",
+                    backgroundColor: cssVariables.colorPrimary + "55",
                     color: cssVariables.colorPrimary,
                   }}
                   icon={<MailOutlined />}
@@ -341,7 +313,7 @@ const UserProfile = () => {
                   <Avatar
                     size="small"
                     style={{
-                      backgroundColor: cssVariables.colorSecondary + "15",
+                      backgroundColor: cssVariables.colorSecondary + "55",
                       color: cssVariables.colorSecondary,
                     }}
                     icon={<MailOutlined />}
@@ -379,7 +351,7 @@ const UserProfile = () => {
                   <Avatar
                     size="small"
                     style={{
-                      backgroundColor: cssVariables.colorTitle + "15",
+                      backgroundColor: cssVariables.colorTitle + "55",
                       color: cssVariables.colorTitle,
                     }}
                     icon={<PhoneOutlined />}
@@ -409,7 +381,7 @@ const UserProfile = () => {
                   <Avatar
                     size="small"
                     style={{
-                      backgroundColor: cssVariables.colorOrange + "15",
+                      backgroundColor: cssVariables.colorOrange + "55",
                       color: cssVariables.colorOrange,
                     }}
                     icon={<UserOutlined />}
@@ -443,9 +415,8 @@ const UserProfile = () => {
             title={
               <Flex align="center" gap={8}>
                 <Avatar
-                  size="small"
                   style={{
-                    backgroundColor: cssVariables.colorSecondary + "15",
+                    backgroundColor: cssVariables.colorSecondary + "55",
                     color: cssVariables.colorSecondary,
                   }}
                   icon={<FaUser />}
@@ -502,7 +473,7 @@ const UserProfile = () => {
                 </Text>
                 <Tag
                   style={{
-                    background: cssVariables.colorTitle + "15",
+                    background: cssVariables.colorTitle + "55",
                     color: cssVariables.colorTitle,
                     border: "none",
                     borderRadius: 12,
