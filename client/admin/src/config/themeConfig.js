@@ -44,6 +44,12 @@ export const cssVariables = {
   cardBackground: "rgba(255,255,255,0.08)",
   cardBorder: "rgba(255,255,255,0.12)",
   cardShadow: "0 4px 12px rgba(0,0,0,0.15)",
+  cardBackgroundLight: "rgba(255,255,255,0.95)",
+  cardBackgroundDark: "rgba(20, 20, 20, 0.8)",
+  cardBorderLight: "rgba(0,0,0,0.06)",
+  cardBorderDark: "rgba(255,255,255,0.1)",
+  cardShadowLight: "0 4px 12px rgba(0,0,0,0.08)",
+  cardShadowDark: "0 8px 24px rgba(0,0,0,0.4)",
   // Theme-adaptive text colors
   textPrimary: "inherit",
   textSecondary: "rgba(255,255,255,0.7)",

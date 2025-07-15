@@ -199,7 +199,7 @@ const UserProfile = () => {
                 <Space direction="vertical" size={0} align="center">
                   <Avatar
                     size={80}
-                    src="assets/images/user.svg"
+                    src="assets/images/avatarMan.svg"
                     icon={<UserOutlined />}
                     style={{
                       border: `3px solid ${cssVariables.whiteTransparent40}`,

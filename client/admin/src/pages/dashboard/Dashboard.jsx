@@ -1,9 +1,9 @@
+import { cloneElement } from "react";
 import {
   Button,
   Card,
   Col,
   Row,
-  Space,
   Statistic,
   Typography,
   Progress,
@@ -62,138 +62,185 @@ const Dashboard = () => {
     subtitle,
     loading,
     actions,
-  }) => (
-    <Card
-      style={{
-        height: "100%",
-        background: `linear-gradient(135deg, ${color}15 0%, ${color}08 100%)`,
-        border: `1px solid ${color}20`,
-        borderRadius: 12,
-        boxShadow: `0 4px 12px ${color}10`,
-      }}
-      styles={{ body: { padding: "20px" } }}
-    >
-      <Flex justify="space-between" align="flex-start">
-        <Flex vertical gap={8} flex={1}>
-          <Flex align="center" gap={12}>
-            <Avatar
-              size={36}
-              style={{
-                backgroundColor: `${color}15`,
-                color: color,
-                border: `2px solid ${color}30`,
-              }}
-              icon={icon}
-            />
-            <Flex vertical gap={4}>
-              <Text
-                type="secondary"
-                style={{ fontSize: "13px", fontWeight: 500 }}
-              >
-                {title}
-              </Text>
-              {subtitle && (
+  }) => {
+    return (
+      <Card
+        style={{
+          height: "100%",
+          backdropFilter: "blur(15px)",
+          WebkitBackdropFilter: "blur(15px)",
+          transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+        }}
+        styles={{
+          body: {
+            padding: "18px",
+            borderRadius: "inherit",
+          },
+        }}
+        className="dashboard-stat-card"
+      >
+        <Flex justify="space-between" align="flex-start" wrap="wrap" gap={8}>
+          <Flex vertical gap={8} flex={1} style={{ minWidth: 0 }}>
+            <Flex align="center" gap={8} wrap="wrap">
+              <Avatar
+                size={32}
+                style={{
+                  color: color,
+                  flexShrink: 0,
+                  backgroundColor: color + "65",
+                }}
+                icon={icon}
+              />
+              <Flex vertical gap={2} style={{ minWidth: 0 }}>
                 <Text
                   style={{
-                    fontSize: "11px",
-                    color: cssVariables.colorSecondary,
+                    fontSize: "14px",
+                    fontWeight: 500,
+                    lineHeight: 1.3,
                   }}
                 >
-                  {subtitle}
+                  {title}
                 </Text>
-              )}
-            </Flex>
-          </Flex>
-
-          <Statistic
-            value={value}
-            loading={loading}
-            valueStyle={{
-              fontSize: "28px",
-              fontWeight: "bold",
-              color: color,
-              lineHeight: 1.2,
-            }}
-            precision={typeof value === "number" && value % 1 !== 0 ? 2 : 0}
-            prefix={
-              title.includes("Revenue") || title.includes("Value") ? "$" : ""
-            }
-          />
-
-          {trend && (
-            <Flex align="center" gap={6}>
-              <Badge
-                status={trend > 0 ? "success" : "error"}
-                text={
+                {subtitle && (
                   <Text
+                    type="secondary"
                     style={{
                       fontSize: "12px",
-                      color:
-                        trend > 0 ? cssVariables.colorSecondary : "#ff4d4f",
+                      lineHeight: 1.2,
+                      opacity: 0.8,
                     }}
                   >
-                    {trend > 0 ? "+" : ""}
-                    {trend}% vs last month
+                    {subtitle}
                   </Text>
-                }
-              />
+                )}
+              </Flex>
+            </Flex>
+
+            <Statistic
+              value={value}
+              loading={loading}
+              valueStyle={{
+                fontSize: "clamp(22px, 4.5vw, 30px)",
+                fontWeight: "bold",
+                color: color,
+                lineHeight: 1.2,
+              }}
+              precision={typeof value === "number" && value % 1 !== 0 ? 2 : 0}
+              prefix={
+                title.includes("Revenue") || title.includes("Value") ? "$" : ""
+              }
+            />
+
+            {trend && (
+              <Flex
+                align="center"
+                gap={6}
+                style={{
+                  padding: "6px 12px",
+                  transition: "all 0.3s ease",
+                }}
+              >
+                <Badge
+                  status={trend > 0 ? "success" : "error"}
+                  text={
+                    <Text
+                      style={{
+                        fontSize: "13px",
+                        color:
+                          trend > 0
+                            ? cssVariables.colorSuccess
+                            : cssVariables.colorError,
+                        lineHeight: 1.2,
+                        fontWeight: 500,
+                      }}
+                    >
+                      {trend > 0 ? "+" : ""}
+                      {trend}% vs last month
+                    </Text>
+                  }
+                />
+              </Flex>
+            )}
+          </Flex>
+
+          {actions && (
+            <Flex vertical gap={4} style={{ flexShrink: 0 }}>
+              {actions.map((action, index) =>
+                cloneElement(action, {
+                  key: action.key || index,
+                  size: "small",
+                })
+              )}
             </Flex>
           )}
         </Flex>
-
-        {actions && (
-          <Flex vertical gap={4}>
-            {actions}
-          </Flex>
-        )}
-      </Flex>
-    </Card>
-  );
+      </Card>
+    );
+  };
 
   return (
-    <div style={{ padding: "0 0 24px 0" }}>
+    <div
+      style={{
+        padding: "10px 0 0 0",
+      }}
+    >
       {/* Header Section */}
       <Card
         style={{
           marginBottom: 24,
           background: `linear-gradient(135deg, ${cssVariables.colorPrimary} 0%, ${cssVariables.colorTitle} 100%)`,
-          border: "none",
-          borderRadius: 16,
+          padding: 0,
         }}
-        styles={{ body: { padding: "24px 32px" } }}
       >
-        <Flex justify="space-between" align="center">
-          <Flex vertical gap={8}>
+        <Flex justify="space-between" align="flex-start" wrap="wrap" gap={16}>
+          <Flex vertical gap={8} style={{ minWidth: 0, flex: "1 1 300px" }}>
             <Title
               level={2}
               style={{
                 margin: 0,
-                color: cssVariables.colorWhite,
-                fontSize: "32px",
+                fontSize: "clamp(18px, 5.5vw, 28px)",
                 fontWeight: 600,
+                lineHeight: 1.2,
+                wordBreak: "break-word",
+                color: cssVariables.colorWhite,
               }}
             >
-              Welcome to CloudKart Admin
+              Welcome to CloudKart Management Portal
             </Title>
             <Text
               style={{
-                color: cssVariables.whiteTransparent90,
-                fontSize: "16px",
+                fontSize: "clamp(13px, 4vw, 15px)",
+                lineHeight: 1.4,
+                color: cssVariables.colorWhite,
+                opacity: 0.7,
               }}
             >
               Monitor your e-commerce performance and manage your store
             </Text>
           </Flex>
 
-          <Flex gap={12}>
+          <Flex
+            gap={8}
+            wrap="wrap"
+            style={{
+              flex: "0 0 auto",
+              justifyContent: "flex-end",
+              width: "100%",
+              maxWidth: "300px",
+            }}
+          >
             <Button
               type="primary"
               icon={<PlusCircleFilled />}
+              size="small"
               style={{
                 background: cssVariables.whiteTransparent25,
                 border: `1px solid ${cssVariables.whiteTransparent40}`,
                 color: cssVariables.colorWhite,
-                borderRadius: 6,
+                fontSize: "13px",
+                height: "34px",
+                minWidth: "120px",
+                transition: "all 0.3s ease",
               }}
               onClick={() => navigate("/products/create")}
             >
@@ -201,11 +248,15 @@ const Dashboard = () => {
             </Button>
             <Button
               icon={<MdCategory />}
+              size="small"
               style={{
                 background: cssVariables.whiteTransparent25,
                 border: `1px solid ${cssVariables.whiteTransparent40}`,
                 color: cssVariables.colorWhite,
-                borderRadius: 6,
+                fontSize: "13px",
+                height: "34px",
+                minWidth: "120px",
+                transition: "all 0.3s ease",
               }}
               onClick={() => navigate("/categories")}
             >
@@ -216,9 +267,9 @@ const Dashboard = () => {
       </Card>
 
       {/* Main Stats Grid */}
-      <Row gutter={[24, 24]}>
+      <Row gutter={[16, 16]}>
         {/* Primary Stats */}
-        <Col xs={24} sm={12} lg={6}>
+        <Col xs={24} sm={12} md={12} lg={6}>
           <StatCard
             title="Total Products"
             value={productCount}
@@ -248,7 +299,7 @@ const Dashboard = () => {
           />
         </Col>
 
-        <Col xs={24} sm={12} lg={6}>
+        <Col xs={24} sm={12} md={12} lg={6}>
           <StatCard
             title="Categories"
             value={categoryCount}
@@ -278,7 +329,7 @@ const Dashboard = () => {
           />
         </Col>
 
-        <Col xs={24} sm={12} lg={6}>
+        <Col xs={24} sm={12} md={12} lg={6}>
           <StatCard
             title="Monthly Revenue"
             value={mockStats.monthlyRevenue}
@@ -289,7 +340,7 @@ const Dashboard = () => {
           />
         </Col>
 
-        <Col xs={24} sm={12} lg={6}>
+        <Col xs={24} sm={12} md={12} lg={6}>
           <StatCard
             title="Active Orders"
             value={mockStats.activeOrders}
@@ -301,7 +352,7 @@ const Dashboard = () => {
         </Col>
 
         {/* Secondary Stats */}
-        <Col xs={24} sm={12} lg={6}>
+        <Col xs={24} sm={12} md={12} lg={6}>
           <StatCard
             title="Total Sales"
             value={mockStats.totalSales}
@@ -312,7 +363,7 @@ const Dashboard = () => {
           />
         </Col>
 
-        <Col xs={24} sm={12} lg={6}>
+        <Col xs={24} sm={12} md={12} lg={6}>
           <StatCard
             title="Low Stock Items"
             value={mockStats.lowStockItems}
@@ -323,23 +374,23 @@ const Dashboard = () => {
           />
         </Col>
 
-        <Col xs={24} sm={12} lg={6}>
+        <Col xs={24} sm={12} md={12} lg={6}>
           <StatCard
             title="Conversion Rate"
             value={mockStats.conversionRate}
             icon={<EyeOutlined />}
-            color="#722ed1"
+            color={cssVariables.colorPurple}
             trend={1.8}
             subtitle="Visitors to buyers"
           />
         </Col>
 
-        <Col xs={24} sm={12} lg={6}>
+        <Col xs={24} sm={12} md={12} lg={6}>
           <StatCard
             title="Avg Order Value"
             value={mockStats.averageOrderValue}
             icon={<RiShoppingBagLine />}
-            color="#fa8c16"
+            color={cssVariables.colorOrange}
             trend={7.4}
             subtitle="Per transaction"
           />
@@ -347,67 +398,113 @@ const Dashboard = () => {
       </Row>
 
       {/* Performance Overview */}
-      <Row gutter={[24, 24]} style={{ marginTop: 24 }}>
+      <Row gutter={[16, 16]} style={{ marginTop: 24 }}>
         <Col xs={24} lg={16}>
           <Card
             title={
-              <Flex align="center" gap={12}>
+              <Flex align="center" gap={8}>
                 <Avatar
                   size="small"
                   style={{
-                    backgroundColor: cssVariables.colorPrimary + "15",
+                    backgroundColor: cssVariables.colorPrimary + "55",
                     color: cssVariables.colorPrimary,
                   }}
                   icon={<MdTrendingUp />}
                 />
-                <Title level={5} style={{ margin: 0 }}>
+                <Title
+                  level={5}
+                  style={{
+                    margin: 0,
+                    fontSize: "clamp(15px, 3.5vw, 18px)",
+                  }}
+                >
                   Performance Overview
                 </Title>
               </Flex>
             }
             style={{
-              borderRadius: 12,
-              border: `1px solid ${cssVariables.colorPrimary}20`,
+              transition: "all 0.3s ease",
             }}
+            styles={{ body: { padding: "16px" } }}
           >
-            <Row gutter={[16, 16]}>
-              <Col span={12}>
+            <Row gutter={[12, 16]}>
+              <Col xs={24} sm={12}>
                 <Flex vertical gap={8}>
-                  <Text type="secondary">Sales Performance</Text>
+                  <Text
+                    type="secondary"
+                    style={{
+                      fontSize: "13px",
+                      color: cssVariables.colorTextSecondary,
+                      fontWeight: 500,
+                    }}
+                  >
+                    Sales Performance
+                  </Text>
                   <Progress
                     percent={78}
                     strokeColor={cssVariables.colorSecondary}
                     trailColor={cssVariables.colorSecondary + "20"}
+                    size="small"
                   />
                 </Flex>
               </Col>
-              <Col span={12}>
+              <Col xs={24} sm={12}>
                 <Flex vertical gap={8}>
-                  <Text type="secondary">Inventory Health</Text>
+                  <Text
+                    type="secondary"
+                    style={{
+                      fontSize: "13px",
+                      color: cssVariables.colorTextSecondary,
+                      fontWeight: 500,
+                    }}
+                  >
+                    Inventory Health
+                  </Text>
                   <Progress
                     percent={92}
                     strokeColor={cssVariables.colorPrimary}
                     trailColor={cssVariables.colorPrimary + "20"}
+                    size="small"
                   />
                 </Flex>
               </Col>
-              <Col span={12}>
+              <Col xs={24} sm={12}>
                 <Flex vertical gap={8}>
-                  <Text type="secondary">Customer Satisfaction</Text>
+                  <Text
+                    type="secondary"
+                    style={{
+                      fontSize: "13px",
+                      color: cssVariables.colorTextSecondary,
+                      fontWeight: 500,
+                    }}
+                  >
+                    Customer Satisfaction
+                  </Text>
                   <Progress
                     percent={85}
                     strokeColor={cssVariables.colorTitle}
                     trailColor={cssVariables.colorTitle + "20"}
+                    size="small"
                   />
                 </Flex>
               </Col>
-              <Col span={12}>
+              <Col xs={24} sm={12}>
                 <Flex vertical gap={8}>
-                  <Text type="secondary">Order Fulfillment</Text>
+                  <Text
+                    type="secondary"
+                    style={{
+                      fontSize: "13px",
+                      color: cssVariables.colorTextSecondary,
+                      fontWeight: 500,
+                    }}
+                  >
+                    Order Fulfillment
+                  </Text>
                   <Progress
                     percent={96}
                     strokeColor={cssVariables.colorOrange}
                     trailColor={cssVariables.colorOrange + "20"}
+                    size="small"
                   />
                 </Flex>
               </Col>
@@ -418,35 +515,37 @@ const Dashboard = () => {
         <Col xs={24} lg={8}>
           <Card
             title={
-              <Flex align="center" gap={12}>
+              <Flex align="center" gap={8}>
                 <Avatar
                   size="small"
                   style={{
-                    backgroundColor: cssVariables.colorSecondary + "15",
+                    backgroundColor: cssVariables.colorSecondary + "65",
                     color: cssVariables.colorSecondary,
                   }}
                   icon={<RiShoppingBagLine />}
                 />
-                <Title level={5} style={{ margin: 0 }}>
+                <Title
+                  level={5}
+                  style={{
+                    margin: 0,
+                    fontSize: "clamp(15px, 3.5vw, 18px)",
+                  }}
+                >
                   Quick Actions
                 </Title>
               </Flex>
             }
             style={{
-              borderRadius: 12,
-              border: `1px solid ${cssVariables.colorSecondary}20`,
+              transition: "all 0.3s ease",
             }}
+            styles={{ body: { padding: "16px" } }}
           >
-            <Flex vertical gap={12}>
+            <Flex vertical gap={10}>
               <Button
                 block
                 icon={<PlusCircleFilled />}
-                style={{
-                  background: cssVariables.colorPrimary,
-                  borderColor: cssVariables.colorPrimary,
-                  color: cssVariables.colorWhite,
-                  borderRadius: 6,
-                }}
+                variant="solid"
+                color="primary"
                 onClick={() => navigate("/products/create")}
               >
                 Add New Product
@@ -455,12 +554,8 @@ const Dashboard = () => {
               <Button
                 block
                 icon={<MdCategory />}
-                style={{
-                  background: cssVariables.colorTitle,
-                  borderColor: cssVariables.colorTitle,
-                  color: cssVariables.colorWhite,
-                  borderRadius: 6,
-                }}
+                variant="solid"
+                color="gold"
                 onClick={() => navigate("/categories/create")}
               >
                 Create Category
@@ -469,12 +564,8 @@ const Dashboard = () => {
               <Button
                 block
                 icon={<EyeOutlined />}
-                style={{
-                  background: cssVariables.colorSecondary,
-                  borderColor: cssVariables.colorSecondary,
-                  color: cssVariables.colorWhite,
-                  borderRadius: 6,
-                }}
+                variant="solid"
+                color="green"
                 onClick={() => navigate("/products")}
               >
                 View All Products
