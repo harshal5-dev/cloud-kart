@@ -1,62 +1,170 @@
 import PropTypes from "prop-types";
 import { BiSolidRename } from "react-icons/bi";
-import { FaPhoneAlt } from "react-icons/fa";
+import { FaPhoneAlt, FaUser } from "react-icons/fa";
 import { LoadingOutlined } from "@ant-design/icons";
-import { Tag } from "antd";
-import { Col, Form, Input, Row, Typography } from "antd";
+import {
+  Tag,
+  Card,
+  Avatar,
+  Flex,
+  Space,
+  Divider,
+  Col,
+  Form,
+  Input,
+  Row,
+  Typography,
+} from "antd";
 
-const { Text } = Typography;
+import { cssVariables } from "../../../config/themeConfig";
+
+const { Text, Title } = Typography;
 
 const customizeRequiredMark = (label, { required }) => (
-  <Text>
+  <Flex align="center" gap={5}>
     {required ? (
-      <Tag color="error">Required</Tag>
+      <Tag
+        style={{
+          fontSize: "10px",
+          borderRadius: 12,
+          padding: "2px 8px",
+          background: cssVariables.colorError + "15",
+          color: cssVariables.colorError,
+          border: "1px solid " + cssVariables.colorError + "30",
+        }}
+      >
+        Required
+      </Tag>
     ) : (
-      <Tag color="warning">optional</Tag>
+      <Tag
+        style={{
+          fontSize: "10px",
+          borderRadius: 12,
+          padding: "2px 8px",
+          background: cssVariables.colorSecondary + "15",
+          color: cssVariables.colorSecondary,
+          border: "1px solid " + cssVariables.colorSecondary + "30",
+        }}
+      >
+        Optional
+      </Tag>
     )}
-    {label}
-  </Text>
+    <Text style={{ fontWeight: 500, color: "inherit" }}>{label}</Text>
+  </Flex>
 );
 
 const UserProfileForm = ({ form, isEditProfileLoading }) => {
   return (
-    <Form
-      form={form}
-      layout="vertical"
-      initialValues={{
-        firstName: "",
-        lastName: "",
-        phoneNumber: "",
+    <Card
+      style={{
+        border: `1px solid ${cssVariables.colorPrimary}20`,
+        boxShadow: cssVariables.shadowSubtle,
+        margin: "1.5rem 0",
       }}
-      requiredMark={customizeRequiredMark}
+      styles={{ body: { padding: "16px" } }}
     >
-      <Row gutter={24} style={{ marginTop: "1.3rem" }}>
-        <Col span={24}>
-          <Form.Item
-            label="First Name"
-            name="firstName"
-            rules={[{ required: true, message: "Please enter first name" }]}
-            hasFeedback
+      {/* Form Header */}
+      <Flex align="center" gap={8} style={{ marginBottom: 16 }}>
+        <Avatar
+          size={35}
+          style={{
+            backgroundColor: cssVariables.colorPrimary + "10",
+            color: cssVariables.colorPrimary,
+            border: `2px solid ${cssVariables.colorPrimary}20`,
+          }}
+          icon={<FaUser />}
+        />
+        <Flex vertical gap={2}>
+          <Title
+            level={5}
+            style={{
+              margin: 0,
+              color: cssVariables.colorPrimary,
+              fontSize: "14px",
+            }}
           >
-            <Input
-              placeholder="Enter First Name"
-              prefix={<BiSolidRename />}
-              suffix={isEditProfileLoading && <LoadingOutlined />}
-              disabled={isEditProfileLoading}
-            />
-          </Form.Item>
-        </Col>
-        <Col span={24}>
-          <Form.Item label="Last Name" name="lastName" hasFeedback>
-            <Input
-              placeholder="Enter Last Name"
-              suffix={isEditProfileLoading && <LoadingOutlined />}
-              disabled={isEditProfileLoading}
-              prefix={<BiSolidRename />}
-            />
-          </Form.Item>
-        </Col>
-        <Col span={24}>
+            Update Profile Information
+          </Title>
+          <Text
+            type="secondary"
+            style={{
+              fontSize: "11px",
+              opacity: 0.8,
+            }}
+          >
+            Update your personal details below
+          </Text>
+        </Flex>
+      </Flex>
+
+      <Divider
+        style={{
+          margin: "12px 0 16px 0",
+          borderColor: cssVariables.colorPrimary + "25",
+        }}
+      />
+
+      <Form
+        form={form}
+        layout="vertical"
+        initialValues={{
+          firstName: "",
+          lastName: "",
+          phoneNumber: "",
+        }}
+        requiredMark={customizeRequiredMark}
+      >
+        <Space direction="vertical" size={12} style={{ width: "100%" }}>
+          <Row gutter={[12, 0]}>
+            <Col xs={24} sm={12}>
+              <Form.Item
+                label="First Name"
+                name="firstName"
+                rules={[{ required: true, message: "Please enter first name" }]}
+                hasFeedback
+              >
+                <Input
+                  placeholder="Enter First Name"
+                  prefix={
+                    <BiSolidRename
+                      style={{
+                        color: cssVariables.colorPrimary,
+                        fontSize: "12px",
+                        opacity: 0.7,
+                      }}
+                    />
+                  }
+                  suffix={isEditProfileLoading && <LoadingOutlined />}
+                  disabled={isEditProfileLoading}
+                  style={{
+                    transition: "all 0.2s ease",
+                  }}
+                />
+              </Form.Item>
+            </Col>
+            <Col xs={24} sm={12}>
+              <Form.Item label="Last Name" name="lastName" hasFeedback>
+                <Input
+                  placeholder="Enter Last Name"
+                  prefix={
+                    <BiSolidRename
+                      style={{
+                        color: cssVariables.colorSecondary,
+                        fontSize: "12px",
+                        opacity: 0.7,
+                      }}
+                    />
+                  }
+                  suffix={isEditProfileLoading && <LoadingOutlined />}
+                  disabled={isEditProfileLoading}
+                  style={{
+                    transition: "all 0.2s ease",
+                  }}
+                />
+              </Form.Item>
+            </Col>
+          </Row>
+
           <Form.Item
             label="Phone Number"
             name="phoneNumber"
@@ -73,15 +181,26 @@ const UserProfileForm = ({ form, isEditProfileLoading }) => {
             hasFeedback
           >
             <Input
-              placeholder="Enter Phone Number"
-              prefix={<FaPhoneAlt />}
+              placeholder="Enter Phone Number (e.g., +91 12345 67890)"
+              prefix={
+                <FaPhoneAlt
+                  style={{
+                    color: cssVariables.colorTitle,
+                    fontSize: "12px",
+                    opacity: 0.7,
+                  }}
+                />
+              }
               suffix={isEditProfileLoading && <LoadingOutlined />}
               disabled={isEditProfileLoading}
+              style={{
+                transition: "all 0.2s ease",
+              }}
             />
           </Form.Item>
-        </Col>
-      </Row>
-    </Form>
+        </Space>
+      </Form>
+    </Card>
   );
 };
 

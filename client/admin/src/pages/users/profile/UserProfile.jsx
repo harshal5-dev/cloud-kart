@@ -9,23 +9,30 @@ import {
   Row,
   Col,
   Space,
-  Descriptions,
   Typography,
   Spin,
   App,
+  Flex,
+  Badge,
+  Divider,
 } from "antd";
-import { UserOutlined, MailOutlined, PhoneOutlined } from "@ant-design/icons";
-import { FaSave } from "react-icons/fa";
-import { GrEdit } from "react-icons/gr";
-import { RiRefreshFill } from "react-icons/ri";
+import {
+  UserOutlined,
+  MailOutlined,
+  PhoneOutlined,
+  EditOutlined,
+  ReloadOutlined,
+} from "@ant-design/icons";
+import { FaSave, FaUser } from "react-icons/fa";
 
 import {
   useGetUserProfileQuery,
   useUpdateUserProfileMutation,
 } from "../usersApi";
 import Address from "./Address/Address";
-import { getRoleColor, isEmpty } from "../../../lib/utils";
+import { isEmpty } from "../../../lib/utils";
 import UserProfileForm from "./UserProfileForm";
+import { cssVariables } from "../../../config/themeConfig";
 
 const { Title, Text } = Typography;
 
@@ -81,130 +88,466 @@ const UserProfile = () => {
 
   if (isLoading) {
     return (
-      <div className="flex items-center justify-center h-screen">
-        <Spin size="large" fullscreen tip="Loading user profile..." />
-      </div>
+      <Flex
+        justify="center"
+        align="center"
+        style={{
+          height: "100vh",
+          background: `linear-gradient(135deg, ${cssVariables.colorPrimary}10 0%, ${cssVariables.colorTitle}08 100%)`,
+        }}
+      >
+        <Card
+          style={{
+            border: "none",
+            boxShadow: cssVariables.boxShadowLight,
+            background: cssVariables.colorWhite,
+          }}
+          styles={{ body: { padding: "20px", textAlign: "center" } }}
+        >
+          <Spin size="large" />
+          <Title
+            level={4}
+            style={{ marginTop: 16, color: cssVariables.colorPrimary }}
+          >
+            Loading Profile...
+          </Title>
+          <Text type="secondary">
+            Please wait while we fetch your profile information
+          </Text>
+        </Card>
+      </Flex>
     );
   } else if (isEmpty(userProfile)) {
     return (
-      <div className="flex items-center justify-center h-screen">
-        <Card>
-          <Space direction="vertical" align="center">
-            <Title level={4} type="danger">
-              User profile not found
-            </Title>
-            <Typography.Text type="secondary">
-              Please try refreshing the page or contact support if the problem
-              persists.
-            </Typography.Text>
-            <Button
-              color="green"
-              variant="solid"
-              icon={<RiRefreshFill />}
-              onClick={refetch}
-            >
-              Reload
-            </Button>
-          </Space>
+      <Flex
+        justify="center"
+        align="center"
+        style={{
+          height: "100vh",
+          background: `linear-gradient(135deg, ${cssVariables.colorPrimary}10 0%, ${cssVariables.colorTitle}08 100%)`,
+        }}
+      >
+        <Card
+          style={{
+            border: `1px solid ${cssVariables.colorPrimary}20`,
+            boxShadow: cssVariables.boxShadowLight,
+            background: cssVariables.colorWhite,
+          }}
+          styles={{ body: { padding: "40px", textAlign: "center" } }}
+        >
+          <Avatar
+            size={64}
+            style={{
+              backgroundColor: cssVariables.colorPrimary + "15",
+              color: cssVariables.colorPrimary,
+              marginBottom: 16,
+            }}
+            icon={<UserOutlined />}
+          />
+          <Title
+            level={4}
+            style={{ color: cssVariables.colorError, margin: "16px 0 8px 0" }}
+          >
+            User profile not found
+          </Title>
+          <Text
+            type="secondary"
+            style={{ fontSize: "14px", display: "block", marginBottom: 24 }}
+          >
+            Please try refreshing the page or contact support if the problem
+            persists.
+          </Text>
+          <Button
+            type="primary"
+            icon={<ReloadOutlined />}
+            onClick={refetch}
+            style={{
+              background: cssVariables.colorPrimary,
+              borderColor: cssVariables.colorPrimary,
+            }}
+          >
+            Reload Profile
+          </Button>
         </Card>
-      </div>
+      </Flex>
     );
   }
 
   return (
-    <div className="h-screen">
-      <Row gutter={[24, 24]}>
-        {/* Profile Header */}
+    <Flex vertical>
+      <Row gutter={[16, 16]}>
+        {/* Profile Header Card */}
         <Col span={24}>
-          <Card>
-            <Row align="middle">
-              <Col>
-                <Avatar
-                  size={120}
-                  src="assets/images/user.svg"
-                  icon={<UserOutlined />}
-                />
-              </Col>
-              <Col flex="1" className="ml-4">
-                <Title level={2} style={{ margin: 0 }} className="capitalize">
-                  {userProfile.firstName} {userProfile.lastName}
-                </Title>
-                <Text type="secondary" className="text-lg">
-                  {userProfile.username}
-                </Text>
-                <div className="mt-2">
-                  {userProfile.roles.map((role) => (
-                    <Tag key={role} color={getRoleColor(role)} className="mr-2">
-                      {role}
-                    </Tag>
-                  ))}
-                </div>
-                <div className="mt-4">
-                  <Space>
-                    <Button
-                      type="primary"
-                      icon={<GrEdit />}
-                      onClick={handleEditProfile}
+          <Card
+            size="small"
+            style={{
+              border: "none",
+              background: `linear-gradient(135deg, ${cssVariables.colorPrimary} 0%, ${cssVariables.colorTitle} 100%)`,
+              boxShadow: `0 8px 24px ${cssVariables.colorPrimary}15`,
+              overflow: "hidden",
+            }}
+            styles={{ body: { padding: 0 } }}
+          >
+            <Flex
+              style={{
+                background: `linear-gradient(135deg, ${cssVariables.glassOverlay} 0%, ${cssVariables.glassOverlayLight} 100%)`,
+                padding: "20px",
+                backdropFilter: "blur(12px)",
+              }}
+            >
+              <Flex align="center" gap={15} wrap="wrap">
+                <Space direction="vertical" size={0} align="center">
+                  <Avatar
+                    size={80}
+                    src="assets/images/user.svg"
+                    icon={<UserOutlined />}
+                    style={{
+                      border: `3px solid ${cssVariables.whiteTransparent40}`,
+                      boxShadow: cssVariables.boxShadowLight,
+                    }}
+                  />
+                  <Badge
+                    status="success"
+                    style={{
+                      position: "absolute",
+                      bottom: 6,
+                      right: 6,
+                      transform: "scale(1.2)",
+                    }}
+                  />
+                </Space>
+
+                <Flex vertical gap={5} flex={1} style={{ minWidth: 200 }}>
+                  <Flex align="center" gap={12} wrap="wrap">
+                    <Title
+                      level={3}
+                      style={{
+                        margin: 0,
+                        color: cssVariables.colorWhite,
+                        fontSize: "20px",
+                        fontWeight: 600,
+                        textShadow: cssVariables.textShadow,
+                        textTransform: "capitalize",
+                        lineHeight: "24px",
+                      }}
                     >
-                      Edit Profile
+                      {userProfile.firstName} {userProfile.lastName}
+                    </Title>
+                    <Space size={4} wrap>
+                      {userProfile.roles.map((role) => (
+                        <Tag
+                          key={role}
+                          style={{
+                            background: cssVariables.whiteTransparent25,
+                            color: cssVariables.colorWhite,
+                            border: `1px solid ${cssVariables.whiteTransparent40}`,
+                            borderRadius: 16,
+                            padding: "2px 8px",
+                            fontSize: "11px",
+                            fontWeight: 500,
+                            textShadow: cssVariables.textShadow,
+                          }}
+                        >
+                          {role}
+                        </Tag>
+                      ))}
+                    </Space>
+                  </Flex>
+
+                  <Text
+                    style={{
+                      color: cssVariables.whiteTransparent90,
+                      fontSize: "14px",
+                      fontWeight: 400,
+                      textShadow: cssVariables.textShadow,
+                    }}
+                  >
+                    @{userProfile.username}
+                  </Text>
+
+                  <Space size={8} style={{ marginTop: 8 }} wrap>
+                    <Button
+                      icon={<EditOutlined />}
+                      onClick={handleEditProfile}
+                      style={{
+                        background: cssVariables.whiteTransparent25,
+                        border: `1px solid ${cssVariables.whiteTransparent40}`,
+                        color: cssVariables.colorWhite,
+
+                        fontWeight: 500,
+                      }}
+                    >
+                      Profile
+                    </Button>
+                    <Button
+                      icon={<ReloadOutlined />}
+                      onClick={refetch}
+                      style={{
+                        background: cssVariables.whiteTransparent25,
+                        border: `1px solid ${cssVariables.whiteTransparent40}`,
+                        color: cssVariables.colorWhite,
+                      }}
+                    >
+                      Refresh
                     </Button>
                   </Space>
-                </div>
+                </Flex>
+              </Flex>
+            </Flex>
+          </Card>
+        </Col>
+
+        {/* Contact Information Card */}
+        <Col xs={24} lg={16}>
+          <Card
+            title={
+              <Flex align="center" gap={8}>
+                <Avatar
+                  size="small"
+                  style={{
+                    backgroundColor: cssVariables.colorPrimary + "15",
+                    color: cssVariables.colorPrimary,
+                  }}
+                  icon={<MailOutlined />}
+                />
+                <Title
+                  level={5}
+                  style={{
+                    margin: 0,
+                    color: cssVariables.colorPrimary,
+                    fontSize: "14px",
+                  }}
+                >
+                  Contact Information
+                </Title>
+              </Flex>
+            }
+            style={{
+              border: `1px solid ${cssVariables.colorPrimary}20`,
+              boxShadow: cssVariables.boxShadowLight,
+            }}
+            styles={{ body: { padding: "16px" } }}
+          >
+            <Row gutter={[0, 12]}>
+              <Col span={24}>
+                <Flex
+                  align="center"
+                  gap={8}
+                  style={{
+                    padding: "8px 0",
+                    borderBottom: `1px solid ${cssVariables.colorPrimary}10`,
+                  }}
+                >
+                  <Avatar
+                    size="small"
+                    style={{
+                      backgroundColor: cssVariables.colorSecondary + "15",
+                      color: cssVariables.colorSecondary,
+                    }}
+                    icon={<MailOutlined />}
+                  />
+                  <Flex vertical gap={2}>
+                    <Text
+                      type="secondary"
+                      style={{ fontSize: "10px", fontWeight: 500 }}
+                    >
+                      Email Address
+                    </Text>
+                    <Text
+                      style={{
+                        fontSize: "13px",
+                        fontWeight: 500,
+                        color: "inherit",
+                        wordBreak: "break-all",
+                      }}
+                    >
+                      {userProfile.email}
+                    </Text>
+                  </Flex>
+                </Flex>
+              </Col>
+
+              <Col span={24}>
+                <Flex
+                  align="center"
+                  gap={8}
+                  style={{
+                    padding: "8px 0",
+                    borderBottom: `1px solid ${cssVariables.colorPrimary}10`,
+                  }}
+                >
+                  <Avatar
+                    size="small"
+                    style={{
+                      backgroundColor: cssVariables.colorTitle + "15",
+                      color: cssVariables.colorTitle,
+                    }}
+                    icon={<PhoneOutlined />}
+                  />
+                  <Flex vertical gap={2}>
+                    <Text
+                      type="secondary"
+                      style={{ fontSize: "10px", fontWeight: 500 }}
+                    >
+                      Phone Number
+                    </Text>
+                    <Text
+                      style={{
+                        fontSize: "13px",
+                        fontWeight: 500,
+                        color: "inherit",
+                      }}
+                    >
+                      {userProfile.phoneNumber || "Not provided"}
+                    </Text>
+                  </Flex>
+                </Flex>
+              </Col>
+
+              <Col span={24}>
+                <Flex align="center" gap={8} style={{ padding: "8px 0" }}>
+                  <Avatar
+                    size="small"
+                    style={{
+                      backgroundColor: cssVariables.colorOrange + "15",
+                      color: cssVariables.colorOrange,
+                    }}
+                    icon={<UserOutlined />}
+                  />
+                  <Flex vertical gap={2}>
+                    <Text
+                      type="secondary"
+                      style={{ fontSize: "10px", fontWeight: 500 }}
+                    >
+                      Username
+                    </Text>
+                    <Text
+                      style={{
+                        fontSize: "13px",
+                        fontWeight: 500,
+                        color: "inherit",
+                      }}
+                    >
+                      @{userProfile.username}
+                    </Text>
+                  </Flex>
+                </Flex>
               </Col>
             </Row>
           </Card>
         </Col>
 
-        {/* Contact Information */}
-        <Col span={24}>
-          <Card title="Contact Information">
-            <Descriptions
-              column={{ xs: 1, sm: 1, md: 2, xl: 2, xxl: 2 }}
-              bordered
-            >
-              <Descriptions.Item
-                label={
-                  <Space>
-                    <MailOutlined />
-                    Email
-                  </Space>
-                }
-              >
-                {userProfile.email}
-              </Descriptions.Item>
-              <Descriptions.Item
-                label={
-                  <Space>
-                    <PhoneOutlined />
-                    Phone Number
-                  </Space>
-                }
-              >
-                {userProfile.phoneNumber}
-              </Descriptions.Item>
-              <Descriptions.Item
-                label={
-                  <Space>
-                    <UserOutlined />
-                    Username
-                  </Space>
-                }
-              >
-                {userProfile.username}
-              </Descriptions.Item>
-            </Descriptions>
+        {/* Quick Stats Card */}
+        <Col xs={24} lg={8}>
+          <Card
+            title={
+              <Flex align="center" gap={8}>
+                <Avatar
+                  size="small"
+                  style={{
+                    backgroundColor: cssVariables.colorSecondary + "15",
+                    color: cssVariables.colorSecondary,
+                  }}
+                  icon={<FaUser />}
+                />
+                <Title
+                  level={5}
+                  style={{
+                    margin: 0,
+                    color: cssVariables.colorSecondary,
+                    fontSize: "14px",
+                  }}
+                >
+                  Account Status
+                </Title>
+              </Flex>
+            }
+            style={{
+              border: `1px solid ${cssVariables.colorSecondary}20`,
+              boxShadow: cssVariables.boxShadowLight,
+            }}
+            styles={{ body: { padding: "16px" } }}
+          >
+            <Flex vertical gap={8}>
+              <Flex justify="space-between" align="center">
+                <Text style={{ fontSize: "12px", color: "inherit" }}>
+                  Profile Status
+                </Text>
+                <Badge
+                  status="success"
+                  text={
+                    <Text
+                      style={{
+                        color: cssVariables.colorSecondary,
+                        fontWeight: 500,
+                        fontSize: "11px",
+                      }}
+                    >
+                      Active
+                    </Text>
+                  }
+                />
+              </Flex>
+
+              <Divider
+                style={{
+                  margin: "2px 0",
+                  borderColor: cssVariables.colorSecondary + "20",
+                }}
+              />
+
+              <Flex justify="space-between" align="center">
+                <Text style={{ fontSize: "12px", color: "inherit" }}>
+                  Account Type
+                </Text>
+                <Tag
+                  style={{
+                    background: cssVariables.colorTitle + "15",
+                    color: cssVariables.colorTitle,
+                    border: "none",
+                    borderRadius: 12,
+                    padding: "1px 6px",
+                    fontSize: "10px",
+                  }}
+                >
+                  Administrator
+                </Tag>
+              </Flex>
+
+              <Divider
+                style={{
+                  margin: "2px 0",
+                  borderColor: cssVariables.colorSecondary + "20",
+                }}
+              />
+
+              <Flex justify="space-between" align="center">
+                <Text style={{ fontSize: "12px", color: "inherit" }}>
+                  Roles
+                </Text>
+                <Text
+                  style={{
+                    color: cssVariables.colorSecondary,
+                    fontWeight: 500,
+                    fontSize: "11px",
+                  }}
+                >
+                  {userProfile.roles.length} role
+                  {userProfile.roles.length !== 1 ? "s" : ""}
+                </Text>
+              </Flex>
+            </Flex>
           </Card>
         </Col>
 
-        {/* Addresses */}
+        {/* Addresses Section */}
         <Col span={24}>
           <Address userId={userProfile.id} />
         </Col>
       </Row>
 
-      {/* Edit Profile Modal */}
+      {/* Enhanced Edit Profile Modal */}
       <Modal
-        title="Edit Profile"
         open={isEditProfileModal}
         onOk={handleEditProfileOk}
         okText="Save"
@@ -213,15 +556,22 @@ const UserProfile = () => {
         okButtonProps={{
           icon: <FaSave />,
         }}
-        width={500}
+        width="95%"
+        style={{ maxWidth: 655 }}
         maskClosable={false}
+        styles={{
+          body: {
+            padding: 0,
+          },
+        }}
+        centered
       >
         <UserProfileForm
           form={form}
           isEditProfileLoading={isEditProfileLoading}
         />
       </Modal>
-    </div>
+    </Flex>
   );
 };
 

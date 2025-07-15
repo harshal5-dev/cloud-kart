@@ -14,16 +14,25 @@ import {
   Spin,
   Tag,
   Typography,
+  Flex,
+  Badge,
+  Divider,
 } from "antd";
-import { EnvironmentOutlined, HomeOutlined } from "@ant-design/icons";
+import {
+  EnvironmentOutlined,
+  HomeOutlined,
+  PlusOutlined,
+  EditOutlined,
+} from "@ant-design/icons";
 import {
   FaBuilding,
   FaMoneyBillWave,
   FaPencilAlt,
   FaSave,
   FaShippingFast,
+  FaMapMarkerAlt,
 } from "react-icons/fa";
-import { MdOutlineAddHomeWork } from "react-icons/md";
+import { MdOutlineAddHomeWork, MdLocationOn } from "react-icons/md";
 
 import {
   useCreateUserAddressMutation,
@@ -33,6 +42,8 @@ import {
 import { cssVariables } from "../../../../config/themeConfig";
 import DeleteAddress from "./DeleteAddress";
 import AddressForm from "./AddressForm";
+
+const { Title, Text } = Typography;
 
 const Address = ({ userId }) => {
   const addressResponse = useGetUserAddressesQuery(userId);
@@ -49,10 +60,34 @@ const Address = ({ userId }) => {
   const { message } = App.useApp();
 
   const addressTypes = [
-    { value: "HOME", label: "Home", icon: <HomeOutlined /> },
-    { value: "OFFICE", label: "Office", icon: <FaBuilding /> },
-    { value: "SHIPPING", label: "Shipping", icon: <FaShippingFast /> },
-    { value: "BILLING", label: "Billing", icon: <FaMoneyBillWave /> },
+    {
+      value: "HOME",
+      label: "Home",
+      icon: <HomeOutlined />,
+      color: cssVariables.colorSecondary,
+      bgColor: cssVariables.colorSecondary + "15",
+    },
+    {
+      value: "OFFICE",
+      label: "Office",
+      icon: <FaBuilding />,
+      color: cssVariables.colorPrimary,
+      bgColor: cssVariables.colorPrimary + "15",
+    },
+    {
+      value: "SHIPPING",
+      label: "Shipping",
+      icon: <FaShippingFast />,
+      color: cssVariables.colorTitle,
+      bgColor: cssVariables.colorTitle + "15",
+    },
+    {
+      value: "BILLING",
+      label: "Billing",
+      icon: <FaMoneyBillWave />,
+      color: cssVariables.colorOrange,
+      bgColor: cssVariables.colorOrange + "15",
+    },
   ];
 
   const handleAddAddress = () => {
@@ -121,24 +156,61 @@ const Address = ({ userId }) => {
 
   if (isLoading) {
     return (
-      <div className="flex items-center justify-center h-screen">
-        <Spin size="large" fullscreen tip="Loading user profile..." />
-      </div>
+      <Card
+        style={{
+          borderRadius: 12,
+          border: `1px solid ${cssVariables.colorPrimary}20`,
+          boxShadow: cssVariables.boxShadowLight,
+        }}
+        styles={{ body: { padding: "40px", textAlign: "center" } }}
+      >
+        <Spin size="large" />
+        <Title
+          level={4}
+          style={{ marginTop: 16, color: cssVariables.colorPrimary }}
+        >
+          Loading Addresses...
+        </Title>
+        <Text type="secondary">Please wait while we fetch your addresses</Text>
+      </Card>
     );
   }
 
   return (
     <Card
-      title="Addresses"
+      title={
+        <Flex align="center" gap={8}>
+          <Avatar
+            size="small"
+            style={{
+              backgroundColor: cssVariables.colorPrimary + "15",
+              color: cssVariables.colorPrimary,
+            }}
+            icon={<MdLocationOn />}
+          />
+          <Title
+            level={5}
+            style={{ margin: 0, color: cssVariables.colorPrimary }}
+          >
+            Addresses
+          </Title>
+        </Flex>
+      }
       extra={
         <Button
           type="primary"
-          icon={<MdOutlineAddHomeWork />}
+          icon={<PlusOutlined />}
           onClick={handleAddAddress}
         >
           Add Address
         </Button>
       }
+      style={{
+        borderRadius: 10,
+        border: `1px solid ${cssVariables.colorPrimary}20`,
+        boxShadow: cssVariables.boxShadowLight,
+      }}
+      styles={{ body: { padding: "20px" } }}
     >
       <List
         dataSource={userAddresses}
@@ -148,75 +220,215 @@ const Address = ({ userId }) => {
               status="error"
               title="An error occurred"
               subTitle="Failed to fetch addresses, please try again"
+              extra={
+                <Button
+                  type="primary"
+                  onClick={() => window.location.reload()}
+                  style={{
+                    borderRadius: 8,
+                    background: cssVariables.colorPrimary,
+                    borderColor: cssVariables.colorPrimary,
+                  }}
+                >
+                  Retry
+                </Button>
+              }
             />
           ) : (
             <Empty
-              image={Empty.PRESENTED_IMAGE_DEFAULT}
-              description="No Addresses found"
+              image={
+                <FaMapMarkerAlt
+                  style={{
+                    fontSize: "48px",
+                    color: cssVariables.colorPrimary + "40",
+                  }}
+                />
+              }
+              description={
+                <Flex vertical gap={6} align="center">
+                  <Text
+                    style={{
+                      fontSize: "14px",
+                      color: cssVariables.colorPrimary,
+                    }}
+                  >
+                    No Addresses found
+                  </Text>
+                  <Text type="secondary" style={{ fontSize: "12px" }}>
+                    Add your first address to get started
+                  </Text>
+                </Flex>
+              }
+              style={{ padding: "32px 0" }}
             />
           ),
         }}
-        renderItem={(address) => (
-          <List.Item
-            actions={[
-              <Button
-                variant="text"
-                shape="circle"
-                color="gold"
-                icon={<FaPencilAlt />}
-                onClick={() => handleEditAddress(address)}
-              />,
+        renderItem={(address) => {
+          const addressType = addressTypes.find(
+            (t) => t.value === address.addressType
+          );
+          const typeColor = addressType?.color || cssVariables.colorPrimary;
+          const typeBgColor =
+            addressType?.bgColor || cssVariables.colorPrimary + "15";
 
-              <DeleteAddress userId={userId} id={address.id} />,
-            ]}
-          >
-            <List.Item.Meta
-              avatar={
-                <Avatar
-                  size={40}
-                  style={{ backgroundColor: cssVariables.colorSecondary }}
-                  icon={getAddressIcon(address.addressType)}
-                />
-              }
-              title={
-                <Space>
-                  <span className="capitalize">{address.addressType}</span>
-                  {address.isDefault && <Tag color="orange">Default</Tag>}
-                </Space>
-              }
-              description={
-                <div>
-                  <div>{address.streetAddress}</div>
-                  <div>
-                    {address.city}, {address.state} {address.postalCode},{" "}
-                    {address.country}
-                  </div>
-                  <div>Phone no.: {address.phoneNumber}</div>
-                </div>
-              }
-            />
-          </List.Item>
-        )}
+          return (
+            <List.Item
+              style={{
+                padding: "16px",
+                marginBottom: "12px",
+                background: cssVariables.colorWhite,
+                border: `1px solid ${typeColor}20`,
+                borderRadius: 10,
+                boxShadow: cssVariables.boxShadowLight,
+                transition: "all 0.3s ease",
+              }}
+              actions={[
+                <Button
+                  type="text"
+                  icon={<EditOutlined />}
+                  onClick={() => handleEditAddress(address)}
+                  style={{
+                    color: cssVariables.colorTitle,
+                    borderRadius: 6,
+                  }}
+                />,
+                <DeleteAddress userId={userId} id={address.id} />,
+              ]}
+            >
+              <List.Item.Meta
+                avatar={
+                  <Avatar
+                    size={40}
+                    style={{
+                      backgroundColor: typeBgColor,
+                      color: typeColor,
+                      border: `2px solid ${typeColor}30`,
+                    }}
+                    icon={getAddressIcon(address.addressType)}
+                  />
+                }
+                title={
+                  <Flex align="center" gap={10}>
+                    <Text
+                      style={{
+                        fontSize: "16px",
+                        fontWeight: 600,
+                        color: cssVariables.colorPrimary,
+                        textTransform: "capitalize",
+                      }}
+                    >
+                      {address.addressType.toLowerCase()} Address
+                    </Text>
+                    {address.isDefault && (
+                      <Badge
+                        status="success"
+                        text={
+                          <Tag
+                            style={{
+                              background: cssVariables.colorSecondary + "15",
+                              color: cssVariables.colorSecondary,
+                              border: "none",
+                              borderRadius: 16,
+                              padding: "2px 8px",
+                              fontSize: "11px",
+                              fontWeight: 500,
+                            }}
+                          >
+                            Default
+                          </Tag>
+                        }
+                      />
+                    )}
+                  </Flex>
+                }
+                description={
+                  <Flex vertical gap={8} style={{ marginTop: 8 }}>
+                    <Flex align="center" gap={8}>
+                      <FaMapMarkerAlt
+                        style={{ color: typeColor, fontSize: "14px" }}
+                      />
+                      <Text
+                        style={{
+                          fontSize: "15px",
+                          color: cssVariables.colorPrimary,
+                        }}
+                      >
+                        {address.streetAddress}
+                      </Text>
+                    </Flex>
+
+                    <Text
+                      style={{
+                        fontSize: "14px",
+                        color: "#666",
+                        marginLeft: 22,
+                      }}
+                    >
+                      {address.city}, {address.state} {address.postalCode}
+                    </Text>
+
+                    <Text
+                      style={{
+                        fontSize: "14px",
+                        color: "#666",
+                        marginLeft: 22,
+                      }}
+                    >
+                      {address.country}
+                    </Text>
+
+                    {address.phoneNumber && (
+                      <Flex align="center" gap={8} style={{ marginTop: 4 }}>
+                        <Avatar
+                          size={16}
+                          style={{
+                            backgroundColor: cssVariables.colorTitle + "15",
+                            color: cssVariables.colorTitle,
+                            fontSize: "10px",
+                          }}
+                          icon="📞"
+                        />
+                        <Text
+                          style={{
+                            fontSize: "14px",
+                            color: cssVariables.colorTitle,
+                          }}
+                        >
+                          {address.phoneNumber}
+                        </Text>
+                      </Flex>
+                    )}
+                  </Flex>
+                }
+              />
+            </List.Item>
+          );
+        }}
       />
 
-      {/* Modal for adding/editing address */}
+      {/* Enhanced Modal for adding/editing address */}
       <Modal
-        title={selectedAddressId ? "Edit Address" : "Add New Address"}
         open={isModalVisible}
         onOk={handleModalOk}
         onCancel={handleModalCancel}
-        width={600}
         okText="Save"
         okButtonProps={{
           icon: <FaSave />,
         }}
         maskClosable={false}
         confirmLoading={isAddressCreating || isAddressUpdating}
+        width="95%"
+        style={{ maxWidth: 655 }}
       >
         <AddressForm
           form={form}
           isLoading={isAddressCreating || isAddressUpdating}
           addressTypes={addressTypes}
+          title={
+            selectedAddressId
+              ? "Update Address Information"
+              : "Add Address Information"
+          }
         />
       </Modal>
     </Card>

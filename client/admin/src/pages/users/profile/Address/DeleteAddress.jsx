@@ -53,8 +53,8 @@ const DeleteAddress = ({ userId, id }) => {
 };
 
 DeleteAddress.propTypes = {
-  userId: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
+  userId: PropTypes.string,
+  id: PropTypes.string,
 };
 
 export default DeleteAddress;

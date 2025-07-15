@@ -9,6 +9,32 @@ export const cssVariables = {
   colorSelected: "#173763",
   colorBgSelected: "#bdc5c9",
   colorTitle: "#3b82f6",
+  // Error and status colors
+  colorError: "#ff4d4f",
+  colorWarning: "#faad14",
+  colorInfo: "#1677ff",
+  // Additional colors for steps
+  colorPurple: "#722ed1",
+  colorOrange: "#fa8c16",
+  colorMagenta: "#eb2f96",
+  colorSuccess: "#52c41a",
+  colorProgressEnd: "#73d13d",
+  // Glassmorphism and overlay colors
+  glassOverlay: "rgba(255,255,255,0.15)",
+  glassOverlayLight: "rgba(255,255,255,0.08)",
+  whiteTransparent25: "rgba(255,255,255,0.25)",
+  whiteTransparent30: "rgba(255,255,255,0.3)",
+  whiteTransparent40: "rgba(255,255,255,0.4)",
+  whiteTransparent90: "rgba(255,255,255,0.9)",
+  blackShadow10: "rgba(0,0,0,0.1)",
+  // Theme-adaptive colors for dark/light mode
+  backgroundTransparent: "transparent",
+  borderSubtle: "rgba(0,0,0,0.06)",
+  shadowSubtle: "0 2px 8px rgba(0,0,0,0.06)",
+  // Shadow values
+  boxShadowLight: "0 2px 8px rgba(0,0,0,0.1)",
+  boxShadowSoft: "0 1px 3px rgba(0,0,0,0.1)",
+  textShadow: "0 1px 2px rgba(0,0,0,0.1)",
 };
 
 export const themeConfig = {

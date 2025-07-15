@@ -1,7 +1,7 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 import { App, Button, Form, Modal } from "antd";
-import { FaPencilAlt, FaSave } from "react-icons/fa";
+import { FaPencilAlt } from "react-icons/fa";
 import { LuPackagePlus } from "react-icons/lu";
 
 import {
@@ -46,7 +46,28 @@ const ManageProduct = ({ operation, product }) => {
   };
 
   const handleEditProduct = (product) => {
-    form.setFieldsValue(product);
+    // Set form values for editing
+    form.setFieldsValue({
+      title: product.title || "",
+      description: product.description || "",
+      categorySlug: product.categorySlug || null,
+      price: product.price || null,
+      stock: product.stock || null,
+      sku: product.sku || "",
+      brand: product.brand || "",
+      thumbnail: product.thumbnail || "",
+      featured: product.featured || false,
+      discountPercentage: product.discountPercentage || 0,
+      weight: product.weight || null,
+      width: product.width || null,
+      height: product.height || null,
+      depth: product.depth || null,
+      minimumOrderQuantity: product.minimumOrderQuantity || 1,
+      availabilityStatus: product.availabilityStatus || "IN_STOCK",
+      shippingDetails: product.shippingDetails || "",
+      warrantyDetails: product.warrantyDetails || "",
+      returnPolicy: product.returnPolicy || "",
+    });
     setIsModalVisible(true);
   };
 
@@ -54,9 +75,6 @@ const ManageProduct = ({ operation, product }) => {
     form
       .validateFields()
       .then(async (values) => {
-        const formValues = form.getFieldsValue();
-        console.log("Form Values:", formValues);
-        console.log("values:", values);
         if (product) {
           if (!form.isFieldsTouched()) {
             message.warning("No changes made to the product");
@@ -72,6 +90,7 @@ const ManageProduct = ({ operation, product }) => {
             const res = await updateProduct(payload).unwrap();
             message.success(res.statusMessage);
             setIsModalVisible(false);
+            form.resetFields();
           } catch (errorRes) {
             const error = errorRes.data;
             message.error(error.errorMessage);
@@ -84,6 +103,7 @@ const ManageProduct = ({ operation, product }) => {
             const res = await createProduct(payload).unwrap();
             message.success(res.statusMessage);
             setIsModalVisible(false);
+            form.resetFields();
           } catch (errorRes) {
             const error = errorRes.data;
             message.error(error.errorMessage);
@@ -91,11 +111,12 @@ const ManageProduct = ({ operation, product }) => {
         }
       })
       .catch(() => {
-        message.error("Please fill in all required fields");
+        message.error("Please complete all required fields before submitting");
       });
   };
 
   const handleModalCancel = () => {
+    form.resetFields();
     setIsModalVisible(false);
   };
 
@@ -121,26 +142,25 @@ const ManageProduct = ({ operation, product }) => {
       )}
       {/* Modal for adding/editing product */}
       <Modal
-        // title={isUpdate ? "Edit Product" : "Add New Product"}
         open={isModalVisible}
-        // onOk={handleModalOk}
         onCancel={handleModalCancel}
-        width={695}
-        // okText="Save"
-        // okButtonProps={{
-        //   icon: <FaSave />,
-        // }}
+        width="90vw"
+        style={{ maxWidth: "1200px", top: 20 }}
         maskClosable={false}
         confirmLoading={isCreating || isUpdating}
-        centered
-        footer=""
+        centered={false}
+        footer={null}
+        forceRender
       >
-        <ProductForm
-          defaultValues={defaultValues}
-          form={form}
-          isLoading={isCreating || isUpdating}
-          onSubmit={handleModalOk}
-        />
+        {isModalVisible && (
+          <ProductForm
+            defaultValues={isUpdate ? {} : defaultValues}
+            form={form}
+            isLoading={isCreating || isUpdating}
+            onSubmit={handleModalOk}
+            title={isUpdate ? "Edit Product" : "Create New Product"}
+          />
+        )}
       </Modal>
     </>
   );

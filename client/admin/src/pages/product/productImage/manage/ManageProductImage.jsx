@@ -19,7 +19,6 @@ const ManageProductImage = ({ operation, productImage, productSku }) => {
     imageUrl: "",
     altText: "",
     sortOrder: null,
-    isPrimary: false,
   };
 
   const [createProductImage, { isLoading: isCreating }] =

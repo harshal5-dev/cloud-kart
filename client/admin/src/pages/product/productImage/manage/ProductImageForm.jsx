@@ -93,10 +93,6 @@ const ProductImageForm = ({ form, defaultValues, isLoading }) => {
           </Form.Item>
         </Col>
       </Row>
-
-      <Form.Item name="isPrimary" valuePropName="checked">
-        <Checkbox>Set as Primary</Checkbox>
-      </Form.Item>
     </Form>
   );
 };
