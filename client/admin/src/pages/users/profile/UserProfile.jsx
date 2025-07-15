@@ -152,7 +152,7 @@ const UserProfile = () => {
           </Title>
           <Text
             type="secondary"
-            style={{ fontSize: "14px", display: "block", marginBottom: 24 }}
+            style={{ fontSize: "15px", display: "block", marginBottom: 24 }}
           >
             Please try refreshing the page or contact support if the problem
             persists.
@@ -224,11 +224,11 @@ const UserProfile = () => {
                       style={{
                         margin: 0,
                         color: cssVariables.colorWhite,
-                        fontSize: "20px",
+                        fontSize: "22px",
                         fontWeight: 600,
                         textShadow: cssVariables.textShadow,
                         textTransform: "capitalize",
-                        lineHeight: "24px",
+                        lineHeight: "26px",
                       }}
                     >
                       {userProfile.firstName} {userProfile.lastName}
@@ -243,7 +243,7 @@ const UserProfile = () => {
                             border: `1px solid ${cssVariables.whiteTransparent40}`,
                             borderRadius: 16,
                             padding: "2px 8px",
-                            fontSize: "11px",
+                            fontSize: "12px",
                             fontWeight: 500,
                             textShadow: cssVariables.textShadow,
                           }}
@@ -257,7 +257,7 @@ const UserProfile = () => {
                   <Text
                     style={{
                       color: cssVariables.whiteTransparent90,
-                      fontSize: "14px",
+                      fontSize: "15px",
                       fontWeight: 400,
                       textShadow: cssVariables.textShadow,
                     }}
@@ -315,7 +315,7 @@ const UserProfile = () => {
                   style={{
                     margin: 0,
                     color: cssVariables.colorPrimary,
-                    fontSize: "14px",
+                    fontSize: "15px",
                   }}
                 >
                   Contact Information
@@ -349,13 +349,13 @@ const UserProfile = () => {
                   <Flex vertical gap={2}>
                     <Text
                       type="secondary"
-                      style={{ fontSize: "10px", fontWeight: 500 }}
+                      style={{ fontSize: "11px", fontWeight: 500 }}
                     >
                       Email Address
                     </Text>
                     <Text
                       style={{
-                        fontSize: "13px",
+                        fontSize: "14px",
                         fontWeight: 500,
                         color: "inherit",
                         wordBreak: "break-all",
@@ -387,13 +387,13 @@ const UserProfile = () => {
                   <Flex vertical gap={2}>
                     <Text
                       type="secondary"
-                      style={{ fontSize: "10px", fontWeight: 500 }}
+                      style={{ fontSize: "11px", fontWeight: 500 }}
                     >
                       Phone Number
                     </Text>
                     <Text
                       style={{
-                        fontSize: "13px",
+                        fontSize: "14px",
                         fontWeight: 500,
                         color: "inherit",
                       }}
@@ -417,13 +417,13 @@ const UserProfile = () => {
                   <Flex vertical gap={2}>
                     <Text
                       type="secondary"
-                      style={{ fontSize: "10px", fontWeight: 500 }}
+                      style={{ fontSize: "11px", fontWeight: 500 }}
                     >
                       Username
                     </Text>
                     <Text
                       style={{
-                        fontSize: "13px",
+                        fontSize: "14px",
                         fontWeight: 500,
                         color: "inherit",
                       }}
@@ -455,7 +455,7 @@ const UserProfile = () => {
                   style={{
                     margin: 0,
                     color: cssVariables.colorSecondary,
-                    fontSize: "14px",
+                    fontSize: "15px",
                   }}
                 >
                   Account Status
@@ -470,7 +470,7 @@ const UserProfile = () => {
           >
             <Flex vertical gap={8}>
               <Flex justify="space-between" align="center">
-                <Text style={{ fontSize: "12px", color: "inherit" }}>
+                <Text style={{ fontSize: "13px", color: "inherit" }}>
                   Profile Status
                 </Text>
                 <Badge
@@ -480,7 +480,7 @@ const UserProfile = () => {
                       style={{
                         color: cssVariables.colorSecondary,
                         fontWeight: 500,
-                        fontSize: "11px",
+                        fontSize: "12px",
                       }}
                     >
                       Active
@@ -497,7 +497,7 @@ const UserProfile = () => {
               />
 
               <Flex justify="space-between" align="center">
-                <Text style={{ fontSize: "12px", color: "inherit" }}>
+                <Text style={{ fontSize: "13px", color: "inherit" }}>
                   Account Type
                 </Text>
                 <Tag
@@ -507,7 +507,7 @@ const UserProfile = () => {
                     border: "none",
                     borderRadius: 12,
                     padding: "1px 6px",
-                    fontSize: "10px",
+                    fontSize: "11px",
                   }}
                 >
                   Administrator
@@ -522,14 +522,14 @@ const UserProfile = () => {
               />
 
               <Flex justify="space-between" align="center">
-                <Text style={{ fontSize: "12px", color: "inherit" }}>
+                <Text style={{ fontSize: "13px", color: "inherit" }}>
                   Roles
                 </Text>
                 <Text
                   style={{
                     color: cssVariables.colorSecondary,
                     fontWeight: 500,
-                    fontSize: "11px",
+                    fontSize: "12px",
                   }}
                 >
                   {userProfile.roles.length} role

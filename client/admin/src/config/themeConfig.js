@@ -31,6 +31,17 @@ export const cssVariables = {
   backgroundTransparent: "transparent",
   borderSubtle: "rgba(0,0,0,0.06)",
   shadowSubtle: "0 2px 8px rgba(0,0,0,0.06)",
+  colorText: "#262626",
+  colorTextSecondary: "#8c8c8c",
+  colorTextTertiary: "#bfbfbf",
+  // Dark theme compatible colors
+  cardBackground: "rgba(255,255,255,0.08)",
+  cardBorder: "rgba(255,255,255,0.12)",
+  cardShadow: "0 4px 12px rgba(0,0,0,0.15)",
+  // Theme-adaptive text colors
+  textPrimary: "inherit",
+  textSecondary: "rgba(255,255,255,0.7)",
+  textTertiary: "rgba(255,255,255,0.5)",
   // Shadow values
   boxShadowLight: "0 2px 8px rgba(0,0,0,0.1)",
   boxShadowSoft: "0 1px 3px rgba(0,0,0,0.1)",

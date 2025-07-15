@@ -10,29 +10,26 @@ import {
   List,
   Modal,
   Result,
-  Space,
   Spin,
   Tag,
   Typography,
   Flex,
-  Badge,
-  Divider,
 } from "antd";
 import {
   EnvironmentOutlined,
   HomeOutlined,
   PlusOutlined,
-  EditOutlined,
 } from "@ant-design/icons";
 import {
   FaBuilding,
   FaMoneyBillWave,
-  FaPencilAlt,
   FaSave,
   FaShippingFast,
   FaMapMarkerAlt,
+  FaPhone,
+  FaPencilAlt,
 } from "react-icons/fa";
-import { MdOutlineAddHomeWork, MdLocationOn } from "react-icons/md";
+import { MdLocationOn } from "react-icons/md";
 
 import {
   useCreateUserAddressMutation,
@@ -210,7 +207,7 @@ const Address = ({ userId }) => {
         border: `1px solid ${cssVariables.colorPrimary}20`,
         boxShadow: cssVariables.boxShadowLight,
       }}
-      styles={{ body: { padding: "20px" } }}
+      styles={{ body: { padding: "16px" } }}
     >
       <List
         dataSource={userAddresses}
@@ -274,133 +271,155 @@ const Address = ({ userId }) => {
           return (
             <List.Item
               style={{
-                padding: "16px",
-                marginBottom: "12px",
-                background: cssVariables.colorWhite,
-                border: `1px solid ${typeColor}20`,
-                borderRadius: 10,
-                boxShadow: cssVariables.boxShadowLight,
+                padding: "12px",
+                marginBottom: "8px",
+                background: cssVariables.cardBackground,
+                border: `1px solid ${cssVariables.cardBorder}`,
+                borderRadius: 8,
+                backdropFilter: "blur(12px)",
+                boxShadow: cssVariables.cardShadow,
                 transition: "all 0.3s ease",
+                position: "relative",
               }}
-              actions={[
-                <Button
-                  type="text"
-                  icon={<EditOutlined />}
-                  onClick={() => handleEditAddress(address)}
-                  style={{
-                    color: cssVariables.colorTitle,
-                    borderRadius: 6,
-                  }}
-                />,
-                <DeleteAddress userId={userId} id={address.id} />,
-              ]}
             >
-              <List.Item.Meta
-                avatar={
+              <Flex
+                justify="space-between"
+                align="flex-start"
+                style={{ width: "100%" }}
+                wrap="wrap"
+                gap={8}
+              >
+                {/* Left Content */}
+                <Flex
+                  align="flex-start"
+                  gap={12}
+                  style={{ flex: 1, minWidth: 0 }}
+                >
                   <Avatar
-                    size={40}
+                    size={32}
                     style={{
                       backgroundColor: typeBgColor,
                       color: typeColor,
                       border: `2px solid ${typeColor}30`,
+                      flexShrink: 0,
                     }}
                     icon={getAddressIcon(address.addressType)}
                   />
-                }
-                title={
-                  <Flex align="center" gap={10}>
-                    <Text
-                      style={{
-                        fontSize: "16px",
-                        fontWeight: 600,
-                        color: cssVariables.colorPrimary,
-                        textTransform: "capitalize",
-                      }}
-                    >
-                      {address.addressType.toLowerCase()} Address
-                    </Text>
-                    {address.isDefault && (
-                      <Badge
-                        status="success"
-                        text={
-                          <Tag
-                            style={{
-                              background: cssVariables.colorSecondary + "15",
-                              color: cssVariables.colorSecondary,
-                              border: "none",
-                              borderRadius: 16,
-                              padding: "2px 8px",
-                              fontSize: "11px",
-                              fontWeight: 500,
-                            }}
-                          >
-                            Default
-                          </Tag>
-                        }
-                      />
-                    )}
-                  </Flex>
-                }
-                description={
-                  <Flex vertical gap={8} style={{ marginTop: 8 }}>
-                    <Flex align="center" gap={8}>
-                      <FaMapMarkerAlt
-                        style={{ color: typeColor, fontSize: "14px" }}
-                      />
+
+                  <Flex vertical gap={6} style={{ flex: 1, minWidth: 0 }}>
+                    {/* Address Type and Default Tag */}
+                    <Flex align="center" gap={8} wrap="wrap">
                       <Text
                         style={{
-                          fontSize: "15px",
-                          color: cssVariables.colorPrimary,
+                          fontSize: "14px",
+                          fontWeight: 600,
+                          color: cssVariables.textPrimary,
+                          textTransform: "capitalize",
                         }}
                       >
-                        {address.streetAddress}
+                        {address.addressType.toLowerCase()} Address
                       </Text>
+                      {address.isDefault && (
+                        <Tag
+                          style={{
+                            background: cssVariables.colorSuccess + "15",
+                            color: cssVariables.colorSuccess,
+                            border: `1px solid ${cssVariables.colorSuccess}30`,
+                            borderRadius: 12,
+                            padding: "1px 6px",
+                            fontSize: "10px",
+                            fontWeight: 500,
+                            margin: 0,
+                          }}
+                        >
+                          Default
+                        </Tag>
+                      )}
                     </Flex>
 
-                    <Text
-                      style={{
-                        fontSize: "14px",
-                        color: "#666",
-                        marginLeft: 22,
-                      }}
-                    >
-                      {address.city}, {address.state} {address.postalCode}
-                    </Text>
-
-                    <Text
-                      style={{
-                        fontSize: "14px",
-                        color: "#666",
-                        marginLeft: 22,
-                      }}
-                    >
-                      {address.country}
-                    </Text>
-
-                    {address.phoneNumber && (
-                      <Flex align="center" gap={8} style={{ marginTop: 4 }}>
-                        <Avatar
-                          size={16}
+                    {/* Address Details */}
+                    <Flex vertical gap={3}>
+                      <Flex align="flex-start" gap={6}>
+                        <FaMapMarkerAlt
                           style={{
-                            backgroundColor: cssVariables.colorTitle + "15",
-                            color: cssVariables.colorTitle,
-                            fontSize: "10px",
+                            color: typeColor,
+                            fontSize: "12px",
+                            marginTop: "2px",
+                            flexShrink: 0,
                           }}
-                          icon="📞"
                         />
                         <Text
                           style={{
-                            fontSize: "14px",
-                            color: cssVariables.colorTitle,
+                            fontSize: "13px",
+                            fontWeight: 500,
+                            lineHeight: "18px",
+                            wordBreak: "break-word",
                           }}
                         >
-                          {address.phoneNumber}
+                          {address.streetAddress}
                         </Text>
                       </Flex>
-                    )}
+
+                      <Text
+                        type="secondary"
+                        style={{
+                          fontSize: "12px",
+                          marginLeft: 18,
+                          lineHeight: "16px",
+                        }}
+                      >
+                        {address.city}, {address.state} {address.postalCode}
+                      </Text>
+
+                      <Text
+                        style={{
+                          fontSize: "12px",
+                          marginLeft: 18,
+                          lineHeight: "16px",
+                        }}
+                        type="secondary"
+                      >
+                        {address.country}
+                      </Text>
+
+                      {address.phoneNumber && (
+                        <Flex align="center" gap={6} style={{ marginLeft: 18 }}>
+                          <Avatar
+                            size={13}
+                            style={{
+                              backgroundColor: cssVariables.colorInfo + "15",
+                              color: cssVariables.colorInfo,
+                              fontSize: "15px",
+                            }}
+                            icon={<FaPhone />}
+                          />
+                          <Text
+                            style={{
+                              fontSize: "12px",
+                              color: cssVariables.colorInfo,
+                              fontWeight: 500,
+                            }}
+                          >
+                            {address.phoneNumber}
+                          </Text>
+                        </Flex>
+                      )}
+                    </Flex>
                   </Flex>
-                }
-              />
+                </Flex>
+
+                {/* Right Actions */}
+                <Flex gap={3} style={{ flexShrink: 0 }}>
+                  <Button
+                    icon={<FaPencilAlt />}
+                    variant="text"
+                    shape="circle"
+                    color="gold"
+                    onClick={() => handleEditAddress(address)}
+                  />
+                  <DeleteAddress userId={userId} id={address.id} />
+                </Flex>
+              </Flex>
             </List.Item>
           );
         }}
