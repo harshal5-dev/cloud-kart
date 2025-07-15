@@ -30,7 +30,13 @@ export const cssVariables = {
   // Theme-adaptive colors for dark/light mode
   backgroundTransparent: "transparent",
   borderSubtle: "rgba(0,0,0,0.06)",
+  borderDivider: "var(--ant-color-border, rgba(217, 217, 217, 0.3))",
+  containerBackground: "var(--ant-color-bg-elevated, #fff)",
+  containerBorder: "var(--ant-color-bg-container, #fff)",
   shadowSubtle: "0 2px 8px rgba(0,0,0,0.06)",
+  shadowMedium: "0 12px 24px rgba(0,0,0,0.12), 0 4px 8px rgba(0,0,0,0.08)",
+  shadowSmall: "0 1px 2px rgba(0,0,0,0.2)",
+  shadowLight: "0 1px 3px rgba(0,0,0,0.2)",
   colorText: "#262626",
   colorTextSecondary: "#8c8c8c",
   colorTextTertiary: "#bfbfbf",

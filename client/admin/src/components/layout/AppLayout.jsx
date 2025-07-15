@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { LogoutOutlined } from "@ant-design/icons";
-import { Dropdown, Spin, Typography } from "antd";
+import { LogoutOutlined, UserOutlined } from "@ant-design/icons";
+import { Dropdown, Typography, Avatar, Flex, Tag } from "antd";
 import { MdCategory, MdDashboard, MdViewModule } from "react-icons/md";
 import { Link, useLocation, useNavigate } from "react-router";
 import { FaUserCircle, FaUsers } from "react-icons/fa";
@@ -12,16 +12,13 @@ import { cssVariables } from "../../config/themeConfig";
 import { useKeycloak } from "../../hooks/useKeycloak";
 import AppRoutes from "../../routes";
 import AuthWrapper from "../AuthWrapper";
-import { useGetUserProfileQuery } from "../../pages/users/usersApi";
-
-const { Text } = Typography;
 
 const getAvatar = () => {
   return "/assets/images/developer.svg";
 };
 
 const route = {
-  path: "/",
+  path: "/dashboard",
   routes: [
     {
       path: "#",
@@ -33,7 +30,6 @@ const route = {
       path: "/dashboard",
       name: "Dashboard",
       icon: <MdDashboard />,
-      access: "canManage",
     },
     {
       path: "/users",
@@ -45,62 +41,21 @@ const route = {
       path: "/categories",
       name: "Categories",
       icon: <MdCategory />,
-      access: "canManage",
     },
     {
       name: "Products",
       path: "/products",
       icon: <AiFillProduct />,
-      access: "canManage",
     },
   ],
 };
 
 const AppLayout = () => {
   const [pathname, setPathname] = useState("");
-  const { logout, isAuthenticated } = useKeycloak();
-  const {
-    data: userData,
-    isLoading,
-    isError,
-  } = useGetUserProfileQuery(undefined, {
-    skip: !isAuthenticated,
-  });
+  const { userInfo, logout } = useKeycloak();
 
   const navigate = useNavigate();
   const location = useLocation();
-
-  const userRoles = userData?.roles || [];
-
-  const hasAccess = (access) => {
-    if (!access) return true;
-
-    const roleMap = {
-      canAdmin: ["ADMIN"],
-      canManage: ["ADMIN", "MANAGER"],
-    };
-
-    const requiredRoles = roleMap[access] || [];
-    return requiredRoles.some((role) => userRoles.includes(role));
-  };
-
-  const filterRoutesByRole = (routes) => {
-    return routes.filter((route) => {
-      if (route.access && !hasAccess(route.access)) {
-        return false;
-      }
-      if (route.routes) {
-        route.routes = filterRoutesByRole(route.routes);
-      }
-
-      return true;
-    });
-  };
-
-  const filteredRoute = {
-    ...route,
-    routes: filterRoutesByRole(route.routes),
-  };
 
   async function handleLogout() {
     logout();
@@ -114,22 +69,169 @@ const AppLayout = () => {
   const userMenuItems = [
     {
       key: "account",
-      label: "My Account",
+      label: (
+        <div style={{ padding: "12px", minWidth: "200px" }}>
+          <Flex align="center" gap={8}>
+            <div style={{ position: "relative" }}>
+              <Avatar
+                size={40}
+                src={getAvatar()}
+                style={{
+                  border: `2px solid ${cssVariables.colorPrimary}30`,
+                  boxShadow: cssVariables.boxShadowLight,
+                }}
+                icon={<UserOutlined />}
+              />
+              <div
+                style={{
+                  position: "absolute",
+                  bottom: "2px",
+                  right: "2px",
+                  width: "10px",
+                  height: "10px",
+                  backgroundColor: cssVariables.colorSuccess,
+                  border: `2px solid ${cssVariables.containerBorder}`,
+                  borderRadius: "50%",
+                  boxShadow: cssVariables.shadowSmall,
+                }}
+              />
+            </div>
+            <Flex vertical gap={1}>
+              <Typography.Text
+                strong
+                style={{
+                  fontSize: "14px",
+                  lineHeight: "18px",
+                  fontWeight: 600,
+                }}
+              >
+                {userInfo?.given_name || "Guest User"}
+              </Typography.Text>
+              <Typography.Text
+                type="secondary"
+                style={{
+                  fontSize: "12px",
+                  lineHeight: "16px",
+                  fontWeight: 400,
+                }}
+              >
+                @{userInfo?.preferred_username || "guest"}
+              </Typography.Text>
+              <Tag
+                style={{
+                  fontSize: "9px",
+                  padding: "1px 6px",
+                  border: "none",
+                  fontWeight: 500,
+                  width: "fit-content",
+                  marginTop: "2px",
+                  background: `linear-gradient(135deg, ${cssVariables.colorPrimary}, ${cssVariables.colorSecondary})`,
+                  color: "white",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.3px",
+                }}
+              >
+                Admin
+              </Tag>
+            </Flex>
+          </Flex>
+          <div
+            style={{
+              height: "1px",
+              backgroundColor: cssVariables.borderDivider,
+              margin: "8px 0 4px 0",
+            }}
+          />
+        </div>
+      ),
       disabled: true,
     },
     {
-      type: "divider",
-    },
-    {
       key: "profile",
-      label: "Profile",
-      icon: <FaUserCircle />,
+      label: (
+        <div
+          style={{
+            padding: "6px 8px",
+            borderRadius: "6px",
+            transition: "all 0.2s ease",
+          }}
+        >
+          <Flex align="center" gap={8}>
+            <div
+              style={{
+                width: "28px",
+                height: "28px",
+                borderRadius: "6px",
+                backgroundColor: `${cssVariables.colorPrimary}15`,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <FaUserCircle
+                style={{ color: cssVariables.colorPrimary, fontSize: "14px" }}
+              />
+            </div>
+            <Flex vertical gap={0}>
+              <Typography.Text style={{ fontSize: "13px", fontWeight: 600 }}>
+                My Profile
+              </Typography.Text>
+              <Typography.Text type="secondary" style={{ fontSize: "11px" }}>
+                View and edit profile
+              </Typography.Text>
+            </Flex>
+          </Flex>
+        </div>
+      ),
       onClick: handleProfile,
     },
     {
+      type: "divider",
+      style: { margin: "4px 0" },
+    },
+    {
       key: "logout",
-      icon: <LogoutOutlined />,
-      label: "Logout",
+      label: (
+        <div
+          style={{
+            padding: "6px 8px",
+            borderRadius: "6px",
+            transition: "all 0.2s ease",
+          }}
+        >
+          <Flex align="center" gap={8}>
+            <div
+              style={{
+                width: "28px",
+                height: "28px",
+                borderRadius: "6px",
+                backgroundColor: `${cssVariables.colorError}15`,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <LogoutOutlined
+                style={{ color: cssVariables.colorError, fontSize: "14px" }}
+              />
+            </div>
+            <Flex vertical gap={0}>
+              <Typography.Text
+                style={{
+                  fontSize: "13px",
+                  fontWeight: 600,
+                  color: cssVariables.colorError,
+                }}
+              >
+                Sign Out
+              </Typography.Text>
+              <Typography.Text type="secondary" style={{ fontSize: "11px" }}>
+                Logout from account
+              </Typography.Text>
+            </Flex>
+          </Flex>
+        </div>
+      ),
       onClick: handleLogout,
     },
   ];
@@ -146,7 +248,7 @@ const AppLayout = () => {
         title="Cloud Kart Admin"
         logo="/logo.svg"
         fixSiderbar
-        route={filteredRoute}
+        route={route}
         siderWidth={230}
         layout="mix"
         ghost
@@ -158,56 +260,113 @@ const AppLayout = () => {
         }}
         token={{
           sider: {
-            colorTextMenuSelected: cssVariables.colorSelected,
-            colorTextMenuItemHover: cssVariables.hoverColor,
-            colorBgMenuItemSelected: cssVariables.colorBgSelected,
+            colorTextMenuSelected: cssVariables.colorWhite,
+            colorTextMenuItemHover: cssVariables.colorPrimary,
+            colorBgMenuItemSelected: cssVariables.colorPrimary,
+            colorBgMenuItemHover: `${cssVariables.colorPrimary}15`,
+            colorTextMenu: "inherit",
+            paddingInlineLayoutSider: 16,
+            marginInlineStart: 4,
+            marginInlineEnd: 4,
+          },
+          header: {
+            heightLayoutHeader: 60,
+            paddingInlineLayoutHeader: 20,
           },
           pageContainer: {
-            paddingInlinePageContainerContent: 25,
+            paddingInlinePageContainerContent: 20,
+            paddingBlockPageContainerContent: 20,
           },
         }}
         avatarProps={{
           src: getAvatar(),
-          size: "small",
-          shape: "square",
-          title: userData?.firstName || "Guest",
+          size: "large",
+          shape: "circle",
+          style: {
+            border: `2px solid ${cssVariables.colorPrimary}40`,
+            boxShadow: `0 2px 6px ${cssVariables.colorPrimary}20`,
+            transition: "all 0.2s ease",
+            cursor: "pointer",
+          },
           render: (_, dom) => {
-            if (isLoading) {
-              return <Spin size="small" className="flex items-center" />;
-            }
-            if (isError) {
-              return (
-                <Dropdown
-                  menu={{
-                    items: [
-                      {
-                        key: "retry",
-                        label: "Retry",
-                        onClick: () => window.location.reload(),
-                      },
-                    ],
-                  }}
-                  trigger={["click"]}
-                >
-                  <Text
-                    type="danger"
-                    className="flex items-center cursor-pointer"
-                  >
-                    Failed to load user&nbsp;
-                    <span role="img" aria-label="error">
-                      ⚠️
-                    </span>
-                  </Text>
-                </Dropdown>
-              );
-            }
             return (
               <Dropdown
                 menu={{
                   items: userMenuItems,
                 }}
+                trigger={["click"]}
+                placement="bottomRight"
+                overlayStyle={{
+                  borderRadius: "12px",
+                  boxShadow: cssVariables.shadowMedium,
+                  border: `1px solid ${cssVariables.borderSubtle}`,
+                  overflow: "hidden",
+                  backdropFilter: "blur(6px)",
+                  background: cssVariables.containerBackground,
+                  padding: "0",
+                  minWidth: "200px",
+                  maxWidth: "220px",
+                }}
               >
-                {dom}
+                <Flex
+                  align="center"
+                  gap={8}
+                  style={{
+                    cursor: "pointer",
+                    padding: "6px 12px",
+                    borderRadius: "20px",
+                    transition: "all 0.2s ease",
+                    backgroundColor: "transparent",
+                    border: `1px solid transparent`,
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = `${cssVariables.colorPrimary}10`;
+                    e.currentTarget.style.borderColor = `${cssVariables.colorPrimary}30`;
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = "transparent";
+                    e.currentTarget.style.borderColor = "transparent";
+                  }}
+                >
+                  <div style={{ position: "relative" }}>
+                    {dom}
+                    <div
+                      style={{
+                        position: "absolute",
+                        bottom: "2px",
+                        right: "2px",
+                        width: "9px",
+                        height: "9px",
+                        backgroundColor: cssVariables.colorSuccess,
+                        border: `1px solid ${cssVariables.containerBorder}`,
+                        borderRadius: "50%",
+                        boxShadow: cssVariables.shadowLight,
+                      }}
+                    />
+                  </div>
+                  <Flex vertical gap={0} style={{ minWidth: "70px" }}>
+                    <Typography.Text
+                      strong
+                      style={{
+                        fontSize: "13px",
+                        lineHeight: "16px",
+                        fontWeight: 600,
+                      }}
+                    >
+                      {userInfo?.given_name || "Guest"}
+                    </Typography.Text>
+                    <Typography.Text
+                      type="secondary"
+                      style={{
+                        fontSize: "11px",
+                        lineHeight: "14px",
+                        fontWeight: 400,
+                      }}
+                    >
+                      <span>{userInfo?.preferred_username || "guest"}</span>
+                    </Typography.Text>
+                  </Flex>
+                </Flex>
               </Dropdown>
             );
           },
@@ -221,25 +380,56 @@ const AppLayout = () => {
         menuFooterRender={({ collapsed }) => {
           if (collapsed) return undefined;
           return (
-            <div className="text-center">
-              <Text type="secondary">
-                Cloud Kart ©{new Date().getFullYear()} created by Harshal
-              </Text>
-            </div>
-          );
-        }}
-        menuItemRender={(item, dom) => {
-          return (
-            <div
-              onClick={() => {
-                navigate(item.path || "/dashboard");
+            <Flex
+              vertical
+              align="center"
+              style={{
+                padding: "12px 16px",
+                borderTop: `1px solid ${cssVariables.borderSubtle}`,
+                marginTop: "8px",
               }}
-              className={`${item?.disabled ? "pointer-events-none" : ""}`}
             >
-              {dom}
-            </div>
+              <Typography.Text
+                type="secondary"
+                style={{
+                  fontSize: "11px",
+                  fontWeight: 500,
+                  textAlign: "center",
+                }}
+              >
+                Cloud Kart ©{new Date().getFullYear()}
+              </Typography.Text>
+              <Typography.Text
+                type="secondary"
+                style={{
+                  fontSize: "10px",
+                  textAlign: "center",
+                  marginTop: "2px",
+                }}
+              >
+                Created by Harshal
+              </Typography.Text>
+            </Flex>
           );
         }}
+        menuItemRender={(item, dom) => (
+          <div
+            onClick={() => {
+              if (item?.path !== "#") {
+                navigate(item.path || "/dashboard");
+              }
+            }}
+            style={{
+              cursor: item?.disabled ? "not-allowed" : "pointer",
+              opacity: item?.disabled ? 0.6 : 1,
+              margin: "2px 0",
+              borderRadius: "6px",
+              transition: "all 0.2s ease",
+            }}
+          >
+            {dom}
+          </div>
+        )}
       >
         <AppRoutes />
       </ProLayout>
