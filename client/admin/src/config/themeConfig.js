@@ -58,6 +58,21 @@ export const cssVariables = {
   boxShadowLight: "0 2px 8px rgba(0,0,0,0.1)",
   boxShadowSoft: "0 1px 3px rgba(0,0,0,0.1)",
   textShadow: "0 1px 2px rgba(0,0,0,0.1)",
+  // Header specific styles
+  headerGradientPrimary: "linear-gradient(135deg, #27548a 0%, #3b82f6 100%)",
+  headerShadowPrimary: "0 8px 24px rgba(39, 84, 138, 0.15)",
+  avatarSizeLarge: 55,
+  borderRadiusLarge: 16,
+  // Typography
+  fontSizeLarge: "clamp(15px, 2vw, 25px)",
+  fontSizeRegular: "14px",
+  fontWeightBold: 600,
+  fontWeightMedium: 500,
+  lineHeightCompact: 1.2,
+  // Spacing
+  spacingLarge: 24,
+  spacingMedium: 20,
+  spacingSmall: 16,
 };
 
 export const themeConfig = {

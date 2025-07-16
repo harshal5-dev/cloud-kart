@@ -102,20 +102,12 @@ const ManageUser = ({ operation, user }) => {
         />
       ) : (
         <Button
-          type="primary"
           icon={<UserAddOutlined />}
           onClick={handleAddUser}
-          size="large"
           style={{
-            height: 40,
-            borderRadius: 8,
-            background: cssVariables.colorPrimary,
-            border: "none",
-            boxShadow:
-              token.colorBgBase === "#000000" || token.colorBgBase === "#141414"
-                ? "0 6px 20px rgba(22, 119, 255, 0.4), 0 2px 8px rgba(0, 0, 0, 0.3)"
-                : "0 2px 8px rgba(22, 119, 255, 0.3)",
-            fontWeight: 600,
+            background: cssVariables.whiteTransparent25,
+            border: `1px solid ${cssVariables.whiteTransparent40}`,
+            color: cssVariables.colorWhite,
           }}
         >
           Add User
