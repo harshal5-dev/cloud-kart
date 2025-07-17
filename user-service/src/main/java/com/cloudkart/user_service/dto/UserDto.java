@@ -33,7 +33,14 @@ public class UserDto {
   @Schema(description = "Phone number of the user", example = "+1234567890")
   private String phoneNumber;
 
-  @Schema(description = "roles assigned to the user", example = "USER, MANAGER, ADMIN")
+  @Schema(description = "Profile picture URL of the user",
+      example = "http://example.com/profile.jpg")
+  private String profilePictureUrl;
+
+  @Schema(description = "Status of the user", example = "ACTIVE")
+  private String status;
+
+  @Schema(description = "Roles assigned to the user", example = "USER, MANAGER, ADMIN")
   private Set<String> roles;
 
 }

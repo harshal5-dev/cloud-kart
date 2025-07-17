@@ -38,6 +38,13 @@ public class CreateUserDto {
       message = "Phone number should be valid and may include '+', digits, spaces, dashes, and parentheses")
   private String phoneNumber;
 
+  @Schema(description = "Status of the user", example = "ACTIVE")
+  private String status = "ACTIVE";
+
+  @Schema(description = "Profile picture URL of the user",
+      example = "http://example.com/profile.jpg")
+  private String profilePictureUrl;
+
   @Schema(description = "Roles assigned to the user", example = "USER, MANAGER, ADMIN")
   @NotEmpty(message = "At least one role is required")
   private Set<String> roles = Set.of("USER");

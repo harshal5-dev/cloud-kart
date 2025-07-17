@@ -29,7 +29,7 @@ import {
   FaPhone,
   FaPencilAlt,
 } from "react-icons/fa";
-import { MdLocationOn } from "react-icons/md";
+import { MdAddLocationAlt, MdLocationOn } from "react-icons/md";
 
 import {
   useCreateUserAddressMutation,
@@ -195,10 +195,10 @@ const Address = ({ userId }) => {
       extra={
         <Button
           type="primary"
-          icon={<PlusOutlined />}
+          icon={<MdAddLocationAlt />}
           onClick={handleAddAddress}
         >
-          Add Address
+          Address
         </Button>
       }
       style={{
@@ -271,14 +271,13 @@ const Address = ({ userId }) => {
             <List.Item
               style={{
                 padding: "12px",
-                marginBottom: "8px",
+                marginBottom: "15px",
                 background: cssVariables.cardBackground,
                 border: `1px solid ${cssVariables.cardBorder}`,
-                borderRadius: 8,
-                backdropFilter: "blur(12px)",
                 boxShadow: cssVariables.cardShadow,
                 transition: "all 0.3s ease",
                 position: "relative",
+                borderRadius: 10,
               }}
             >
               <Flex
@@ -413,7 +412,7 @@ const Address = ({ userId }) => {
                     icon={<FaPencilAlt />}
                     variant="text"
                     shape="circle"
-                    color="gold"
+                    color="green"
                     onClick={() => handleEditAddress(address)}
                   />
                   <DeleteAddress userId={userId} id={address.id} />

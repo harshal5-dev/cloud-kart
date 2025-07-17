@@ -5,6 +5,7 @@ import com.cloudkart.user_service.dto.CreateUserDto;
 import com.cloudkart.user_service.dto.RegisterUserDto;
 import com.cloudkart.user_service.dto.UpdateUserDto;
 import com.cloudkart.user_service.dto.UserDto;
+import com.cloudkart.user_service.entity.Status;
 import com.cloudkart.user_service.entity.User;
 import com.cloudkart.user_service.entity.UserRole;
 
@@ -22,6 +23,8 @@ public final class UserMapper {
     userDto.setLastName(user.getLastName());
     userDto.setPhoneNumber(user.getPhoneNumber());
     userDto.setRoles(user.getUserRoles().stream().map(Enum::toString).collect(Collectors.toSet()));
+    userDto.setProfilePictureUrl(user.getProfilePictureUrl());
+    userDto.setStatus(user.getStatus().toString());
 
     return userDto;
   }
@@ -31,6 +34,10 @@ public final class UserMapper {
     user.setFirstName(updateUserDto.getFirstName());
     user.setLastName(updateUserDto.getLastName());
     user.setPhoneNumber(updateUserDto.getPhoneNumber());
+    user.setProfilePictureUrl(updateUserDto.getProfilePictureUrl());
+    user.setUserRoles(
+        updateUserDto.getRoles().stream().map(UserRole::valueOf).collect(Collectors.toSet()));
+    user.setStatus(Status.valueOf(updateUserDto.getStatus().toUpperCase()));
 
   }
 
@@ -43,6 +50,8 @@ public final class UserMapper {
     user.setFirstName(registerUserDto.getFirstName());
     user.setLastName(registerUserDto.getLastName());
     user.setPhoneNumber(registerUserDto.getPhoneNumber());
+    user.setProfilePictureUrl(registerUserDto.getProfilePictureUrl());
+    user.setStatus(Status.valueOf(registerUserDto.getStatus().toUpperCase()));
     user.setUserRoles(
         registerUserDto.getRoles().stream().map(UserRole::valueOf).collect(Collectors.toSet()));
 
@@ -58,6 +67,8 @@ public final class UserMapper {
     user.setPhoneNumber(createUserDto.getPhoneNumber());
     user.setUserRoles(
         createUserDto.getRoles().stream().map(UserRole::valueOf).collect(Collectors.toSet()));
+    user.setProfilePictureUrl(createUserDto.getProfilePictureUrl());
+    user.setStatus(Status.valueOf(createUserDto.getStatus().toUpperCase()));
 
   }
 }

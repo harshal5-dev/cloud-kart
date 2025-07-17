@@ -1,5 +1,6 @@
 package com.cloudkart.user_service.dto;
 
+import java.util.Set;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
@@ -18,6 +19,17 @@ public class UpdateUserDto {
 
   @Schema(description = "Last name of the user", example = "Doe")
   private String lastName;
+
+  @Schema(description = "Profile picture URL of the user",
+      example = "http://example.com/profile.jpg")
+  private String profilePictureUrl;
+
+  @Schema(description = "Roles assigned to the user", example = "USER, MANAGER, ADMIN")
+  @NotEmpty(message = "At least one role is required")
+  private Set<String> roles = Set.of("USER");
+
+  @Schema(description = "Status of the user", example = "ACTIVE")
+  private String status = "ACTIVE";
 
   @Schema(description = "Phone number of the user", example = "+1234567890", required = true)
   @NotEmpty(message = "Phone number is required")

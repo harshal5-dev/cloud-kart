@@ -51,6 +51,9 @@ public class AddressReqDto {
       message = "Phone number should be valid and may include '+', digits, spaces, dashes, and parentheses")
   private String phoneNumber;
 
+  @Schema(description = "Status of the address", example = "ACTIVE")
+  private String status = "ACTIVE";
+
   @Schema(description = "Indicates if this address is the default address for the user",
       example = "true")
   private Boolean isDefault;

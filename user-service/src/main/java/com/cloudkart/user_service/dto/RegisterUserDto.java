@@ -45,6 +45,13 @@ public class RegisterUserDto {
   @Schema(description = "Roles assigned to the user", example = "USER, MANAGER, ADMIN")
   private Set<String> roles = Set.of("USER");
 
+  @Schema(description = "Profile picture URL of the user",
+      example = "http://example.com/profile.jpg")
+  private String profilePictureUrl;
+
+  @Schema(description = "Status of the user", example = "ACTIVE")
+  private String status = "ACTIVE";
+
   @Schema(description = "Master key for user registration", example = "masterKey123")
   private String masterKey;
 

@@ -14,16 +14,16 @@ import {
   Button,
   Badge,
   Tooltip,
-  theme,
+  Row,
+  Col,
 } from "antd";
 import {
   UserOutlined,
-  SearchOutlined,
-  FilterOutlined,
-  MoreOutlined,
   PhoneOutlined,
-  MailOutlined,
   CrownOutlined,
+  TeamOutlined,
+  SettingOutlined,
+  IdcardOutlined,
 } from "@ant-design/icons";
 
 import { getRoleColor } from "../../../lib/utils";
@@ -34,46 +34,12 @@ import { cssVariables } from "../../../config/themeConfig";
 const { Text, Title } = Typography;
 const { Search } = Input;
 
-// Enhanced table styles for better UX
-const tableStyles = `
-  .users-table .ant-table-cell {
-    padding: 12px 16px !important;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
-  }
-  
-  .users-table .ant-table-thead > tr > th {
-    background: linear-gradient(135deg, rgba(22, 119, 255, 0.08) 0%, rgba(22, 119, 255, 0.03) 100%) !important;
-    border-bottom: 2px solid rgba(22, 119, 255, 0.15) !important;
-    font-weight: 600 !important;
-    font-size: 13px !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.5px !important;
-  }
-  
-  .users-table .ant-table-tbody > tr:hover > td {
-    background: rgba(22, 119, 255, 0.05) !important;
-    transition: all 0.2s ease !important;
-  }
-`;
-
-// Inject enhanced table styles
-if (typeof document !== "undefined") {
-  const styleElement = document.getElementById("users-table-styles");
-  if (!styleElement) {
-    const style = document.createElement("style");
-    style.id = "users-table-styles";
-    style.textContent = tableStyles;
-    document.head.appendChild(style);
-  }
-}
-
 const BrowseUsers = ({
   usersResponse,
   setSearchTerm,
   setCurrentPage,
   pageSize,
 }) => {
-  const { token } = theme.useToken();
   const [searchText, setSearchText] = useState("");
 
   const { isLoading, data, isError } = usersResponse;
@@ -81,7 +47,6 @@ const BrowseUsers = ({
 
   const handleSearch = (value) => {
     const trimmedValue = value.trim();
-
     if (trimmedValue !== "") {
       setSearchTerm(trimmedValue);
       setCurrentPage(1);
@@ -96,290 +61,238 @@ const BrowseUsers = ({
 
   const columns = [
     {
-      title: "User Profile",
-      width: 280,
+      title: (
+        <Space size={4}>
+          <UserOutlined style={{ color: cssVariables.colorPrimary }} />
+          <span style={{ color: cssVariables.colorPrimary, fontWeight: 600 }}>
+            User
+          </span>
+        </Space>
+      ),
+      key: "user",
       render: (_, record) => (
-        <Flex align="center" gap={12}>
+        <Flex align="center" gap={10}>
           <Badge
             status={record.enabled ? "success" : "error"}
             offset={[-5, 35]}
           >
             <Avatar
-              size={48}
+              size={36}
               src="assets/images/avatarMan.svg"
+              icon={<UserOutlined />}
               style={{
                 border: `2px solid ${
                   record.enabled
                     ? cssVariables.colorSuccess
                     : cssVariables.colorError
-                }20`,
-                boxShadow: `0 2px 8px ${
-                  record.enabled
-                    ? cssVariables.colorSuccess
-                    : cssVariables.colorError
-                }20`,
+                }`,
               }}
-              icon={<UserOutlined />}
             />
           </Badge>
-          <Flex vertical gap={2}>
-            <Text
+          <Space direction="vertical" size={0}>
+            <Typography.Text
               strong
               style={{
-                fontSize: "15px",
-                color: token.colorText,
+                fontSize: "13px",
                 textTransform: "capitalize",
+                color: cssVariables.colorText,
               }}
             >
               {record.firstName} {record.lastName}
-            </Text>
-            <Flex align="center" gap={4}>
-              <MailOutlined
-                style={{ fontSize: "12px", color: token.colorTextTertiary }}
-              />
-              <Text
-                type="secondary"
-                style={{
-                  fontSize: "12px",
-                  fontFamily: "monospace",
-                }}
-              >
-                {record.email}
-              </Text>
-            </Flex>
-            <Text
+            </Typography.Text>
+            <Typography.Text
               type="secondary"
               style={{
                 fontSize: "11px",
-                color: record.enabled
-                  ? cssVariables.colorSuccess
-                  : cssVariables.colorError,
-                fontWeight: 500,
               }}
             >
+              {record.email}
+            </Typography.Text>
+            <Tag
+              color={record.enabled ? "success" : "error"}
+              bordered={false}
+              style={{ fontSize: "10px", padding: "0 4px" }}
+            >
               {record.enabled ? "Active" : "Inactive"}
-            </Text>
-          </Flex>
+            </Tag>
+          </Space>
         </Flex>
       ),
     },
     {
       title: (
-        <Flex align="center" gap={6}>
-          <CrownOutlined />
-          <span>Roles</span>
-        </Flex>
+        <Space size={4}>
+          <CrownOutlined style={{ color: cssVariables.colorSecondary }} />
+          <span style={{ color: cssVariables.colorSecondary, fontWeight: 600 }}>
+            Roles
+          </span>
+        </Space>
       ),
       dataIndex: "roles",
-      width: 200,
       render: (roles) => (
-        <Flex wrap="wrap" gap={4}>
+        <Space wrap size={[3, 3]}>
           {roles.map((role) => (
             <Tag
               key={role}
               color={getRoleColor(role)}
               style={{
-                borderRadius: 12,
-                fontSize: "11px",
+                fontSize: "10px",
                 fontWeight: 500,
-                border: "none",
-                padding: "2px 8px",
               }}
             >
               {role.toUpperCase()}
             </Tag>
           ))}
-        </Flex>
+        </Space>
       ),
       responsive: ["md"],
     },
     {
-      title: "Username",
+      title: (
+        <Space size={4}>
+          <IdcardOutlined style={{ color: cssVariables.colorInfo }} />
+          <span style={{ color: cssVariables.colorInfo, fontWeight: 600 }}>
+            Username
+          </span>
+        </Space>
+      ),
       dataIndex: "username",
-      width: 150,
       render: (username) => (
-        <Text
+        <Typography.Text
           code
           style={{
-            fontSize: "12px",
-            background: token.colorBgContainer,
+            fontSize: "11px",
             padding: "2px 6px",
-            borderRadius: 4,
+            backgroundColor: cssVariables.glassOverlayLight,
           }}
         >
           @{username}
-        </Text>
+        </Typography.Text>
       ),
       responsive: ["lg"],
     },
     {
       title: (
-        <Flex align="center" gap={6}>
-          <PhoneOutlined />
-          <span>Contact</span>
-        </Flex>
+        <Space size={4}>
+          <PhoneOutlined style={{ color: cssVariables.colorWarning }} />
+          <span style={{ color: cssVariables.colorWarning, fontWeight: 600 }}>
+            Contact
+          </span>
+        </Space>
       ),
       dataIndex: "phoneNumber",
-      width: 150,
-      render: (phoneNumber) => (
-        <Flex align="center" gap={6}>
-          {phoneNumber ? (
-            <>
-              <PhoneOutlined
-                style={{ fontSize: "12px", color: cssVariables.colorSuccess }}
-              />
-              <Text style={{ fontSize: "12px", fontFamily: "monospace" }}>
-                {phoneNumber}
-              </Text>
-            </>
-          ) : (
-            <Text
-              type="secondary"
-              style={{
-                fontSize: "12px",
-                fontStyle: "italic",
-              }}
-            >
-              Not provided
-            </Text>
-          )}
-        </Flex>
-      ),
+      render: (phoneNumber) =>
+        phoneNumber ? (
+          <Space size={3}>
+            <PhoneOutlined
+              style={{ fontSize: "11px", color: cssVariables.colorSuccess }}
+            />
+            <Typography.Text style={{ fontSize: "11px" }}>
+              {phoneNumber}
+            </Typography.Text>
+          </Space>
+        ) : (
+          <Typography.Text type="secondary" style={{ fontSize: "11px" }}>
+            Not provided
+          </Typography.Text>
+        ),
       responsive: ["xl"],
     },
     {
-      title: "Actions",
+      title: (
+        <Space size={4}>
+          <SettingOutlined style={{ color: cssVariables.colorTextSecondary }} />
+          <span
+            style={{ color: cssVariables.colorTextSecondary, fontWeight: 600 }}
+          >
+            Actions
+          </span>
+        </Space>
+      ),
       key: "actions",
-      width: 120,
       fixed: "right",
+      width: 105,
       render: (_, record) => (
-        <Flex gap={4}>
+        <Space size={3}>
           <Tooltip title="Edit User">
             <ManageUser operation="UPDATE" user={record} />
           </Tooltip>
           <Tooltip title="Delete User">
             <DeleteUser id={record.keycloakId} />
           </Tooltip>
-        </Flex>
+        </Space>
       ),
     },
   ];
 
   return (
-    <Card
-      style={{
-        borderRadius: 16,
-        border:
-          token.colorBgBase === "#000000" || token.colorBgBase === "#141414"
-            ? "1px solid rgba(255, 255, 255, 0.1)"
-            : "1px solid rgba(0, 0, 0, 0.06)",
-        background:
-          token.colorBgBase === "#000000" || token.colorBgBase === "#141414"
-            ? "linear-gradient(135deg, rgba(25, 25, 25, 0.95) 0%, rgba(15, 15, 15, 0.9) 100%)"
-            : "rgba(255, 255, 255, 0.9)",
-        boxShadow:
-          token.colorBgBase === "#000000" || token.colorBgBase === "#141414"
-            ? "0 12px 40px rgba(0, 0, 0, 0.8), 0 4px 12px rgba(22, 119, 255, 0.2)"
-            : "0 4px 12px rgba(0, 0, 0, 0.08)",
-        backdropFilter: "blur(15px)",
-      }}
-      styles={{ body: { padding: "24px" } }}
-    >
-      <Space direction="vertical" size="large" style={{ width: "100%" }}>
-        {/* Header Section */}
-        <Flex justify="space-between" align="center" wrap="wrap" gap={16}>
-          <Flex align="center" gap={12}>
+    <Space direction="vertical" size="small" style={{ width: "100%" }}>
+      {/* Clean Header */}
+      <Row gutter={[16, 12]} align="middle">
+        <Col flex="auto">
+          <Space align="center" size={12}>
             <Avatar
-              size={32}
-              style={{
-                backgroundColor: cssVariables.colorPrimary + "20",
-                color: cssVariables.colorPrimary,
-              }}
-              icon={<UserOutlined />}
-            />
-            <Title
-              level={4}
-              style={{
-                margin: 0,
-                color: token.colorText,
-                fontSize: "18px",
-                fontWeight: 600,
-              }}
-            >
-              Users Directory
-            </Title>
-            <Badge
-              count={totalElements || 0}
+              size={36}
               style={{
                 backgroundColor: cssVariables.colorPrimary,
-                color: "white",
-                fontSize: "11px",
-                fontWeight: 600,
+                color: cssVariables.colorWhite,
               }}
+              icon={<TeamOutlined />}
             />
-          </Flex>
+            <Space direction="vertical" size={0}>
+              <Title
+                level={4}
+                style={{
+                  margin: 0,
+                  fontSize: "16px",
+                }}
+              >
+                Users Directory
+              </Title>
+              <Text type="secondary" style={{ fontSize: "12px" }}>
+                {totalElements || 0} users found
+              </Text>
+            </Space>
+          </Space>
+        </Col>
+        <Col>
+          <Search
+            placeholder="Search users..."
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+            style={{ width: 240 }}
+            allowClear
+            loading={isLoading}
+            onSearch={handleSearch}
+            onClear={handleOnClear}
+            enterButton
+          />
+        </Col>
+      </Row>
 
-          <Flex gap={12} align="center">
-            <Search
-              placeholder="Search users by name, email or username..."
-              value={searchText}
-              onChange={(e) => setSearchText(e.target.value)}
-              style={{
-                width: 320,
-                maxWidth: "100%",
-              }}
-              size="large"
-              prefix={
-                <SearchOutlined style={{ color: token.colorTextTertiary }} />
-              }
-              allowClear
-              loading={isLoading}
-              onSearch={handleSearch}
-              onClear={handleOnClear}
-            />
-            <Button
-              icon={<FilterOutlined />}
-              style={{
-                height: 40,
-                borderRadius: 8,
-              }}
-            >
-              Filter
-            </Button>
-          </Flex>
-        </Flex>
-
-        {/* Enhanced Table */}
+      {/* Clean Table */}
+      <Card
+        style={{
+          boxShadow: cssVariables.shadowSubtle,
+          borderRadius: cssVariables.borderRadiusCard,
+          border: `1px solid ${cssVariables.borderSubtle}`,
+        }}
+      >
         <Table
-          className="users-table"
           columns={columns}
           dataSource={content}
           loading={isLoading}
           rowKey={(record) => record.id}
           scroll={{ x: 800 }}
-          size="middle"
-          style={{
-            borderRadius: 12,
-            overflow: "hidden",
-          }}
-          rowClassName={(record, index) =>
-            index % 2 === 0 ? "table-row-even" : "table-row-odd"
-          }
           pagination={{
             pageSize,
             onChange: (page) => setCurrentPage(page),
             total: totalElements,
             showTotal: (total, range) =>
-              `Showing ${range[0]}-${range[1]} of ${total} users`,
+              `${range[0]}-${range[1]} of ${total} users`,
             current: (data?.currentPage || 0) + 1,
-            pageSizeOptions: ["5", "10", "20", "50"],
+            pageSizeOptions: ["5"],
             showSizeChanger: true,
-            showQuickJumper: true,
-            size: "small",
-            style: {
-              padding: "16px 0 0 0",
-              borderTop: `1px solid ${token.colorBorder}`,
-            },
           }}
           locale={{
             emptyText: isError ? (
@@ -387,7 +300,6 @@ const BrowseUsers = ({
                 status="error"
                 title="Failed to load users"
                 subTitle="Something went wrong while fetching user data"
-                style={{ padding: "40px 20px" }}
                 extra={
                   <Button
                     type="primary"
@@ -401,22 +313,22 @@ const BrowseUsers = ({
               <Empty
                 image={Empty.PRESENTED_IMAGE_SIMPLE}
                 description={
-                  <Flex vertical align="center" gap={8}>
-                    <Text type="secondary" style={{ fontSize: "16px" }}>
-                      No users found
-                    </Text>
-                    <Text type="secondary" style={{ fontSize: "12px" }}>
+                  <Space direction="vertical" align="center">
+                    <Typography.Text>No users found</Typography.Text>
+                    <Typography.Text
+                      type="secondary"
+                      style={{ fontSize: "12px" }}
+                    >
                       Try adjusting your search criteria
-                    </Text>
-                  </Flex>
+                    </Typography.Text>
+                  </Space>
                 }
-                style={{ padding: "40px 20px" }}
               />
             ),
           }}
         />
-      </Space>
-    </Card>
+      </Card>
+    </Space>
   );
 };
 

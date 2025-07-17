@@ -164,6 +164,8 @@ public class KeycloakAdminClient {
 
     keycloakUser.setFirstName(updateUserDto.getFirstName());
     keycloakUser.setLastName(updateUserDto.getLastName());
+    boolean isEnabled = updateUserDto.getStatus().equals("ACTIVE");
+    keycloakUser.setEnabled(isEnabled);
 
     userResource.update(keycloakUser);
   }

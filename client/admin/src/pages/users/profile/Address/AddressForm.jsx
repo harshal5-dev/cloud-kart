@@ -66,11 +66,10 @@ const AddressForm = ({ form, isLoading, addressTypes, title }) => {
   return (
     <Card
       style={{
-        border: `1px solid ${cssVariables.colorPrimary}20`,
         boxShadow: cssVariables.shadowSubtle,
-        margin: "1.5rem 0",
+        margin: "1.6rem 0 0.5rem 0",
       }}
-      styles={{ body: { padding: "16px" } }}
+      styles={{ body: { padding: "15px" } }}
     >
       {/* Form Header */}
       <Flex align="center" gap={8} style={{ marginBottom: 16 }}>

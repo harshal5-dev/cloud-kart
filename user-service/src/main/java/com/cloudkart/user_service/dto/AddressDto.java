@@ -40,6 +40,9 @@ public class AddressDto {
   @Schema(description = "Phone number of the user", example = "+1234567890")
   private String phoneNumber;
 
+  @Schema(description = "Status of the address", example = "ACTIVE")
+  private String status;
+
   @Schema(description = "Indicates if this address is the default address for the user",
       example = "true")
   private Boolean isDefault;

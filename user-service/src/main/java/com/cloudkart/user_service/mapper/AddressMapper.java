@@ -4,6 +4,7 @@ import com.cloudkart.user_service.dto.AddressDto;
 import com.cloudkart.user_service.dto.AddressReqDto;
 import com.cloudkart.user_service.entity.Address;
 import com.cloudkart.user_service.entity.AddressType;
+import com.cloudkart.user_service.entity.Status;
 import com.cloudkart.user_service.entity.User;
 
 public final class AddressMapper {
@@ -21,6 +22,7 @@ public final class AddressMapper {
     addressDto.setPhoneNumber(address.getPhoneNumber());
     addressDto.setAddressType(address.getAddressType());
     addressDto.setIsDefault(address.getIsDefault());
+    addressDto.setStatus(address.getStatus().toString());
 
     return addressDto;
   }
@@ -35,6 +37,7 @@ public final class AddressMapper {
     address.setPhoneNumber(addressReqDto.getPhoneNumber());
     address.setAddressType(AddressType.valueOf(addressReqDto.getAddressType().toUpperCase()));
     address.setIsDefault(Boolean.TRUE.equals(addressReqDto.getIsDefault()));
+    address.setStatus(Status.valueOf(addressReqDto.getStatus().toUpperCase()));
     address.setUser(user);
 
   }

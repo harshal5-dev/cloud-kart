@@ -154,8 +154,8 @@ const UserProfile = () => {
             size="small"
             style={{
               border: "none",
-              background: `linear-gradient(135deg, ${cssVariables.colorPrimary} 0%, ${cssVariables.colorTitle} 100%)`,
-              boxShadow: `0 8px 24px ${cssVariables.colorPrimary}15`,
+              background: cssVariables.headerGradientPrimary,
+              boxShadow: cssVariables.headerShadowPrimary,
               overflow: "hidden",
             }}
             styles={{ body: { padding: 0 } }}
@@ -170,8 +170,8 @@ const UserProfile = () => {
               <Flex align="center" gap={15} wrap="wrap">
                 <Space direction="vertical" size={0} align="center">
                   <Avatar
-                    size={80}
-                    src="assets/images/avatarMan.svg"
+                    size={95}
+                    src={userProfile.profilePictureUrl || ""}
                     icon={<UserOutlined />}
                     style={{
                       border: `3px solid ${cssVariables.whiteTransparent40}`,

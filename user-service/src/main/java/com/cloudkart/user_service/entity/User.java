@@ -42,6 +42,9 @@ public class User extends BaseEntity {
   @Column(name = "phone_number", unique = true, length = 15)
   private String phoneNumber;
 
+  @Column(name = "profile_picture_url")
+  private String profilePictureUrl;
+
   @ElementCollection
   @CollectionTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"))
   @Enumerated(EnumType.STRING)

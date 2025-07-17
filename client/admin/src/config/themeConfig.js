@@ -73,6 +73,12 @@ export const cssVariables = {
   spacingLarge: 24,
   spacingMedium: 20,
   spacingSmall: 16,
+  // Modern design values
+  borderRadiusCard: 12,
+  borderRadiusButton: 8,
+  avatarSizeMedium: 48,
+  fontSizeSmall: "12px",
+  fontSizeMedium: "14px",
 };
 
 export const themeConfig = {
