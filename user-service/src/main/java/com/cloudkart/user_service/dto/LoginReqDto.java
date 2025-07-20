@@ -12,13 +12,13 @@ import lombok.Setter;
     description = "Schema to represent user login request details in the system")
 public class LoginReqDto {
 
-  @Schema(description = "Username or email of the user", example = "example123", required = true)
+  @Schema(description = "Username or email of the user", example = "example123")
   @NotEmpty(message = "Username is required")
   @Pattern(regexp = "^[a-zA-Z0-9._%+-]{3,}$",
       message = "Username should be at least 3 characters long and can contain letters, numbers, dots, underscores, and hyphens")
   private String username;
 
-  @Schema(description = "Password of the user", example = "password123", required = true)
+  @Schema(description = "Password of the user", example = "password123")
   @NotEmpty(message = "Password is required")
   private String password;
 }

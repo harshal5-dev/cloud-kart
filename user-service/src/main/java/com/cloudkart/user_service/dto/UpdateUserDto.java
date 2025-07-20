@@ -13,7 +13,7 @@ import lombok.Setter;
     description = "Schema to represent user update request details in the system")
 public class UpdateUserDto {
 
-  @Schema(description = "First name of the user", example = "John", required = true)
+  @Schema(description = "First name of the user", example = "John")
   @NotEmpty(message = "First name is required")
   private String firstName;
 
@@ -31,7 +31,7 @@ public class UpdateUserDto {
   @Schema(description = "Status of the user", example = "ACTIVE")
   private String status = "ACTIVE";
 
-  @Schema(description = "Phone number of the user", example = "+1234567890", required = true)
+  @Schema(description = "Phone number of the user", example = "+1234567890")
   @NotEmpty(message = "Phone number is required")
   @Pattern(regexp = "^[+]?[0-9\\-() ]{7,20}$",
       message = "Phone number should be valid and may include '+', digits, spaces, dashes, and parentheses")

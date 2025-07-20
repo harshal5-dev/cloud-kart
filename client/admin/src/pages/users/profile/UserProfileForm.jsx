@@ -15,6 +15,7 @@ import {
   Row,
   Typography,
 } from "antd";
+import { FaLink } from "react-icons/fa6";
 
 import { cssVariables } from "../../../config/themeConfig";
 
@@ -111,11 +112,12 @@ const UserProfileForm = ({ form, isEditProfileLoading }) => {
           firstName: "",
           lastName: "",
           phoneNumber: "",
+          profilePictureUrl: "",
         }}
         requiredMark={customizeRequiredMark}
       >
-        <Space direction="vertical" size={12} style={{ width: "100%" }}>
-          <Row gutter={[12, 0]}>
+        <Space direction="vertical" size={5} style={{ width: "100%" }}>
+          <Row gutter={[10, 0]}>
             <Col xs={24} sm={12}>
               <Form.Item
                 label="First Name"
@@ -164,6 +166,30 @@ const UserProfileForm = ({ form, isEditProfileLoading }) => {
               </Form.Item>
             </Col>
           </Row>
+
+          <Form.Item
+            label="Profile Picture Url"
+            name="profilePictureUrl"
+            hasFeedback
+          >
+            <Input
+              placeholder="Enter Profile Picture Url"
+              prefix={
+                <FaLink
+                  style={{
+                    color: cssVariables.colorMagenta,
+                    fontSize: "12px",
+                    opacity: 0.7,
+                  }}
+                />
+              }
+              suffix={isEditProfileLoading && <LoadingOutlined />}
+              disabled={isEditProfileLoading}
+              style={{
+                transition: "all 0.2s ease",
+              }}
+            />
+          </Form.Item>
 
           <Form.Item
             label="Phone Number"

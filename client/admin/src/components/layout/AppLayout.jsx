@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
-import { LogoutOutlined, UserOutlined } from "@ant-design/icons";
-import { Dropdown, Typography, Avatar, Flex, Tag } from "antd";
+import {
+  LogoutOutlined,
+  UserOutlined,
+  LoadingOutlined,
+} from "@ant-design/icons";
+import { Dropdown, Typography, Avatar, Flex, Tag, Spin } from "antd";
 import { MdCategory, MdDashboard, MdViewModule } from "react-icons/md";
 import { Link, useLocation, useNavigate } from "react-router";
 import { FaUserCircle, FaUsers } from "react-icons/fa";
@@ -16,9 +20,10 @@ import {
   initializeLogoTheme,
   injectLogoStyles,
 } from "../../utils/logoThemeAdapter";
+import { useGetUserProfileQuery } from "../../pages/users/usersApi";
 
-const getAvatar = () => {
-  return "/assets/images/developer.svg";
+const getAvatar = (userProfile) => {
+  return userProfile?.profilePictureUrl || "/assets/images/developer.svg";
 };
 
 const route = {
@@ -56,7 +61,16 @@ const route = {
 
 const AppLayout = () => {
   const [pathname, setPathname] = useState("");
-  const { userInfo, logout } = useKeycloak();
+  const { isAuthenticated, logout } = useKeycloak();
+
+  const userResponse = useGetUserProfileQuery(undefined, {
+    skip: !isAuthenticated,
+  });
+  const {
+    data: userProfile,
+    isLoading: userLoading,
+    error: userError,
+  } = userResponse;
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -90,12 +104,12 @@ const AppLayout = () => {
             <div style={{ position: "relative" }}>
               <Avatar
                 size={40}
-                src={getAvatar()}
+                src={userLoading ? undefined : getAvatar(userProfile)}
                 style={{
                   border: `2px solid ${cssVariables.colorPrimary}30`,
                   boxShadow: cssVariables.boxShadowLight,
                 }}
-                icon={<UserOutlined />}
+                icon={userLoading ? <LoadingOutlined spin /> : <UserOutlined />}
               />
               <div
                 style={{
@@ -120,7 +134,20 @@ const AppLayout = () => {
                   fontWeight: 600,
                 }}
               >
-                {userInfo?.given_name || "Guest User"}
+                {userLoading ? (
+                  <Spin
+                    size="small"
+                    indicator={
+                      <LoadingOutlined style={{ fontSize: 12 }} spin />
+                    }
+                  />
+                ) : userError ? (
+                  "Error loading user"
+                ) : (
+                  `${userProfile?.firstName || "Guest"} ${
+                    userProfile?.lastName || "User"
+                  }`
+                )}
               </Typography.Text>
               <Typography.Text
                 type="secondary"
@@ -130,7 +157,16 @@ const AppLayout = () => {
                   fontWeight: 400,
                 }}
               >
-                @{userInfo?.preferred_username || "guest"}
+                {userLoading ? (
+                  <Spin
+                    size="small"
+                    indicator={
+                      <LoadingOutlined style={{ fontSize: 10 }} spin />
+                    }
+                  />
+                ) : (
+                  `@${userProfile?.username || "guest"}`
+                )}
               </Typography.Text>
               <Tag
                 style={{
@@ -146,7 +182,7 @@ const AppLayout = () => {
                   letterSpacing: "0.3px",
                 }}
               >
-                Admin
+                {userProfile?.roles[0] || "User"}
               </Tag>
             </Flex>
           </Flex>
@@ -294,7 +330,7 @@ const AppLayout = () => {
           },
         }}
         avatarProps={{
-          src: getAvatar(),
+          src: userLoading ? undefined : getAvatar(userProfile),
           size: "large",
           shape: "circle",
           style: {
@@ -303,6 +339,7 @@ const AppLayout = () => {
             transition: "all 0.2s ease",
             cursor: "pointer",
           },
+          icon: userLoading ? <LoadingOutlined spin /> : <UserOutlined />,
           render: (_, dom) => {
             return (
               <Dropdown
@@ -368,7 +405,16 @@ const AppLayout = () => {
                         fontWeight: 600,
                       }}
                     >
-                      {userInfo?.given_name || "Guest"}
+                      {userLoading ? (
+                        <Spin
+                          size="small"
+                          indicator={
+                            <LoadingOutlined style={{ fontSize: 11 }} spin />
+                          }
+                        />
+                      ) : (
+                        userProfile?.firstName || "Guest"
+                      )}
                     </Typography.Text>
                     <Typography.Text
                       type="secondary"
@@ -378,7 +424,16 @@ const AppLayout = () => {
                         fontWeight: 400,
                       }}
                     >
-                      <span>{userInfo?.preferred_username || "guest"}</span>
+                      {userLoading ? (
+                        <Spin
+                          size="small"
+                          indicator={
+                            <LoadingOutlined style={{ fontSize: 9 }} spin />
+                          }
+                        />
+                      ) : (
+                        <span>{userProfile?.username || "guest"}</span>
+                      )}
                     </Typography.Text>
                   </Flex>
                 </Flex>
@@ -386,7 +441,7 @@ const AppLayout = () => {
             );
           },
         }}
-        headerTitleRender={(logo, title) => (
+        headerTitleRender={() => (
           <Link
             to="/dashboard"
             style={{
@@ -447,7 +502,7 @@ const AppLayout = () => {
                     letterSpacing: "-0.5px",
                   }}
                 >
-                  {title}
+                  Cloud Kart
                 </Typography.Text>
                 <Typography.Text
                   type="secondary"

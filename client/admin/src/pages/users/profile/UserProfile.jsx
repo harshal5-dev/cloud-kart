@@ -52,6 +52,7 @@ const UserProfile = () => {
       firstName: userProfile.firstName,
       lastName: userProfile.lastName,
       phoneNumber: userProfile.phoneNumber,
+      profilePictureUrl: userProfile.profilePictureUrl,
     });
     setIsEditProfileModal(true);
   };
@@ -70,10 +71,14 @@ const UserProfile = () => {
           return;
         }
 
+        const payload = {
+          ...values,
+        };
+
         try {
           await updateUserProfile({
             id: userProfile.keycloakId,
-            user: values,
+            user: payload,
           }).unwrap();
           setIsEditProfileModal(false);
           message.success("Profile updated successfully");
@@ -168,7 +173,7 @@ const UserProfile = () => {
               }}
             >
               <Flex align="center" gap={15} wrap="wrap">
-                <Space direction="vertical" size={0} align="center">
+                <div style={{ position: "relative", display: "inline-block" }}>
                   <Avatar
                     size={95}
                     src={userProfile.profilePictureUrl || ""}
@@ -178,16 +183,23 @@ const UserProfile = () => {
                       boxShadow: cssVariables.boxShadowLight,
                     }}
                   />
-                  <Badge
-                    status="success"
+                  <div
                     style={{
                       position: "absolute",
-                      bottom: 6,
-                      right: 6,
-                      transform: "scale(1.2)",
+                      bottom: "1px",
+                      right: "15px",
+                      width: "15px",
+                      height: "15px",
+                      backgroundColor:
+                        userProfile.status === "ACTIVE"
+                          ? cssVariables.colorSuccess
+                          : cssVariables.colorError,
+                      border: `3px solid ${cssVariables.colorWhite}`,
+                      borderRadius: "50%",
+                      boxShadow: cssVariables.shadowSmall,
                     }}
                   />
-                </Space>
+                </div>
 
                 <Flex vertical gap={5} flex={1} style={{ minWidth: 200 }}>
                   <Flex align="center" gap={12} wrap="wrap">
@@ -454,7 +466,7 @@ const UserProfile = () => {
                         fontSize: "12px",
                       }}
                     >
-                      Active
+                      {userProfile.status === "ACTIVE" ? "Active" : "Inactive"}
                     </Text>
                   }
                 />

@@ -1,6 +1,10 @@
 package com.cloudkart.user_service.service.impl;
 
 import java.util.UUID;
+import java.util.stream.Collectors;
+
+import com.cloudkart.user_service.entity.Status;
+import com.cloudkart.user_service.entity.UserRole;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
@@ -84,6 +88,37 @@ public class UserService implements IUserService {
     keycloakAdminClient.updateKeycloakUser(keycloakId, updateUserDto);
 
     UserMapper.toUser(user, updateUserDto);
+    User updatedUser = userRepository.save(user);
+
+    return UserMapper.toUserDto(updatedUser);
+  }
+
+
+  /**
+   * Updates a user by their Keycloak ID.
+   *
+   * @param keycloakId the Keycloak ID of the user to update
+   * @param updateUserDto the UpdateUserDto containing updated user information
+   * @return the updated UserDto
+   */
+  @Transactional
+  @Override
+  public UserDto updateUser(String keycloakId, UpdateUserDto updateUserDto) {
+    User user = userRepository.findByKeycloakId(keycloakId)
+            .orElseThrow(() -> new ResourceNotFoundException("User", "id", keycloakId));
+
+    if (userRepository.existsByPhoneNumberAndKeycloakIdNot(updateUserDto.getPhoneNumber(),
+            keycloakId)) {
+      throw new UserAlreadyExistsException("User with the same phone number already exists.");
+    }
+
+    keycloakAdminClient.updateKeycloakUser(keycloakId, updateUserDto);
+
+    UserMapper.toUser(user, updateUserDto);
+    user.setUserRoles(
+            updateUserDto.getRoles().stream().map(UserRole::valueOf).collect(Collectors.toSet()));
+    user.setStatus(Status.valueOf(updateUserDto.getStatus().toUpperCase()));
+
     User updatedUser = userRepository.save(user);
 
     return UserMapper.toUserDto(updatedUser);

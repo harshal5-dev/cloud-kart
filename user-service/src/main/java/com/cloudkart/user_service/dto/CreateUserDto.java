@@ -13,7 +13,7 @@ import lombok.Setter;
     description = "Schema to represent user creation details in the system")
 public class CreateUserDto {
 
-  @Schema(description = "Username of the user", example = "example123", required = true)
+  @Schema(description = "Username of the user", example = "example123")
   @NotEmpty(message = "Username is required")
   @Pattern(regexp = "^[a-zA-Z0-9._%+-]{3,}$",
       message = "Username should be at least 3 characters long and can contain letters, numbers, dots, underscores, and hyphens")
@@ -25,14 +25,14 @@ public class CreateUserDto {
       message = "Email should be valid")
   private String email;
 
-  @Schema(description = "First name of the user", example = "John", required = true)
+  @Schema(description = "First name of the user", example = "John")
   @NotEmpty(message = "First name is required")
   private String firstName;
 
   @Schema(description = "Last name of the user", example = "Doe")
   private String lastName;
 
-  @Schema(description = "Phone number of the user", example = "+1234567890", required = true)
+  @Schema(description = "Phone number of the user", example = "+1234567890")
   @NotEmpty(message = "Phone number is required")
   @Pattern(regexp = "^[+]?[0-9\\-() ]{7,20}$",
       message = "Phone number should be valid and may include '+', digits, spaces, dashes, and parentheses")

@@ -32,6 +32,15 @@ public interface IUserService {
   UserDto updateUserProfile(String keycloakId, UpdateUserDto updateUserDto);
 
   /**
+   * Updates a user by their Keycloak ID.
+   *
+   * @param keycloakId the Keycloak ID of the user to update
+   * @param updateUserDto the UpdateUserDto containing updated user information
+   * @return the updated UserDto
+   */
+  UserDto updateUser(String keycloakId, UpdateUserDto updateUserDto);
+
+  /**
    * Retrieves a user by their UUID.
    *
    * @param userId the UUID of the user

@@ -17,36 +17,34 @@ public class AddressReqDto {
       example = "123e4567-e89b-12d3-a456-426614174001")
   private UUID userId;
 
-  @Schema(description = "Type of address, e.g., HOME, OFFICE, BILLING, SHIPPING", example = "HOME",
-      required = true, allowableValues = "HOME, OFFICE, BILLING, SHIPPING")
+  @Schema(description = "Type of address, e.g., HOME, OFFICE, BILLING, SHIPPING", example = "HOME", allowableValues = "HOME, OFFICE, BILLING, SHIPPING")
   @NotEmpty(message = "Address type is required")
   @Pattern(regexp = "^(HOME|OFFICE|BILLING|SHIPPING)$",
       message = "Address type should be one of HOME, OFFICE, BILLING, SHIPPING")
   private String addressType;
 
-  @Schema(description = "Street address of the user", example = "123 Main St, Apt 4B",
-      required = true)
+  @Schema(description = "Street address of the user", example = "123 Main St, Apt 4B")
   @NotEmpty(message = "Street address is required")
   private String streetAddress;
 
-  @Schema(description = "City of the user", example = "Springfield", required = true)
+  @Schema(description = "City of the user", example = "Springfield")
   @NotEmpty(message = "City is required")
   private String city;
 
-  @Schema(description = "State of the user", example = "Illinois", required = true)
+  @Schema(description = "State of the user", example = "Illinois")
   @NotEmpty(message = "State is required")
   private String state;
 
-  @Schema(description = "Postal code of the user", example = "62704", required = true)
+  @Schema(description = "Postal code of the user", example = "62704")
   @NotEmpty(message = "Postal code is required")
   @Pattern(regexp = "^[0-9]{5,10}$", message = "Postal code should be valid")
   private String postalCode;
 
-  @Schema(description = "Country of the user", example = "USA", required = true)
+  @Schema(description = "Country of the user", example = "USA")
   @NotEmpty(message = "Country is required")
   private String country;
 
-  @Schema(description = "Phone number of the user", example = "+1234567890", required = true)
+  @Schema(description = "Phone number of the user", example = "+1234567890")
   @Pattern(regexp = "^[+]?[0-9\\-() ]{7,20}$",
       message = "Phone number should be valid and may include '+', digits, spaces, dashes, and parentheses")
   private String phoneNumber;

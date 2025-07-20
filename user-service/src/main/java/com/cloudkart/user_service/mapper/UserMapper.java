@@ -35,9 +35,6 @@ public final class UserMapper {
     user.setLastName(updateUserDto.getLastName());
     user.setPhoneNumber(updateUserDto.getPhoneNumber());
     user.setProfilePictureUrl(updateUserDto.getProfilePictureUrl());
-    user.setUserRoles(
-        updateUserDto.getRoles().stream().map(UserRole::valueOf).collect(Collectors.toSet()));
-    user.setStatus(Status.valueOf(updateUserDto.getStatus().toUpperCase()));
 
   }
 

@@ -108,7 +108,7 @@ public class AdminController {
   @PutMapping("/users/{userId}/update")
   public ResponseEntity<ResponseDto<UserDto>> updateUser(@PathVariable String userId,
       @Valid @RequestBody UpdateUserDto updateUserDto) {
-    UserDto updatedUser = userService.updateUserProfile(userId, updateUserDto);
+    UserDto updatedUser = userService.updateUser(userId, updateUserDto);
 
     ResponseDto<UserDto> response =
         new ResponseDto<>(HttpStatus.OK, updatedUser, "User updated successfully");
