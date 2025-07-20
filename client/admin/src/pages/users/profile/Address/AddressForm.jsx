@@ -127,7 +127,7 @@ const AddressForm = ({ form, isLoading, addressTypes, title }) => {
         }}
         requiredMark={customizeRequiredMark}
       >
-        <Space direction="vertical" size={3} style={{ width: "100%" }}>
+        <Space direction="vertical" size={5} style={{ width: "100%" }}>
           <Form.Item
             label="Address Type"
             name="addressType"
@@ -207,7 +207,7 @@ const AddressForm = ({ form, isLoading, addressTypes, title }) => {
             />
           </Form.Item>
 
-          <Row gutter={[12, 0]}>
+          <Row gutter={[10, 0]}>
             <Col xs={24} sm={12}>
               <Form.Item
                 label="City"
@@ -262,7 +262,7 @@ const AddressForm = ({ form, isLoading, addressTypes, title }) => {
             </Col>
           </Row>
 
-          <Row gutter={[12, 0]}>
+          <Row gutter={[10, 0]}>
             <Col xs={24} sm={12}>
               <Form.Item
                 label="Postal Code"

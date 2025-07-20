@@ -188,7 +188,8 @@ const Dashboard = () => {
       <Card
         style={{
           marginBottom: 24,
-          background: `linear-gradient(135deg, ${cssVariables.colorPrimary} 0%, ${cssVariables.colorTitle} 100%)`,
+          background: `linear-gradient(135deg, ${cssVariables.colorPrimary}, ${cssVariables.colorSecondary})`,
+          boxShadow: `0 4px 20px ${cssVariables.colorPrimary}25`,
           padding: 0,
         }}
       >
@@ -218,51 +219,6 @@ const Dashboard = () => {
               Monitor your e-commerce performance and manage your store
             </Text>
           </Flex>
-
-          <Flex
-            gap={8}
-            wrap="wrap"
-            style={{
-              flex: "0 0 auto",
-              justifyContent: "flex-end",
-              width: "100%",
-              maxWidth: "300px",
-            }}
-          >
-            <Button
-              type="primary"
-              icon={<PlusCircleFilled />}
-              size="small"
-              style={{
-                background: cssVariables.whiteTransparent25,
-                border: `1px solid ${cssVariables.whiteTransparent40}`,
-                color: cssVariables.colorWhite,
-                fontSize: "13px",
-                height: "34px",
-                minWidth: "120px",
-                transition: "all 0.3s ease",
-              }}
-              onClick={() => navigate("/products")}
-            >
-              Add Product
-            </Button>
-            <Button
-              icon={<MdCategory />}
-              size="small"
-              style={{
-                background: cssVariables.whiteTransparent25,
-                border: `1px solid ${cssVariables.whiteTransparent40}`,
-                color: cssVariables.colorWhite,
-                fontSize: "13px",
-                height: "34px",
-                minWidth: "120px",
-                transition: "all 0.3s ease",
-              }}
-              onClick={() => navigate("/categories")}
-            >
-              Manage Categories
-            </Button>
-          </Flex>
         </Flex>
       </Card>
 
@@ -279,14 +235,6 @@ const Dashboard = () => {
             subtitle="Active listings"
             loading={isProductLoading}
             actions={[
-              <Button
-                key="add"
-                type="text"
-                size="small"
-                icon={<PlusCircleFilled />}
-                style={{ color: cssVariables.colorPrimary }}
-                onClick={() => navigate("/products")}
-              />,
               <Button
                 key="refresh"
                 type="text"
@@ -309,14 +257,6 @@ const Dashboard = () => {
             subtitle="Product categories"
             loading={isCategoryLoading}
             actions={[
-              <Button
-                key="add"
-                type="text"
-                size="small"
-                icon={<PlusCircleFilled />}
-                style={{ color: cssVariables.colorTitle }}
-                onClick={() => navigate("/categories")}
-              />,
               <Button
                 key="refresh"
                 type="text"

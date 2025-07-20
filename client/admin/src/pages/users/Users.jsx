@@ -28,8 +28,8 @@ const Users = () => {
       <Card
         style={{
           border: "none",
-          background: cssVariables.headerGradientPrimary,
-          boxShadow: cssVariables.headerShadowPrimary,
+          background: `linear-gradient(135deg, ${cssVariables.colorPrimary}, ${cssVariables.colorSecondary})`,
+          boxShadow: `0 4px 20px ${cssVariables.colorPrimary}25`,
           overflow: "hidden",
         }}
       >
