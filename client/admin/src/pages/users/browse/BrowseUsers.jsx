@@ -62,7 +62,7 @@ const BrowseUsers = ({
   const columns = [
     {
       title: (
-        <Space size={4}>
+        <Space size={4} style={{ margin: "0.6rem 0.4rem" }}>
           <UserOutlined style={{ color: cssVariables.colorPrimary }} />
           <span style={{ color: cssVariables.colorPrimary, fontWeight: 600 }}>
             User
@@ -72,30 +72,25 @@ const BrowseUsers = ({
       key: "user",
       render: (_, record) => (
         <Flex align="center" gap={10}>
-          <Badge
-            status={record.enabled ? "success" : "error"}
-            offset={[-5, 35]}
-          >
-            <Avatar
-              size={36}
-              src="assets/images/avatarMan.svg"
-              icon={<UserOutlined />}
-              style={{
-                border: `2px solid ${
-                  record.enabled
-                    ? cssVariables.colorSuccess
-                    : cssVariables.colorError
-                }`,
-              }}
-            />
-          </Badge>
+          <Avatar
+            size={45}
+            src={record.profilePictureUrl || "assets/images/avatarMan.svg"}
+            icon={<UserOutlined />}
+            style={{
+              border: `2px solid ${
+                record.status === "ACTIVE"
+                  ? cssVariables.colorSuccess
+                  : cssVariables.colorError
+              }`,
+            }}
+          />
           <Space direction="vertical" size={0}>
             <Typography.Text
               strong
               style={{
                 fontSize: "13px",
                 textTransform: "capitalize",
-                color: cssVariables.colorText,
+                margin: 0,
               }}
             >
               {record.firstName} {record.lastName}
@@ -104,16 +99,17 @@ const BrowseUsers = ({
               type="secondary"
               style={{
                 fontSize: "11px",
+                margin: 0,
               }}
             >
               {record.email}
             </Typography.Text>
             <Tag
-              color={record.enabled ? "success" : "error"}
+              color={record.status === "ACTIVE" ? "success" : "error"}
               bordered={false}
-              style={{ fontSize: "10px", padding: "0 4px" }}
+              style={{ fontSize: "10px", padding: "0 5px", margin: 0 }}
             >
-              {record.enabled ? "Active" : "Inactive"}
+              {record.status === "ACTIVE" ? "Active" : "Inactive"}
             </Tag>
           </Space>
         </Flex>
@@ -161,9 +157,8 @@ const BrowseUsers = ({
         <Typography.Text
           code
           style={{
-            fontSize: "11px",
+            fontSize: "13px",
             padding: "2px 6px",
-            backgroundColor: cssVariables.glassOverlayLight,
           }}
         >
           @{username}
@@ -227,49 +222,6 @@ const BrowseUsers = ({
 
   return (
     <Space direction="vertical" size="small" style={{ width: "100%" }}>
-      {/* Clean Header */}
-      <Row gutter={[16, 12]} align="middle">
-        <Col flex="auto">
-          <Space align="center" size={12}>
-            <Avatar
-              size={36}
-              style={{
-                backgroundColor: cssVariables.colorPrimary,
-                color: cssVariables.colorWhite,
-              }}
-              icon={<TeamOutlined />}
-            />
-            <Space direction="vertical" size={0}>
-              <Title
-                level={4}
-                style={{
-                  margin: 0,
-                  fontSize: "16px",
-                }}
-              >
-                Users Directory
-              </Title>
-              <Text type="secondary" style={{ fontSize: "12px" }}>
-                {totalElements || 0} users found
-              </Text>
-            </Space>
-          </Space>
-        </Col>
-        <Col>
-          <Search
-            placeholder="Search users..."
-            value={searchText}
-            onChange={(e) => setSearchText(e.target.value)}
-            style={{ width: 240 }}
-            allowClear
-            loading={isLoading}
-            onSearch={handleSearch}
-            onClear={handleOnClear}
-            enterButton
-          />
-        </Col>
-      </Row>
-
       {/* Clean Table */}
       <Card
         style={{
@@ -278,12 +230,54 @@ const BrowseUsers = ({
           border: `1px solid ${cssVariables.borderSubtle}`,
         }}
       >
+        <Row gutter={[16, 12]} align="middle" style={{ marginBottom: 15 }}>
+          <Col flex="auto">
+            <Space align="center" size={12}>
+              <Avatar
+                size={36}
+                style={{
+                  backgroundColor: cssVariables.colorPrimary,
+                  color: cssVariables.colorWhite,
+                }}
+                icon={<TeamOutlined />}
+              />
+              <Space direction="vertical" size={0}>
+                <Title
+                  level={4}
+                  style={{
+                    margin: 0,
+                    fontSize: "16px",
+                  }}
+                >
+                  Users Directory
+                </Title>
+                <Text type="secondary" style={{ fontSize: "12px" }}>
+                  {totalElements || 0} users found
+                </Text>
+              </Space>
+            </Space>
+          </Col>
+          <Col>
+            <Search
+              placeholder="Search users..."
+              value={searchText}
+              onChange={(e) => setSearchText(e.target.value)}
+              style={{ width: 240 }}
+              allowClear
+              loading={isLoading}
+              onSearch={handleSearch}
+              onClear={handleOnClear}
+              enterButton
+            />
+          </Col>
+        </Row>
         <Table
           columns={columns}
           dataSource={content}
           loading={isLoading}
           rowKey={(record) => record.id}
           scroll={{ x: 800 }}
+          size="small"
           pagination={{
             pageSize,
             onChange: (page) => setCurrentPage(page),
@@ -293,6 +287,7 @@ const BrowseUsers = ({
             current: (data?.currentPage || 0) + 1,
             pageSizeOptions: ["5"],
             showSizeChanger: true,
+            size: "default",
           }}
           locale={{
             emptyText: isError ? (

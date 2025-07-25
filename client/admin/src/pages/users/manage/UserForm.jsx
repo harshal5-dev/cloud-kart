@@ -1,23 +1,65 @@
 import { LoadingOutlined } from "@ant-design/icons";
-import { Col, Form, Input, Row, Select, Space, Tag, Typography } from "antd";
+import {
+  Col,
+  Form,
+  Input,
+  Row,
+  Select,
+  Space,
+  Tag,
+  Typography,
+  Card,
+  Avatar,
+  Flex,
+  Divider,
+} from "antd";
 import { BsShop } from "react-icons/bs";
-import { FaPhoneAlt, FaRegUser, FaUser, FaUserTie } from "react-icons/fa";
+import {
+  FaLink,
+  FaPhoneAlt,
+  FaRegUser,
+  FaUser,
+  FaUserTie,
+} from "react-icons/fa";
 import { MdOutlineSupportAgent } from "react-icons/md";
-import { RiCharacterRecognitionFill } from "react-icons/ri";
+import { BiSolidRename } from "react-icons/bi";
 import { SiMinutemailer } from "react-icons/si";
+import { cssVariables } from "../../../config/themeConfig";
 
-const { Text } = Typography;
+const { Text, Title } = Typography;
 const { Option } = Select;
 
 const customizeRequiredMark = (label, { required }) => (
-  <Text>
+  <Flex align="center" gap={5}>
     {required ? (
-      <Tag color="error">Required</Tag>
+      <Tag
+        style={{
+          fontSize: "10px",
+          borderRadius: 12,
+          padding: "2px 8px",
+          background: cssVariables.colorError + "15",
+          color: cssVariables.colorError,
+          border: "1px solid " + cssVariables.colorError + "30",
+        }}
+      >
+        Required
+      </Tag>
     ) : (
-      <Tag color="warning">optional</Tag>
+      <Tag
+        style={{
+          fontSize: "10px",
+          borderRadius: 12,
+          padding: "2px 8px",
+          background: cssVariables.colorSecondary + "15",
+          color: cssVariables.colorSecondary,
+          border: "1px solid " + cssVariables.colorSecondary + "30",
+        }}
+      >
+        Optional
+      </Tag>
     )}
-    {label}
-  </Text>
+    <Text style={{ fontWeight: 500, color: "inherit" }}>{label}</Text>
+  </Flex>
 );
 
 const userRoles = [
@@ -29,41 +71,137 @@ const userRoles = [
 
 const UserForm = ({ form, defaultValues, isLoading, isUpdate }) => {
   return (
-    <Form
-      form={form}
-      layout="vertical"
-      initialValues={defaultValues}
-      requiredMark={customizeRequiredMark}
+    <Card
+      style={{
+        boxShadow: cssVariables.shadowSubtle,
+        margin: "1.6rem 0 0.5rem 0",
+      }}
+      styles={{ body: { padding: "15px" } }}
     >
-      <Row gutter={24} style={{ marginTop: "1.3rem" }}>
-        <Col span={24}>
+      {/* Form Header */}
+      <Flex align="center" gap={8} style={{ marginBottom: 16 }}>
+        <Avatar
+          size={35}
+          style={{
+            backgroundColor: cssVariables.colorPrimary + "10",
+            color: cssVariables.colorPrimary,
+            border: `2px solid ${cssVariables.colorPrimary}20`,
+          }}
+          icon={<FaUser />}
+        />
+        <Flex vertical gap={2}>
+          <Title
+            level={5}
+            style={{
+              margin: 0,
+              color: cssVariables.colorPrimary,
+              fontSize: "14px",
+            }}
+          >
+            {isUpdate ? "Update User Information" : "Create New User"}
+          </Title>
+          <Text
+            type="secondary"
+            style={{
+              fontSize: "11px",
+              opacity: 0.8,
+            }}
+          >
+            {isUpdate
+              ? "Update user details below"
+              : "Fill in the user details below"}
+          </Text>
+        </Flex>
+      </Flex>
+
+      <Divider
+        style={{
+          margin: "12px 0 16px 0",
+          borderColor: cssVariables.colorPrimary + "25",
+        }}
+      />
+
+      <Form
+        form={form}
+        layout="vertical"
+        initialValues={defaultValues}
+        requiredMark={customizeRequiredMark}
+      >
+        <Space direction="vertical" size={5} style={{ width: "100%" }}>
+          <Row gutter={[10, 0]}>
+            <Col xs={24} sm={12}>
+              <Form.Item
+                label="First Name"
+                name="firstName"
+                rules={[{ required: true, message: "Please enter first name" }]}
+                hasFeedback
+              >
+                <Input
+                  placeholder="Enter First Name"
+                  prefix={
+                    <BiSolidRename
+                      style={{
+                        color: cssVariables.colorPrimary,
+                        fontSize: "12px",
+                        opacity: 0.7,
+                      }}
+                    />
+                  }
+                  suffix={isLoading && <LoadingOutlined />}
+                  disabled={isLoading}
+                  style={{
+                    transition: "all 0.2s ease",
+                  }}
+                />
+              </Form.Item>
+            </Col>
+            <Col xs={24} sm={12}>
+              <Form.Item label="Last Name" name="lastName" hasFeedback>
+                <Input
+                  placeholder="Enter Last Name"
+                  prefix={
+                    <BiSolidRename
+                      style={{
+                        color: cssVariables.colorSecondary,
+                        fontSize: "12px",
+                        opacity: 0.7,
+                      }}
+                    />
+                  }
+                  suffix={isLoading && <LoadingOutlined />}
+                  disabled={isLoading}
+                  style={{
+                    transition: "all 0.2s ease",
+                  }}
+                />
+              </Form.Item>
+            </Col>
+          </Row>
+
           <Form.Item
-            label="First Name"
-            name="firstName"
-            rules={[{ required: true, message: "Please enter first name" }]}
+            label="Profile Picture Url"
+            name="profilePictureUrl"
             hasFeedback
           >
             <Input
-              placeholder="Enter First Name"
-              prefix={<RiCharacterRecognitionFill />}
+              placeholder="Enter Profile Picture Url"
+              prefix={
+                <FaLink
+                  style={{
+                    color: cssVariables.colorMagenta,
+                    fontSize: "12px",
+                    opacity: 0.7,
+                  }}
+                />
+              }
               suffix={isLoading && <LoadingOutlined />}
               disabled={isLoading}
-              count={{ max: 55, show: true }}
+              style={{
+                transition: "all 0.2s ease",
+              }}
             />
           </Form.Item>
-        </Col>
-        <Col span={24}>
-          <Form.Item label="Last Name" name="lastName" hasFeedback>
-            <Input
-              placeholder="Enter Last Name"
-              suffix={isLoading && <LoadingOutlined />}
-              disabled={isLoading}
-              prefix={<RiCharacterRecognitionFill />}
-              count={{ max: 55, show: true }}
-            />
-          </Form.Item>
-        </Col>
-        <Col span={24}>
+
           <Form.Item
             label="Username"
             name="username"
@@ -84,14 +222,23 @@ const UserForm = ({ form, defaultValues, isLoading, isUpdate }) => {
           >
             <Input
               placeholder="Enter username"
-              prefix={<FaRegUser />}
+              prefix={
+                <FaRegUser
+                  style={{
+                    color: cssVariables.colorTitle,
+                    fontSize: "12px",
+                    opacity: 0.7,
+                  }}
+                />
+              }
               suffix={isLoading && <LoadingOutlined />}
               disabled={isLoading || isUpdate}
-              count={{ max: 55, show: true }}
+              style={{
+                transition: "all 0.2s ease",
+              }}
             />
           </Form.Item>
-        </Col>
-        <Col span={24}>
+
           <Form.Item
             label="Email"
             name="email"
@@ -106,15 +253,23 @@ const UserForm = ({ form, defaultValues, isLoading, isUpdate }) => {
           >
             <Input
               placeholder="Enter email"
-              prefix={<SiMinutemailer />}
+              prefix={
+                <SiMinutemailer
+                  style={{
+                    color: cssVariables.colorOrange,
+                    fontSize: "12px",
+                    opacity: 0.7,
+                  }}
+                />
+              }
               suffix={isLoading && <LoadingOutlined />}
               disabled={isLoading || isUpdate}
-              count={{ max: 150, show: true }}
+              style={{
+                transition: "all 0.2s ease",
+              }}
             />
           </Form.Item>
-        </Col>
 
-        <Col span={24}>
           <Form.Item
             label="Roles"
             name="roles"
@@ -126,6 +281,9 @@ const UserForm = ({ form, defaultValues, isLoading, isUpdate }) => {
               loading={isLoading}
               mode="tags"
               disabled={isUpdate}
+              style={{
+                transition: "all 0.2s ease",
+              }}
             >
               {userRoles.map((type) => (
                 <Option key={type.value} value={type.value}>
@@ -137,9 +295,7 @@ const UserForm = ({ form, defaultValues, isLoading, isUpdate }) => {
               ))}
             </Select>
           </Form.Item>
-        </Col>
 
-        <Col span={24}>
           <Form.Item
             label="Phone Number"
             name="phoneNumber"
@@ -156,16 +312,26 @@ const UserForm = ({ form, defaultValues, isLoading, isUpdate }) => {
             hasFeedback
           >
             <Input
-              placeholder="Enter Phone Number"
-              prefix={<FaPhoneAlt />}
+              placeholder="Enter Phone Number (e.g., +91 12345 67890)"
+              prefix={
+                <FaPhoneAlt
+                  style={{
+                    color: cssVariables.colorMagenta,
+                    fontSize: "12px",
+                    opacity: 0.7,
+                  }}
+                />
+              }
               suffix={isLoading && <LoadingOutlined />}
               disabled={isLoading}
-              count={{ max: 20, show: true }}
+              style={{
+                transition: "all 0.2s ease",
+              }}
             />
           </Form.Item>
-        </Col>
-      </Row>
-    </Form>
+        </Space>
+      </Form>
+    </Card>
   );
 };
 

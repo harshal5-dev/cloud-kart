@@ -17,7 +17,7 @@ export const adminApi = createApi({
       query: ({ page, pageSize, searchTerm = "" }) =>
         `${adminBaseUrl}/users/search?searchTerm=${searchTerm}&page=${
           page - 1
-        }&size=${pageSize}&sortBy=id&sortDir=desc`,
+        }&size=${pageSize}&sortBy=firstName&sortDir=asc`,
       providesTags: ["Users"],
       keepUnusedDataFor: 5555,
     }),
@@ -44,6 +44,7 @@ export const adminApi = createApi({
         url: `${adminBaseUrl}/users/${id}/delete`,
         method: "DELETE",
       }),
+      invalidatesTags: ["Users"],
       transformErrorResponse: transformErrorResponse,
     }),
   }),

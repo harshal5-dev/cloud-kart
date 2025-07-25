@@ -1,5 +1,7 @@
 package com.cloudkart.user_service.controller.v1;
 
+import com.cloudkart.user_service.dto.*;
+import com.cloudkart.user_service.service.ICreateUserData;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -17,13 +19,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import com.cloudkart.user_service.dto.CreateUserDto;
-import com.cloudkart.user_service.dto.ErrorResponseDto;
-import com.cloudkart.user_service.dto.PagedResDto;
-import com.cloudkart.user_service.dto.ResponseDto;
-import com.cloudkart.user_service.dto.UpdateUserDto;
-import com.cloudkart.user_service.dto.UserDto;
-import com.cloudkart.user_service.dto.UserSearchCriteria;
 import com.cloudkart.user_service.service.IAuthService;
 import com.cloudkart.user_service.service.IUserService;
 import com.cloudkart.user_service.util.ICommonUtil;
@@ -48,6 +43,7 @@ public class AdminController {
   private final IUserService userService;
   private final ICommonUtil commonUtil;
   private final IAuthService authService;
+  private final ICreateUserData createUserData;
 
 
   @Operation(summary = "Get all users",
@@ -132,6 +128,26 @@ public class AdminController {
 
     ResponseDto<Void> response =
         new ResponseDto<>(HttpStatus.OK, null, "User deleted successfully");
+    return ResponseEntity.status(HttpStatus.OK).body(response);
+  }
+
+  @Operation(summary = "Create user data",
+      description = "Creates user data for all users.")
+  @ApiResponses({
+      @ApiResponse(responseCode = "200", description = "HTTP Status OK",
+          content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
+              schema = @Schema(implementation = Void.class))),
+      @ApiResponse(responseCode = "404", description = "HTTP Status Not Found",
+          content = @Content(schema = @Schema(implementation = ErrorResponseDto.class))),
+      @ApiResponse(responseCode = "500", description = "HTTP Status Internal Server Error",
+          content = @Content(schema = @Schema(implementation = ErrorResponseDto.class)))})
+  @PostMapping("/users/data/create")
+  public ResponseEntity<ResponseDto<Void>> createUserData(
+      @RequestBody @Valid CreateUserDataDto data) {
+    createUserData.createUserData(data);
+
+    ResponseDto<Void> response =
+        new ResponseDto<>(HttpStatus.OK, null, "User data created successfully");
     return ResponseEntity.status(HttpStatus.OK).body(response);
   }
 }

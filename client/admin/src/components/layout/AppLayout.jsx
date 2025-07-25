@@ -21,6 +21,7 @@ import {
   injectLogoStyles,
 } from "../../utils/logoThemeAdapter";
 import { useGetUserProfileQuery } from "../../pages/users/usersApi";
+import { filterRoutesByAccess, canAccessPath } from "../../utils/roleAccess";
 
 const getAvatar = (userProfile) => {
   return userProfile?.profilePictureUrl || "/assets/images/developer.svg";
@@ -39,29 +40,32 @@ const route = {
       path: "/dashboard",
       name: "Dashboard",
       icon: <MdDashboard />,
+      access: ["ADMIN", "MANAGER"],
     },
     {
       path: "/users",
       name: "Users",
       icon: <FaUsers />,
-      access: "canAdmin",
+      access: ["ADMIN"],
     },
     {
       path: "/categories",
       name: "Categories",
       icon: <MdCategory />,
+      access: ["ADMIN", "MANAGER"],
     },
     {
       name: "Products",
       path: "/products",
       icon: <AiFillProduct />,
+      access: ["ADMIN", "MANAGER"],
     },
   ],
 };
 
 const AppLayout = () => {
   const [pathname, setPathname] = useState("");
-  const { isAuthenticated, logout } = useKeycloak();
+  const { isAuthenticated, roles, logout } = useKeycloak();
 
   const userResponse = useGetUserProfileQuery(undefined, {
     skip: !isAuthenticated,
@@ -74,6 +78,13 @@ const AppLayout = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
+
+  // Filter routes based on user roles
+  const filteredRoutes = filterRoutesByAccess(route.routes, roles);
+  const filteredRoute = {
+    ...route,
+    routes: filteredRoutes,
+  };
 
   // Set CSS variables for theme-adaptive logo
   useEffect(() => {
@@ -299,7 +310,7 @@ const AppLayout = () => {
         title="Cloud Kart"
         logo="/assets/images/cloud-kart-logo-ultimate.svg"
         fixSiderbar
-        route={route}
+        route={filteredRoute}
         siderWidth={230}
         layout="mix"
         ghost
@@ -558,8 +569,13 @@ const AppLayout = () => {
         menuItemRender={(item, dom) => (
           <div
             onClick={() => {
-              if (item?.path !== "/#") {
-                navigate(item.path || "/dashboard");
+              if (item?.path !== "/#" && !item?.disabled) {
+                // Check if user has access to the route before navigation
+                if (canAccessPath(item.path, route.routes, roles)) {
+                  navigate(item.path || "/dashboard");
+                } else {
+                  console.warn(`Access denied to route: ${item.path}`);
+                }
               }
             }}
             style={{

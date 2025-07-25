@@ -1,14 +1,14 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-import { App, Button, Form, Modal, theme } from "antd";
-import { UserAddOutlined, EditOutlined } from "@ant-design/icons";
+import { App, Button, Form, Modal } from "antd";
+import { UserAddOutlined } from "@ant-design/icons";
+import { FaPencilAlt, FaSave } from "react-icons/fa";
 
 import { useCreateUserMutation, useUpdateUserMutation } from "../adminApi";
 import UserForm from "./UserForm";
 import { cssVariables } from "../../../config/themeConfig";
 
 const ManageUser = ({ operation, user }) => {
-  const { token } = theme.useToken();
   const isUpdate = operation === "UPDATE";
   const [form] = Form.useForm();
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -20,6 +20,7 @@ const ManageUser = ({ operation, user }) => {
     username: "",
     email: "",
     roles: [],
+    profilePictureUrl: "",
   };
 
   const [createCreate, { isLoading: isCreating }] = useCreateUserMutation();
@@ -86,19 +87,11 @@ const ManageUser = ({ operation, user }) => {
     <>
       {isUpdate ? (
         <Button
-          type="text"
+          icon={<FaPencilAlt />}
+          variant="text"
           shape="circle"
-          size="small"
-          icon={<EditOutlined />}
+          color="green"
           onClick={() => handleEditUser(user)}
-          style={{
-            color: cssVariables.colorSecondary,
-            border: `1px solid ${cssVariables.colorSecondary}30`,
-            background:
-              token.colorBgBase === "#000000" || token.colorBgBase === "#141414"
-                ? `${cssVariables.colorSecondary}10`
-                : `${cssVariables.colorSecondary}05`,
-          }}
         />
       ) : (
         <Button
@@ -115,58 +108,18 @@ const ManageUser = ({ operation, user }) => {
       )}
       {/* Enhanced Modal for adding/editing user */}
       <Modal
-        title={
-          <div
-            style={{
-              fontSize: "18px",
-              fontWeight: 600,
-              color: token.colorText,
-              padding: "8px 0",
-            }}
-          >
-            {isUpdate ? "Edit User Profile" : "Add New User"}
-          </div>
-        }
         open={isModalVisible}
         onOk={handleModalOk}
         onCancel={handleModalCancel}
-        width={650}
-        centered
-        okText={isUpdate ? "Update User" : "Create User"}
+        okText="Save"
         okButtonProps={{
-          icon: isUpdate ? <EditOutlined /> : <UserAddOutlined />,
-          style: {
-            background: cssVariables.colorPrimary,
-            border: "none",
-            height: 40,
-            borderRadius: 8,
-            fontWeight: 600,
-          },
-        }}
-        cancelButtonProps={{
-          style: {
-            height: 40,
-            borderRadius: 8,
-          },
+          icon: <FaSave />,
         }}
         maskClosable={false}
         confirmLoading={isCreating || isUpdating}
-        styles={{
-          body: {
-            padding: "24px",
-            maxHeight: "70vh",
-            overflowY: "auto",
-          },
-          header: {
-            borderBottom: `1px solid ${token.colorBorder}`,
-            paddingBottom: "16px",
-            marginBottom: 0,
-          },
-          footer: {
-            borderTop: `1px solid ${token.colorBorder}`,
-            paddingTop: "16px",
-          },
-        }}
+        width="95%"
+        style={{ maxWidth: 655 }}
+        centered
       >
         <UserForm
           form={form}

@@ -1,5 +1,7 @@
 package com.cloudkart.user_service.dto;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotEmpty;
@@ -54,5 +56,8 @@ public class RegisterUserDto {
 
   @Schema(description = "Master key for user registration", example = "masterKey123")
   private String masterKey;
+
+  @Schema(description = "List of addresses associated with the user")
+  private List<AddressReqDto> addresses = new ArrayList<>();
 
 }
