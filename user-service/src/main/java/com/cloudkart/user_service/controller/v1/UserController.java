@@ -29,7 +29,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @Tag(name = "User APIs",
-                description = "This controller provides user-related operations such as fetching and updating user profiles.")
+    description = "This controller provides user-related operations such as fetching and updating user profiles.")
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(path = "/api/v1/users", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -37,68 +37,58 @@ import lombok.RequiredArgsConstructor;
 @SecurityRequirement(name = "bearerAuth")
 public class UserController {
 
-        private final IUserService userService;
-        private final ICommonUtil commonUtil;
+  private final IUserService userService;
+  private final ICommonUtil commonUtil;
 
-        @Operation(summary = "Get current user profile",
-                        description = "Fetches the profile of the currently authenticated user.")
-        @ApiResponses({@ApiResponse(responseCode = "200", description = "HTTP Status OK",
-                        content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
-                                        schema = @Schema(implementation = UserDto.class))),
-                        @ApiResponse(responseCode = "401", description = "HTTP Status Unauthorized",
-                                        content = @Content(schema = @Schema(
-                                                        implementation = ErrorResponseDto.class))),
-                        @ApiResponse(responseCode = "403", description = "HTTP Status Forbidden",
-                                        content = @Content(schema = @Schema(
-                                                        implementation = ErrorResponseDto.class))),
-                        @ApiResponse(responseCode = "500",
-                                        description = "HTTP Status Internal Server Error",
-                                        content = @Content(schema = @Schema(
-                                                        implementation = ErrorResponseDto.class)))})
-        @GetMapping("/me")
-        public ResponseEntity<ResponseDto<UserDto>> getCurrentUser(Authentication authentication) {
-                String keycloakId = commonUtil.extractKeycloakUserId(authentication);
-                UserDto user = userService.getUserProfile(keycloakId);
-                ResponseDto<UserDto> responseDto = new ResponseDto<>(HttpStatus.OK, user,
-                                "User details fetched successfully");
-                return ResponseEntity.status(HttpStatus.OK).body(responseDto);
-        }
+  @Operation(summary = "Get current user profile",
+      description = "Fetches the profile of the currently authenticated user.")
+  @ApiResponses({
+      @ApiResponse(responseCode = "200", description = "HTTP Status OK",
+          content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
+              schema = @Schema(implementation = UserDto.class))),
+      @ApiResponse(responseCode = "401", description = "HTTP Status Unauthorized",
+          content = @Content(schema = @Schema(implementation = ErrorResponseDto.class))),
+      @ApiResponse(responseCode = "403", description = "HTTP Status Forbidden",
+          content = @Content(schema = @Schema(implementation = ErrorResponseDto.class))),
+      @ApiResponse(responseCode = "500", description = "HTTP Status Internal Server Error",
+          content = @Content(schema = @Schema(implementation = ErrorResponseDto.class)))})
+  @GetMapping("/me")
+  public ResponseEntity<ResponseDto<UserDto>> getCurrentUser(Authentication authentication) {
+    String keycloakId = commonUtil.extractKeycloakUserId(authentication);
+    UserDto user = userService.getUserProfile(keycloakId);
+    ResponseDto<UserDto> responseDto =
+        new ResponseDto<>(HttpStatus.OK, user, "User details fetched successfully");
+    return ResponseEntity.status(HttpStatus.OK).body(responseDto);
+  }
 
-        @Operation(summary = "Update current user profile",
-                        description = "Updates the profile of the currently authenticated user.")
-        @ApiResponses({@ApiResponse(responseCode = "200", description = "HTTP Status OK",
-                        content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
-                                        schema = @Schema(implementation = UserDto.class))),
-                        @ApiResponse(responseCode = "400", description = "HTTP Status Bad Request",
-                                        content = @Content(schema = @Schema(
-                                                        implementation = ErrorResponseDto.class))),
-                        @ApiResponse(responseCode = "401", description = "HTTP Status Unauthorized",
-                                        content = @Content(schema = @Schema(
-                                                        implementation = ErrorResponseDto.class))),
-                        @ApiResponse(responseCode = "403", description = "HTTP Status Forbidden",
-                                        content = @Content(schema = @Schema(
-                                                        implementation = ErrorResponseDto.class))),
-                        @ApiResponse(responseCode = "500",
-                                        description = "HTTP Status Internal Server Error",
-                                        content = @Content(schema = @Schema(
-                                                        implementation = ErrorResponseDto.class)))})
-        @PutMapping("/me/{keycloakId}")
-        public ResponseEntity<ResponseDto<UserDto>> updateCurrentUser(
-                        @PathVariable String keycloakId,
-                        @Valid @RequestBody UpdateUserDto updateUserDto,
-                        Authentication authentication) {
-                Set<String> userRoles = commonUtil.extractUserRoles(authentication);
-                String keycloakUserId = commonUtil.extractKeycloakUserId(authentication);
+  @Operation(summary = "Update current user profile",
+      description = "Updates the profile of the currently authenticated user.")
+  @ApiResponses({
+      @ApiResponse(responseCode = "200", description = "HTTP Status OK",
+          content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
+              schema = @Schema(implementation = UserDto.class))),
+      @ApiResponse(responseCode = "400", description = "HTTP Status Bad Request",
+          content = @Content(schema = @Schema(implementation = ErrorResponseDto.class))),
+      @ApiResponse(responseCode = "401", description = "HTTP Status Unauthorized",
+          content = @Content(schema = @Schema(implementation = ErrorResponseDto.class))),
+      @ApiResponse(responseCode = "403", description = "HTTP Status Forbidden",
+          content = @Content(schema = @Schema(implementation = ErrorResponseDto.class))),
+      @ApiResponse(responseCode = "500", description = "HTTP Status Internal Server Error",
+          content = @Content(schema = @Schema(implementation = ErrorResponseDto.class)))})
+  @PutMapping("/me/{keycloakId}")
+  public ResponseEntity<ResponseDto<UserDto>> updateCurrentUser(@PathVariable String keycloakId,
+      @Valid @RequestBody UpdateUserDto updateUserDto, Authentication authentication) {
+    Set<String> userRoles = commonUtil.extractUserRoles(authentication);
+    String keycloakUserId = commonUtil.extractKeycloakUserId(authentication);
 
-                if (!keycloakId.equals(keycloakUserId) && !userRoles.contains("ROLE_ADMIN")) {
-                        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(new ResponseDto<>(
-                                        HttpStatus.FORBIDDEN, null,
-                                        "You do not have permission to update this user"));
-                }
+    if (!keycloakId.equals(keycloakUserId) && !userRoles.contains("ROLE_ADMIN")) {
+      return ResponseEntity.status(HttpStatus.FORBIDDEN).body(new ResponseDto<>(
+          HttpStatus.FORBIDDEN, null, "You do not have permission to update this user"));
+    }
 
-                UserDto updatedUser = userService.updateUserProfile(keycloakId, updateUserDto);
-                ResponseDto<UserDto> responseDto = new ResponseDto<>(HttpStatus.OK, updatedUser,
-                                "User profile updated successfully");
-                return ResponseEntity.status(HttpStatus.OK).body(responseDto);
-        }
+    UserDto updatedUser = userService.updateUserProfile(keycloakId, updateUserDto);
+    ResponseDto<UserDto> responseDto =
+        new ResponseDto<>(HttpStatus.OK, updatedUser, "User profile updated successfully");
+    return ResponseEntity.status(HttpStatus.OK).body(responseDto);
+  }
 }

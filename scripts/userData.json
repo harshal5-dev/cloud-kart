@@ -6,7 +6,7 @@
     "firstName": "John",
     "lastName": "Doe",
     "phoneNumber": "555-123-1001",
-    "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarJohn.jpeg",
+    "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarJohn.png",
     "roles": [
       "USER"
     ],
@@ -40,7 +40,7 @@
     "firstName": "Alice",
     "lastName": "Smith",
     "phoneNumber": "555-123-1002",
-    "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarAlice.jpeg",
+    "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarAlice.png",
     "roles": [
       "USER"
     ],
@@ -64,7 +64,7 @@
     "firstName": "Bruce",
     "lastName": "Wayne",
     "phoneNumber": "555-123-1003",
-    "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarBruce.jpeg",
+    "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarBruce.png",
     "roles": [
       "MANAGER"
     ],
@@ -98,7 +98,7 @@
     "firstName": "Clark",
     "lastName": "Kent",
     "phoneNumber": "555-123-1004",
-    "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarClark.jpeg",
+    "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarClark.png",
     "roles": [
       "USER"
     ],
@@ -132,7 +132,7 @@
     "firstName": "Diana",
     "lastName": "Prince",
     "phoneNumber": "555-123-1005",
-    "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarDiana.jpeg",
+    "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarDiana.png",
     "roles": [
       "USER"
     ],
@@ -156,7 +156,7 @@
     "firstName": "Peter",
     "lastName": "Parker",
     "phoneNumber": "555-123-1006",
-    "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarPeter.jpeg",
+    "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarPeter.png",
     "roles": [
       "USER"
     ],
@@ -190,7 +190,7 @@
     "firstName": "Tony",
     "lastName": "Stark",
     "phoneNumber": "555-123-1007",
-    "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarTony.jpeg",
+    "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarTony.png",
     "roles": [
       "MANAGER"
     ],
@@ -224,7 +224,7 @@
     "firstName": "Steve",
     "lastName": "Smith",
     "phoneNumber": "555-123-1008",
-    "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarSteve.jpeg",
+    "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarSteve.png",
     "roles": [
       "USER"
     ],
@@ -248,7 +248,7 @@
     "firstName": "Barbara",
     "lastName": "Williams",
     "phoneNumber": "555-123-1009",
-    "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarBarbara.jpeg",
+    "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarBarbara.png",
     "roles": [
       "USER"
     ],
@@ -282,7 +282,7 @@
     "firstName": "David",
     "lastName": "Johnson",
     "phoneNumber": "555-123-1010",
-    "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarDavid.jpeg",
+    "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarDavid.png",
     "roles": [
       "USER"
     ],
@@ -306,7 +306,7 @@
     "firstName": "Robert",
     "lastName": "Thomas",
     "phoneNumber": "555-123-1011",
-    "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarRobert.jpeg",
+    "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarRobert.png",
     "roles": [
       "USER",
       "MANAGER"
@@ -341,7 +341,7 @@
     "firstName": "Karen",
     "lastName": "Miller",
     "phoneNumber": "555-123-1012",
-    "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarKaren.jpeg",
+    "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarKaren.png",
     "roles": [
       "USER"
     ],
@@ -375,7 +375,7 @@
     "firstName": "Linda",
     "lastName": "Scott",
     "phoneNumber": "555-123-1013",
-    "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarLinda.jpeg",
+    "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarLinda.png",
     "roles": [
       "USER"
     ],
@@ -399,7 +399,7 @@
     "firstName": "James",
     "lastName": "Wilson",
     "phoneNumber": "555-123-1014",
-    "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarJames.jpeg",
+    "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarJames.png",
     "roles": [
       "USER"
     ],
@@ -433,7 +433,7 @@
     "firstName": "Carol",
     "lastName": "Martin",
     "phoneNumber": "555-123-1015",
-    "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarCarol.jpeg",
+    "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarCarol.png",
     "roles": [
       "USER"
     ],

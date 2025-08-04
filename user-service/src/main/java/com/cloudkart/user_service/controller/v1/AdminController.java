@@ -1,7 +1,5 @@
 package com.cloudkart.user_service.controller.v1;
 
-import com.cloudkart.user_service.dto.*;
-import com.cloudkart.user_service.service.ICreateUserData;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -19,7 +17,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import com.cloudkart.user_service.dto.CreateUserDataDto;
+import com.cloudkart.user_service.dto.CreateUserDto;
+import com.cloudkart.user_service.dto.ErrorResponseDto;
+import com.cloudkart.user_service.dto.PagedResDto;
+import com.cloudkart.user_service.dto.ResponseDto;
+import com.cloudkart.user_service.dto.UpdateUserDto;
+import com.cloudkart.user_service.dto.UserDto;
+import com.cloudkart.user_service.dto.UserSearchCriteria;
 import com.cloudkart.user_service.service.IAuthService;
+import com.cloudkart.user_service.service.ICreateUserData;
 import com.cloudkart.user_service.service.IUserService;
 import com.cloudkart.user_service.util.ICommonUtil;
 import io.swagger.v3.oas.annotations.Operation;
@@ -131,8 +138,7 @@ public class AdminController {
     return ResponseEntity.status(HttpStatus.OK).body(response);
   }
 
-  @Operation(summary = "Create user data",
-      description = "Creates user data for all users.")
+  @Operation(summary = "Create user data", description = "Creates user data for all users.")
   @ApiResponses({
       @ApiResponse(responseCode = "200", description = "HTTP Status OK",
           content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
