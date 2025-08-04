@@ -17,7 +17,8 @@ public class AddressReqDto {
       example = "123e4567-e89b-12d3-a456-426614174001")
   private UUID userId;
 
-  @Schema(description = "Type of address, e.g., HOME, OFFICE, BILLING, SHIPPING", example = "HOME", allowableValues = "HOME, OFFICE, BILLING, SHIPPING")
+  @Schema(description = "Type of address, e.g., HOME, OFFICE, BILLING, SHIPPING", example = "HOME",
+      allowableValues = "HOME, OFFICE, BILLING, SHIPPING")
   @NotEmpty(message = "Address type is required")
   @Pattern(regexp = "^(HOME|OFFICE|BILLING|SHIPPING)$",
       message = "Address type should be one of HOME, OFFICE, BILLING, SHIPPING")
