@@ -1,5 +1,7 @@
 package com.cloudkart.user_service.dto;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotEmpty;
@@ -48,4 +50,7 @@ public class CreateUserDto {
   @Schema(description = "Roles assigned to the user", example = "USER, MANAGER, ADMIN")
   @NotEmpty(message = "At least one role is required")
   private Set<String> roles = Set.of("USER");
+
+  @Schema(description = "List of addresses associated with the user")
+  private List<AddressReqDto> addresses = new ArrayList<>();
 }

@@ -156,4 +156,24 @@ public class AdminController {
         new ResponseDto<>(HttpStatus.OK, null, "User data created successfully");
     return ResponseEntity.status(HttpStatus.OK).body(response);
   }
+
+  @Operation(summary = "Create admin user data",
+      description = "Creates user data for all admin users.")
+  @ApiResponses({
+      @ApiResponse(responseCode = "200", description = "HTTP Status OK",
+          content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
+              schema = @Schema(implementation = Void.class))),
+      @ApiResponse(responseCode = "404", description = "HTTP Status Not Found",
+          content = @Content(schema = @Schema(implementation = ErrorResponseDto.class))),
+      @ApiResponse(responseCode = "500", description = "HTTP Status Internal Server Error",
+          content = @Content(schema = @Schema(implementation = ErrorResponseDto.class)))})
+  @PostMapping("/users/data/create/manager")
+  public ResponseEntity<ResponseDto<Void>> createManagerUserData(
+      @RequestBody @Valid CreateUserDataDto data) {
+    createUserData.createAdminUsersData(data);
+
+    ResponseDto<Void> response =
+        new ResponseDto<>(HttpStatus.OK, null, "manager data created successfully");
+    return ResponseEntity.status(HttpStatus.OK).body(response);
+  }
 }

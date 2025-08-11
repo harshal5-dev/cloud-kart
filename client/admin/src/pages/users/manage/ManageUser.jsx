@@ -21,6 +21,7 @@ const ManageUser = ({ operation, user }) => {
     email: "",
     roles: [],
     profilePictureUrl: "",
+    isActive: "INACTIVE",
   };
 
   const [createCreate, { isLoading: isCreating }] = useCreateUserMutation();

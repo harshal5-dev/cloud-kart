@@ -12,6 +12,7 @@ import {
   Avatar,
   Flex,
   Divider,
+  Switch,
 } from "antd";
 import { BsShop } from "react-icons/bs";
 import {
@@ -296,39 +297,58 @@ const UserForm = ({ form, defaultValues, isLoading, isUpdate }) => {
             </Select>
           </Form.Item>
 
-          <Form.Item
-            label="Phone Number"
-            name="phoneNumber"
-            rules={[
-              {
-                required: true,
-                message: "Please enter your phone number",
-              },
-              {
-                pattern: /^[+]?[0-9\-() ]{7,20}$/,
-                message: "Please enter a valid phone number",
-              },
-            ]}
-            hasFeedback
-          >
-            <Input
-              placeholder="Enter Phone Number (e.g., +91 12345 67890)"
-              prefix={
-                <FaPhoneAlt
+          <Row gutter={[10, 0]}>
+            <Col xs={24} sm={12}>
+              <Form.Item
+                label="Phone Number"
+                name="phoneNumber"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please enter your phone number",
+                  },
+                  {
+                    pattern: /^[+]?[0-9\-() ]{7,20}$/,
+                    message: "Please enter a valid phone number",
+                  },
+                ]}
+                hasFeedback
+              >
+                <Input
+                  placeholder="Enter Phone Number (e.g., +91 12345 67890)"
+                  prefix={
+                    <FaPhoneAlt
+                      style={{
+                        color: cssVariables.colorMagenta,
+                        fontSize: "12px",
+                        opacity: 0.7,
+                      }}
+                    />
+                  }
+                  suffix={isLoading && <LoadingOutlined />}
+                  disabled={isLoading}
                   style={{
-                    color: cssVariables.colorMagenta,
-                    fontSize: "12px",
-                    opacity: 0.7,
+                    transition: "all 0.2s ease",
                   }}
                 />
-              }
-              suffix={isLoading && <LoadingOutlined />}
-              disabled={isLoading}
-              style={{
-                transition: "all 0.2s ease",
-              }}
-            />
-          </Form.Item>
+              </Form.Item>
+            </Col>
+            <Col xs={24} sm={12}>
+              <Form.Item label="Active" name="isActive" valuePropName="checked">
+                <Switch
+                  checkedChildren="Active"
+                  unCheckedChildren="Inactive"
+                  disabled={isLoading}
+                  style={{
+                    backgroundColor: form.getFieldValue("isActive")
+                      ? cssVariables.colorSuccess
+                      : cssVariables.colorSecondary,
+                    transition: "all 0.3s ease",
+                  }}
+                />
+              </Form.Item>
+            </Col>
+          </Row>
         </Space>
       </Form>
     </Card>

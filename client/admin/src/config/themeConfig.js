@@ -84,7 +84,7 @@ export const cssVariables = {
 export const themeConfig = {
   token: {
     colorPrimary: cssVariables.colorPrimary,
-    borderRadius: 10,
+    borderRadius: 12,
     wireframe: false,
     colorInfo: cssVariables.colorPrimary,
     colorLink: cssVariables.colorLink,

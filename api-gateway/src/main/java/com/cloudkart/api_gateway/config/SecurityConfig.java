@@ -43,7 +43,7 @@ public class SecurityConfig {
   }
 
   @Bean
-  public SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity http) {
+  SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity http) {
     return http.csrf(ServerHttpSecurity.CsrfSpec::disable)
         .exceptionHandling(exceptionHandling -> exceptionHandling
             .authenticationEntryPoint(authenticationEntryPoint)

@@ -9,5 +9,12 @@ public interface ICreateUserData {
    *
    * @param createUserDataDto the data required to create users and their addresses
    */
-  void  createUserData(CreateUserDataDto createUserDataDto);
+  void createUserData(CreateUserDataDto createUserDataDto);
+
+  /**
+   * Creates admin users data.
+   *
+   * @param createUserDataDto the data required to create admin users
+   */
+  void createAdminUsersData(CreateUserDataDto createUserDataDto);
 }

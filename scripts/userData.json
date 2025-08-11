@@ -1,453 +1,353 @@
-[
-  {
-    "username": "jdoe",
-    "email": "jdoe@mailinator.com",
-    "password": "Password123!",
-    "firstName": "John",
-    "lastName": "Doe",
-    "phoneNumber": "555-123-1001",
-    "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarJohn.png",
-    "roles": [
-      "USER"
-    ],
-    "addresses": [
-      {
-        "addressType": "HOME",
-        "city": "New York",
-        "country": "USA",
-        "isDefault": true,
-        "phoneNumber": "555-123-1001",
-        "postalCode": "10001",
-        "state": "NY",
-        "streetAddress": "123 Main Street, Apt 4B"
-      },
-      {
-        "addressType": "OFFICE",
-        "city": "New York",
-        "country": "USA",
-        "isDefault": false,
-        "phoneNumber": "555-123-1001",
-        "postalCode": "10005",
-        "state": "NY",
-        "streetAddress": "456 Business Ave, Suite 200"
-      }
-    ]
-  },
-  {
-    "username": "asmith",
-    "email": "asmith@mailinator.com",
-    "password": "Password123!",
-    "firstName": "Alice",
-    "lastName": "Smith",
-    "phoneNumber": "555-123-1002",
-    "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarAlice.png",
-    "roles": [
-      "USER"
-    ],
-    "addresses": [
-      {
-        "addressType": "HOME",
-        "city": "Los Angeles",
-        "country": "USA",
-        "isDefault": true,
-        "phoneNumber": "555-123-1002",
-        "postalCode": "90210",
-        "state": "CA",
-        "streetAddress": "789 Sunset Boulevard"
-      }
-    ]
-  },
-  {
-    "username": "bwayne",
-    "email": "bwayne@mailinator.com",
-    "password": "Password123!",
-    "firstName": "Bruce",
-    "lastName": "Wayne",
-    "phoneNumber": "555-123-1003",
-    "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarBruce.png",
-    "roles": [
-      "MANAGER"
-    ],
-    "addresses": [
-      {
-        "addressType": "HOME",
-        "city": "Gotham",
-        "country": "USA",
-        "isDefault": true,
-        "phoneNumber": "555-123-1003",
-        "postalCode": "60601",
-        "state": "IL",
-        "streetAddress": "1007 Wayne Manor Drive"
-      },
-      {
-        "addressType": "OFFICE",
-        "city": "Gotham",
-        "country": "USA",
-        "isDefault": false,
-        "phoneNumber": "555-123-1003",
-        "postalCode": "60602",
-        "state": "IL",
-        "streetAddress": "Wayne Enterprises Building, Floor 47"
-      }
-    ]
-  },
-  {
-    "username": "ckent",
-    "email": "ckent@mailinator.com",
-    "password": "Password123!",
-    "firstName": "Clark",
-    "lastName": "Kent",
-    "phoneNumber": "555-123-1004",
-    "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarClark.png",
-    "roles": [
-      "USER"
-    ],
-    "addresses": [
-      {
-        "addressType": "HOME",
-        "city": "Smallville",
-        "country": "USA",
-        "isDefault": true,
-        "phoneNumber": "555-123-1004",
-        "postalCode": "66002",
-        "state": "KS",
-        "streetAddress": "344 Clinton Street"
-      },
-      {
-        "addressType": "BILLING",
-        "city": "Metropolis",
-        "country": "USA",
-        "isDefault": false,
-        "phoneNumber": "555-123-1004",
-        "postalCode": "64742",
-        "state": "KS",
-        "streetAddress": "Daily Planet Building, 1000 Broadway"
-      }
-    ]
-  },
-  {
-    "username": "dprince",
-    "email": "dprince@mailinator.com",
-    "password": "Password123!",
-    "firstName": "Diana",
-    "lastName": "Prince",
-    "phoneNumber": "555-123-1005",
-    "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarDiana.png",
-    "roles": [
-      "USER"
-    ],
-    "addresses": [
-      {
-        "addressType": "HOME",
-        "city": "Washington",
-        "country": "USA",
-        "isDefault": true,
-        "phoneNumber": "555-123-1005",
-        "postalCode": "20001",
-        "state": "DC",
-        "streetAddress": "555 Embassy Row"
-      }
-    ]
-  },
-  {
-    "username": "pparker",
-    "email": "pparker@mailinator.com",
-    "password": "Password123!",
-    "firstName": "Peter",
-    "lastName": "Parker",
-    "phoneNumber": "555-123-1006",
-    "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarPeter.png",
-    "roles": [
-      "USER"
-    ],
-    "addresses": [
-      {
-        "addressType": "HOME",
-        "city": "Queens",
-        "country": "USA",
-        "isDefault": true,
-        "phoneNumber": "555-123-1006",
-        "postalCode": "11375",
-        "state": "NY",
-        "streetAddress": "20 Ingram Street, Forest Hills"
-      },
-      {
-        "addressType": "SHIPPING",
-        "city": "Manhattan",
-        "country": "USA",
-        "isDefault": false,
-        "phoneNumber": "555-123-1006",
-        "postalCode": "10001",
-        "state": "NY",
-        "streetAddress": "Daily Bugle Building, 39th Floor"
-      }
-    ]
-  },
-  {
-    "username": "tstark",
-    "email": "tstark@mailinator.com",
-    "password": "Password123!",
-    "firstName": "Tony",
-    "lastName": "Stark",
-    "phoneNumber": "555-123-1007",
-    "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarTony.png",
-    "roles": [
-      "MANAGER"
-    ],
-    "addresses": [
-      {
-        "addressType": "HOME",
-        "city": "Malibu",
-        "country": "USA",
-        "isDefault": true,
-        "phoneNumber": "555-123-1007",
-        "postalCode": "90265",
-        "state": "CA",
-        "streetAddress": "10880 Malibu Point"
-      },
-      {
-        "addressType": "OFFICE",
-        "city": "New York",
-        "country": "USA",
-        "isDefault": false,
-        "phoneNumber": "555-123-1007",
-        "postalCode": "10038",
-        "state": "NY",
-        "streetAddress": "Stark Tower, 200 Park Avenue"
-      }
-    ]
-  },
-  {
-    "username": "ssmith",
-    "email": "ssmith@mailinator.com",
-    "password": "Password123!",
-    "firstName": "Steve",
-    "lastName": "Smith",
-    "phoneNumber": "555-123-1008",
-    "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarSteve.png",
-    "roles": [
-      "USER"
-    ],
-    "addresses": [
-      {
-        "addressType": "HOME",
-        "city": "Brooklyn",
-        "country": "USA",
-        "isDefault": true,
-        "phoneNumber": "555-123-1008",
-        "postalCode": "11201",
-        "state": "NY",
-        "streetAddress": "569 Leaman Place"
-      }
-    ]
-  },
-  {
-    "username": "bwilliams",
-    "email": "bwilliams@mailinator.com",
-    "password": "Password123!",
-    "firstName": "Barbara",
-    "lastName": "Williams",
-    "phoneNumber": "555-123-1009",
-    "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarBarbara.png",
-    "roles": [
-      "USER"
-    ],
-    "addresses": [
-      {
-        "addressType": "HOME",
-        "city": "Chicago",
-        "country": "USA",
-        "isDefault": true,
-        "phoneNumber": "555-123-1009",
-        "postalCode": "60614",
-        "state": "IL",
-        "streetAddress": "1542 North Lake Shore Drive"
-      },
-      {
-        "addressType": "BILLING",
-        "city": "Chicago",
-        "country": "USA",
-        "isDefault": false,
-        "phoneNumber": "555-123-1009",
-        "postalCode": "60601",
-        "state": "IL",
-        "streetAddress": "233 South Wacker Drive, Suite 840"
-      }
-    ]
-  },
-  {
-    "username": "djohnson",
-    "email": "djohnson@mailinator.com",
-    "password": "Password123!",
-    "firstName": "David",
-    "lastName": "Johnson",
-    "phoneNumber": "555-123-1010",
-    "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarDavid.png",
-    "roles": [
-      "USER"
-    ],
-    "addresses": [
-      {
-        "addressType": "HOME",
-        "city": "Miami",
-        "country": "USA",
-        "isDefault": true,
-        "phoneNumber": "555-123-1010",
-        "postalCode": "33101",
-        "state": "FL",
-        "streetAddress": "800 Biscayne Boulevard, Unit 2505"
-      }
-    ]
-  },
-  {
-    "username": "rthomas",
-    "email": "rthomas@mailinator.com",
-    "password": "Password123!",
-    "firstName": "Robert",
-    "lastName": "Thomas",
-    "phoneNumber": "555-123-1011",
-    "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarRobert.png",
-    "roles": [
-      "USER",
-      "MANAGER"
-    ],
-    "addresses": [
-      {
-        "addressType": "HOME",
-        "city": "Seattle",
-        "country": "USA",
-        "isDefault": true,
-        "phoneNumber": "555-123-1011",
-        "postalCode": "98101",
-        "state": "WA",
-        "streetAddress": "2101 4th Avenue, Unit 2210"
-      },
-      {
-        "addressType": "OFFICE",
-        "city": "Seattle",
-        "country": "USA",
-        "isDefault": false,
-        "phoneNumber": "555-123-1011",
-        "postalCode": "98104",
-        "state": "WA",
-        "streetAddress": "1918 8th Avenue, Suite 3000"
-      }
-    ]
-  },
-  {
-    "username": "kmiller",
-    "email": "kmiller@mailinator.com",
-    "password": "Password123!",
-    "firstName": "Karen",
-    "lastName": "Miller",
-    "phoneNumber": "555-123-1012",
-    "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarKaren.png",
-    "roles": [
-      "USER"
-    ],
-    "addresses": [
-      {
-        "addressType": "HOME",
-        "city": "Austin",
-        "country": "USA",
-        "isDefault": true,
-        "phoneNumber": "555-123-1012",
-        "postalCode": "78701",
-        "state": "TX",
-        "streetAddress": "500 West 2nd Street, Apt 1205"
-      },
-      {
-        "addressType": "SHIPPING",
-        "city": "Austin",
-        "country": "USA",
-        "isDefault": false,
-        "phoneNumber": "555-123-1012",
-        "postalCode": "78748",
-        "state": "TX",
-        "streetAddress": "9442 Capital of Texas Highway North"
-      }
-    ]
-  },
-  {
-    "username": "lscott",
-    "email": "lscott@mailinator.com",
-    "password": "Password123!",
-    "firstName": "Linda",
-    "lastName": "Scott",
-    "phoneNumber": "555-123-1013",
-    "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarLinda.png",
-    "roles": [
-      "USER"
-    ],
-    "addresses": [
-      {
-        "addressType": "HOME",
-        "city": "Denver",
-        "country": "USA",
-        "isDefault": true,
-        "phoneNumber": "555-123-1013",
-        "postalCode": "80202",
-        "state": "CO",
-        "streetAddress": "1700 Bassett Street, Unit 1500"
-      }
-    ]
-  },
-  {
-    "username": "jwilson",
-    "email": "jwilson@mailinator.com",
-    "password": "Password123!",
-    "firstName": "James",
-    "lastName": "Wilson",
-    "phoneNumber": "555-123-1014",
-    "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarJames.png",
-    "roles": [
-      "USER"
-    ],
-    "addresses": [
-      {
-        "addressType": "HOME",
-        "city": "Phoenix",
-        "country": "USA",
-        "isDefault": true,
-        "phoneNumber": "555-123-1014",
-        "postalCode": "85004",
-        "state": "AZ",
-        "streetAddress": "44 Monroe Street, Unit 903"
-      },
-      {
-        "addressType": "BILLING",
-        "city": "Phoenix",
-        "country": "USA",
-        "isDefault": false,
-        "phoneNumber": "555-123-1014",
-        "postalCode": "85016",
-        "state": "AZ",
-        "streetAddress": "2394 East Camelback Road, Suite 600"
-      }
-    ]
-  },
-  {
-    "username": "cmartin",
-    "email": "cmartin@mailinator.com",
-    "password": "Password123!",
-    "firstName": "Carol",
-    "lastName": "Martin",
-    "phoneNumber": "555-123-1015",
-    "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarCarol.png",
-    "roles": [
-      "USER"
-    ],
-    "addresses": [
-      {
-        "addressType": "HOME",
-        "city": "Boston",
-        "country": "USA",
-        "isDefault": true,
-        "phoneNumber": "555-123-1015",
-        "postalCode": "02101",
-        "state": "MA",
-        "streetAddress": "85 East India Row, Unit 36F"
-      }
-    ]
-  }
-]
+{
+  "users": [
+    {
+      "username": "jdoe",
+      "email": "jdoe@mailinator.com",
+      "password": "Password123!",
+      "firstName": "John",
+      "lastName": "Doe",
+      "phoneNumber": "555-123-1001",
+      "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarJohn.png",
+      "roles": [
+        "USER"
+      ],
+      "addresses": [
+        {
+          "addressType": "HOME",
+          "city": "New York",
+          "country": "USA",
+          "isDefault": true,
+          "phoneNumber": "555-123-1001",
+          "postalCode": "10001",
+          "state": "NY",
+          "streetAddress": "123 Main Street, Apt 4B"
+        },
+        {
+          "addressType": "OFFICE",
+          "city": "New York",
+          "country": "USA",
+          "isDefault": false,
+          "phoneNumber": "555-123-1001",
+          "postalCode": "10005",
+          "state": "NY",
+          "streetAddress": "456 Business Ave, Suite 200"
+        }
+      ]
+    },
+    {
+      "username": "asmith",
+      "email": "asmith@mailinator.com",
+      "password": "Password123!",
+      "firstName": "Alice",
+      "lastName": "Smith",
+      "phoneNumber": "555-123-1002",
+      "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarAlice.png",
+      "roles": [
+        "USER"
+      ],
+      "addresses": [
+        {
+          "addressType": "HOME",
+          "city": "Los Angeles",
+          "country": "USA",
+          "isDefault": true,
+          "phoneNumber": "555-123-1002",
+          "postalCode": "90210",
+          "state": "CA",
+          "streetAddress": "789 Sunset Boulevard"
+        }
+      ]
+    },
+    {
+      "username": "ckent",
+      "email": "ckent@mailinator.com",
+      "password": "Password123!",
+      "firstName": "Clark",
+      "lastName": "Kent",
+      "phoneNumber": "555-123-1004",
+      "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarClark.png",
+      "roles": [
+        "USER"
+      ],
+      "addresses": [
+        {
+          "addressType": "HOME",
+          "city": "Smallville",
+          "country": "USA",
+          "isDefault": true,
+          "phoneNumber": "555-123-1004",
+          "postalCode": "66002",
+          "state": "KS",
+          "streetAddress": "344 Clinton Street"
+        },
+        {
+          "addressType": "BILLING",
+          "city": "Metropolis",
+          "country": "USA",
+          "isDefault": false,
+          "phoneNumber": "555-123-1004",
+          "postalCode": "64742",
+          "state": "KS",
+          "streetAddress": "Daily Planet Building, 1000 Broadway"
+        }
+      ]
+    },
+    {
+      "username": "dprince",
+      "email": "dprince@mailinator.com",
+      "password": "Password123!",
+      "firstName": "Diana",
+      "lastName": "Prince",
+      "phoneNumber": "555-123-1005",
+      "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarDiana.png",
+      "roles": [
+        "USER"
+      ],
+      "addresses": [
+        {
+          "addressType": "HOME",
+          "city": "Washington",
+          "country": "USA",
+          "isDefault": true,
+          "phoneNumber": "555-123-1005",
+          "postalCode": "20001",
+          "state": "DC",
+          "streetAddress": "555 Embassy Row"
+        }
+      ]
+    },
+    {
+      "username": "pparker",
+      "email": "pparker@mailinator.com",
+      "password": "Password123!",
+      "firstName": "Peter",
+      "lastName": "Parker",
+      "phoneNumber": "555-123-1006",
+      "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarPeter.png",
+      "roles": [
+        "USER"
+      ],
+      "addresses": [
+        {
+          "addressType": "HOME",
+          "city": "Queens",
+          "country": "USA",
+          "isDefault": true,
+          "phoneNumber": "555-123-1006",
+          "postalCode": "11375",
+          "state": "NY",
+          "streetAddress": "20 Ingram Street, Forest Hills"
+        },
+        {
+          "addressType": "SHIPPING",
+          "city": "Manhattan",
+          "country": "USA",
+          "isDefault": false,
+          "phoneNumber": "555-123-1006",
+          "postalCode": "10001",
+          "state": "NY",
+          "streetAddress": "Daily Bugle Building, 39th Floor"
+        }
+      ]
+    },
+    {
+      "username": "ssmith",
+      "email": "ssmith@mailinator.com",
+      "password": "Password123!",
+      "firstName": "Steve",
+      "lastName": "Smith",
+      "phoneNumber": "555-123-1008",
+      "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarSteve.png",
+      "roles": [
+        "USER"
+      ],
+      "addresses": [
+        {
+          "addressType": "HOME",
+          "city": "Brooklyn",
+          "country": "USA",
+          "isDefault": true,
+          "phoneNumber": "555-123-1008",
+          "postalCode": "11201",
+          "state": "NY",
+          "streetAddress": "569 Leaman Place"
+        }
+      ]
+    },
+    {
+      "username": "bwilliams",
+      "email": "bwilliams@mailinator.com",
+      "password": "Password123!",
+      "firstName": "Barbara",
+      "lastName": "Williams",
+      "phoneNumber": "555-123-1009",
+      "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarBarbara.png",
+      "roles": [
+        "USER"
+      ],
+      "addresses": [
+        {
+          "addressType": "HOME",
+          "city": "Chicago",
+          "country": "USA",
+          "isDefault": true,
+          "phoneNumber": "555-123-1009",
+          "postalCode": "60614",
+          "state": "IL",
+          "streetAddress": "1542 North Lake Shore Drive"
+        },
+        {
+          "addressType": "BILLING",
+          "city": "Chicago",
+          "country": "USA",
+          "isDefault": false,
+          "phoneNumber": "555-123-1009",
+          "postalCode": "60601",
+          "state": "IL",
+          "streetAddress": "233 South Wacker Drive, Suite 840"
+        }
+      ]
+    },
+    {
+      "username": "djohnson",
+      "email": "djohnson@mailinator.com",
+      "password": "Password123!",
+      "firstName": "David",
+      "lastName": "Johnson",
+      "phoneNumber": "555-123-1010",
+      "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarDavid.png",
+      "roles": [
+        "USER"
+      ],
+      "addresses": [
+        {
+          "addressType": "HOME",
+          "city": "Miami",
+          "country": "USA",
+          "isDefault": true,
+          "phoneNumber": "555-123-1010",
+          "postalCode": "33101",
+          "state": "FL",
+          "streetAddress": "800 Biscayne Boulevard, Unit 2505"
+        }
+      ]
+    },
+    {
+      "username": "kmiller",
+      "email": "kmiller@mailinator.com",
+      "password": "Password123!",
+      "firstName": "Karen",
+      "lastName": "Miller",
+      "phoneNumber": "555-123-1012",
+      "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarKaren.png",
+      "roles": [
+        "USER"
+      ],
+      "addresses": [
+        {
+          "addressType": "HOME",
+          "city": "Austin",
+          "country": "USA",
+          "isDefault": true,
+          "phoneNumber": "555-123-1012",
+          "postalCode": "78701",
+          "state": "TX",
+          "streetAddress": "500 West 2nd Street, Apt 1205"
+        },
+        {
+          "addressType": "SHIPPING",
+          "city": "Austin",
+          "country": "USA",
+          "isDefault": false,
+          "phoneNumber": "555-123-1012",
+          "postalCode": "78748",
+          "state": "TX",
+          "streetAddress": "9442 Capital of Texas Highway North"
+        }
+      ]
+    },
+    {
+      "username": "lscott",
+      "email": "lscott@mailinator.com",
+      "password": "Password123!",
+      "firstName": "Linda",
+      "lastName": "Scott",
+      "phoneNumber": "555-123-1013",
+      "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarLinda.png",
+      "roles": [
+        "USER"
+      ],
+      "addresses": [
+        {
+          "addressType": "HOME",
+          "city": "Denver",
+          "country": "USA",
+          "isDefault": true,
+          "phoneNumber": "555-123-1013",
+          "postalCode": "80202",
+          "state": "CO",
+          "streetAddress": "1700 Bassett Street, Unit 1500"
+        }
+      ]
+    },
+    {
+      "username": "jwilson",
+      "email": "jwilson@mailinator.com",
+      "password": "Password123!",
+      "firstName": "James",
+      "lastName": "Wilson",
+      "phoneNumber": "555-123-1014",
+      "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarJames.png",
+      "roles": [
+        "USER"
+      ],
+      "addresses": [
+        {
+          "addressType": "HOME",
+          "city": "Phoenix",
+          "country": "USA",
+          "isDefault": true,
+          "phoneNumber": "555-123-1014",
+          "postalCode": "85004",
+          "state": "AZ",
+          "streetAddress": "44 Monroe Street, Unit 903"
+        },
+        {
+          "addressType": "BILLING",
+          "city": "Phoenix",
+          "country": "USA",
+          "isDefault": false,
+          "phoneNumber": "555-123-1014",
+          "postalCode": "85016",
+          "state": "AZ",
+          "streetAddress": "2394 East Camelback Road, Suite 600"
+        }
+      ]
+    },
+    {
+      "username": "cmartin",
+      "email": "cmartin@mailinator.com",
+      "password": "Password123!",
+      "firstName": "Carol",
+      "lastName": "Martin",
+      "phoneNumber": "555-123-1015",
+      "profilePictureUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/avatarCarol.png",
+      "roles": [
+        "USER"
+      ],
+      "addresses": [
+        {
+          "addressType": "HOME",
+          "city": "Boston",
+          "country": "USA",
+          "isDefault": true,
+          "phoneNumber": "555-123-1015",
+          "postalCode": "02101",
+          "state": "MA",
+          "streetAddress": "85 East India Row, Unit 36F"
+        }
+      ]
+    }
+  ],
+  "masterKey": "your_master_key_here"
+}
