@@ -12,7 +12,6 @@ import {
   Avatar,
   Flex,
   Divider,
-  Switch,
 } from "antd";
 import { BsShop } from "react-icons/bs";
 import {
@@ -25,6 +24,8 @@ import {
 import { MdOutlineSupportAgent } from "react-icons/md";
 import { BiSolidRename } from "react-icons/bi";
 import { SiMinutemailer } from "react-icons/si";
+import { FiUserCheck, FiUserX, FiUserMinus, FiShield } from "react-icons/fi";
+
 import { cssVariables } from "../../../config/themeConfig";
 
 const { Text, Title } = Typography;
@@ -68,6 +69,21 @@ const userRoles = [
   { value: "SELLER", label: "Seller", icon: <BsShop /> },
   { value: "MANAGER", label: "Manager", icon: <FaUserTie /> },
   { value: "SUPPORT", label: "Support", icon: <MdOutlineSupportAgent /> },
+];
+
+const userStatusOptions = [
+  {
+    value: "ACTIVE",
+    label: "Active",
+    icon: <FiUserCheck />,
+    color: cssVariables.colorSuccess,
+  },
+  {
+    value: "INACTIVE",
+    label: "Inactive",
+    icon: <FiUserX />,
+    color: cssVariables.colorError,
+  },
 ];
 
 const UserForm = ({ form, defaultValues, isLoading, isUpdate }) => {
@@ -334,18 +350,31 @@ const UserForm = ({ form, defaultValues, isLoading, isUpdate }) => {
               </Form.Item>
             </Col>
             <Col xs={24} sm={12}>
-              <Form.Item label="Active" name="isActive" valuePropName="checked">
-                <Switch
-                  checkedChildren="Active"
-                  unCheckedChildren="Inactive"
+              <Form.Item
+                label="Account Status"
+                name="status"
+                rules={[
+                  { required: true, message: "Please select account status" },
+                ]}
+                hasFeedback
+              >
+                <Select
+                  placeholder="Select account status"
+                  loading={isLoading}
                   disabled={isLoading}
-                  style={{
-                    backgroundColor: form.getFieldValue("isActive")
-                      ? cssVariables.colorSuccess
-                      : cssVariables.colorSecondary,
-                    transition: "all 0.3s ease",
-                  }}
-                />
+                >
+                  {userStatusOptions.map((status) => (
+                    <Option key={status.value} value={status.value}>
+                      <span
+                        className="flex justify-start items-center gap-1.5"
+                        style={{ color: status.color }}
+                      >
+                        {status.icon}
+                        {status.label}
+                      </span>
+                    </Option>
+                  ))}
+                </Select>
               </Form.Item>
             </Col>
           </Row>
