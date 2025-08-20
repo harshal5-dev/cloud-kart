@@ -5,6 +5,9 @@ import {
   SettingOutlined,
   ShoppingOutlined,
   FileTextOutlined,
+  CheckCircleOutlined,
+  CloseCircleOutlined,
+  ExclamationCircleOutlined,
 } from "@ant-design/icons";
 import {
   Col,
@@ -24,6 +27,8 @@ import {
   Badge,
   Steps,
   Flex,
+  Avatar,
+  Divider,
 } from "antd";
 import PropTypes from "prop-types";
 import { useState } from "react";
@@ -35,6 +40,8 @@ import {
   FaArrowAltCircleRight,
   FaCode,
   FaSave,
+  FaBox,
+  FaImage,
 } from "react-icons/fa";
 import { TbBrandBootstrap } from "react-icons/tb";
 import { BiDetail } from "react-icons/bi";
@@ -42,26 +49,41 @@ import { BiDetail } from "react-icons/bi";
 import { mapToSelect } from "../../../lib/utils";
 import { useGetCategoriesQuery } from "../../category/categoryApi";
 import { cssVariables } from "../../../config/themeConfig";
+import { MdLocalMall } from "react-icons/md";
 
 const { Text, Title } = Typography;
 
 const customizeRequiredMark = (label, { required }) => (
-  <Text>
+  <Flex align="center" gap={5}>
     {required ? (
-      <Tag color="error">Required</Tag>
+      <Tag
+        style={{
+          fontSize: "10px",
+          borderRadius: 12,
+          padding: "2px 8px",
+          background: cssVariables.colorError + "15",
+          color: cssVariables.colorError,
+          border: "1px solid " + cssVariables.colorError + "30",
+        }}
+      >
+        Required
+      </Tag>
     ) : (
       <Tag
         style={{
-          backgroundColor: cssVariables.colorSecondary,
-          color: cssVariables.colorWhite,
-          border: "none",
+          fontSize: "10px",
+          borderRadius: 12,
+          padding: "2px 8px",
+          background: cssVariables.colorSecondary + "15",
+          color: cssVariables.colorSecondary,
+          border: "1px solid " + cssVariables.colorSecondary + "30",
         }}
       >
-        optional
+        Optional
       </Tag>
     )}
-    {label}
-  </Text>
+    <Text style={{ fontWeight: 500, color: "inherit" }}>{label}</Text>
+  </Flex>
 );
 
 const ProductForm = ({
@@ -69,17 +91,42 @@ const ProductForm = ({
   isLoading = false,
   form,
   onSubmit,
-  title,
+  isUpdate = false,
+  currentStep,
+  setCurrentStep,
 }) => {
-  const [currentStep, setCurrentStep] = useState(0);
   const [completedSteps, setCompletedSteps] = useState(new Set());
   const categoryResponse = useGetCategoriesQuery();
   const { data: categories, isLoading: isCategoryLoading } = categoryResponse;
 
   const availabilityStatusOptions = [
-    { label: "In Stock", value: "IN_STOCK" },
-    { label: "Out of Stock", value: "OUT_OF_STOCK" },
-    { label: "Low Stock", value: "LOW_STOCK" },
+    {
+      label: (
+        <Space>
+          <CheckCircleOutlined style={{ color: "#52c41a" }} />
+          In Stock
+        </Space>
+      ),
+      value: "IN_STOCK",
+    },
+    {
+      label: (
+        <Space>
+          <CloseCircleOutlined style={{ color: "#ff4d4f" }} />
+          Out of Stock
+        </Space>
+      ),
+      value: "OUT_OF_STOCK",
+    },
+    {
+      label: (
+        <Space>
+          <ExclamationCircleOutlined style={{ color: "#faad14" }} />
+          Low Stock
+        </Space>
+      ),
+      value: "LOW_STOCK",
+    },
   ];
 
   // Define required fields for each step
@@ -171,8 +218,6 @@ const ProductForm = ({
     "magenta",
   ];
 
-  const progressPercentage = ((currentStep + 1) / steps.length) * 100;
-
   // Validate current step before proceeding
   const validateCurrentStep = async () => {
     const fieldsToValidate = stepRequiredFields[currentStep];
@@ -201,13 +246,6 @@ const ProductForm = ({
     }
   };
 
-  // Handle step click (allow navigation to completed steps)
-  const handleStepClick = (step) => {
-    if (step <= currentStep || completedSteps.has(step - 1)) {
-      setCurrentStep(step);
-    }
-  };
-
   // Handle final form submission
   const handleFormSubmit = async () => {
     try {
@@ -232,17 +270,37 @@ const ProductForm = ({
 
   const renderBasicInformation = () => (
     <Card
+      // size="small"
+      style={{
+        background: `linear-gradient(135deg, ${cssVariables.colorPrimary}03 0%, ${cssVariables.colorSecondary}03 100%)`,
+        border: `1px solid ${cssVariables.colorBorder}`,
+        marginBottom: 16,
+      }}
+      styles={{ body: { padding: "20px" } }}
       title={
-        <Space>
-          <Badge status="processing" color={steps[0].color} />
-          <ProductFilled style={{ color: steps[0].color }} />
-          <span>Basic Information</span>
-        </Space>
+        <Flex align="center" gap={8}>
+          <Avatar
+            size={28}
+            style={{
+              backgroundColor: cssVariables.colorPrimary + "15",
+              color: cssVariables.colorPrimary,
+              fontSize: "14px",
+            }}
+            icon={<ProductFilled />}
+          />
+          <Text
+            style={{
+              fontSize: "14px",
+              fontWeight: 600,
+              color: cssVariables.colorTextHeading,
+            }}
+          >
+            Basic Information
+          </Text>
+        </Flex>
       }
-      extra={<Tag color={stepBadgeColors[0]}>Step 1 of 6</Tag>}
-      style={{ borderRadius: 8 }}
     >
-      <Row gutter={[10, 5]}>
+      <Row gutter={[16, 12]}>
         <Col span={24}>
           <Form.Item
             name="title"
@@ -250,7 +308,9 @@ const ProductForm = ({
             rules={[{ required: true, message: "Please input product title!" }]}
           >
             <Input
-              prefix={<ProductFilled />}
+              prefix={
+                <ProductFilled style={{ color: cssVariables.colorPrimary }} />
+              }
               placeholder="Enter product title"
               suffix={isLoading && <LoadingOutlined />}
               disabled={isLoading}
@@ -262,7 +322,6 @@ const ProductForm = ({
           <Form.Item label="Product Description" name="description">
             <Input.TextArea
               disabled={isLoading}
-              rows={3}
               placeholder="Describe your product in detail..."
               showCount
               maxLength={500}
@@ -280,6 +339,9 @@ const ProductForm = ({
               loading={isLoading || isCategoryLoading}
               placeholder="Select product category"
               options={mapToSelect(categories, "slug", "name")}
+              suffixIcon={
+                <LuLassoSelect style={{ color: cssVariables.colorPrimary }} />
+              }
             />
           </Form.Item>
         </Col>
@@ -287,7 +349,11 @@ const ProductForm = ({
         <Col xs={24} md={12}>
           <Form.Item name="brand" label="Brand">
             <Input
-              prefix={<TbBrandBootstrap />}
+              prefix={
+                <TbBrandBootstrap
+                  style={{ color: cssVariables.colorPrimary }}
+                />
+              }
               placeholder="Enter brand name"
               suffix={isLoading && <LoadingOutlined />}
               disabled={isLoading}
@@ -300,21 +366,44 @@ const ProductForm = ({
 
   const renderProductIdentifiers = () => (
     <Card
+      size="small"
+      style={{
+        background: `linear-gradient(135deg, ${cssVariables.colorSecondary}03 0%, ${cssVariables.colorPrimary}03 100%)`,
+        border: `1px solid ${cssVariables.colorBorder}`,
+        borderRadius: 8,
+        marginBottom: 16,
+      }}
+      styles={{ body: { padding: "20px" } }}
       title={
-        <Space>
-          <Badge status="processing" color={steps[1].color} />
-          <BiDetail style={{ color: steps[1].color }} />
-          <span>Product Identifiers</span>
-        </Space>
+        <Flex align="center" gap={8}>
+          <Avatar
+            size={28}
+            style={{
+              backgroundColor: cssVariables.colorSecondary + "15",
+              color: cssVariables.colorSecondary,
+              fontSize: "14px",
+            }}
+            icon={<BiDetail />}
+          />
+          <Text
+            style={{
+              fontSize: "14px",
+              fontWeight: 600,
+              color: cssVariables.colorTextHeading,
+            }}
+          >
+            Product Identifiers
+          </Text>
+        </Flex>
       }
-      extra={<Tag color={stepBadgeColors[1]}>Step 2 of 6</Tag>}
-      style={{ borderRadius: 8 }}
     >
-      <Row gutter={[10, 5]}>
+      <Row gutter={[16, 12]}>
         <Col span={24}>
           <Form.Item name="thumbnail" label="Thumbnail URL">
             <Input
-              prefix={<ProductFilled />}
+              prefix={
+                <FaImage style={{ color: cssVariables.colorSecondary }} />
+              }
               placeholder="Enter thumbnail URL"
               suffix={isLoading && <LoadingOutlined />}
               disabled={isLoading}
@@ -335,7 +424,7 @@ const ProductForm = ({
             ]}
           >
             <Input
-              prefix={<FaCode />}
+              prefix={<FaCode style={{ color: cssVariables.colorSecondary }} />}
               placeholder="Enter unique SKU"
               suffix={isLoading && <LoadingOutlined />}
               disabled={isLoading}
@@ -348,17 +437,13 @@ const ProductForm = ({
             name="featured"
             label="Featured Product"
             valuePropName="checked"
+            extra="Featured products appear prominently"
           >
-            <Space direction="vertical">
-              <Switch
-                checkedChildren="Featured"
-                unCheckedChildren="Regular"
-                disabled={isLoading}
-              />
-              <Text type="secondary" style={{ fontSize: "12px" }}>
-                Featured products appear prominently
-              </Text>
-            </Space>
+            <Switch
+              checkedChildren="Featured"
+              unCheckedChildren="Regular"
+              loading={isLoading}
+            />
           </Form.Item>
         </Col>
       </Row>
@@ -367,17 +452,38 @@ const ProductForm = ({
 
   const renderPricing = () => (
     <Card
+      size="small"
+      style={{
+        background: `linear-gradient(135deg, ${cssVariables.colorSecondary}03 0%, ${cssVariables.colorPrimary}03 100%)`,
+        border: `1px solid ${cssVariables.colorBorder}`,
+        borderRadius: 8,
+        marginBottom: 16,
+      }}
+      styles={{ body: { padding: "20px" } }}
       title={
-        <Space>
-          <Badge status="processing" color={steps[2].color} />
-          <DollarOutlined style={{ color: steps[2].color }} />
-          <span>Pricing Information</span>
-        </Space>
+        <Flex align="center" gap={8}>
+          <Avatar
+            size={28}
+            style={{
+              backgroundColor: cssVariables.colorPrimary + "15",
+              color: cssVariables.colorPrimary,
+              fontSize: "14px",
+            }}
+            icon={<DollarOutlined />}
+          />
+          <Text
+            style={{
+              fontSize: "14px",
+              fontWeight: 600,
+              color: cssVariables.colorTextHeading,
+            }}
+          >
+            Pricing Information
+          </Text>
+        </Flex>
       }
-      extra={<Tag color={stepBadgeColors[2]}>Step 3 of 6</Tag>}
-      style={{ borderRadius: 8 }}
     >
-      <Row gutter={[10, 5]}>
+      <Row gutter={[16, 12]}>
         <Col xs={24} md={12}>
           <Form.Item
             name="price"
@@ -385,13 +491,19 @@ const ProductForm = ({
             rules={[{ required: true, message: "Please input product price!" }]}
           >
             <InputNumber
-              prefix={<AiFillDollarCircle />}
+              prefix={
+                <AiFillDollarCircle
+                  style={{ color: cssVariables.colorPrimary }}
+                />
+              }
               placeholder="0.00"
               min={0}
               step={0.01}
               precision={2}
               disabled={isLoading}
-              style={{ width: "100%" }}
+              style={{
+                width: "100%",
+              }}
               formatter={(value) =>
                 `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
               }
@@ -409,13 +521,19 @@ const ProductForm = ({
               precision={2}
               addonAfter="%"
               disabled={isLoading}
-              style={{ width: "100%" }}
+              style={{
+                width: "100%",
+              }}
             />
           </Form.Item>
         </Col>
         <Col span={24}>
           <Alert
-            style={{ padding: "10px 16px" }}
+            style={{
+              padding: "10px 16px",
+              background: `${cssVariables.colorPrimary}08`,
+              border: `1px solid ${cssVariables.colorPrimary}20`,
+            }}
             message="💡 Pricing Tip"
             description="Consider market research and competitor pricing when setting your product price."
             type="info"
@@ -428,17 +546,38 @@ const ProductForm = ({
 
   const renderPhysicalProperties = () => (
     <Card
+      size="small"
+      style={{
+        background: `linear-gradient(135deg, ${cssVariables.colorPrimary}03 0%, ${cssVariables.colorSecondary}03 100%)`,
+        border: `1px solid ${cssVariables.colorBorder}`,
+        borderRadius: 8,
+        marginBottom: 16,
+      }}
+      styles={{ body: { padding: "20px" } }}
       title={
-        <Space>
-          <Badge status="processing" color={steps[3].color} />
-          <SettingOutlined style={{ color: steps[3].color }} />
-          <span>Physical Properties</span>
-        </Space>
+        <Flex align="center" gap={8}>
+          <Avatar
+            size={28}
+            style={{
+              backgroundColor: cssVariables.colorSecondary + "15",
+              color: cssVariables.colorSecondary,
+              fontSize: "14px",
+            }}
+            icon={<SettingOutlined />}
+          />
+          <Text
+            style={{
+              fontSize: "14px",
+              fontWeight: 600,
+              color: cssVariables.colorTextHeading,
+            }}
+          >
+            Physical Properties
+          </Text>
+        </Flex>
       }
-      extra={<Tag color={stepBadgeColors[3]}>Step 4 of 6</Tag>}
-      style={{ borderRadius: 8 }}
     >
-      <Row gutter={[10, 5]}>
+      <Row gutter={[16, 12]}>
         <Col xs={12} sm={6}>
           <Form.Item name="weight" label="Weight">
             <InputNumber
@@ -574,7 +713,7 @@ const ProductForm = ({
       style={{ borderRadius: 8 }}
     >
       <Row gutter={[10, 5]}>
-        <Col span={24}>
+        <Col xs={24}>
           <Form.Item name="shippingDetails" label="Shipping Details">
             <Input.TextArea
               disabled={isLoading}
@@ -584,7 +723,7 @@ const ProductForm = ({
             />
           </Form.Item>
         </Col>
-        <Col span={24}>
+        <Col xs={24} md={12}>
           <Form.Item name="warrantyDetails" label="Warranty Details">
             <Input.TextArea
               disabled={isLoading}
@@ -594,7 +733,7 @@ const ProductForm = ({
             />
           </Form.Item>
         </Col>
-        <Col span={24}>
+        <Col xs={24} md={12}>
           <Form.Item name="returnPolicy" label="Return Policy">
             <Input.TextArea
               disabled={isLoading}
@@ -609,138 +748,111 @@ const ProductForm = ({
   );
 
   return (
-    <div className="mt-5">
-      {/* Enhanced Progress Header */}
-      <Card
-        size="small"
-        style={{
-          marginBottom: 16,
-          background: `linear-gradient(135deg, ${cssVariables.colorPrimary} 0%, ${cssVariables.colorTitle} 100%)`,
-          border: "none",
-          boxShadow: `0 8px 24px ${cssVariables.colorPrimary}15`,
-          overflow: "hidden",
-        }}
-      >
-        <div
+    <Card
+      style={{
+        boxShadow: cssVariables.shadowSubtle,
+        margin: "1.5rem 0 0",
+        overflow: "hidden",
+      }}
+      styles={{ body: { padding: "24px" } }}
+    >
+      {/* Form Header */}
+      <Flex align="center" gap={12} style={{ marginBottom: 24 }}>
+        <Avatar
+          size={42}
           style={{
-            background: `linear-gradient(135deg, ${cssVariables.glassOverlay} 0%, ${cssVariables.glassOverlayLight} 100%)`,
-            margin: "-16px -24px",
-            padding: "16px 20px",
-            backdropFilter: "blur(12px)",
+            backgroundColor: cssVariables.colorPrimary + "10",
+            color: cssVariables.colorPrimary,
+            border: `2px solid ${cssVariables.colorPrimary}20`,
+            fontSize: "18px",
           }}
-        >
-          <Flex justify="space-between" align="center" gap={16}>
-            <Flex align="center" gap={12} flex={1}>
-              {steps[currentStep].icon && (
-                <div
-                  style={{
-                    background: cssVariables.whiteTransparent25,
-                    borderRadius: 10,
-                    padding: 10,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontSize: 17,
-                    color: cssVariables.colorWhite,
-                    minWidth: 40,
-                    height: 40,
-                    boxShadow: cssVariables.boxShadowLight,
-                    border: `1px solid ${cssVariables.whiteTransparent30}`,
-                  }}
-                >
-                  {steps[currentStep].icon}
-                </div>
-              )}
-              <Flex vertical gap={4} flex={1}>
-                <Flex align="center" gap={10}>
-                  <Title
-                    level={4}
-                    style={{
-                      margin: 0,
-                      color: cssVariables.colorWhite,
-                      fontWeight: 600,
-                      fontSize: "20px",
-                      lineHeight: "24px",
-                      letterSpacing: "-0.3px",
-                      textShadow: cssVariables.textShadow,
-                    }}
-                  >
-                    {title}
-                  </Title>
-                  <Tag
-                    style={{
-                      background: cssVariables.whiteTransparent25,
-                      color: cssVariables.colorWhite,
-                      fontSize: "11px",
-                      fontWeight: 500,
-                      borderRadius: 8,
-                      padding: "3px 10px",
-                      border: `1px solid ${cssVariables.whiteTransparent40}`,
-                      boxShadow: cssVariables.boxShadowSoft,
-                      textShadow: cssVariables.textShadow,
-                    }}
-                  >
-                    Step {currentStep + 1} of {steps.length}
-                  </Tag>
-                </Flex>
-                <Text
-                  style={{
-                    color: cssVariables.whiteTransparent90,
-                    fontSize: "13px",
-                    fontWeight: 400,
-                    lineHeight: "18px",
-                    letterSpacing: "0.1px",
-                    textShadow: cssVariables.textShadow,
-                  }}
-                >
-                  {steps[currentStep].description}
-                </Text>
-              </Flex>
-            </Flex>
+          icon={<MdLocalMall />}
+        />
+        <Flex vertical gap={2}>
+          <Title
+            level={4}
+            style={{
+              margin: 0,
+              color: cssVariables.colorPrimary,
+              fontSize: "16px",
+              fontWeight: 600,
+            }}
+          >
+            {isUpdate ? "Update Product Information" : "Create New Product"}
+          </Title>
+          <Text
+            type="secondary"
+            style={{
+              fontSize: "12px",
+              opacity: 0.8,
+              lineHeight: "16px",
+            }}
+          >
+            {isUpdate
+              ? "Modify product details and inventory settings"
+              : "Fill in the product details below to add to catalog"}
+          </Text>
+        </Flex>
+      </Flex>
 
-            <Flex justify="center" align="center">
-              <Progress
-                type="circle"
-                percent={progressPercentage}
-                size={56}
-                strokeColor={{
-                  "0%": cssVariables.colorSecondary,
-                  "100%": cssVariables.colorProgressEnd,
-                }}
-                trailColor={cssVariables.whiteTransparent25}
-                strokeWidth={7}
-                format={() => (
-                  <Text
-                    style={{
-                      color: cssVariables.colorWhite,
-                      fontSize: "14px",
-                      fontWeight: 600,
-                      lineHeight: 1,
-                    }}
-                  >
-                    {Math.round(progressPercentage)}%
-                  </Text>
-                )}
-              />
-            </Flex>
-          </Flex>
-        </div>
-      </Card>
+      <Divider style={{ margin: "0 0 24px 0" }} />
 
-      {/* Enhanced Steps Navigation */}
+      {/* Compact Steps Progress */}
       <Card
         size="small"
         style={{
-          marginBottom: 16,
+          marginBottom: 20,
+          background: `linear-gradient(135deg, ${cssVariables.colorPrimary}08 0%, ${cssVariables.colorSecondary}08 100%)`,
+          border: `1px solid ${cssVariables.colorBorder}`,
+          borderRadius: 8,
         }}
+        styles={{ body: { padding: "12px 16px" } }}
       >
-        <Steps
-          current={currentStep}
-          onChange={handleStepClick}
-          items={steps}
-          size="small"
-          responsive
-        />
+        <Flex justify="space-between" align="center">
+          <Flex align="center" gap={8}>
+            <Avatar
+              size={34}
+              style={{
+                backgroundColor: cssVariables.colorPrimary,
+                color: cssVariables.colorWhite,
+                fontSize: "16px",
+                fontWeight: 600,
+              }}
+            >
+              {currentStep + 1}
+            </Avatar>
+            <div>
+              <Text
+                style={{
+                  fontSize: "13px",
+                  fontWeight: 600,
+                  color: cssVariables.colorTextHeading,
+                }}
+              >
+                {steps[currentStep].title}
+              </Text>
+              <br />
+              <Text
+                style={{
+                  fontSize: "11px",
+                  color: cssVariables.colorTextSecondary,
+                }}
+              >
+                {steps[currentStep].description}
+              </Text>
+            </div>
+          </Flex>
+          <Progress
+            percent={Math.round(((currentStep + 1) / steps.length) * 100)}
+            size="small"
+            showInfo={false}
+            strokeColor={{
+              "0%": cssVariables.colorPrimary,
+              "100%": cssVariables.colorSecondary,
+            }}
+            style={{ width: 120 }}
+          />
+        </Flex>
       </Card>
 
       {/* Form Content */}
@@ -781,59 +893,72 @@ const ProductForm = ({
         <Card
           size="small"
           style={{
-            marginTop: 16,
+            marginTop: 20,
+            background: `linear-gradient(135deg, ${cssVariables.colorPrimary}05 0%, ${cssVariables.colorSecondary}05 100%)`,
+            border: `1px solid ${cssVariables.colorBorder}`,
+            borderRadius: 8,
           }}
+          styles={{ body: { padding: "16px 20px" } }}
         >
           <Row justify="space-between" align="middle">
             <Col>
               <Button
-                disabled={currentStep === 0 || isLoading}
                 onClick={handlePrevious}
                 icon={<FaArrowAltCircleLeft />}
+                loading={isLoading}
+                disabled={currentStep === 0}
               >
                 Previous
               </Button>
             </Col>
 
             <Col>
-              <Space>
-                {currentStep === steps.length - 1 ? (
-                  <Button
-                    type="primary"
-                    onClick={handleFormSubmit}
-                    icon={<FaSave />}
-                    loading={isLoading}
-                  >
-                    Save Product
-                  </Button>
-                ) : (
+              <Flex align="center" gap={8} wrap="nowrap">
+                <Text
+                  style={{
+                    fontSize: "12px",
+                    color: cssVariables.colorTextSecondary,
+                  }}
+                >
+                  Step {currentStep + 1} of {steps.length}
+                </Text>
+                {currentStep < steps.length - 1 && (
                   <Button
                     type="primary"
                     onClick={handleNext}
                     icon={<FaArrowAltCircleRight />}
                     iconPosition="end"
                     loading={isLoading}
+                    style={{
+                      fontWeight: 500,
+                      background: `linear-gradient(135deg, ${cssVariables.colorPrimary}, ${cssVariables.colorSecondary})`,
+                      border: "none",
+                    }}
                   >
-                    Next Step
+                    Next
                   </Button>
                 )}
-              </Space>
+                {(currentStep === steps.length - 1 || isUpdate) && (
+                  <Button
+                    type="primary"
+                    onClick={handleFormSubmit}
+                    icon={<FaSave />}
+                    loading={isLoading}
+                    style={{
+                      fontWeight: 500,
+                      background: `linear-gradient(135deg, ${cssVariables.colorPrimary}, ${cssVariables.colorSecondary})`,
+                      border: "none",
+                    }}
+                  >
+                    Save
+                  </Button>
+                )}
+              </Flex>
             </Col>
           </Row>
         </Card>
-
-        {/* Success message on final step */}
-        {currentStep === steps.length - 1 && (
-          <Alert
-            message="🎉 Ready to Submit!"
-            description="Review all information and click 'Save Product' to create your product."
-            type="success"
-            showIcon
-            style={{ marginTop: 16, padding: "12px 16px" }}
-          />
-        )}
       </Form>
-    </div>
+    </Card>
   );
 };
 
@@ -866,6 +991,7 @@ ProductForm.propTypes = {
   isLoading: PropTypes.bool,
   form: PropTypes.object,
   onSubmit: PropTypes.func,
+  isUpdate: PropTypes.bool,
 };
 
 export default ProductForm;

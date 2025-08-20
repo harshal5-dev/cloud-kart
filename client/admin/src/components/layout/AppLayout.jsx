@@ -7,9 +7,8 @@ import {
 import { Dropdown, Typography, Avatar, Flex, Tag, Spin } from "antd";
 import { MdCategory, MdDashboard, MdViewModule } from "react-icons/md";
 import { Link, useLocation, useNavigate } from "react-router";
-import { FaUserCircle, FaUsers } from "react-icons/fa";
+import { FaShoppingBag, FaUserCircle, FaUsers } from "react-icons/fa";
 import ProLayout from "@ant-design/pro-layout";
-import { AiFillProduct } from "react-icons/ai";
 
 import ToggleTheme from "./ToggleTheme";
 import { cssVariables } from "../../config/themeConfig";
@@ -57,7 +56,7 @@ const route = {
     {
       name: "Products",
       path: "/products",
-      icon: <AiFillProduct />,
+      icon: <FaShoppingBag />,
       access: ["ADMIN", "MANAGER"],
     },
   ],

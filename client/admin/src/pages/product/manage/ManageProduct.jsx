@@ -1,20 +1,23 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 import { App, Button, Form, Modal } from "antd";
-import { FaPencilAlt } from "react-icons/fa";
-import { LuPackagePlus } from "react-icons/lu";
+import { FaPencilAlt, FaSave } from "react-icons/fa";
+import { IoBagAdd } from "react-icons/io5";
 
 import {
   useCreateProductMutation,
   useUpdateProductMutation,
 } from "../productApi";
 import ProductForm from "./ProductForm";
+import { cssVariables } from "../../../config/themeConfig";
 
 const ManageProduct = ({ operation, product }) => {
   const isUpdate = operation === "UPDATE";
   const [form] = Form.useForm();
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [currentStep, setCurrentStep] = useState(0);
   const { message } = App.useApp();
+
   let defaultValues = {
     title: "",
     description: "",
@@ -43,32 +46,36 @@ const ManageProduct = ({ operation, product }) => {
   const handleAddProduct = () => {
     form.resetFields();
     setIsModalVisible(true);
+    setCurrentStep(0);
   };
 
   const handleEditProduct = (product) => {
-    // Set form values for editing
-    form.setFieldsValue({
-      title: product.title || "",
-      description: product.description || "",
-      categorySlug: product.categorySlug || null,
-      price: product.price || null,
-      stock: product.stock || null,
-      sku: product.sku || "",
-      brand: product.brand || "",
-      thumbnail: product.thumbnail || "",
-      featured: product.featured || false,
-      discountPercentage: product.discountPercentage || 0,
-      weight: product.weight || null,
-      width: product.width || null,
-      height: product.height || null,
-      depth: product.depth || null,
-      minimumOrderQuantity: product.minimumOrderQuantity || 1,
-      availabilityStatus: product.availabilityStatus || "IN_STOCK",
-      shippingDetails: product.shippingDetails || "",
-      warrantyDetails: product.warrantyDetails || "",
-      returnPolicy: product.returnPolicy || "",
-    });
     setIsModalVisible(true);
+    setCurrentStep(0);
+    // Set form values for editing after modal is visible
+    setTimeout(() => {
+      form.setFieldsValue({
+        title: product.title || "",
+        description: product.description || "",
+        categorySlug: product.categorySlug || null,
+        price: product.price || null,
+        stock: product.stock || null,
+        sku: product.sku || "",
+        brand: product.brand || "",
+        thumbnail: product.thumbnail || "",
+        featured: product.featured || false,
+        discountPercentage: product.discountPercentage || 0,
+        weight: product.weight || null,
+        width: product.width || null,
+        height: product.height || null,
+        depth: product.depth || null,
+        minimumOrderQuantity: product.minimumOrderQuantity || 1,
+        availabilityStatus: product.availabilityStatus || "IN_STOCK",
+        shippingDetails: product.shippingDetails || "",
+        warrantyDetails: product.warrantyDetails || "",
+        returnPolicy: product.returnPolicy || "",
+      });
+    }, 0);
   };
 
   const handleModalOk = () => {
@@ -132,9 +139,13 @@ const ManageProduct = ({ operation, product }) => {
         />
       ) : (
         <Button
-          type="primary"
+          style={{
+            background: cssVariables.whiteTransparent25,
+            border: `1px solid ${cssVariables.whiteTransparent40}`,
+            color: cssVariables.colorWhite,
+          }}
           className="ml-auto"
-          icon={<LuPackagePlus />}
+          icon={<IoBagAdd />}
           onClick={handleAddProduct}
         >
           Product
@@ -144,23 +155,22 @@ const ManageProduct = ({ operation, product }) => {
       <Modal
         open={isModalVisible}
         onCancel={handleModalCancel}
-        width="90vw"
-        style={{ maxWidth: "1200px", top: 20 }}
+        footer={null}
         maskClosable={false}
         confirmLoading={isCreating || isUpdating}
-        centered={false}
-        footer={null}
-        forceRender
+        width="95%"
+        style={{ maxWidth: 1200 }}
+        centered
       >
-        {isModalVisible && (
-          <ProductForm
-            defaultValues={isUpdate ? {} : defaultValues}
-            form={form}
-            isLoading={isCreating || isUpdating}
-            onSubmit={handleModalOk}
-            title={isUpdate ? "Edit Product" : "Create New Product"}
-          />
-        )}
+        <ProductForm
+          defaultValues={isUpdate ? {} : defaultValues}
+          form={form}
+          isLoading={isCreating || isUpdating}
+          isUpdate={isUpdate}
+          onSubmit={handleModalOk}
+          currentStep={currentStep}
+          setCurrentStep={setCurrentStep}
+        />
       </Modal>
     </>
   );

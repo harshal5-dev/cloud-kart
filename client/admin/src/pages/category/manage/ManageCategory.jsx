@@ -9,6 +9,7 @@ import {
   useUpdateCategoryMutation,
 } from "../categoryApi";
 import CategoryForm from "./CategoryForm";
+import { cssVariables } from "../../../config/themeConfig";
 
 const ManageCategory = ({ operation, category }) => {
   const isUpdate = operation === "UPDATE";
@@ -89,13 +90,17 @@ const ManageCategory = ({ operation, category }) => {
         <Button
           variant="text"
           shape="circle"
-          color="gold"
+          color="green"
           icon={<FaPencilAlt />}
           onClick={() => handleEditCategory(category)}
         />
       ) : (
         <Button
-          type="primary"
+          style={{
+            background: cssVariables.whiteTransparent25,
+            border: `1px solid ${cssVariables.whiteTransparent40}`,
+            color: cssVariables.colorWhite,
+          }}
           className="ml-auto"
           icon={<FiPlusCircle />}
           onClick={handleAddCategory}
@@ -105,22 +110,24 @@ const ManageCategory = ({ operation, category }) => {
       )}
       {/* Modal for adding/editing category */}
       <Modal
-        title={isUpdate ? "Edit Category" : "Add New Category"}
         open={isModalVisible}
         onOk={handleModalOk}
         onCancel={handleModalCancel}
-        width={600}
         okText="Save"
         okButtonProps={{
           icon: <FaSave />,
         }}
         maskClosable={false}
         confirmLoading={isCreating || isUpdating}
+        width="95%"
+        style={{ maxWidth: 655 }}
+        centered
       >
         <CategoryForm
           form={form}
           defaultValues={defaultValues}
           isLoading={isCreating || isUpdating}
+          isUpdate={isUpdate}
         />
       </Modal>
     </>
