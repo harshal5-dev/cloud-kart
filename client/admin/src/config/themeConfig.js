@@ -1,6 +1,6 @@
 export const cssVariables = {
   colorPrimary: "#27548a",
-  colorSecondary: "#00B96B",
+  colorSecondary: "#2a9d8f",
   colorLink: "#1677ff",
   hoverColor: "#426b96",
   tableHeaderBg: "#bdc5c9",

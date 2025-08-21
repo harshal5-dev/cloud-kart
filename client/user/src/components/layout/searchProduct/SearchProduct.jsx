@@ -90,8 +90,6 @@ const SearchProduct = ({ placeholder = "Search products..." }) => {
   const { data, isFetching } = productResponse;
   const { content } = data || {};
 
-  console.log("Product Response:", content);
-
   // Debounce search input
   useEffect(() => {
     if (debounceTimeoutRef.current) {
@@ -304,7 +302,6 @@ const SearchProduct = ({ placeholder = "Search products..." }) => {
   );
 
   const handleSearch = (value) => {
-    console.log("Search value:", value);
     setSearchValue(value);
 
     if (!value) {

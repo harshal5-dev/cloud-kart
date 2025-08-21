@@ -239,7 +239,7 @@ const BrowseProduct = ({
       fixed: "right",
       width: 160,
       render: (_, record) => (
-        <Space size={3}>
+        <Space size={1}>
           <Tooltip title="View Product">
             <ViewProduct product={record} />
           </Tooltip>

@@ -111,7 +111,7 @@ const BrowseCategory = ({ categoryResponse }) => {
       fixed: "right",
       width: 105,
       render: (_, record) => (
-        <Space size={3}>
+        <Space size={2}>
           <Tooltip title="Edit Category">
             <ManageCategory operation="UPDATE" category={record} />
           </Tooltip>

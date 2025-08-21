@@ -133,7 +133,7 @@ const ManageProduct = ({ operation, product }) => {
         <Button
           variant="text"
           shape="circle"
-          color="gold"
+          color="green"
           icon={<FaPencilAlt />}
           onClick={() => handleEditProduct(product)}
         />

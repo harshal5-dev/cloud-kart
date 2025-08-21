@@ -208,7 +208,7 @@ const BrowseUsers = ({
       fixed: "right",
       width: 105,
       render: (_, record) => (
-        <Space size={3}>
+        <Space size={2}>
           <Tooltip title="Edit User">
             <ManageUser operation="UPDATE" user={record} />
           </Tooltip>
