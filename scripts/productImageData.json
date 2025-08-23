@@ -1,0 +1,2878 @@
+{
+  "productImages": [
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/thumbnail.webp",
+      "altText": "Essence Mascara Lash Princess - Essence - Main product image",
+      "sortOrder": 1,
+      "productSku": "BEA-ESS-ESS-001"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/1.webp",
+      "altText": "Essence Mascara Lash Princess - Essence - Product image 2",
+      "sortOrder": 2,
+      "productSku": "BEA-ESS-ESS-001"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/beauty/eyeshadow-palette-with-mirror/thumbnail.webp",
+      "altText": "Eyeshadow Palette with Mirror - Glamour Beauty - Main product image",
+      "sortOrder": 1,
+      "productSku": "BEA-GLA-EYE-002"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/beauty/eyeshadow-palette-with-mirror/1.webp",
+      "altText": "Eyeshadow Palette with Mirror - Glamour Beauty - Product image 2",
+      "sortOrder": 2,
+      "productSku": "BEA-GLA-EYE-002"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/beauty/powder-canister/thumbnail.webp",
+      "altText": "Powder Canister - Velvet Touch - Main product image",
+      "sortOrder": 1,
+      "productSku": "BEA-VEL-POW-003"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/beauty/powder-canister/1.webp",
+      "altText": "Powder Canister - Velvet Touch - Product image 2",
+      "sortOrder": 2,
+      "productSku": "BEA-VEL-POW-003"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/beauty/red-lipstick/thumbnail.webp",
+      "altText": "Red Lipstick - Chic Cosmetics - Main product image",
+      "sortOrder": 1,
+      "productSku": "BEA-CHI-LIP-004"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/beauty/red-lipstick/1.webp",
+      "altText": "Red Lipstick - Chic Cosmetics - Product image 2",
+      "sortOrder": 2,
+      "productSku": "BEA-CHI-LIP-004"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/beauty/red-nail-polish/thumbnail.webp",
+      "altText": "Red Nail Polish - Nail Couture - Main product image",
+      "sortOrder": 1,
+      "productSku": "BEA-NAI-NAI-005"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/beauty/red-nail-polish/1.webp",
+      "altText": "Red Nail Polish - Nail Couture - Product image 2",
+      "sortOrder": 2,
+      "productSku": "BEA-NAI-NAI-005"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/fragrances/calvin-klein-ck-one/thumbnail.webp",
+      "altText": "Calvin Klein CK One - Calvin Klein - Main product image",
+      "sortOrder": 1,
+      "productSku": "FRA-CAL-CAL-006"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/fragrances/calvin-klein-ck-one/1.webp",
+      "altText": "Calvin Klein CK One - Calvin Klein - Product image 2",
+      "sortOrder": 2,
+      "productSku": "FRA-CAL-CAL-006"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/fragrances/calvin-klein-ck-one/2.webp",
+      "altText": "Calvin Klein CK One - Calvin Klein - Product image 3",
+      "sortOrder": 3,
+      "productSku": "FRA-CAL-CAL-006"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/fragrances/calvin-klein-ck-one/3.webp",
+      "altText": "Calvin Klein CK One - Calvin Klein - Product image 4",
+      "sortOrder": 4,
+      "productSku": "FRA-CAL-CAL-006"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/fragrances/chanel-coco-noir-eau-de/thumbnail.webp",
+      "altText": "Chanel Coco Noir Eau De - Chanel - Main product image",
+      "sortOrder": 1,
+      "productSku": "FRA-CHA-CHA-007"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/fragrances/chanel-coco-noir-eau-de/1.webp",
+      "altText": "Chanel Coco Noir Eau De - Chanel - Product image 2",
+      "sortOrder": 2,
+      "productSku": "FRA-CHA-CHA-007"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/fragrances/chanel-coco-noir-eau-de/2.webp",
+      "altText": "Chanel Coco Noir Eau De - Chanel - Product image 3",
+      "sortOrder": 3,
+      "productSku": "FRA-CHA-CHA-007"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/fragrances/chanel-coco-noir-eau-de/3.webp",
+      "altText": "Chanel Coco Noir Eau De - Chanel - Product image 4",
+      "sortOrder": 4,
+      "productSku": "FRA-CHA-CHA-007"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/fragrances/dior-j'adore/thumbnail.webp",
+      "altText": "Dior J'adore - Dior - Main product image",
+      "sortOrder": 1,
+      "productSku": "FRA-DIO-DIO-008"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/fragrances/dior-j'adore/1.webp",
+      "altText": "Dior J'adore - Dior - Product image 2",
+      "sortOrder": 2,
+      "productSku": "FRA-DIO-DIO-008"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/fragrances/dior-j'adore/2.webp",
+      "altText": "Dior J'adore - Dior - Product image 3",
+      "sortOrder": 3,
+      "productSku": "FRA-DIO-DIO-008"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/fragrances/dior-j'adore/3.webp",
+      "altText": "Dior J'adore - Dior - Product image 4",
+      "sortOrder": 4,
+      "productSku": "FRA-DIO-DIO-008"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/fragrances/dolce-shine-eau-de/thumbnail.webp",
+      "altText": "Dolce Shine Eau de - Dolce & Gabbana - Main product image",
+      "sortOrder": 1,
+      "productSku": "FRA-DOL-DOL-009"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/fragrances/dolce-shine-eau-de/1.webp",
+      "altText": "Dolce Shine Eau de - Dolce & Gabbana - Product image 2",
+      "sortOrder": 2,
+      "productSku": "FRA-DOL-DOL-009"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/fragrances/dolce-shine-eau-de/2.webp",
+      "altText": "Dolce Shine Eau de - Dolce & Gabbana - Product image 3",
+      "sortOrder": 3,
+      "productSku": "FRA-DOL-DOL-009"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/fragrances/dolce-shine-eau-de/3.webp",
+      "altText": "Dolce Shine Eau de - Dolce & Gabbana - Product image 4",
+      "sortOrder": 4,
+      "productSku": "FRA-DOL-DOL-009"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/fragrances/gucci-bloom-eau-de/thumbnail.webp",
+      "altText": "Gucci Bloom Eau de - Gucci - Main product image",
+      "sortOrder": 1,
+      "productSku": "FRA-GUC-GUC-010"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/fragrances/gucci-bloom-eau-de/1.webp",
+      "altText": "Gucci Bloom Eau de - Gucci - Product image 2",
+      "sortOrder": 2,
+      "productSku": "FRA-GUC-GUC-010"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/fragrances/gucci-bloom-eau-de/2.webp",
+      "altText": "Gucci Bloom Eau de - Gucci - Product image 3",
+      "sortOrder": 3,
+      "productSku": "FRA-GUC-GUC-010"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/fragrances/gucci-bloom-eau-de/3.webp",
+      "altText": "Gucci Bloom Eau de - Gucci - Product image 4",
+      "sortOrder": 4,
+      "productSku": "FRA-GUC-GUC-010"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-bed/thumbnail.webp",
+      "altText": "Annibale Colombo Bed - Annibale Colombo - Main product image",
+      "sortOrder": 1,
+      "productSku": "FUR-ANN-ANN-011"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-bed/1.webp",
+      "altText": "Annibale Colombo Bed - Annibale Colombo - Product image 2",
+      "sortOrder": 2,
+      "productSku": "FUR-ANN-ANN-011"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-bed/2.webp",
+      "altText": "Annibale Colombo Bed - Annibale Colombo - Product image 3",
+      "sortOrder": 3,
+      "productSku": "FUR-ANN-ANN-011"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-bed/3.webp",
+      "altText": "Annibale Colombo Bed - Annibale Colombo - Product image 4",
+      "sortOrder": 4,
+      "productSku": "FUR-ANN-ANN-011"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-sofa/thumbnail.webp",
+      "altText": "Annibale Colombo Sofa - Annibale Colombo - Main product image",
+      "sortOrder": 1,
+      "productSku": "FUR-ANN-ANN-012"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-sofa/1.webp",
+      "altText": "Annibale Colombo Sofa - Annibale Colombo - Product image 2",
+      "sortOrder": 2,
+      "productSku": "FUR-ANN-ANN-012"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-sofa/2.webp",
+      "altText": "Annibale Colombo Sofa - Annibale Colombo - Product image 3",
+      "sortOrder": 3,
+      "productSku": "FUR-ANN-ANN-012"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-sofa/3.webp",
+      "altText": "Annibale Colombo Sofa - Annibale Colombo - Product image 4",
+      "sortOrder": 4,
+      "productSku": "FUR-ANN-ANN-012"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/furniture/bedside-table-african-cherry/thumbnail.webp",
+      "altText": "Bedside Table African Cherry - Furniture Co. - Main product image",
+      "sortOrder": 1,
+      "productSku": "FUR-FUR-BED-013"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/furniture/bedside-table-african-cherry/1.webp",
+      "altText": "Bedside Table African Cherry - Furniture Co. - Product image 2",
+      "sortOrder": 2,
+      "productSku": "FUR-FUR-BED-013"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/furniture/bedside-table-african-cherry/2.webp",
+      "altText": "Bedside Table African Cherry - Furniture Co. - Product image 3",
+      "sortOrder": 3,
+      "productSku": "FUR-FUR-BED-013"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/furniture/bedside-table-african-cherry/3.webp",
+      "altText": "Bedside Table African Cherry - Furniture Co. - Product image 4",
+      "sortOrder": 4,
+      "productSku": "FUR-FUR-BED-013"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/furniture/knoll-saarinen-executive-conference-chair/thumbnail.webp",
+      "altText": "Knoll Saarinen Executive Conference Chair - Knoll - Main product image",
+      "sortOrder": 1,
+      "productSku": "FUR-KNO-KNO-014"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/furniture/knoll-saarinen-executive-conference-chair/1.webp",
+      "altText": "Knoll Saarinen Executive Conference Chair - Knoll - Product image 2",
+      "sortOrder": 2,
+      "productSku": "FUR-KNO-KNO-014"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/furniture/knoll-saarinen-executive-conference-chair/2.webp",
+      "altText": "Knoll Saarinen Executive Conference Chair - Knoll - Product image 3",
+      "sortOrder": 3,
+      "productSku": "FUR-KNO-KNO-014"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/furniture/knoll-saarinen-executive-conference-chair/3.webp",
+      "altText": "Knoll Saarinen Executive Conference Chair - Knoll - Product image 4",
+      "sortOrder": 4,
+      "productSku": "FUR-KNO-KNO-014"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/furniture/wooden-bathroom-sink-with-mirror/thumbnail.webp",
+      "altText": "Wooden Bathroom Sink With Mirror - Bath Trends - Main product image",
+      "sortOrder": 1,
+      "productSku": "FUR-BAT-WOO-015"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/furniture/wooden-bathroom-sink-with-mirror/1.webp",
+      "altText": "Wooden Bathroom Sink With Mirror - Bath Trends - Product image 2",
+      "sortOrder": 2,
+      "productSku": "FUR-BAT-WOO-015"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/furniture/wooden-bathroom-sink-with-mirror/2.webp",
+      "altText": "Wooden Bathroom Sink With Mirror - Bath Trends - Product image 3",
+      "sortOrder": 3,
+      "productSku": "FUR-BAT-WOO-015"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/furniture/wooden-bathroom-sink-with-mirror/3.webp",
+      "altText": "Wooden Bathroom Sink With Mirror - Bath Trends - Product image 4",
+      "sortOrder": 4,
+      "productSku": "FUR-BAT-WOO-015"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/apple/thumbnail.webp",
+      "altText": "Apple - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "GRO-BRD-APP-016"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/apple/1.webp",
+      "altText": "Apple - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "GRO-BRD-APP-016"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/beef-steak/thumbnail.webp",
+      "altText": "Beef Steak - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "GRO-BRD-BEE-017"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/beef-steak/1.webp",
+      "altText": "Beef Steak - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "GRO-BRD-BEE-017"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/cat-food/thumbnail.webp",
+      "altText": "Cat Food - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "GRO-BRD-FOO-018"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/cat-food/1.webp",
+      "altText": "Cat Food - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "GRO-BRD-FOO-018"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/chicken-meat/thumbnail.webp",
+      "altText": "Chicken Meat - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "GRO-BRD-CHI-019"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/chicken-meat/1.webp",
+      "altText": "Chicken Meat - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "GRO-BRD-CHI-019"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/chicken-meat/2.webp",
+      "altText": "Chicken Meat - Brand - Product image 3",
+      "sortOrder": 3,
+      "productSku": "GRO-BRD-CHI-019"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/cooking-oil/thumbnail.webp",
+      "altText": "Cooking Oil - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "GRO-BRD-COO-020"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/cooking-oil/1.webp",
+      "altText": "Cooking Oil - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "GRO-BRD-COO-020"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/cucumber/thumbnail.webp",
+      "altText": "Cucumber - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "GRO-BRD-CUC-021"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/cucumber/1.webp",
+      "altText": "Cucumber - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "GRO-BRD-CUC-021"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/dog-food/thumbnail.webp",
+      "altText": "Dog Food - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "GRO-BRD-FOO-022"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/dog-food/1.webp",
+      "altText": "Dog Food - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "GRO-BRD-FOO-022"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/eggs/thumbnail.webp",
+      "altText": "Eggs - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "GRO-BRD-EGG-023"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/eggs/1.webp",
+      "altText": "Eggs - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "GRO-BRD-EGG-023"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/fish-steak/thumbnail.webp",
+      "altText": "Fish Steak - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "GRO-BRD-FIS-024"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/fish-steak/1.webp",
+      "altText": "Fish Steak - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "GRO-BRD-FIS-024"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/green-bell-pepper/thumbnail.webp",
+      "altText": "Green Bell Pepper - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "GRO-BRD-GRE-025"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/green-bell-pepper/1.webp",
+      "altText": "Green Bell Pepper - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "GRO-BRD-GRE-025"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/green-chili-pepper/thumbnail.webp",
+      "altText": "Green Chili Pepper - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "GRO-BRD-GRE-026"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/green-chili-pepper/1.webp",
+      "altText": "Green Chili Pepper - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "GRO-BRD-GRE-026"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/honey-jar/thumbnail.webp",
+      "altText": "Honey Jar - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "GRO-BRD-HON-027"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/honey-jar/1.webp",
+      "altText": "Honey Jar - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "GRO-BRD-HON-027"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/ice-cream/thumbnail.webp",
+      "altText": "Ice Cream - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "GRO-BRD-CRE-028"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/ice-cream/1.webp",
+      "altText": "Ice Cream - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "GRO-BRD-CRE-028"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/ice-cream/2.webp",
+      "altText": "Ice Cream - Brand - Product image 3",
+      "sortOrder": 3,
+      "productSku": "GRO-BRD-CRE-028"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/ice-cream/3.webp",
+      "altText": "Ice Cream - Brand - Product image 4",
+      "sortOrder": 4,
+      "productSku": "GRO-BRD-CRE-028"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/ice-cream/4.webp",
+      "altText": "Ice Cream - Brand - Product image 5",
+      "sortOrder": 5,
+      "productSku": "GRO-BRD-CRE-028"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/juice/thumbnail.webp",
+      "altText": "Juice - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "GRO-BRD-JUI-029"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/juice/1.webp",
+      "altText": "Juice - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "GRO-BRD-JUI-029"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/kiwi/thumbnail.webp",
+      "altText": "Kiwi - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "GRO-BRD-KIW-030"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/kiwi/1.webp",
+      "altText": "Kiwi - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "GRO-BRD-KIW-030"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/lemon/thumbnail.webp",
+      "altText": "Lemon - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "GRO-BRD-LEM-031"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/lemon/1.webp",
+      "altText": "Lemon - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "GRO-BRD-LEM-031"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/milk/thumbnail.webp",
+      "altText": "Milk - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "GRO-BRD-MIL-032"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/milk/1.webp",
+      "altText": "Milk - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "GRO-BRD-MIL-032"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/mulberry/thumbnail.webp",
+      "altText": "Mulberry - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "GRO-BRD-MUL-033"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/mulberry/1.webp",
+      "altText": "Mulberry - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "GRO-BRD-MUL-033"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/nescafe-coffee/thumbnail.webp",
+      "altText": "Nescafe Coffee - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "GRO-BRD-NES-034"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/nescafe-coffee/1.webp",
+      "altText": "Nescafe Coffee - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "GRO-BRD-NES-034"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/potatoes/thumbnail.webp",
+      "altText": "Potatoes - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "GRO-BRD-POT-035"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/potatoes/1.webp",
+      "altText": "Potatoes - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "GRO-BRD-POT-035"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/protein-powder/thumbnail.webp",
+      "altText": "Protein Powder - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "GRO-BRD-PRO-036"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/protein-powder/1.webp",
+      "altText": "Protein Powder - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "GRO-BRD-PRO-036"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/red-onions/thumbnail.webp",
+      "altText": "Red Onions - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "GRO-BRD-ONI-037"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/red-onions/1.webp",
+      "altText": "Red Onions - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "GRO-BRD-ONI-037"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/rice/thumbnail.webp",
+      "altText": "Rice - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "GRO-BRD-RIC-038"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/rice/1.webp",
+      "altText": "Rice - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "GRO-BRD-RIC-038"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/soft-drinks/thumbnail.webp",
+      "altText": "Soft Drinks - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "GRO-BRD-SOF-039"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/soft-drinks/1.webp",
+      "altText": "Soft Drinks - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "GRO-BRD-SOF-039"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/strawberry/thumbnail.webp",
+      "altText": "Strawberry - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "GRO-BRD-STR-040"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/strawberry/1.webp",
+      "altText": "Strawberry - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "GRO-BRD-STR-040"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/tissue-paper-box/thumbnail.webp",
+      "altText": "Tissue Paper Box - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "GRO-BRD-TIS-041"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/tissue-paper-box/1.webp",
+      "altText": "Tissue Paper Box - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "GRO-BRD-TIS-041"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/tissue-paper-box/2.webp",
+      "altText": "Tissue Paper Box - Brand - Product image 3",
+      "sortOrder": 3,
+      "productSku": "GRO-BRD-TIS-041"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/water/thumbnail.webp",
+      "altText": "Water - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "GRO-BRD-WAT-042"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/groceries/water/1.webp",
+      "altText": "Water - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "GRO-BRD-WAT-042"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/home-decoration/decoration-swing/thumbnail.webp",
+      "altText": "Decoration Swing - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "HOM-BRD-DEC-043"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/home-decoration/decoration-swing/1.webp",
+      "altText": "Decoration Swing - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "HOM-BRD-DEC-043"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/home-decoration/decoration-swing/2.webp",
+      "altText": "Decoration Swing - Brand - Product image 3",
+      "sortOrder": 3,
+      "productSku": "HOM-BRD-DEC-043"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/home-decoration/decoration-swing/3.webp",
+      "altText": "Decoration Swing - Brand - Product image 4",
+      "sortOrder": 4,
+      "productSku": "HOM-BRD-DEC-043"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/home-decoration/family-tree-photo-frame/thumbnail.webp",
+      "altText": "Family Tree Photo Frame - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "HOM-BRD-FAM-044"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/home-decoration/family-tree-photo-frame/1.webp",
+      "altText": "Family Tree Photo Frame - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "HOM-BRD-FAM-044"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/home-decoration/house-showpiece-plant/thumbnail.webp",
+      "altText": "House Showpiece Plant - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "HOM-BRD-HOU-045"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/home-decoration/house-showpiece-plant/1.webp",
+      "altText": "House Showpiece Plant - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "HOM-BRD-HOU-045"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/home-decoration/house-showpiece-plant/2.webp",
+      "altText": "House Showpiece Plant - Brand - Product image 3",
+      "sortOrder": 3,
+      "productSku": "HOM-BRD-HOU-045"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/home-decoration/house-showpiece-plant/3.webp",
+      "altText": "House Showpiece Plant - Brand - Product image 4",
+      "sortOrder": 4,
+      "productSku": "HOM-BRD-HOU-045"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/home-decoration/plant-pot/thumbnail.webp",
+      "altText": "Plant Pot - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "HOM-BRD-PLA-046"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/home-decoration/plant-pot/1.webp",
+      "altText": "Plant Pot - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "HOM-BRD-PLA-046"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/home-decoration/plant-pot/2.webp",
+      "altText": "Plant Pot - Brand - Product image 3",
+      "sortOrder": 3,
+      "productSku": "HOM-BRD-PLA-046"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/home-decoration/plant-pot/3.webp",
+      "altText": "Plant Pot - Brand - Product image 4",
+      "sortOrder": 4,
+      "productSku": "HOM-BRD-PLA-046"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/home-decoration/plant-pot/4.webp",
+      "altText": "Plant Pot - Brand - Product image 5",
+      "sortOrder": 5,
+      "productSku": "HOM-BRD-PLA-046"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/home-decoration/table-lamp/thumbnail.webp",
+      "altText": "Table Lamp - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "HOM-BRD-TAB-047"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/home-decoration/table-lamp/1.webp",
+      "altText": "Table Lamp - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "HOM-BRD-TAB-047"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/bamboo-spatula/thumbnail.webp",
+      "altText": "Bamboo Spatula - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "KIT-BRD-BAM-048"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/bamboo-spatula/1.webp",
+      "altText": "Bamboo Spatula - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "KIT-BRD-BAM-048"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/black-aluminium-cup/thumbnail.webp",
+      "altText": "Black Aluminium Cup - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "KIT-BRD-BLA-049"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/black-aluminium-cup/1.webp",
+      "altText": "Black Aluminium Cup - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "KIT-BRD-BLA-049"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/black-aluminium-cup/2.webp",
+      "altText": "Black Aluminium Cup - Brand - Product image 3",
+      "sortOrder": 3,
+      "productSku": "KIT-BRD-BLA-049"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/black-whisk/thumbnail.webp",
+      "altText": "Black Whisk - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "KIT-BRD-BLA-050"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/black-whisk/1.webp",
+      "altText": "Black Whisk - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "KIT-BRD-BLA-050"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/boxed-blender/thumbnail.webp",
+      "altText": "Boxed Blender - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "KIT-BRD-BOX-051"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/boxed-blender/1.webp",
+      "altText": "Boxed Blender - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "KIT-BRD-BOX-051"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/boxed-blender/2.webp",
+      "altText": "Boxed Blender - Brand - Product image 3",
+      "sortOrder": 3,
+      "productSku": "KIT-BRD-BOX-051"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/boxed-blender/3.webp",
+      "altText": "Boxed Blender - Brand - Product image 4",
+      "sortOrder": 4,
+      "productSku": "KIT-BRD-BOX-051"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/boxed-blender/4.webp",
+      "altText": "Boxed Blender - Brand - Product image 5",
+      "sortOrder": 5,
+      "productSku": "KIT-BRD-BOX-051"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/carbon-steel-wok/thumbnail.webp",
+      "altText": "Carbon Steel Wok - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "KIT-BRD-CAR-052"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/carbon-steel-wok/1.webp",
+      "altText": "Carbon Steel Wok - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "KIT-BRD-CAR-052"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/chopping-board/thumbnail.webp",
+      "altText": "Chopping Board - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "KIT-BRD-CHO-053"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/chopping-board/1.webp",
+      "altText": "Chopping Board - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "KIT-BRD-CHO-053"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/citrus-squeezer-yellow/thumbnail.webp",
+      "altText": "Citrus Squeezer Yellow - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "KIT-BRD-CIT-054"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/citrus-squeezer-yellow/1.webp",
+      "altText": "Citrus Squeezer Yellow - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "KIT-BRD-CIT-054"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/egg-slicer/thumbnail.webp",
+      "altText": "Egg Slicer - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "KIT-BRD-SLI-055"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/egg-slicer/1.webp",
+      "altText": "Egg Slicer - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "KIT-BRD-SLI-055"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/electric-stove/thumbnail.webp",
+      "altText": "Electric Stove - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "KIT-BRD-ELE-056"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/electric-stove/1.webp",
+      "altText": "Electric Stove - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "KIT-BRD-ELE-056"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/electric-stove/2.webp",
+      "altText": "Electric Stove - Brand - Product image 3",
+      "sortOrder": 3,
+      "productSku": "KIT-BRD-ELE-056"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/electric-stove/3.webp",
+      "altText": "Electric Stove - Brand - Product image 4",
+      "sortOrder": 4,
+      "productSku": "KIT-BRD-ELE-056"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/electric-stove/4.webp",
+      "altText": "Electric Stove - Brand - Product image 5",
+      "sortOrder": 5,
+      "productSku": "KIT-BRD-ELE-056"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/fine-mesh-strainer/thumbnail.webp",
+      "altText": "Fine Mesh Strainer - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "KIT-BRD-FIN-057"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/fine-mesh-strainer/1.webp",
+      "altText": "Fine Mesh Strainer - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "KIT-BRD-FIN-057"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/fork/thumbnail.webp",
+      "altText": "Fork - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "KIT-BRD-FOR-058"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/fork/1.webp",
+      "altText": "Fork - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "KIT-BRD-FOR-058"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/glass/thumbnail.webp",
+      "altText": "Glass - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "KIT-BRD-GLA-059"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/glass/1.webp",
+      "altText": "Glass - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "KIT-BRD-GLA-059"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/grater-black/thumbnail.webp",
+      "altText": "Grater Black - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "KIT-BRD-GRA-060"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/grater-black/1.webp",
+      "altText": "Grater Black - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "KIT-BRD-GRA-060"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/hand-blender/thumbnail.webp",
+      "altText": "Hand Blender - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "KIT-BRD-HAN-061"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/hand-blender/1.webp",
+      "altText": "Hand Blender - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "KIT-BRD-HAN-061"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/ice-cube-tray/thumbnail.webp",
+      "altText": "Ice Cube Tray - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "KIT-BRD-CUB-062"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/ice-cube-tray/1.webp",
+      "altText": "Ice Cube Tray - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "KIT-BRD-CUB-062"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/kitchen-sieve/thumbnail.webp",
+      "altText": "Kitchen Sieve - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "KIT-BRD-KIT-063"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/kitchen-sieve/1.webp",
+      "altText": "Kitchen Sieve - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "KIT-BRD-KIT-063"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/knife/thumbnail.webp",
+      "altText": "Knife - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "KIT-BRD-KNI-064"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/knife/1.webp",
+      "altText": "Knife - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "KIT-BRD-KNI-064"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/lunch-box/thumbnail.webp",
+      "altText": "Lunch Box - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "KIT-BRD-LUN-065"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/lunch-box/1.webp",
+      "altText": "Lunch Box - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "KIT-BRD-LUN-065"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/microwave-oven/thumbnail.webp",
+      "altText": "Microwave Oven - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "KIT-BRD-MIC-066"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/microwave-oven/1.webp",
+      "altText": "Microwave Oven - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "KIT-BRD-MIC-066"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/microwave-oven/2.webp",
+      "altText": "Microwave Oven - Brand - Product image 3",
+      "sortOrder": 3,
+      "productSku": "KIT-BRD-MIC-066"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/microwave-oven/3.webp",
+      "altText": "Microwave Oven - Brand - Product image 4",
+      "sortOrder": 4,
+      "productSku": "KIT-BRD-MIC-066"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/microwave-oven/4.webp",
+      "altText": "Microwave Oven - Brand - Product image 5",
+      "sortOrder": 5,
+      "productSku": "KIT-BRD-MIC-066"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/mug-tree-stand/thumbnail.webp",
+      "altText": "Mug Tree Stand - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "KIT-BRD-TRE-067"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/mug-tree-stand/1.webp",
+      "altText": "Mug Tree Stand - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "KIT-BRD-TRE-067"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/mug-tree-stand/2.webp",
+      "altText": "Mug Tree Stand - Brand - Product image 3",
+      "sortOrder": 3,
+      "productSku": "KIT-BRD-TRE-067"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/pan/thumbnail.webp",
+      "altText": "Pan - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "KIT-BRD-PRD-068"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/pan/1.webp",
+      "altText": "Pan - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "KIT-BRD-PRD-068"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/plate/thumbnail.webp",
+      "altText": "Plate - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "KIT-BRD-PLA-069"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/plate/1.webp",
+      "altText": "Plate - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "KIT-BRD-PLA-069"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/red-tongs/thumbnail.webp",
+      "altText": "Red Tongs - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "KIT-BRD-TON-070"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/red-tongs/1.webp",
+      "altText": "Red Tongs - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "KIT-BRD-TON-070"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/silver-pot-with-glass-cap/thumbnail.webp",
+      "altText": "Silver Pot With Glass Cap - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "KIT-BRD-SIL-071"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/silver-pot-with-glass-cap/1.webp",
+      "altText": "Silver Pot With Glass Cap - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "KIT-BRD-SIL-071"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/slotted-turner/thumbnail.webp",
+      "altText": "Slotted Turner - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "KIT-BRD-SLO-072"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/slotted-turner/1.webp",
+      "altText": "Slotted Turner - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "KIT-BRD-SLO-072"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/spice-rack/thumbnail.webp",
+      "altText": "Spice Rack - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "KIT-BRD-SPI-073"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/spice-rack/1.webp",
+      "altText": "Spice Rack - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "KIT-BRD-SPI-073"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/spoon/thumbnail.webp",
+      "altText": "Spoon - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "KIT-BRD-SPO-074"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/spoon/1.webp",
+      "altText": "Spoon - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "KIT-BRD-SPO-074"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/tray/thumbnail.webp",
+      "altText": "Tray - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "KIT-BRD-TRA-075"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/tray/1.webp",
+      "altText": "Tray - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "KIT-BRD-TRA-075"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/wooden-rolling-pin/thumbnail.webp",
+      "altText": "Wooden Rolling Pin - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "KIT-BRD-WOO-076"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/wooden-rolling-pin/1.webp",
+      "altText": "Wooden Rolling Pin - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "KIT-BRD-WOO-076"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/yellow-peeler/thumbnail.webp",
+      "altText": "Yellow Peeler - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "KIT-BRD-YEL-077"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/kitchen-accessories/yellow-peeler/1.webp",
+      "altText": "Yellow Peeler - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "KIT-BRD-YEL-077"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/laptops/apple-macbook-pro-14-inch-space-grey/thumbnail.webp",
+      "altText": "Apple MacBook Pro 14 Inch Space Grey - Apple - Main product image",
+      "sortOrder": 1,
+      "productSku": "LAP-APP-APP-078"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/laptops/apple-macbook-pro-14-inch-space-grey/1.webp",
+      "altText": "Apple MacBook Pro 14 Inch Space Grey - Apple - Product image 2",
+      "sortOrder": 2,
+      "productSku": "LAP-APP-APP-078"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/laptops/apple-macbook-pro-14-inch-space-grey/2.webp",
+      "altText": "Apple MacBook Pro 14 Inch Space Grey - Apple - Product image 3",
+      "sortOrder": 3,
+      "productSku": "LAP-APP-APP-078"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/laptops/apple-macbook-pro-14-inch-space-grey/3.webp",
+      "altText": "Apple MacBook Pro 14 Inch Space Grey - Apple - Product image 4",
+      "sortOrder": 4,
+      "productSku": "LAP-APP-APP-078"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/laptops/asus-zenbook-pro-dual-screen-laptop/thumbnail.webp",
+      "altText": "Asus Zenbook Pro Dual Screen Laptop - Asus - Main product image",
+      "sortOrder": 1,
+      "productSku": "LAP-ASU-ASU-079"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/laptops/asus-zenbook-pro-dual-screen-laptop/1.webp",
+      "altText": "Asus Zenbook Pro Dual Screen Laptop - Asus - Product image 2",
+      "sortOrder": 2,
+      "productSku": "LAP-ASU-ASU-079"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/laptops/asus-zenbook-pro-dual-screen-laptop/2.webp",
+      "altText": "Asus Zenbook Pro Dual Screen Laptop - Asus - Product image 3",
+      "sortOrder": 3,
+      "productSku": "LAP-ASU-ASU-079"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/laptops/asus-zenbook-pro-dual-screen-laptop/3.webp",
+      "altText": "Asus Zenbook Pro Dual Screen Laptop - Asus - Product image 4",
+      "sortOrder": 4,
+      "productSku": "LAP-ASU-ASU-079"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/laptops/huawei-matebook-x-pro/thumbnail.webp",
+      "altText": "Huawei Matebook X Pro - Huawei - Main product image",
+      "sortOrder": 1,
+      "productSku": "LAP-HUA-HUA-080"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/laptops/huawei-matebook-x-pro/1.webp",
+      "altText": "Huawei Matebook X Pro - Huawei - Product image 2",
+      "sortOrder": 2,
+      "productSku": "LAP-HUA-HUA-080"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/laptops/huawei-matebook-x-pro/2.webp",
+      "altText": "Huawei Matebook X Pro - Huawei - Product image 3",
+      "sortOrder": 3,
+      "productSku": "LAP-HUA-HUA-080"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/laptops/huawei-matebook-x-pro/3.webp",
+      "altText": "Huawei Matebook X Pro - Huawei - Product image 4",
+      "sortOrder": 4,
+      "productSku": "LAP-HUA-HUA-080"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/laptops/lenovo-yoga-920/thumbnail.webp",
+      "altText": "Lenovo Yoga 920 - Lenovo - Main product image",
+      "sortOrder": 1,
+      "productSku": "LAP-LEN-LEN-081"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/laptops/lenovo-yoga-920/1.webp",
+      "altText": "Lenovo Yoga 920 - Lenovo - Product image 2",
+      "sortOrder": 2,
+      "productSku": "LAP-LEN-LEN-081"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/laptops/lenovo-yoga-920/2.webp",
+      "altText": "Lenovo Yoga 920 - Lenovo - Product image 3",
+      "sortOrder": 3,
+      "productSku": "LAP-LEN-LEN-081"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/laptops/lenovo-yoga-920/3.webp",
+      "altText": "Lenovo Yoga 920 - Lenovo - Product image 4",
+      "sortOrder": 4,
+      "productSku": "LAP-LEN-LEN-081"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/laptops/new-dell-xps-13-9300-laptop/thumbnail.webp",
+      "altText": "New DELL XPS 13 9300 Laptop - Dell - Main product image",
+      "sortOrder": 1,
+      "productSku": "LAP-DEL-DEL-082"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/laptops/new-dell-xps-13-9300-laptop/1.webp",
+      "altText": "New DELL XPS 13 9300 Laptop - Dell - Product image 2",
+      "sortOrder": 2,
+      "productSku": "LAP-DEL-DEL-082"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/laptops/new-dell-xps-13-9300-laptop/2.webp",
+      "altText": "New DELL XPS 13 9300 Laptop - Dell - Product image 3",
+      "sortOrder": 3,
+      "productSku": "LAP-DEL-DEL-082"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/laptops/new-dell-xps-13-9300-laptop/3.webp",
+      "altText": "New DELL XPS 13 9300 Laptop - Dell - Product image 4",
+      "sortOrder": 4,
+      "productSku": "LAP-DEL-DEL-082"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-shirts/blue-&-black-check-shirt/thumbnail.webp",
+      "altText": "Blue & Black Check Shirt - Fashion Trends - Main product image",
+      "sortOrder": 1,
+      "productSku": "MEN-FAS-BLU-083"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-shirts/blue-&-black-check-shirt/1.webp",
+      "altText": "Blue & Black Check Shirt - Fashion Trends - Product image 2",
+      "sortOrder": 2,
+      "productSku": "MEN-FAS-BLU-083"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-shirts/blue-&-black-check-shirt/2.webp",
+      "altText": "Blue & Black Check Shirt - Fashion Trends - Product image 3",
+      "sortOrder": 3,
+      "productSku": "MEN-FAS-BLU-083"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-shirts/blue-&-black-check-shirt/3.webp",
+      "altText": "Blue & Black Check Shirt - Fashion Trends - Product image 4",
+      "sortOrder": 4,
+      "productSku": "MEN-FAS-BLU-083"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-shirts/blue-&-black-check-shirt/4.webp",
+      "altText": "Blue & Black Check Shirt - Fashion Trends - Product image 5",
+      "sortOrder": 5,
+      "productSku": "MEN-FAS-BLU-083"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-shirts/gigabyte-aorus-men-tshirt/thumbnail.webp",
+      "altText": "Gigabyte Aorus Men Tshirt - Gigabyte - Main product image",
+      "sortOrder": 1,
+      "productSku": "MEN-GIG-GIG-084"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-shirts/gigabyte-aorus-men-tshirt/1.webp",
+      "altText": "Gigabyte Aorus Men Tshirt - Gigabyte - Product image 2",
+      "sortOrder": 2,
+      "productSku": "MEN-GIG-GIG-084"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-shirts/gigabyte-aorus-men-tshirt/2.webp",
+      "altText": "Gigabyte Aorus Men Tshirt - Gigabyte - Product image 3",
+      "sortOrder": 3,
+      "productSku": "MEN-GIG-GIG-084"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-shirts/gigabyte-aorus-men-tshirt/3.webp",
+      "altText": "Gigabyte Aorus Men Tshirt - Gigabyte - Product image 4",
+      "sortOrder": 4,
+      "productSku": "MEN-GIG-GIG-084"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-shirts/gigabyte-aorus-men-tshirt/4.webp",
+      "altText": "Gigabyte Aorus Men Tshirt - Gigabyte - Product image 5",
+      "sortOrder": 5,
+      "productSku": "MEN-GIG-GIG-084"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-shirts/man-plaid-shirt/thumbnail.webp",
+      "altText": "Man Plaid Shirt - Classic Wear - Main product image",
+      "sortOrder": 1,
+      "productSku": "MEN-CLA-PLA-085"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-shirts/man-plaid-shirt/1.webp",
+      "altText": "Man Plaid Shirt - Classic Wear - Product image 2",
+      "sortOrder": 2,
+      "productSku": "MEN-CLA-PLA-085"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-shirts/man-plaid-shirt/2.webp",
+      "altText": "Man Plaid Shirt - Classic Wear - Product image 3",
+      "sortOrder": 3,
+      "productSku": "MEN-CLA-PLA-085"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-shirts/man-plaid-shirt/3.webp",
+      "altText": "Man Plaid Shirt - Classic Wear - Product image 4",
+      "sortOrder": 4,
+      "productSku": "MEN-CLA-PLA-085"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-shirts/man-plaid-shirt/4.webp",
+      "altText": "Man Plaid Shirt - Classic Wear - Product image 5",
+      "sortOrder": 5,
+      "productSku": "MEN-CLA-PLA-085"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-shirts/man-short-sleeve-shirt/thumbnail.webp",
+      "altText": "Man Short Sleeve Shirt - Casual Comfort - Main product image",
+      "sortOrder": 1,
+      "productSku": "MEN-CAS-SHO-086"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-shirts/man-short-sleeve-shirt/1.webp",
+      "altText": "Man Short Sleeve Shirt - Casual Comfort - Product image 2",
+      "sortOrder": 2,
+      "productSku": "MEN-CAS-SHO-086"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-shirts/man-short-sleeve-shirt/2.webp",
+      "altText": "Man Short Sleeve Shirt - Casual Comfort - Product image 3",
+      "sortOrder": 3,
+      "productSku": "MEN-CAS-SHO-086"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-shirts/man-short-sleeve-shirt/3.webp",
+      "altText": "Man Short Sleeve Shirt - Casual Comfort - Product image 4",
+      "sortOrder": 4,
+      "productSku": "MEN-CAS-SHO-086"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-shirts/man-short-sleeve-shirt/4.webp",
+      "altText": "Man Short Sleeve Shirt - Casual Comfort - Product image 5",
+      "sortOrder": 5,
+      "productSku": "MEN-CAS-SHO-086"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-shirts/men-check-shirt/thumbnail.webp",
+      "altText": "Men Check Shirt - Urban Chic - Main product image",
+      "sortOrder": 1,
+      "productSku": "MEN-URB-CHE-087"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-shirts/men-check-shirt/1.webp",
+      "altText": "Men Check Shirt - Urban Chic - Product image 2",
+      "sortOrder": 2,
+      "productSku": "MEN-URB-CHE-087"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-shirts/men-check-shirt/2.webp",
+      "altText": "Men Check Shirt - Urban Chic - Product image 3",
+      "sortOrder": 3,
+      "productSku": "MEN-URB-CHE-087"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-shirts/men-check-shirt/3.webp",
+      "altText": "Men Check Shirt - Urban Chic - Product image 4",
+      "sortOrder": 4,
+      "productSku": "MEN-URB-CHE-087"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-shirts/men-check-shirt/4.webp",
+      "altText": "Men Check Shirt - Urban Chic - Product image 5",
+      "sortOrder": 5,
+      "productSku": "MEN-URB-CHE-087"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-shoes/nike-air-jordan-1-red-and-black/thumbnail.webp",
+      "altText": "Nike Air Jordan 1 Red And Black - Nike - Main product image",
+      "sortOrder": 1,
+      "productSku": "MEN-NIK-NIK-088"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-shoes/nike-air-jordan-1-red-and-black/1.webp",
+      "altText": "Nike Air Jordan 1 Red And Black - Nike - Product image 2",
+      "sortOrder": 2,
+      "productSku": "MEN-NIK-NIK-088"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-shoes/nike-air-jordan-1-red-and-black/2.webp",
+      "altText": "Nike Air Jordan 1 Red And Black - Nike - Product image 3",
+      "sortOrder": 3,
+      "productSku": "MEN-NIK-NIK-088"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-shoes/nike-air-jordan-1-red-and-black/3.webp",
+      "altText": "Nike Air Jordan 1 Red And Black - Nike - Product image 4",
+      "sortOrder": 4,
+      "productSku": "MEN-NIK-NIK-088"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-shoes/nike-air-jordan-1-red-and-black/4.webp",
+      "altText": "Nike Air Jordan 1 Red And Black - Nike - Product image 5",
+      "sortOrder": 5,
+      "productSku": "MEN-NIK-NIK-088"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-shoes/nike-baseball-cleats/thumbnail.webp",
+      "altText": "Nike Baseball Cleats - Nike - Main product image",
+      "sortOrder": 1,
+      "productSku": "MEN-NIK-NIK-089"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-shoes/nike-baseball-cleats/1.webp",
+      "altText": "Nike Baseball Cleats - Nike - Product image 2",
+      "sortOrder": 2,
+      "productSku": "MEN-NIK-NIK-089"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-shoes/nike-baseball-cleats/2.webp",
+      "altText": "Nike Baseball Cleats - Nike - Product image 3",
+      "sortOrder": 3,
+      "productSku": "MEN-NIK-NIK-089"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-shoes/nike-baseball-cleats/3.webp",
+      "altText": "Nike Baseball Cleats - Nike - Product image 4",
+      "sortOrder": 4,
+      "productSku": "MEN-NIK-NIK-089"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-shoes/nike-baseball-cleats/4.webp",
+      "altText": "Nike Baseball Cleats - Nike - Product image 5",
+      "sortOrder": 5,
+      "productSku": "MEN-NIK-NIK-089"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-shoes/puma-future-rider-trainers/thumbnail.webp",
+      "altText": "Puma Future Rider Trainers - Puma - Main product image",
+      "sortOrder": 1,
+      "productSku": "MEN-PUM-PUM-090"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-shoes/puma-future-rider-trainers/1.webp",
+      "altText": "Puma Future Rider Trainers - Puma - Product image 2",
+      "sortOrder": 2,
+      "productSku": "MEN-PUM-PUM-090"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-shoes/puma-future-rider-trainers/2.webp",
+      "altText": "Puma Future Rider Trainers - Puma - Product image 3",
+      "sortOrder": 3,
+      "productSku": "MEN-PUM-PUM-090"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-shoes/puma-future-rider-trainers/3.webp",
+      "altText": "Puma Future Rider Trainers - Puma - Product image 4",
+      "sortOrder": 4,
+      "productSku": "MEN-PUM-PUM-090"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-shoes/puma-future-rider-trainers/4.webp",
+      "altText": "Puma Future Rider Trainers - Puma - Product image 5",
+      "sortOrder": 5,
+      "productSku": "MEN-PUM-PUM-090"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-shoes/sports-sneakers-off-white-&-red/thumbnail.webp",
+      "altText": "Sports Sneakers Off White & Red - Off White - Main product image",
+      "sortOrder": 1,
+      "productSku": "MEN-OFF-SPO-091"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-shoes/sports-sneakers-off-white-&-red/1.webp",
+      "altText": "Sports Sneakers Off White & Red - Off White - Product image 2",
+      "sortOrder": 2,
+      "productSku": "MEN-OFF-SPO-091"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-shoes/sports-sneakers-off-white-&-red/2.webp",
+      "altText": "Sports Sneakers Off White & Red - Off White - Product image 3",
+      "sortOrder": 3,
+      "productSku": "MEN-OFF-SPO-091"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-shoes/sports-sneakers-off-white-&-red/3.webp",
+      "altText": "Sports Sneakers Off White & Red - Off White - Product image 4",
+      "sortOrder": 4,
+      "productSku": "MEN-OFF-SPO-091"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-shoes/sports-sneakers-off-white-&-red/4.webp",
+      "altText": "Sports Sneakers Off White & Red - Off White - Product image 5",
+      "sortOrder": 5,
+      "productSku": "MEN-OFF-SPO-091"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-shoes/sports-sneakers-off-white-red/thumbnail.webp",
+      "altText": "Sports Sneakers Off White Red - Off White - Main product image",
+      "sortOrder": 1,
+      "productSku": "MEN-OFF-SPO-092"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-shoes/sports-sneakers-off-white-red/1.webp",
+      "altText": "Sports Sneakers Off White Red - Off White - Product image 2",
+      "sortOrder": 2,
+      "productSku": "MEN-OFF-SPO-092"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-shoes/sports-sneakers-off-white-red/2.webp",
+      "altText": "Sports Sneakers Off White Red - Off White - Product image 3",
+      "sortOrder": 3,
+      "productSku": "MEN-OFF-SPO-092"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-shoes/sports-sneakers-off-white-red/3.webp",
+      "altText": "Sports Sneakers Off White Red - Off White - Product image 4",
+      "sortOrder": 4,
+      "productSku": "MEN-OFF-SPO-092"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-shoes/sports-sneakers-off-white-red/4.webp",
+      "altText": "Sports Sneakers Off White Red - Off White - Product image 5",
+      "sortOrder": 5,
+      "productSku": "MEN-OFF-SPO-092"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-watches/brown-leather-belt-watch/thumbnail.webp",
+      "altText": "Brown Leather Belt Watch - Fashion Timepieces - Main product image",
+      "sortOrder": 1,
+      "productSku": "MEN-FAS-BRO-093"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-watches/brown-leather-belt-watch/1.webp",
+      "altText": "Brown Leather Belt Watch - Fashion Timepieces - Product image 2",
+      "sortOrder": 2,
+      "productSku": "MEN-FAS-BRO-093"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-watches/brown-leather-belt-watch/2.webp",
+      "altText": "Brown Leather Belt Watch - Fashion Timepieces - Product image 3",
+      "sortOrder": 3,
+      "productSku": "MEN-FAS-BRO-093"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-watches/brown-leather-belt-watch/3.webp",
+      "altText": "Brown Leather Belt Watch - Fashion Timepieces - Product image 4",
+      "sortOrder": 4,
+      "productSku": "MEN-FAS-BRO-093"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-watches/longines-master-collection/thumbnail.webp",
+      "altText": "Longines Master Collection - Longines - Main product image",
+      "sortOrder": 1,
+      "productSku": "MEN-LON-LON-094"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-watches/longines-master-collection/1.webp",
+      "altText": "Longines Master Collection - Longines - Product image 2",
+      "sortOrder": 2,
+      "productSku": "MEN-LON-LON-094"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-watches/longines-master-collection/2.webp",
+      "altText": "Longines Master Collection - Longines - Product image 3",
+      "sortOrder": 3,
+      "productSku": "MEN-LON-LON-094"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-watches/longines-master-collection/3.webp",
+      "altText": "Longines Master Collection - Longines - Product image 4",
+      "sortOrder": 4,
+      "productSku": "MEN-LON-LON-094"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-watches/rolex-cellini-date-black-dial/thumbnail.webp",
+      "altText": "Rolex Cellini Date Black Dial - Rolex - Main product image",
+      "sortOrder": 1,
+      "productSku": "MEN-ROL-ROL-095"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-watches/rolex-cellini-date-black-dial/1.webp",
+      "altText": "Rolex Cellini Date Black Dial - Rolex - Product image 2",
+      "sortOrder": 2,
+      "productSku": "MEN-ROL-ROL-095"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-watches/rolex-cellini-date-black-dial/2.webp",
+      "altText": "Rolex Cellini Date Black Dial - Rolex - Product image 3",
+      "sortOrder": 3,
+      "productSku": "MEN-ROL-ROL-095"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-watches/rolex-cellini-date-black-dial/3.webp",
+      "altText": "Rolex Cellini Date Black Dial - Rolex - Product image 4",
+      "sortOrder": 4,
+      "productSku": "MEN-ROL-ROL-095"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-watches/rolex-cellini-moonphase/thumbnail.webp",
+      "altText": "Rolex Cellini Moonphase - Rolex - Main product image",
+      "sortOrder": 1,
+      "productSku": "MEN-ROL-ROL-096"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-watches/rolex-cellini-moonphase/1.webp",
+      "altText": "Rolex Cellini Moonphase - Rolex - Product image 2",
+      "sortOrder": 2,
+      "productSku": "MEN-ROL-ROL-096"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-watches/rolex-cellini-moonphase/2.webp",
+      "altText": "Rolex Cellini Moonphase - Rolex - Product image 3",
+      "sortOrder": 3,
+      "productSku": "MEN-ROL-ROL-096"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-watches/rolex-cellini-moonphase/3.webp",
+      "altText": "Rolex Cellini Moonphase - Rolex - Product image 4",
+      "sortOrder": 4,
+      "productSku": "MEN-ROL-ROL-096"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-watches/rolex-datejust/thumbnail.webp",
+      "altText": "Rolex Datejust - Rolex - Main product image",
+      "sortOrder": 1,
+      "productSku": "MEN-ROL-ROL-097"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-watches/rolex-datejust/1.webp",
+      "altText": "Rolex Datejust - Rolex - Product image 2",
+      "sortOrder": 2,
+      "productSku": "MEN-ROL-ROL-097"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-watches/rolex-datejust/2.webp",
+      "altText": "Rolex Datejust - Rolex - Product image 3",
+      "sortOrder": 3,
+      "productSku": "MEN-ROL-ROL-097"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-watches/rolex-datejust/3.webp",
+      "altText": "Rolex Datejust - Rolex - Product image 4",
+      "sortOrder": 4,
+      "productSku": "MEN-ROL-ROL-097"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-watches/rolex-submariner-watch/thumbnail.webp",
+      "altText": "Rolex Submariner Watch - Rolex - Main product image",
+      "sortOrder": 1,
+      "productSku": "MEN-ROL-ROL-098"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-watches/rolex-submariner-watch/1.webp",
+      "altText": "Rolex Submariner Watch - Rolex - Product image 2",
+      "sortOrder": 2,
+      "productSku": "MEN-ROL-ROL-098"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-watches/rolex-submariner-watch/2.webp",
+      "altText": "Rolex Submariner Watch - Rolex - Product image 3",
+      "sortOrder": 3,
+      "productSku": "MEN-ROL-ROL-098"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mens-watches/rolex-submariner-watch/3.webp",
+      "altText": "Rolex Submariner Watch - Rolex - Product image 4",
+      "sortOrder": 4,
+      "productSku": "MEN-ROL-ROL-098"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mobile-accessories/amazon-echo-plus/thumbnail.webp",
+      "altText": "Amazon Echo Plus - Amazon - Main product image",
+      "sortOrder": 1,
+      "productSku": "MOB-AMA-AMA-099"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mobile-accessories/amazon-echo-plus/1.webp",
+      "altText": "Amazon Echo Plus - Amazon - Product image 2",
+      "sortOrder": 2,
+      "productSku": "MOB-AMA-AMA-099"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mobile-accessories/amazon-echo-plus/2.webp",
+      "altText": "Amazon Echo Plus - Amazon - Product image 3",
+      "sortOrder": 3,
+      "productSku": "MOB-AMA-AMA-099"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-airpods/thumbnail.webp",
+      "altText": "Apple Airpods - Apple - Main product image",
+      "sortOrder": 1,
+      "productSku": "MOB-APP-APP-100"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-airpods/1.webp",
+      "altText": "Apple Airpods - Apple - Product image 2",
+      "sortOrder": 2,
+      "productSku": "MOB-APP-APP-100"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-airpods/2.webp",
+      "altText": "Apple Airpods - Apple - Product image 3",
+      "sortOrder": 3,
+      "productSku": "MOB-APP-APP-100"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-airpods/3.webp",
+      "altText": "Apple Airpods - Apple - Product image 4",
+      "sortOrder": 4,
+      "productSku": "MOB-APP-APP-100"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-airpods-max-silver/thumbnail.webp",
+      "altText": "Apple AirPods Max Silver - Apple - Main product image",
+      "sortOrder": 1,
+      "productSku": "MOB-APP-APP-101"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-airpods-max-silver/1.webp",
+      "altText": "Apple AirPods Max Silver - Apple - Product image 2",
+      "sortOrder": 2,
+      "productSku": "MOB-APP-APP-101"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-airpower-wireless-charger/thumbnail.webp",
+      "altText": "Apple Airpower Wireless Charger - Apple - Main product image",
+      "sortOrder": 1,
+      "productSku": "MOB-APP-APP-102"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-airpower-wireless-charger/1.webp",
+      "altText": "Apple Airpower Wireless Charger - Apple - Product image 2",
+      "sortOrder": 2,
+      "productSku": "MOB-APP-APP-102"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-homepod-mini-cosmic-grey/thumbnail.webp",
+      "altText": "Apple HomePod Mini Cosmic Grey - Apple - Main product image",
+      "sortOrder": 1,
+      "productSku": "MOB-APP-APP-103"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-homepod-mini-cosmic-grey/1.webp",
+      "altText": "Apple HomePod Mini Cosmic Grey - Apple - Product image 2",
+      "sortOrder": 2,
+      "productSku": "MOB-APP-APP-103"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-iphone-charger/thumbnail.webp",
+      "altText": "Apple iPhone Charger - Apple - Main product image",
+      "sortOrder": 1,
+      "productSku": "MOB-APP-APP-104"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-iphone-charger/1.webp",
+      "altText": "Apple iPhone Charger - Apple - Product image 2",
+      "sortOrder": 2,
+      "productSku": "MOB-APP-APP-104"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-iphone-charger/2.webp",
+      "altText": "Apple iPhone Charger - Apple - Product image 3",
+      "sortOrder": 3,
+      "productSku": "MOB-APP-APP-104"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-magsafe-battery-pack/thumbnail.webp",
+      "altText": "Apple MagSafe Battery Pack - Apple - Main product image",
+      "sortOrder": 1,
+      "productSku": "MOB-APP-APP-105"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-magsafe-battery-pack/1.webp",
+      "altText": "Apple MagSafe Battery Pack - Apple - Product image 2",
+      "sortOrder": 2,
+      "productSku": "MOB-APP-APP-105"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-magsafe-battery-pack/2.webp",
+      "altText": "Apple MagSafe Battery Pack - Apple - Product image 3",
+      "sortOrder": 3,
+      "productSku": "MOB-APP-APP-105"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-watch-series-4-gold/thumbnail.webp",
+      "altText": "Apple Watch Series 4 Gold - Apple - Main product image",
+      "sortOrder": 1,
+      "productSku": "MOB-APP-APP-106"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-watch-series-4-gold/1.webp",
+      "altText": "Apple Watch Series 4 Gold - Apple - Product image 2",
+      "sortOrder": 2,
+      "productSku": "MOB-APP-APP-106"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-watch-series-4-gold/2.webp",
+      "altText": "Apple Watch Series 4 Gold - Apple - Product image 3",
+      "sortOrder": 3,
+      "productSku": "MOB-APP-APP-106"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-watch-series-4-gold/3.webp",
+      "altText": "Apple Watch Series 4 Gold - Apple - Product image 4",
+      "sortOrder": 4,
+      "productSku": "MOB-APP-APP-106"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mobile-accessories/beats-flex-wireless-earphones/thumbnail.webp",
+      "altText": "Beats Flex Wireless Earphones - Beats - Main product image",
+      "sortOrder": 1,
+      "productSku": "MOB-BEA-BEA-107"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mobile-accessories/beats-flex-wireless-earphones/1.webp",
+      "altText": "Beats Flex Wireless Earphones - Beats - Product image 2",
+      "sortOrder": 2,
+      "productSku": "MOB-BEA-BEA-107"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mobile-accessories/iphone-12-silicone-case-with-magsafe-plum/thumbnail.webp",
+      "altText": "iPhone 12 Silicone Case with MagSafe Plum - Apple - Main product image",
+      "sortOrder": 1,
+      "productSku": "MOB-APP-IPH-108"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mobile-accessories/iphone-12-silicone-case-with-magsafe-plum/1.webp",
+      "altText": "iPhone 12 Silicone Case with MagSafe Plum - Apple - Product image 2",
+      "sortOrder": 2,
+      "productSku": "MOB-APP-IPH-108"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mobile-accessories/iphone-12-silicone-case-with-magsafe-plum/2.webp",
+      "altText": "iPhone 12 Silicone Case with MagSafe Plum - Apple - Product image 3",
+      "sortOrder": 3,
+      "productSku": "MOB-APP-IPH-108"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mobile-accessories/iphone-12-silicone-case-with-magsafe-plum/3.webp",
+      "altText": "iPhone 12 Silicone Case with MagSafe Plum - Apple - Product image 4",
+      "sortOrder": 4,
+      "productSku": "MOB-APP-IPH-108"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mobile-accessories/iphone-12-silicone-case-with-magsafe-plum/4.webp",
+      "altText": "iPhone 12 Silicone Case with MagSafe Plum - Apple - Product image 5",
+      "sortOrder": 5,
+      "productSku": "MOB-APP-IPH-108"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mobile-accessories/monopod/thumbnail.webp",
+      "altText": "Monopod - TechGear - Main product image",
+      "sortOrder": 1,
+      "productSku": "MOB-TEC-MON-109"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mobile-accessories/monopod/1.webp",
+      "altText": "Monopod - TechGear - Product image 2",
+      "sortOrder": 2,
+      "productSku": "MOB-TEC-MON-109"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mobile-accessories/monopod/2.webp",
+      "altText": "Monopod - TechGear - Product image 3",
+      "sortOrder": 3,
+      "productSku": "MOB-TEC-MON-109"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mobile-accessories/selfie-lamp-with-iphone/thumbnail.webp",
+      "altText": "Selfie Lamp with iPhone - GadgetMaster - Main product image",
+      "sortOrder": 1,
+      "productSku": "MOB-GAD-SEL-110"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mobile-accessories/selfie-lamp-with-iphone/1.webp",
+      "altText": "Selfie Lamp with iPhone - GadgetMaster - Product image 2",
+      "sortOrder": 2,
+      "productSku": "MOB-GAD-SEL-110"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mobile-accessories/selfie-stick-monopod/thumbnail.webp",
+      "altText": "Selfie Stick Monopod - SnapTech - Main product image",
+      "sortOrder": 1,
+      "productSku": "MOB-SNA-SEL-111"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mobile-accessories/selfie-stick-monopod/1.webp",
+      "altText": "Selfie Stick Monopod - SnapTech - Product image 2",
+      "sortOrder": 2,
+      "productSku": "MOB-SNA-SEL-111"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mobile-accessories/tv-studio-camera-pedestal/thumbnail.webp",
+      "altText": "TV Studio Camera Pedestal - ProVision - Main product image",
+      "sortOrder": 1,
+      "productSku": "MOB-PRO-STU-112"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/mobile-accessories/tv-studio-camera-pedestal/1.webp",
+      "altText": "TV Studio Camera Pedestal - ProVision - Product image 2",
+      "sortOrder": 2,
+      "productSku": "MOB-PRO-STU-112"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/motorcycle/generic-motorcycle/thumbnail.webp",
+      "altText": "Generic Motorcycle - Generic Motors - Main product image",
+      "sortOrder": 1,
+      "productSku": "MOT-GEN-GEN-113"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/motorcycle/generic-motorcycle/1.webp",
+      "altText": "Generic Motorcycle - Generic Motors - Product image 2",
+      "sortOrder": 2,
+      "productSku": "MOT-GEN-GEN-113"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/motorcycle/generic-motorcycle/2.webp",
+      "altText": "Generic Motorcycle - Generic Motors - Product image 3",
+      "sortOrder": 3,
+      "productSku": "MOT-GEN-GEN-113"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/motorcycle/generic-motorcycle/3.webp",
+      "altText": "Generic Motorcycle - Generic Motors - Product image 4",
+      "sortOrder": 4,
+      "productSku": "MOT-GEN-GEN-113"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/motorcycle/generic-motorcycle/4.webp",
+      "altText": "Generic Motorcycle - Generic Motors - Product image 5",
+      "sortOrder": 5,
+      "productSku": "MOT-GEN-GEN-113"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/motorcycle/kawasaki-z800/thumbnail.webp",
+      "altText": "Kawasaki Z800 - Kawasaki - Main product image",
+      "sortOrder": 1,
+      "productSku": "MOT-KAW-KAW-114"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/motorcycle/kawasaki-z800/1.webp",
+      "altText": "Kawasaki Z800 - Kawasaki - Product image 2",
+      "sortOrder": 2,
+      "productSku": "MOT-KAW-KAW-114"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/motorcycle/kawasaki-z800/2.webp",
+      "altText": "Kawasaki Z800 - Kawasaki - Product image 3",
+      "sortOrder": 3,
+      "productSku": "MOT-KAW-KAW-114"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/motorcycle/kawasaki-z800/3.webp",
+      "altText": "Kawasaki Z800 - Kawasaki - Product image 4",
+      "sortOrder": 4,
+      "productSku": "MOT-KAW-KAW-114"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/motorcycle/kawasaki-z800/4.webp",
+      "altText": "Kawasaki Z800 - Kawasaki - Product image 5",
+      "sortOrder": 5,
+      "productSku": "MOT-KAW-KAW-114"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/motorcycle/motogp-ci.h1/thumbnail.webp",
+      "altText": "MotoGP CI.H1 - MotoGP - Main product image",
+      "sortOrder": 1,
+      "productSku": "MOT-MOT-MOT-115"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/motorcycle/motogp-ci.h1/1.webp",
+      "altText": "MotoGP CI.H1 - MotoGP - Product image 2",
+      "sortOrder": 2,
+      "productSku": "MOT-MOT-MOT-115"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/motorcycle/motogp-ci.h1/2.webp",
+      "altText": "MotoGP CI.H1 - MotoGP - Product image 3",
+      "sortOrder": 3,
+      "productSku": "MOT-MOT-MOT-115"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/motorcycle/motogp-ci.h1/3.webp",
+      "altText": "MotoGP CI.H1 - MotoGP - Product image 4",
+      "sortOrder": 4,
+      "productSku": "MOT-MOT-MOT-115"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/motorcycle/motogp-ci.h1/4.webp",
+      "altText": "MotoGP CI.H1 - MotoGP - Product image 5",
+      "sortOrder": 5,
+      "productSku": "MOT-MOT-MOT-115"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/motorcycle/scooter-motorcycle/thumbnail.webp",
+      "altText": "Scooter Motorcycle - ScootMaster - Main product image",
+      "sortOrder": 1,
+      "productSku": "MOT-SCO-SCO-116"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/motorcycle/scooter-motorcycle/1.webp",
+      "altText": "Scooter Motorcycle - ScootMaster - Product image 2",
+      "sortOrder": 2,
+      "productSku": "MOT-SCO-SCO-116"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/motorcycle/scooter-motorcycle/2.webp",
+      "altText": "Scooter Motorcycle - ScootMaster - Product image 3",
+      "sortOrder": 3,
+      "productSku": "MOT-SCO-SCO-116"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/motorcycle/scooter-motorcycle/3.webp",
+      "altText": "Scooter Motorcycle - ScootMaster - Product image 4",
+      "sortOrder": 4,
+      "productSku": "MOT-SCO-SCO-116"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/motorcycle/scooter-motorcycle/4.webp",
+      "altText": "Scooter Motorcycle - ScootMaster - Product image 5",
+      "sortOrder": 5,
+      "productSku": "MOT-SCO-SCO-116"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/motorcycle/sportbike-motorcycle/thumbnail.webp",
+      "altText": "Sportbike Motorcycle - SpeedMaster - Main product image",
+      "sortOrder": 1,
+      "productSku": "MOT-SPE-SPO-117"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/motorcycle/sportbike-motorcycle/1.webp",
+      "altText": "Sportbike Motorcycle - SpeedMaster - Product image 2",
+      "sortOrder": 2,
+      "productSku": "MOT-SPE-SPO-117"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/motorcycle/sportbike-motorcycle/2.webp",
+      "altText": "Sportbike Motorcycle - SpeedMaster - Product image 3",
+      "sortOrder": 3,
+      "productSku": "MOT-SPE-SPO-117"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/motorcycle/sportbike-motorcycle/3.webp",
+      "altText": "Sportbike Motorcycle - SpeedMaster - Product image 4",
+      "sortOrder": 4,
+      "productSku": "MOT-SPE-SPO-117"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/motorcycle/sportbike-motorcycle/4.webp",
+      "altText": "Sportbike Motorcycle - SpeedMaster - Product image 5",
+      "sortOrder": 5,
+      "productSku": "MOT-SPE-SPO-117"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/skin-care/attitude-super-leaves-hand-soap/thumbnail.webp",
+      "altText": "Attitude Super Leaves Hand Soap - Attitude - Main product image",
+      "sortOrder": 1,
+      "productSku": "SKI-ATT-ATT-118"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/skin-care/attitude-super-leaves-hand-soap/1.webp",
+      "altText": "Attitude Super Leaves Hand Soap - Attitude - Product image 2",
+      "sortOrder": 2,
+      "productSku": "SKI-ATT-ATT-118"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/skin-care/attitude-super-leaves-hand-soap/2.webp",
+      "altText": "Attitude Super Leaves Hand Soap - Attitude - Product image 3",
+      "sortOrder": 3,
+      "productSku": "SKI-ATT-ATT-118"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/skin-care/attitude-super-leaves-hand-soap/3.webp",
+      "altText": "Attitude Super Leaves Hand Soap - Attitude - Product image 4",
+      "sortOrder": 4,
+      "productSku": "SKI-ATT-ATT-118"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/skin-care/olay-ultra-moisture-shea-butter-body-wash/thumbnail.webp",
+      "altText": "Olay Ultra Moisture Shea Butter Body Wash - Olay - Main product image",
+      "sortOrder": 1,
+      "productSku": "SKI-OLA-OLA-119"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/skin-care/olay-ultra-moisture-shea-butter-body-wash/1.webp",
+      "altText": "Olay Ultra Moisture Shea Butter Body Wash - Olay - Product image 2",
+      "sortOrder": 2,
+      "productSku": "SKI-OLA-OLA-119"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/skin-care/olay-ultra-moisture-shea-butter-body-wash/2.webp",
+      "altText": "Olay Ultra Moisture Shea Butter Body Wash - Olay - Product image 3",
+      "sortOrder": 3,
+      "productSku": "SKI-OLA-OLA-119"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/skin-care/olay-ultra-moisture-shea-butter-body-wash/3.webp",
+      "altText": "Olay Ultra Moisture Shea Butter Body Wash - Olay - Product image 4",
+      "sortOrder": 4,
+      "productSku": "SKI-OLA-OLA-119"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/skin-care/vaseline-men-body-and-face-lotion/thumbnail.webp",
+      "altText": "Vaseline Men Body and Face Lotion - Vaseline - Main product image",
+      "sortOrder": 1,
+      "productSku": "SKI-VAS-VAS-120"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/skin-care/vaseline-men-body-and-face-lotion/1.webp",
+      "altText": "Vaseline Men Body and Face Lotion - Vaseline - Product image 2",
+      "sortOrder": 2,
+      "productSku": "SKI-VAS-VAS-120"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/skin-care/vaseline-men-body-and-face-lotion/2.webp",
+      "altText": "Vaseline Men Body and Face Lotion - Vaseline - Product image 3",
+      "sortOrder": 3,
+      "productSku": "SKI-VAS-VAS-120"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/skin-care/vaseline-men-body-and-face-lotion/3.webp",
+      "altText": "Vaseline Men Body and Face Lotion - Vaseline - Product image 4",
+      "sortOrder": 4,
+      "productSku": "SKI-VAS-VAS-120"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/iphone-5s/thumbnail.webp",
+      "altText": "iPhone 5s - Apple - Main product image",
+      "sortOrder": 1,
+      "productSku": "SMA-APP-IPH-121"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/iphone-5s/1.webp",
+      "altText": "iPhone 5s - Apple - Product image 2",
+      "sortOrder": 2,
+      "productSku": "SMA-APP-IPH-121"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/iphone-5s/2.webp",
+      "altText": "iPhone 5s - Apple - Product image 3",
+      "sortOrder": 3,
+      "productSku": "SMA-APP-IPH-121"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/iphone-5s/3.webp",
+      "altText": "iPhone 5s - Apple - Product image 4",
+      "sortOrder": 4,
+      "productSku": "SMA-APP-IPH-121"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/iphone-6/thumbnail.webp",
+      "altText": "iPhone 6 - Apple - Main product image",
+      "sortOrder": 1,
+      "productSku": "SMA-APP-IPH-122"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/iphone-6/1.webp",
+      "altText": "iPhone 6 - Apple - Product image 2",
+      "sortOrder": 2,
+      "productSku": "SMA-APP-IPH-122"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/iphone-6/2.webp",
+      "altText": "iPhone 6 - Apple - Product image 3",
+      "sortOrder": 3,
+      "productSku": "SMA-APP-IPH-122"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/iphone-6/3.webp",
+      "altText": "iPhone 6 - Apple - Product image 4",
+      "sortOrder": 4,
+      "productSku": "SMA-APP-IPH-122"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/iphone-13-pro/thumbnail.webp",
+      "altText": "iPhone 13 Pro - Apple - Main product image",
+      "sortOrder": 1,
+      "productSku": "SMA-APP-IPH-123"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/iphone-13-pro/1.webp",
+      "altText": "iPhone 13 Pro - Apple - Product image 2",
+      "sortOrder": 2,
+      "productSku": "SMA-APP-IPH-123"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/iphone-13-pro/2.webp",
+      "altText": "iPhone 13 Pro - Apple - Product image 3",
+      "sortOrder": 3,
+      "productSku": "SMA-APP-IPH-123"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/iphone-13-pro/3.webp",
+      "altText": "iPhone 13 Pro - Apple - Product image 4",
+      "sortOrder": 4,
+      "productSku": "SMA-APP-IPH-123"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/iphone-x/thumbnail.webp",
+      "altText": "iPhone X - Apple - Main product image",
+      "sortOrder": 1,
+      "productSku": "SMA-APP-IPH-124"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/iphone-x/1.webp",
+      "altText": "iPhone X - Apple - Product image 2",
+      "sortOrder": 2,
+      "productSku": "SMA-APP-IPH-124"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/iphone-x/2.webp",
+      "altText": "iPhone X - Apple - Product image 3",
+      "sortOrder": 3,
+      "productSku": "SMA-APP-IPH-124"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/iphone-x/3.webp",
+      "altText": "iPhone X - Apple - Product image 4",
+      "sortOrder": 4,
+      "productSku": "SMA-APP-IPH-124"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/oppo-a57/thumbnail.webp",
+      "altText": "Oppo A57 - Oppo - Main product image",
+      "sortOrder": 1,
+      "productSku": "SMA-OPP-OPP-125"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/oppo-a57/1.webp",
+      "altText": "Oppo A57 - Oppo - Product image 2",
+      "sortOrder": 2,
+      "productSku": "SMA-OPP-OPP-125"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/oppo-a57/2.webp",
+      "altText": "Oppo A57 - Oppo - Product image 3",
+      "sortOrder": 3,
+      "productSku": "SMA-OPP-OPP-125"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/oppo-a57/3.webp",
+      "altText": "Oppo A57 - Oppo - Product image 4",
+      "sortOrder": 4,
+      "productSku": "SMA-OPP-OPP-125"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/oppo-f19-pro-plus/thumbnail.webp",
+      "altText": "Oppo F19 Pro Plus - Oppo - Main product image",
+      "sortOrder": 1,
+      "productSku": "SMA-OPP-OPP-126"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/oppo-f19-pro-plus/1.webp",
+      "altText": "Oppo F19 Pro Plus - Oppo - Product image 2",
+      "sortOrder": 2,
+      "productSku": "SMA-OPP-OPP-126"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/oppo-f19-pro-plus/2.webp",
+      "altText": "Oppo F19 Pro Plus - Oppo - Product image 3",
+      "sortOrder": 3,
+      "productSku": "SMA-OPP-OPP-126"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/oppo-f19-pro-plus/3.webp",
+      "altText": "Oppo F19 Pro Plus - Oppo - Product image 4",
+      "sortOrder": 4,
+      "productSku": "SMA-OPP-OPP-126"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/oppo-k1/thumbnail.webp",
+      "altText": "Oppo K1 - Oppo - Main product image",
+      "sortOrder": 1,
+      "productSku": "SMA-OPP-OPP-127"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/oppo-k1/1.webp",
+      "altText": "Oppo K1 - Oppo - Product image 2",
+      "sortOrder": 2,
+      "productSku": "SMA-OPP-OPP-127"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/oppo-k1/2.webp",
+      "altText": "Oppo K1 - Oppo - Product image 3",
+      "sortOrder": 3,
+      "productSku": "SMA-OPP-OPP-127"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/oppo-k1/3.webp",
+      "altText": "Oppo K1 - Oppo - Product image 4",
+      "sortOrder": 4,
+      "productSku": "SMA-OPP-OPP-127"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/oppo-k1/4.webp",
+      "altText": "Oppo K1 - Oppo - Product image 5",
+      "sortOrder": 5,
+      "productSku": "SMA-OPP-OPP-127"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/realme-c35/thumbnail.webp",
+      "altText": "Realme C35 - Realme - Main product image",
+      "sortOrder": 1,
+      "productSku": "SMA-REA-REA-128"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/realme-c35/1.webp",
+      "altText": "Realme C35 - Realme - Product image 2",
+      "sortOrder": 2,
+      "productSku": "SMA-REA-REA-128"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/realme-c35/2.webp",
+      "altText": "Realme C35 - Realme - Product image 3",
+      "sortOrder": 3,
+      "productSku": "SMA-REA-REA-128"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/realme-c35/3.webp",
+      "altText": "Realme C35 - Realme - Product image 4",
+      "sortOrder": 4,
+      "productSku": "SMA-REA-REA-128"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/realme-x/thumbnail.webp",
+      "altText": "Realme X - Realme - Main product image",
+      "sortOrder": 1,
+      "productSku": "SMA-REA-REA-129"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/realme-x/1.webp",
+      "altText": "Realme X - Realme - Product image 2",
+      "sortOrder": 2,
+      "productSku": "SMA-REA-REA-129"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/realme-x/2.webp",
+      "altText": "Realme X - Realme - Product image 3",
+      "sortOrder": 3,
+      "productSku": "SMA-REA-REA-129"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/realme-x/3.webp",
+      "altText": "Realme X - Realme - Product image 4",
+      "sortOrder": 4,
+      "productSku": "SMA-REA-REA-129"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/realme-xt/thumbnail.webp",
+      "altText": "Realme XT - Realme - Main product image",
+      "sortOrder": 1,
+      "productSku": "SMA-REA-REA-130"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/realme-xt/1.webp",
+      "altText": "Realme XT - Realme - Product image 2",
+      "sortOrder": 2,
+      "productSku": "SMA-REA-REA-130"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/realme-xt/2.webp",
+      "altText": "Realme XT - Realme - Product image 3",
+      "sortOrder": 3,
+      "productSku": "SMA-REA-REA-130"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/realme-xt/3.webp",
+      "altText": "Realme XT - Realme - Product image 4",
+      "sortOrder": 4,
+      "productSku": "SMA-REA-REA-130"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s7/thumbnail.webp",
+      "altText": "Samsung Galaxy S7 - Samsung - Main product image",
+      "sortOrder": 1,
+      "productSku": "SMA-SAM-SAM-131"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s7/1.webp",
+      "altText": "Samsung Galaxy S7 - Samsung - Product image 2",
+      "sortOrder": 2,
+      "productSku": "SMA-SAM-SAM-131"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s7/2.webp",
+      "altText": "Samsung Galaxy S7 - Samsung - Product image 3",
+      "sortOrder": 3,
+      "productSku": "SMA-SAM-SAM-131"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s7/3.webp",
+      "altText": "Samsung Galaxy S7 - Samsung - Product image 4",
+      "sortOrder": 4,
+      "productSku": "SMA-SAM-SAM-131"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s8/thumbnail.webp",
+      "altText": "Samsung Galaxy S8 - Samsung - Main product image",
+      "sortOrder": 1,
+      "productSku": "SMA-SAM-SAM-132"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s8/1.webp",
+      "altText": "Samsung Galaxy S8 - Samsung - Product image 2",
+      "sortOrder": 2,
+      "productSku": "SMA-SAM-SAM-132"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s8/2.webp",
+      "altText": "Samsung Galaxy S8 - Samsung - Product image 3",
+      "sortOrder": 3,
+      "productSku": "SMA-SAM-SAM-132"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s8/3.webp",
+      "altText": "Samsung Galaxy S8 - Samsung - Product image 4",
+      "sortOrder": 4,
+      "productSku": "SMA-SAM-SAM-132"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s10/thumbnail.webp",
+      "altText": "Samsung Galaxy S10 - Samsung - Main product image",
+      "sortOrder": 1,
+      "productSku": "SMA-SAM-SAM-133"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s10/1.webp",
+      "altText": "Samsung Galaxy S10 - Samsung - Product image 2",
+      "sortOrder": 2,
+      "productSku": "SMA-SAM-SAM-133"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s10/2.webp",
+      "altText": "Samsung Galaxy S10 - Samsung - Product image 3",
+      "sortOrder": 3,
+      "productSku": "SMA-SAM-SAM-133"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s10/3.webp",
+      "altText": "Samsung Galaxy S10 - Samsung - Product image 4",
+      "sortOrder": 4,
+      "productSku": "SMA-SAM-SAM-133"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/vivo-s1/thumbnail.webp",
+      "altText": "Vivo S1 - Vivo - Main product image",
+      "sortOrder": 1,
+      "productSku": "SMA-VIV-VIV-134"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/vivo-s1/1.webp",
+      "altText": "Vivo S1 - Vivo - Product image 2",
+      "sortOrder": 2,
+      "productSku": "SMA-VIV-VIV-134"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/vivo-s1/2.webp",
+      "altText": "Vivo S1 - Vivo - Product image 3",
+      "sortOrder": 3,
+      "productSku": "SMA-VIV-VIV-134"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/vivo-s1/3.webp",
+      "altText": "Vivo S1 - Vivo - Product image 4",
+      "sortOrder": 4,
+      "productSku": "SMA-VIV-VIV-134"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/vivo-v9/thumbnail.webp",
+      "altText": "Vivo V9 - Vivo - Main product image",
+      "sortOrder": 1,
+      "productSku": "SMA-VIV-VIV-135"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/vivo-v9/1.webp",
+      "altText": "Vivo V9 - Vivo - Product image 2",
+      "sortOrder": 2,
+      "productSku": "SMA-VIV-VIV-135"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/vivo-v9/2.webp",
+      "altText": "Vivo V9 - Vivo - Product image 3",
+      "sortOrder": 3,
+      "productSku": "SMA-VIV-VIV-135"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/vivo-v9/3.webp",
+      "altText": "Vivo V9 - Vivo - Product image 4",
+      "sortOrder": 4,
+      "productSku": "SMA-VIV-VIV-135"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/vivo-x21/thumbnail.webp",
+      "altText": "Vivo X21 - Vivo - Main product image",
+      "sortOrder": 1,
+      "productSku": "SMA-VIV-VIV-136"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/vivo-x21/1.webp",
+      "altText": "Vivo X21 - Vivo - Product image 2",
+      "sortOrder": 2,
+      "productSku": "SMA-VIV-VIV-136"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/vivo-x21/2.webp",
+      "altText": "Vivo X21 - Vivo - Product image 3",
+      "sortOrder": 3,
+      "productSku": "SMA-VIV-VIV-136"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/vivo-x21/3.webp",
+      "altText": "Vivo X21 - Vivo - Product image 4",
+      "sortOrder": 4,
+      "productSku": "SMA-VIV-VIV-136"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/sports-accessories/american-football/thumbnail.webp",
+      "altText": "American Football - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "SPO-BRD-AME-137"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/sports-accessories/american-football/1.webp",
+      "altText": "American Football - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "SPO-BRD-AME-137"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/sports-accessories/baseball-ball/thumbnail.webp",
+      "altText": "Baseball Ball - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "SPO-BRD-BAS-138"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/sports-accessories/baseball-ball/1.webp",
+      "altText": "Baseball Ball - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "SPO-BRD-BAS-138"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/sports-accessories/baseball-glove/thumbnail.webp",
+      "altText": "Baseball Glove - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "SPO-BRD-BAS-139"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/sports-accessories/baseball-glove/1.webp",
+      "altText": "Baseball Glove - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "SPO-BRD-BAS-139"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/sports-accessories/baseball-glove/2.webp",
+      "altText": "Baseball Glove - Brand - Product image 3",
+      "sortOrder": 3,
+      "productSku": "SPO-BRD-BAS-139"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/sports-accessories/baseball-glove/3.webp",
+      "altText": "Baseball Glove - Brand - Product image 4",
+      "sortOrder": 4,
+      "productSku": "SPO-BRD-BAS-139"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/sports-accessories/basketball/thumbnail.webp",
+      "altText": "Basketball - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "SPO-BRD-BAS-140"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/sports-accessories/basketball/1.webp",
+      "altText": "Basketball - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "SPO-BRD-BAS-140"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/sports-accessories/basketball-rim/thumbnail.webp",
+      "altText": "Basketball Rim - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "SPO-BRD-BAS-141"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/sports-accessories/basketball-rim/1.webp",
+      "altText": "Basketball Rim - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "SPO-BRD-BAS-141"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/sports-accessories/cricket-ball/thumbnail.webp",
+      "altText": "Cricket Ball - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "SPO-BRD-CRI-142"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/sports-accessories/cricket-ball/1.webp",
+      "altText": "Cricket Ball - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "SPO-BRD-CRI-142"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/sports-accessories/cricket-bat/thumbnail.webp",
+      "altText": "Cricket Bat - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "SPO-BRD-CRI-143"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/sports-accessories/cricket-bat/1.webp",
+      "altText": "Cricket Bat - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "SPO-BRD-CRI-143"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/sports-accessories/cricket-helmet/thumbnail.webp",
+      "altText": "Cricket Helmet - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "SPO-BRD-CRI-144"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/sports-accessories/cricket-helmet/1.webp",
+      "altText": "Cricket Helmet - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "SPO-BRD-CRI-144"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/sports-accessories/cricket-helmet/2.webp",
+      "altText": "Cricket Helmet - Brand - Product image 3",
+      "sortOrder": 3,
+      "productSku": "SPO-BRD-CRI-144"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/sports-accessories/cricket-helmet/3.webp",
+      "altText": "Cricket Helmet - Brand - Product image 4",
+      "sortOrder": 4,
+      "productSku": "SPO-BRD-CRI-144"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/sports-accessories/cricket-helmet/4.webp",
+      "altText": "Cricket Helmet - Brand - Product image 5",
+      "sortOrder": 5,
+      "productSku": "SPO-BRD-CRI-144"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/sports-accessories/cricket-wicket/thumbnail.webp",
+      "altText": "Cricket Wicket - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "SPO-BRD-CRI-145"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/sports-accessories/cricket-wicket/1.webp",
+      "altText": "Cricket Wicket - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "SPO-BRD-CRI-145"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/sports-accessories/feather-shuttlecock/thumbnail.webp",
+      "altText": "Feather Shuttlecock - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "SPO-BRD-FEA-146"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/sports-accessories/feather-shuttlecock/1.webp",
+      "altText": "Feather Shuttlecock - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "SPO-BRD-FEA-146"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/sports-accessories/football/thumbnail.webp",
+      "altText": "Football - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "SPO-BRD-FOO-147"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/sports-accessories/football/1.webp",
+      "altText": "Football - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "SPO-BRD-FOO-147"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/sports-accessories/golf-ball/thumbnail.webp",
+      "altText": "Golf Ball - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "SPO-BRD-GOL-148"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/sports-accessories/golf-ball/1.webp",
+      "altText": "Golf Ball - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "SPO-BRD-GOL-148"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/sports-accessories/iron-golf/thumbnail.webp",
+      "altText": "Iron Golf - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "SPO-BRD-IRO-149"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/sports-accessories/iron-golf/1.webp",
+      "altText": "Iron Golf - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "SPO-BRD-IRO-149"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/sports-accessories/metal-baseball-bat/thumbnail.webp",
+      "altText": "Metal Baseball Bat - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "SPO-BRD-MET-150"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/sports-accessories/metal-baseball-bat/1.webp",
+      "altText": "Metal Baseball Bat - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "SPO-BRD-MET-150"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/sports-accessories/tennis-ball/thumbnail.webp",
+      "altText": "Tennis Ball - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "SPO-BRD-TEN-151"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/sports-accessories/tennis-ball/1.webp",
+      "altText": "Tennis Ball - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "SPO-BRD-TEN-151"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/sports-accessories/tennis-racket/thumbnail.webp",
+      "altText": "Tennis Racket - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "SPO-BRD-TEN-152"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/sports-accessories/tennis-racket/1.webp",
+      "altText": "Tennis Racket - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "SPO-BRD-TEN-152"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/sports-accessories/volleyball/thumbnail.webp",
+      "altText": "Volleyball - Brand - Main product image",
+      "sortOrder": 1,
+      "productSku": "SPO-BRD-VOL-153"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/sports-accessories/volleyball/1.webp",
+      "altText": "Volleyball - Brand - Product image 2",
+      "sortOrder": 2,
+      "productSku": "SPO-BRD-VOL-153"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/sunglasses/black-sun-glasses/thumbnail.webp",
+      "altText": "Black Sun Glasses - Fashion Shades - Main product image",
+      "sortOrder": 1,
+      "productSku": "SUN-FAS-BLA-154"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/sunglasses/black-sun-glasses/1.webp",
+      "altText": "Black Sun Glasses - Fashion Shades - Product image 2",
+      "sortOrder": 2,
+      "productSku": "SUN-FAS-BLA-154"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/sunglasses/black-sun-glasses/2.webp",
+      "altText": "Black Sun Glasses - Fashion Shades - Product image 3",
+      "sortOrder": 3,
+      "productSku": "SUN-FAS-BLA-154"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/sunglasses/black-sun-glasses/3.webp",
+      "altText": "Black Sun Glasses - Fashion Shades - Product image 4",
+      "sortOrder": 4,
+      "productSku": "SUN-FAS-BLA-154"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/sunglasses/classic-sun-glasses/thumbnail.webp",
+      "altText": "Classic Sun Glasses - Fashion Shades - Main product image",
+      "sortOrder": 1,
+      "productSku": "SUN-FAS-CLA-155"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/sunglasses/classic-sun-glasses/1.webp",
+      "altText": "Classic Sun Glasses - Fashion Shades - Product image 2",
+      "sortOrder": 2,
+      "productSku": "SUN-FAS-CLA-155"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/sunglasses/classic-sun-glasses/2.webp",
+      "altText": "Classic Sun Glasses - Fashion Shades - Product image 3",
+      "sortOrder": 3,
+      "productSku": "SUN-FAS-CLA-155"
+    },
+    {
+      "imageUrl": "https://cdn.dummyjson.com/product-images/sunglasses/classic-sun-glasses/3.webp",
+      "altText": "Classic Sun Glasses - Fashion Shades - Product image 4",
+      "sortOrder": 4,
+      "productSku": "SUN-FAS-CLA-155"
+    }
+  ]
+}

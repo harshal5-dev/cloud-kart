@@ -1,52 +1,100 @@
 {
   "categories": [
-  {
-    "name": "Electronics",
-    "slug": "electronics",
-    "description": "Gadgets, devices and more",
-    "imageUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/Electronics.jpeg"
-  },
-  {
-    "name": "Apparel",
-    "slug": "apparel",
-    "description": "Clothing and fashion items",
-    "imageUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/Apparel.jpeg"
-  },
-  {
-    "name": "Home & Kitchen",
-    "slug": "home-kitchen",
-    "description": "Furniture and home accessories",
-    "imageUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/Home+and+Kitchen.jpeg"
-  },
-  {
-    "name": "Books",
-    "slug": "books",
-    "description": "Fiction, non-fiction, and educational",
-    "imageUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/Books.jpeg"
-  },
-  {
-    "name": "Toys & Games",
-    "slug": "toys-games",
-    "description": "Kids toys, board games, and more",
-    "imageUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/Toys+and+Games.jpeg"
-  },
-  {
-    "name": "Sports & Outdoors",
-    "slug": "sports-outdoors",
-    "description": "Active lifestyle and sports equipment",
-    "imageUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/Sports+and+Outdoors.jpeg"
-  },
-  {
-    "name": "Health & Beauty",
-    "slug": "health-beauty",
-    "description": "Personal care products",
-    "imageUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/Health+and+Beauty.jpeg"
-  },
-  {
-    "name": "Automotive",
-    "slug": "automotive",
-    "description": "Car parts and accessories",
-    "imageUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/Automotive.jpeg"
-  }
-]
+    {
+      "name": "Beauty",
+      "slug": "beauty",
+      "description": "Cosmetics, makeup, and beauty products",
+      "imageUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/Beauty.jpeg"
+    },
+    {
+      "name": "Fragrances",
+      "slug": "fragrances",
+      "description": "Perfumes, colognes, and scented products",
+      "imageUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/Fragrances.jpeg"
+    },
+    {
+      "name": "Furniture",
+      "slug": "furniture",
+      "description": "Home and office furniture",
+      "imageUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/Furniture.jpeg"
+    },
+    {
+      "name": "Groceries",
+      "slug": "groceries",
+      "description": "Food items, beverages, and daily essentials",
+      "imageUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/Groceries.jpeg"
+    },
+    {
+      "name": "Home Decoration",
+      "slug": "home-decoration",
+      "description": "Decorative items and home accessories",
+      "imageUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/Home-Decoration.jpeg"
+    },
+    {
+      "name": "Kitchen Accessories",
+      "slug": "kitchen-accessories",
+      "description": "Kitchen tools, utensils, and accessories",
+      "imageUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/Kitchen-Accessories.jpeg"
+    },
+    {
+      "name": "Laptops",
+      "slug": "laptops",
+      "description": "Laptops, notebooks, and portable computers",
+      "imageUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/Laptops.jpeg"
+    },
+    {
+      "name": "Men's Shirts",
+      "slug": "mens-shirts",
+      "description": "Shirts and tops for men",
+      "imageUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/Mens-Shirts.jpeg"
+    },
+    {
+      "name": "Men's Shoes",
+      "slug": "mens-shoes",
+      "description": "Footwear for men",
+      "imageUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/Mens-Shoes.jpeg"
+    },
+    {
+      "name": "Men's Watches",
+      "slug": "mens-watches",
+      "description": "Watches and timepieces for men",
+      "imageUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/Mens-Watches.jpeg"
+    },
+    {
+      "name": "Mobile Accessories",
+      "slug": "mobile-accessories",
+      "description": "Phone cases, chargers, and mobile accessories",
+      "imageUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/Mobile-Accessories.jpeg"
+    },
+    {
+      "name": "Motorcycle",
+      "slug": "motorcycle",
+      "description": "Motorcycles and related accessories",
+      "imageUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/Motorcycle.jpeg"
+    },
+    {
+      "name": "Skin Care",
+      "slug": "skin-care",
+      "description": "Skincare products and treatments",
+      "imageUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/Skin-Care.jpeg"
+    },
+    {
+      "name": "Smartphones",
+      "slug": "smartphones",
+      "description": "Mobile phones and smartphones",
+      "imageUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/Smartphones.jpeg"
+    },
+    {
+      "name": "Sports Accessories",
+      "slug": "sports-accessories",
+      "description": "Sports equipment and accessories",
+      "imageUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/Sports-Accessories.jpeg"
+    },
+    {
+      "name": "Sunglasses",
+      "slug": "sunglasses",
+      "description": "Sunglasses and eyewear",
+      "imageUrl": "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/Sunglasses.jpeg"
+    }
+  ]
 }
