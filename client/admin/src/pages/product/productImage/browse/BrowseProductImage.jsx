@@ -11,6 +11,7 @@ import {
   Empty,
   Modal,
   Typography,
+  Button,
 } from "antd";
 import { EyeOutlined } from "@ant-design/icons";
 
@@ -75,7 +76,13 @@ const BrowseProductImage = ({ productImageResponse, productSku }) => {
             }
             actions={[
               <Tooltip title="View" key="view">
-                <EyeOutlined onClick={() => handlePreview(image)} />
+                <Button
+                  variant="text"
+                  shape="circle"
+                  color="gold"
+                  icon={<EyeOutlined />}
+                  onClick={() => handlePreview(image)}
+                />
               </Tooltip>,
               <ManageProductImage
                 operation="UPDATE"

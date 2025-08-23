@@ -924,16 +924,11 @@ const ProductForm = ({
                 </Text>
                 {currentStep < steps.length - 1 && (
                   <Button
-                    type="primary"
                     onClick={handleNext}
                     icon={<FaArrowAltCircleRight />}
                     iconPosition="end"
                     loading={isLoading}
-                    style={{
-                      fontWeight: 500,
-                      background: `linear-gradient(135deg, ${cssVariables.colorPrimary}, ${cssVariables.colorSecondary})`,
-                      border: "none",
-                    }}
+                    variant="filled"
                   >
                     Next
                   </Button>
@@ -944,11 +939,6 @@ const ProductForm = ({
                     onClick={handleFormSubmit}
                     icon={<FaSave />}
                     loading={isLoading}
-                    style={{
-                      fontWeight: 500,
-                      background: `linear-gradient(135deg, ${cssVariables.colorPrimary}, ${cssVariables.colorSecondary})`,
-                      border: "none",
-                    }}
                   >
                     Save
                   </Button>

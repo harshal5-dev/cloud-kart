@@ -52,30 +52,27 @@ const ManageProduct = ({ operation, product }) => {
   const handleEditProduct = (product) => {
     setIsModalVisible(true);
     setCurrentStep(0);
-    // Set form values for editing after modal is visible
-    setTimeout(() => {
-      form.setFieldsValue({
-        title: product.title || "",
-        description: product.description || "",
-        categorySlug: product.categorySlug || null,
-        price: product.price || null,
-        stock: product.stock || null,
-        sku: product.sku || "",
-        brand: product.brand || "",
-        thumbnail: product.thumbnail || "",
-        featured: product.featured || false,
-        discountPercentage: product.discountPercentage || 0,
-        weight: product.weight || null,
-        width: product.width || null,
-        height: product.height || null,
-        depth: product.depth || null,
-        minimumOrderQuantity: product.minimumOrderQuantity || 1,
-        availabilityStatus: product.availabilityStatus || "IN_STOCK",
-        shippingDetails: product.shippingDetails || "",
-        warrantyDetails: product.warrantyDetails || "",
-        returnPolicy: product.returnPolicy || "",
-      });
-    }, 0);
+    form.setFieldsValue({
+      title: product.title || "",
+      description: product.description || "",
+      categorySlug: product.categorySlug || null,
+      price: product.price || null,
+      stock: product.stock || null,
+      sku: product.sku || "",
+      brand: product.brand || "",
+      thumbnail: product.thumbnail || "",
+      featured: product.featured || false,
+      discountPercentage: product.discountPercentage || 0,
+      weight: product.weight || null,
+      width: product.width || null,
+      height: product.height || null,
+      depth: product.depth || null,
+      minimumOrderQuantity: product.minimumOrderQuantity || 1,
+      availabilityStatus: product.availabilityStatus || "IN_STOCK",
+      shippingDetails: product.shippingDetails || "",
+      warrantyDetails: product.warrantyDetails || "",
+      returnPolicy: product.returnPolicy || "",
+    });
   };
 
   const handleModalOk = () => {
@@ -163,7 +160,7 @@ const ManageProduct = ({ operation, product }) => {
         centered
       >
         <ProductForm
-          defaultValues={isUpdate ? {} : defaultValues}
+          defaultValues={defaultValues}
           form={form}
           isLoading={isCreating || isUpdating}
           isUpdate={isUpdate}

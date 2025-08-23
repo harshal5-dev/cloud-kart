@@ -88,7 +88,7 @@ const ManageProductImage = ({ operation, productImage, productSku }) => {
         <Button
           variant="text"
           shape="circle"
-          color="gold"
+          color="green"
           icon={<FaPencilAlt />}
           onClick={() => handleEditProductImage(productImage)}
         />
@@ -103,7 +103,6 @@ const ManageProductImage = ({ operation, productImage, productSku }) => {
       )}
       {/* Modal for adding/editing user */}
       <Modal
-        title={isUpdate ? "Edit Product Image" : "Add New Product Image"}
         open={isModalVisible}
         onOk={handleModalOk}
         onCancel={handleModalCancel}
@@ -119,6 +118,7 @@ const ManageProductImage = ({ operation, productImage, productSku }) => {
           form={form}
           defaultValues={defaultValues}
           isLoading={isCreating || isUpdating}
+          isUpdate={isUpdate}
         />
       </Modal>
     </>

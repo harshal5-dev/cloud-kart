@@ -4,7 +4,7 @@ import {
   UserOutlined,
   LoadingOutlined,
 } from "@ant-design/icons";
-import { Dropdown, Typography, Avatar, Flex, Tag, Spin } from "antd";
+import { Dropdown, Typography, Avatar, Flex, Tag, Spin, App } from "antd";
 import { MdCategory, MdDashboard, MdViewModule } from "react-icons/md";
 import { Link, useLocation, useNavigate } from "react-router";
 import { FaShoppingBag, FaUserCircle, FaUsers } from "react-icons/fa";
@@ -77,6 +77,7 @@ const AppLayout = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
+  const { message } = App.useApp();
 
   // Filter routes based on user roles
   const filteredRoutes = filterRoutesByAccess(route.routes, roles);
@@ -573,7 +574,7 @@ const AppLayout = () => {
                 if (canAccessPath(item.path, route.routes, roles)) {
                   navigate(item.path || "/dashboard");
                 } else {
-                  console.warn(`Access denied to route: ${item.path}`);
+                  message.error("You do not have access to this module");
                 }
               }
             }}
