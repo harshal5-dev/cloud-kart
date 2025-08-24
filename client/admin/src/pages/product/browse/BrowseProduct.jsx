@@ -23,7 +23,7 @@ import {
   AppstoreOutlined,
   FileTextOutlined,
 } from "@ant-design/icons";
-import { FaImages, FaShoppingBag } from "react-icons/fa";
+import { FaBarcode, FaImages, FaShoppingBag } from "react-icons/fa";
 
 import DeleteProduct from "./DeleteProduct";
 import { getCategorySlugColor } from "../../../lib/utils";
@@ -112,17 +112,6 @@ const BrowseProduct = ({
             >
               {record.title}
             </Typography.Text>
-            <Typography.Text
-              type="secondary"
-              style={{
-                fontSize: "11px",
-                margin: 0,
-                lineHeight: "14px",
-                display: "block",
-              }}
-            >
-              SKU: {record.sku}
-            </Typography.Text>
             <div style={{ marginTop: 2 }}>
               <Tag
                 color={record.stock > 0 ? "purple" : "error"}
@@ -182,7 +171,7 @@ const BrowseProduct = ({
         </Space>
       ),
       dataIndex: "description",
-      width: "50%",
+      width: "35%",
       ellipsis: true,
       render: (description) => (
         <Typography.Text
@@ -197,6 +186,31 @@ const BrowseProduct = ({
         </Typography.Text>
       ),
       responsive: ["lg"],
+    },
+    {
+      title: (
+        <Space size={4} style={{ margin: "0.6rem 0.4rem" }}>
+          <FaBarcode style={{ color: cssVariables.colorPurple }} />
+          <span style={{ color: cssVariables.colorPurple, fontWeight: 600 }}>
+            SKU
+          </span>
+        </Space>
+      ),
+      dataIndex: "sku",
+      key: "sku",
+      render: (sku) => (
+        <Typography.Text
+          code
+          style={{
+            color: cssVariables.colorPurple,
+            fontSize: "12px",
+          }}
+          strong
+        >
+          {sku}
+        </Typography.Text>
+      ),
+      responsive: ["md"],
     },
     {
       title: (

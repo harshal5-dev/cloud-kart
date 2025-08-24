@@ -24,6 +24,7 @@ import {
   TeamOutlined,
   SettingOutlined,
   IdcardOutlined,
+  MailOutlined,
 } from "@ant-design/icons";
 
 import { getRoleColor } from "../../../lib/utils";
@@ -95,15 +96,6 @@ const BrowseUsers = ({
             >
               {record.firstName} {record.lastName}
             </Typography.Text>
-            <Typography.Text
-              type="secondary"
-              style={{
-                fontSize: "11px",
-                margin: 0,
-              }}
-            >
-              {record.email}
-            </Typography.Text>
             <Tag
               color={record.status === "ACTIVE" ? "success" : "error"}
               bordered={false}
@@ -114,6 +106,48 @@ const BrowseUsers = ({
           </Space>
         </Flex>
       ),
+    },
+    {
+      title: (
+        <Space size={4}>
+          <MailOutlined style={{ color: cssVariables.colorMagenta }} />
+          <span style={{ color: cssVariables.colorMagenta, fontWeight: 600 }}>
+            Email
+          </span>
+        </Space>
+      ),
+      dataIndex: "email",
+      key: "email",
+      width: 220,
+      render: (email) => (
+        <Space size={4} align="center">
+          <Badge status="success" />
+          <Button
+            type="link"
+            size="small"
+            icon={<MailOutlined />}
+            onClick={() => window.open(`mailto:${email}`, "_blank")}
+            style={{
+              padding: 0,
+              height: "auto",
+              fontSize: "12px",
+              color: cssVariables.colorLink,
+            }}
+          >
+            <Typography.Text
+              ellipsis={{ tooltip: email }}
+              style={{
+                fontSize: "12px",
+                color: cssVariables.colorInfo,
+                maxWidth: "160px",
+              }}
+            >
+              {email}
+            </Typography.Text>
+          </Button>
+        </Space>
+      ),
+      responsive: ["lg"],
     },
     {
       title: (
