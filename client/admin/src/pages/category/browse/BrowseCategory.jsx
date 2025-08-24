@@ -169,6 +169,7 @@ const BrowseCategory = ({ categoryResponse }) => {
           showTotal: (total, range) =>
             `${range[0]}-${range[1]} of ${total} categories`,
           showSizeChanger: true,
+          pageSizeOptions: ["5"],
           size: "default",
         }}
         locale={{

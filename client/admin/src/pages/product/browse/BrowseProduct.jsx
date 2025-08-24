@@ -340,7 +340,7 @@ const BrowseProduct = ({
             total: totalElements,
             showTotal: (total, range) =>
               `${range[0]}-${range[1]} of ${total} products`,
-            current: (data?.pageable?.pageNumber || 0) + 1,
+            current: (data?.currentPage || 0) + 1,
             pageSizeOptions: ["5"],
             showSizeChanger: true,
             size: "default",
