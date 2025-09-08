@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   Typography,
   Carousel,
@@ -6,12 +5,14 @@ import {
   Button,
   Row,
   Col,
-  Skeleton,
-  Tag,
-  Divider,
   Space,
   Badge,
   Statistic,
+  Avatar,
+  Progress,
+  Tooltip,
+  Steps,
+  Divider,
 } from "antd";
 import {
   RightOutlined,
@@ -27,13 +28,20 @@ import {
   UserOutlined,
   AppstoreOutlined,
   CrownOutlined,
+  SafetyOutlined,
+  RocketOutlined,
+  DollarOutlined,
+  CheckCircleOutlined,
+  GlobalOutlined,
+  CustomerServiceOutlined,
 } from "@ant-design/icons";
 import { Link } from "react-router";
+import ProductCard from "../../components/common/ProductCard";
+import { cssVariables } from "../../config/themeConfig";
 
 const { Title, Text, Paragraph } = Typography;
-const { Meta } = Card;
 
-// Updated product data matching your structure
+// Sample data matching your product structure
 const featuredProducts = [
   {
     id: 1,
@@ -48,7 +56,7 @@ const featuredProducts = [
     categorySlug: "electronics",
     imageUrl: "https://m.media-amazon.com/images/I/71XyfJtHwDL._AC_SL1500_.jpg",
     rating: 4.8,
-    discount: 10,
+    category: "Electronics",
   },
   {
     id: 2,
@@ -61,9 +69,10 @@ const featuredProducts = [
     isFeatured: true,
     totalSales: 756,
     categorySlug: "electronics",
-    imageUrl: "https://m.media-amazon.com/images/I/71XyfJtHwDL._AC_SL1500_.jpg",
+    imageUrl:
+      "https://images.samsung.com/is/image/samsung/p6pim/us/2302/gallery/us-galaxy-s23-s911-446267-sm-s911uzaaxaa-534850016?$650_519_PNG$",
     rating: 4.7,
-    discount: 15,
+    category: "Electronics",
   },
   {
     id: 3,
@@ -76,9 +85,10 @@ const featuredProducts = [
     isFeatured: true,
     totalSales: 432,
     categorySlug: "electronics",
-    imageUrl: "https://m.media-amazon.com/images/I/61nVpf3GgxL._AC_SL1500_.jpg",
+    imageUrl:
+      "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp14-spacegray-select-202310?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1697311054290",
     rating: 4.9,
-    discount: 8,
+    category: "Electronics",
   },
   {
     id: 4,
@@ -91,9 +101,10 @@ const featuredProducts = [
     isFeatured: true,
     totalSales: 1205,
     categorySlug: "electronics",
-    imageUrl: "https://m.media-amazon.com/images/I/71bhWgQK-cL._AC_SL1500_.jpg",
+    imageUrl:
+      "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MQD83?wid=572&hei=572&fmt=jpeg&qlt=95&.v=1660803972361",
     rating: 4.7,
-    discount: 12,
+    category: "Electronics",
   },
 ];
 
@@ -101,212 +112,182 @@ const categories = [
   {
     name: "Electronics",
     slug: "electronics",
-    description: "Gadgets, devices and more",
-    imageUrl:
-      "https://split-cart-bucket.s3.eu-north-1.amazonaws.com/Electronics.jpeg",
-    productCount: 1240,
-    color: "#1890ff",
+    count: 1240,
+    icon: AppstoreOutlined,
+    gradient: cssVariables.headerGradientPrimary,
   },
   {
     name: "Fashion",
     slug: "fashion",
-    description: "Trending styles and apparel",
-    imageUrl:
-      "https://images.unsplash.com/photo-1445205170230-053b83016050?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
-    productCount: 856,
-    color: "#722ed1",
+    count: 856,
+    icon: HeartOutlined,
+    gradient: `linear-gradient(135deg, ${cssVariables.colorMagenta} 0%, ${cssVariables.colorPurple} 100%)`,
   },
   {
     name: "Home & Living",
     slug: "home",
-    description: "Furniture and home decor",
-    imageUrl:
-      "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
-    productCount: 654,
-    color: "#52c41a",
+    count: 654,
+    icon: GiftOutlined,
+    gradient: `linear-gradient(135deg, ${cssVariables.colorSuccess} 0%, ${cssVariables.colorSecondary} 100%)`,
   },
   {
-    name: "Sports & Outdoors",
+    name: "Sports",
     slug: "sports",
-    description: "Fitness and outdoor gear",
-    imageUrl:
-      "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
-    productCount: 423,
-    color: "#fa8c16",
+    count: 423,
+    icon: TrophyOutlined,
+    gradient: `linear-gradient(135deg, ${cssVariables.colorOrange} 0%, ${cssVariables.colorWarning} 100%)`,
   },
 ];
 
-const heroBanners = [
-  {
-    id: 1,
-    title: "Latest Electronics Collection",
-    subtitle: "Discover cutting-edge technology",
-    description: "Get up to 25% off on flagship smartphones and laptops",
-    imageUrl:
-      "https://images.unsplash.com/photo-1555421689-491a97ff2040?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
-    ctaText: "Shop Electronics",
-    ctaLink: "/categories/electronics",
-    gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-  },
-  {
-    id: 2,
-    title: "iPhone 14 Pro Series",
-    subtitle: "Pro. Beyond.",
-    description: "Experience the most advanced iPhone with A16 Bionic chip",
-    imageUrl:
-      "https://images.unsplash.com/photo-1607083206968-13611e3d76db?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
-    ctaText: "Explore iPhones",
-    ctaLink: "/products/iphone-14-pro",
-    gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
-  },
-  {
-    id: 3,
-    title: "Free Shipping",
-    subtitle: "On All Orders",
-    description: "Enjoy free delivery on orders over $50 worldwide",
-    imageUrl:
-      "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
-    ctaText: "Start Shopping",
-    ctaLink: "/products",
-    gradient: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
-  },
-];
-
-const ProductCard = ({ product }) => {
-  const discountedPrice = product.price * (1 - product.discount / 100);
+const HeroSection = () => {
+  const heroItems = [
+    {
+      title: "Premium Collection",
+      subtitle: "Discover Latest Tech",
+      description:
+        "Get the best deals on cutting-edge technology with premium quality",
+      background: cssVariables.headerGradientPrimary,
+      image:
+        "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800",
+    },
+    {
+      title: "Summer Sale",
+      subtitle: "Up to 50% Off",
+      description: "Limited time offers on selected items - Don't miss out!",
+      background: `linear-gradient(135deg, ${cssVariables.colorSecondary} 0%, ${cssVariables.colorSuccess} 100%)`,
+      image:
+        "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=800",
+    },
+    {
+      title: "New Arrivals",
+      subtitle: "Fresh & Trending",
+      description: "Explore the latest products that everyone is talking about",
+      background: `linear-gradient(135deg, ${cssVariables.colorMagenta} 0%, ${cssVariables.colorPurple} 100%)`,
+      image:
+        "https://images.unsplash.com/photo-1607083206968-13611e3d76db?w=800",
+    },
+  ];
 
   return (
-    <Card
-      hoverable
+    <Carousel
+      autoplay
+      effect="fade"
+      autoplaySpeed={4000}
       style={{
-        height: "100%",
-        borderRadius: 12,
+        borderRadius: cssVariables.borderRadiusCard,
         overflow: "hidden",
-        boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
-        border: "1px solid #f0f0f0",
+        marginBottom: 40,
+        boxShadow: cssVariables.shadowMedium,
       }}
-      cover={
-        <div
-          style={{
-            height: 220,
-            overflow: "hidden",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            background: "linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)",
-            padding: 20,
-            position: "relative",
-          }}
-        >
-          {product.discount > 0 && (
-            <Tag
-              color="red"
+    >
+      {heroItems.map((item, index) => (
+        <div key={index}>
+          <div
+            style={{
+              height: 450,
+              background: item.background,
+              position: "relative",
+              display: "flex",
+              alignItems: "center",
+              padding: "0 5%",
+              overflow: "hidden",
+            }}
+          >
+            <div
               style={{
                 position: "absolute",
-                top: 12,
-                left: 12,
-                borderRadius: 20,
-                padding: "4px 12px",
-                fontSize: 12,
-                fontWeight: 600,
-              }}
-            >
-              -{product.discount}%
-            </Tag>
-          )}
-          <img
-            alt={product.title}
-            src={product.imageUrl}
-            style={{
-              objectFit: "contain",
-              height: "100%",
-              width: "100%",
-              transition: "transform 0.3s ease",
-            }}
-          />
-        </div>
-      }
-    >
-      <div style={{ padding: "8px 0" }}>
-        <Space direction="vertical" size={8} style={{ width: "100%" }}>
-          <Text type="secondary" style={{ fontSize: 12, fontWeight: 500 }}>
-            {product.brand}
-          </Text>
-
-          <Title level={5} style={{ margin: 0, lineHeight: 1.3 }}>
-            {product.title}
-          </Title>
-
-          <Text type="secondary" style={{ fontSize: 13, lineHeight: 1.4 }}>
-            {product.description}
-          </Text>
-
-          <Space
-            align="center"
-            style={{ width: "100%", justifyContent: "space-between" }}
-          >
-            <Space align="center">
-              <StarOutlined style={{ color: "#faad14", fontSize: 14 }} />
-              <Text style={{ fontSize: 14, fontWeight: 500 }}>
-                {product.rating}
-              </Text>
-              <Text type="secondary" style={{ fontSize: 12 }}>
-                ({product.totalSales} sold)
-              </Text>
-            </Space>
-          </Space>
-
-          <Space
-            align="center"
-            style={{ width: "100%", justifyContent: "space-between" }}
-          >
-            <Space direction="vertical" size={0}>
-              <Space align="center">
-                <Text
-                  style={{ fontSize: 18, fontWeight: 700, color: "#10b981" }}
-                >
-                  ${discountedPrice.toFixed(2)}
-                </Text>
-                {product.discount > 0 && (
-                  <Text delete type="secondary" style={{ fontSize: 14 }}>
-                    ${product.price.toFixed(2)}
-                  </Text>
-                )}
-              </Space>
-              <Text type="secondary" style={{ fontSize: 12 }}>
-                Stock: {product.stock} units
-              </Text>
-            </Space>
-          </Space>
-
-          <Space style={{ width: "100%", marginTop: 12 }}>
-            <Button
-              type="primary"
-              icon={<ShoppingCartOutlined />}
-              size="middle"
-              style={{
-                backgroundColor: "#10b981",
-                borderColor: "#10b981",
-                borderRadius: 8,
-                flex: 1,
-                fontWeight: 600,
-              }}
-            >
-              Add to Cart
-            </Button>
-            <Button
-              type="text"
-              icon={<HeartOutlined />}
-              size="middle"
-              style={{
-                borderRadius: 8,
-                color: "#666",
+                right: 0,
+                top: 0,
+                width: "50%",
+                height: "100%",
+                background: `url(${item.image})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                opacity: 0.2,
               }}
             />
-          </Space>
-        </Space>
-      </div>
-    </Card>
+            <div
+              style={{
+                position: "absolute",
+                inset: 0,
+                background: cssVariables.glassOverlayLight,
+                backdropFilter: "blur(1px)",
+              }}
+            />
+            <div style={{ zIndex: 2, maxWidth: "60%" }}>
+              <Title
+                level={1}
+                style={{
+                  color: cssVariables.colorWhite,
+                  fontSize: "clamp(32px, 5vw, 56px)",
+                  fontWeight: cssVariables.fontWeightBold,
+                  margin: 0,
+                  textShadow: cssVariables.textShadow,
+                  lineHeight: cssVariables.lineHeightCompact,
+                }}
+              >
+                {item.title}
+              </Title>
+              <Title
+                level={2}
+                style={{
+                  color: cssVariables.colorWhite,
+                  fontSize: "clamp(20px, 3vw, 36px)",
+                  fontWeight: cssVariables.fontWeightMedium,
+                  margin: "12px 0",
+                  textShadow: cssVariables.textShadow,
+                }}
+              >
+                {item.subtitle}
+              </Title>
+              <Paragraph
+                style={{
+                  color: cssVariables.colorWhite,
+                  fontSize: cssVariables.fontSizeLarge,
+                  marginBottom: 32,
+                  textShadow: cssVariables.textShadow,
+                  maxWidth: "80%",
+                }}
+              >
+                {item.description}
+              </Paragraph>
+              <Space size="large">
+                <Button
+                  type="primary"
+                  size="large"
+                  style={{
+                    background: cssVariables.colorWhite,
+                    color: cssVariables.colorPrimary,
+                    border: "none",
+                    borderRadius: cssVariables.borderRadiusButton,
+                    fontWeight: cssVariables.fontWeightBold,
+                    boxShadow: cssVariables.shadowLight,
+                    padding: "0 32px",
+                    height: 48,
+                  }}
+                >
+                  Shop Now <RightOutlined />
+                </Button>
+                <Button
+                  ghost
+                  size="large"
+                  style={{
+                    color: cssVariables.colorWhite,
+                    borderColor: cssVariables.colorWhite,
+                    borderRadius: cssVariables.borderRadiusButton,
+                    fontWeight: cssVariables.fontWeightMedium,
+                    padding: "0 32px",
+                    height: 48,
+                  }}
+                >
+                  Learn More
+                </Button>
+              </Space>
+            </div>
+          </div>
+        </div>
+      ))}
+    </Carousel>
   );
 };
 
@@ -316,311 +297,487 @@ const CategoryCard = ({ category }) => {
       <Card
         hoverable
         style={{
+          height: "100%",
+          borderRadius: cssVariables.borderRadiusCard,
           overflow: "hidden",
-          height: 180,
-          borderRadius: 16,
-          position: "relative",
-          border: "1px solid #f0f0f0",
-          transition: "all 0.3s ease",
+          boxShadow: cssVariables.shadowSubtle,
+          border: `1px solid ${cssVariables.borderSubtle}`,
+          background: cssVariables.containerBackground,
+          transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
         }}
-        bodyStyle={{ padding: 0 }}
-      >
-        <div style={{ position: "absolute", inset: 0 }}>
-          <img
-            src={category.imageUrl}
-            alt={category.name}
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              transition: "transform 0.3s ease",
-            }}
-          />
+        onMouseEnter={(e) => {
+          e.currentTarget.style.transform = "translateY(-4px)";
+          e.currentTarget.style.boxShadow = cssVariables.shadowMedium;
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.transform = "translateY(0)";
+          e.currentTarget.style.boxShadow = cssVariables.shadowSubtle;
+        }}
+        cover={
           <div
             style={{
-              position: "absolute",
-              inset: 0,
-              background: `linear-gradient(135deg, ${category.color}CC 0%, ${category.color}80 100%)`,
+              height: 120,
+              background: category.gradient,
               display: "flex",
-              flexDirection: "column",
-              justifyContent: "flex-end",
-              padding: 20,
+              alignItems: "center",
+              justifyContent: "center",
+              position: "relative",
+              overflow: "hidden",
             }}
           >
-            <Title
-              level={4}
-              style={{ color: "white", margin: 0, marginBottom: 4 }}
-            >
-              {category.name}
-            </Title>
-            <Text
+            <div
               style={{
-                color: "rgba(255,255,255,0.9)",
-                fontSize: 13,
-                marginBottom: 8,
+                position: "absolute",
+                inset: 0,
+                background: cssVariables.glassOverlay,
+                backdropFilter: "blur(2px)",
               }}
-            >
-              {category.description}
-            </Text>
-            <Space align="center">
-              <Badge
-                count={category.productCount}
-                style={{ backgroundColor: "rgba(255,255,255,0.2)" }}
-              />
-              <Text style={{ color: "rgba(255,255,255,0.8)", fontSize: 12 }}>
-                products
-              </Text>
-            </Space>
+            />
+            <category.icon
+              style={{
+                fontSize: 40,
+                color: cssVariables.colorWhite,
+                zIndex: 1,
+                filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.2))",
+              }}
+            />
           </div>
-        </div>
+        }
+        bodyStyle={{
+          padding: 20,
+          textAlign: "center",
+        }}
+      >
+        <Title
+          level={5}
+          style={{
+            margin: 0,
+            color: cssVariables.colorText,
+            fontWeight: cssVariables.fontWeightBold,
+            marginBottom: 8,
+          }}
+        >
+          {category.name}
+        </Title>
+        <Space>
+          <Text
+            type="secondary"
+            style={{
+              fontSize: cssVariables.fontSizeSmall,
+            }}
+          >
+            {category.count} items
+          </Text>
+          <Badge
+            count={category.count}
+            style={{
+              backgroundColor: cssVariables.colorPrimary,
+              fontSize: "10px",
+              height: "18px",
+              lineHeight: "18px",
+              borderRadius: "9px",
+            }}
+            showZero
+          />
+        </Space>
       </Card>
     </Link>
   );
 };
 
-const Home = () => {
-  const [loading] = useState(false);
-
+const FeatureCard = ({ icon, title, description, color }) => {
   return (
-    <div style={{ background: "#f5f6fa", padding: 24 }}>
-      <section style={{ marginBottom: 40 }}>
-        <Carousel autoplay style={{ borderRadius: 16, overflow: "hidden" }}>
-          {heroBanners.map((banner, index) => (
-            <div key={index}>
-              <div style={{ position: "relative", height: 320 }}>
-                <img
-                  src={banner.image}
-                  alt={banner.title}
-                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                />
-                <div
-                  style={{
-                    position: "absolute",
-                    inset: 0,
-                    background:
-                      "linear-gradient(to right, rgba(0,0,0,0.6), rgba(0,0,0,0.3), transparent)",
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    padding: "32px 64px",
-                  }}
-                >
-                  <Title
-                    level={1}
-                    style={{ color: "white", margin: 0, marginBottom: 16 }}
-                  >
-                    {banner.title}
-                  </Title>
-                  <Paragraph
-                    style={{ color: "white", fontSize: 18, marginBottom: 24 }}
-                  >
-                    {banner.description}
-                  </Paragraph>
-                  <Button
-                    size="large"
-                    type="primary"
-                    style={{ backgroundColor: "#10b981", width: "fit-content" }}
-                  >
-                    Shop Now
-                  </Button>
-                </div>
-              </div>
-            </div>
-          ))}
-        </Carousel>
-      </section>
+    <Card
+      style={{
+        textAlign: "center",
+        borderRadius: cssVariables.borderRadiusCard,
+        border: `1px solid ${cssVariables.borderSubtle}`,
+        boxShadow: cssVariables.shadowSubtle,
+        background: cssVariables.containerBackground,
+        height: "100%",
+      }}
+      bodyStyle={{ padding: 24 }}
+    >
+      <div
+        style={{
+          width: 60,
+          height: 60,
+          borderRadius: "50%",
+          background: `linear-gradient(135deg, ${color} 0%, ${color}80 100%)`,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          margin: "0 auto 16px",
+          boxShadow: `0 8px 24px ${color}30`,
+        }}
+      >
+        {icon}
+      </div>
+      <Title
+        level={5}
+        style={{
+          color: cssVariables.colorText,
+          fontWeight: cssVariables.fontWeightBold,
+          marginBottom: 8,
+        }}
+      >
+        {title}
+      </Title>
+      <Text
+        type="secondary"
+        style={{
+          fontSize: cssVariables.fontSizeSmall,
+          lineHeight: 1.5,
+        }}
+      >
+        {description}
+      </Text>
+    </Card>
+  );
+};
 
-      <section style={{ marginBottom: 48 }}>
-        <Row gutter={[24, 24]} style={{ textAlign: "center" }}>
-          <Col xs={12} sm={6}>
-            <Card
-              style={{ height: "100%", border: "none", background: "#fff5f5" }}
-            >
-              <Statistic
-                title="Products"
-                value={50000}
-                valueStyle={{ color: "#ff4d4f", fontWeight: "bold" }}
-                prefix={<ShoppingOutlined />}
-              />
-            </Card>
-          </Col>
-          <Col xs={12} sm={6}>
-            <Card
-              style={{ height: "100%", border: "none", background: "#f6ffed" }}
-            >
-              <Statistic
-                title="Happy Customers"
-                value={125000}
-                valueStyle={{ color: "#52c41a", fontWeight: "bold" }}
-                prefix={<UserOutlined />}
-              />
-            </Card>
-          </Col>
-          <Col xs={12} sm={6}>
-            <Card
-              style={{ height: "100%", border: "none", background: "#fff7e6" }}
-            >
-              <Statistic
-                title="Categories"
-                value={15}
-                valueStyle={{ color: "#fa8c16", fontWeight: "bold" }}
-                prefix={<AppstoreOutlined />}
-              />
-            </Card>
-          </Col>
-          <Col xs={12} sm={6}>
-            <Card
-              style={{ height: "100%", border: "none", background: "#f0f5ff" }}
-            >
-              <Statistic
-                title="Brands"
-                value={200}
-                valueStyle={{ color: "#1890ff", fontWeight: "bold" }}
-                prefix={<CrownOutlined />}
-              />
-            </Card>
-          </Col>
-        </Row>
-      </section>
-
-      <section style={{ marginBottom: 48 }}>
-        <div
+const StatCard = ({ icon, value, label, color }) => {
+  return (
+    <Card
+      style={{
+        textAlign: "center",
+        borderRadius: cssVariables.borderRadiusCard,
+        border: `1px solid ${cssVariables.borderSubtle}`,
+        boxShadow: cssVariables.shadowSubtle,
+        background: cssVariables.containerBackground,
+      }}
+      bodyStyle={{ padding: 24 }}
+    >
+      <Space direction="vertical" size="small" style={{ width: "100%" }}>
+        <Avatar
+          size={48}
           style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            marginBottom: 24,
+            background: `linear-gradient(135deg, ${color} 0%, ${color}80 100%)`,
+            color: cssVariables.colorWhite,
+          }}
+          icon={icon}
+        />
+        <Statistic
+          value={value}
+          valueStyle={{
+            color: cssVariables.colorText,
+            fontWeight: cssVariables.fontWeightBold,
+            fontSize: "24px",
+          }}
+        />
+        <Text
+          type="secondary"
+          style={{
+            fontSize: cssVariables.fontSizeSmall,
+            fontWeight: cssVariables.fontWeightMedium,
           }}
         >
-          <Title
-            level={3}
-            style={{ margin: 0, display: "flex", alignItems: "center" }}
-          >
-            <FireOutlined style={{ marginRight: 8, color: "#ff4d4f" }} />{" "}
-            Trending Categories
-          </Title>
-          <Button type="link">
-            View All <RightOutlined />
-          </Button>
-        </div>
+          {label}
+        </Text>
+      </Space>
+    </Card>
+  );
+};
 
-        <Row gutter={[16, 16]}>
-          {categories.slice(0, 4).map((category, index) => (
-            <Col xs={12} sm={12} md={6} key={index}>
+const Home = () => {
+  // const [loading, setLoading] = useState(false);
+
+  const features = [
+    {
+      icon: (
+        <RocketOutlined
+          style={{ fontSize: 24, color: cssVariables.colorWhite }}
+        />
+      ),
+      title: "Fast Delivery",
+      description: "Get your orders delivered in 24-48 hours",
+      color: cssVariables.colorInfo,
+    },
+    {
+      icon: (
+        <SafetyOutlined
+          style={{ fontSize: 24, color: cssVariables.colorWhite }}
+        />
+      ),
+      title: "Secure Payment",
+      description: "100% secure payment with SSL encryption",
+      color: cssVariables.colorSuccess,
+    },
+    {
+      icon: (
+        <CustomerServiceOutlined
+          style={{ fontSize: 24, color: cssVariables.colorWhite }}
+        />
+      ),
+      title: "24/7 Support",
+      description: "Round the clock customer support",
+      color: cssVariables.colorOrange,
+    },
+    {
+      icon: (
+        <GlobalOutlined
+          style={{ fontSize: 24, color: cssVariables.colorWhite }}
+        />
+      ),
+      title: "Worldwide Shipping",
+      description: "We deliver to over 100 countries",
+      color: cssVariables.colorPurple,
+    },
+  ];
+
+  const stats = [
+    {
+      icon: <UserOutlined />,
+      value: "50K+",
+      label: "Happy Customers",
+      color: cssVariables.colorPrimary,
+    },
+    {
+      icon: <ShoppingOutlined />,
+      value: "10K+",
+      label: "Products Sold",
+      color: cssVariables.colorSuccess,
+    },
+    {
+      icon: <TrophyOutlined />,
+      value: "99%",
+      label: "Satisfaction Rate",
+      color: cssVariables.colorWarning,
+    },
+    {
+      icon: <GlobalOutlined />,
+      value: "25+",
+      label: "Countries Served",
+      color: cssVariables.colorMagenta,
+    },
+  ];
+
+  return (
+    <div style={{ padding: "24px 0" }}>
+      {/* Hero Section */}
+      <HeroSection />
+
+      {/* Categories Section */}
+      <div style={{ marginBottom: 56 }}>
+        <div style={{ textAlign: "center", marginBottom: 40 }}>
+          <Title
+            level={2}
+            style={{
+              color: cssVariables.colorText,
+              fontWeight: cssVariables.fontWeightBold,
+              marginBottom: 8,
+            }}
+          >
+            Shop by Category
+          </Title>
+          <Text
+            type="secondary"
+            style={{
+              fontSize: cssVariables.fontSizeRegular,
+              lineHeight: 1.6,
+            }}
+          >
+            Discover our wide range of products across different categories
+          </Text>
+        </div>
+        <Row gutter={[24, 24]}>
+          {categories.map((category) => (
+            <Col xs={12} sm={8} md={6} key={category.slug}>
               <CategoryCard category={category} />
             </Col>
           ))}
         </Row>
-      </section>
+      </div>
 
-      <section style={{ marginBottom: 48 }}>
+      {/* Featured Products Section */}
+      <div style={{ marginBottom: 56 }}>
         <div
           style={{
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
-            marginBottom: 24,
+            marginBottom: 40,
           }}
         >
-          <Title
-            level={3}
-            style={{ margin: 0, display: "flex", alignItems: "center" }}
-          >
-            <ThunderboltOutlined style={{ marginRight: 8, color: "#faad14" }} />{" "}
-            Featured Products
-          </Title>
-          <Button type="link">
-            View All <RightOutlined />
-          </Button>
+          <div>
+            <Title
+              level={2}
+              style={{
+                color: cssVariables.colorText,
+                fontWeight: cssVariables.fontWeightBold,
+                marginBottom: 8,
+              }}
+            >
+              <Space>
+                <FireOutlined style={{ color: cssVariables.colorOrange }} />
+                Featured Products
+              </Space>
+            </Title>
+            <Text
+              type="secondary"
+              style={{
+                fontSize: cssVariables.fontSizeRegular,
+                lineHeight: 1.6,
+              }}
+            >
+              Handpicked products just for you
+            </Text>
+          </div>
+          <Link to="/products">
+            <Button
+              type="primary"
+              style={{
+                borderRadius: cssVariables.borderRadiusButton,
+                background: cssVariables.headerGradientPrimary,
+                border: "none",
+                fontWeight: cssVariables.fontWeightMedium,
+              }}
+            >
+              View All Products <RightOutlined />
+            </Button>
+          </Link>
         </div>
-
-        <Row gutter={[16, 24]}>
-          {(loading ? Array(4).fill({}) : featuredProducts).map(
-            (product, index) => (
-              <Col xs={24} sm={12} md={8} lg={6} key={index}>
-                {loading ? (
-                  <Card>
-                    <Skeleton active avatar paragraph={{ rows: 2 }} />
-                  </Card>
-                ) : (
-                  <ProductCard product={product} />
-                )}
-              </Col>
-            )
-          )}
+        <Row gutter={[24, 24]}>
+          {featuredProducts.map((product) => (
+            <Col xs={24} sm={12} md={8} lg={6} key={product.id}>
+              <ProductCard product={product} />
+            </Col>
+          ))}
         </Row>
-      </section>
+      </div>
 
-      <section
-        style={{
-          background: "#fafafa",
-          margin: "0 -24px",
-          padding: "48px 24px",
-          marginTop: 32,
-          marginBottom: 24,
-        }}
-      >
-        <div style={{ textAlign: "center", marginBottom: 32 }}>
-          <Title level={2}>Why Choose CloudKart?</Title>
+      {/* Stats Section */}
+      <div style={{ marginBottom: 56 }}>
+        <div style={{ textAlign: "center", marginBottom: 40 }}>
+          <Title
+            level={2}
+            style={{
+              color: cssVariables.colorText,
+              fontWeight: cssVariables.fontWeightBold,
+              marginBottom: 8,
+            }}
+          >
+            Why Choose Us
+          </Title>
           <Text
             type="secondary"
-            style={{ maxWidth: 600, margin: "0 auto", display: "block" }}
+            style={{
+              fontSize: cssVariables.fontSizeRegular,
+              lineHeight: 1.6,
+            }}
           >
-            We make shopping simple, enjoyable and always at the best prices.
+            Numbers that speak for our excellence
           </Text>
         </div>
-
-        <Row gutter={[32, 32]} style={{ maxWidth: 1000, margin: "0 auto" }}>
-          <Col xs={24} md={8}>
-            <div style={{ textAlign: "center" }}>
-              <div
-                style={{
-                  fontSize: 48,
-                  marginBottom: 16,
-                  display: "flex",
-                  justifyContent: "center",
-                }}
-              >
-                🚚
-              </div>
-              <Title level={4}>Fast Delivery</Title>
-              <Text type="secondary">Free shipping on orders over $50</Text>
-            </div>
-          </Col>
-          <Col xs={24} md={8}>
-            <div style={{ textAlign: "center" }}>
-              <div
-                style={{
-                  fontSize: 48,
-                  marginBottom: 16,
-                  display: "flex",
-                  justifyContent: "center",
-                }}
-              >
-                🔒
-              </div>
-              <Title level={4}>Secure Payment</Title>
-              <Text type="secondary">Multiple secure payment methods</Text>
-            </div>
-          </Col>
-          <Col xs={24} md={8}>
-            <div style={{ textAlign: "center" }}>
-              <div
-                style={{
-                  fontSize: 48,
-                  marginBottom: 16,
-                  display: "flex",
-                  justifyContent: "center",
-                }}
-              >
-                💯
-              </div>
-              <Title level={4}>Quality Guarantee</Title>
-              <Text type="secondary">30-day money back guarantee</Text>
-            </div>
-          </Col>
+        <Row gutter={[24, 24]} justify="center">
+          {stats.map((stat, index) => (
+            <Col xs={12} sm={8} md={6} key={index}>
+              <StatCard {...stat} />
+            </Col>
+          ))}
         </Row>
-      </section>
+      </div>
+
+      {/* Features Section */}
+      <div style={{ marginBottom: 56 }}>
+        <div style={{ textAlign: "center", marginBottom: 40 }}>
+          <Title
+            level={2}
+            style={{
+              color: cssVariables.colorText,
+              fontWeight: cssVariables.fontWeightBold,
+              marginBottom: 8,
+            }}
+          >
+            Our Promise to You
+          </Title>
+          <Text
+            type="secondary"
+            style={{
+              fontSize: cssVariables.fontSizeRegular,
+              lineHeight: 1.6,
+            }}
+          >
+            We're committed to providing the best shopping experience
+          </Text>
+        </div>
+        <Row gutter={[24, 24]}>
+          {features.map((feature, index) => (
+            <Col xs={24} sm={12} md={6} key={index}>
+              <FeatureCard {...feature} />
+            </Col>
+          ))}
+        </Row>
+      </div>
+
+      {/* Call to Action Section */}
+      <Card
+        style={{
+          background: cssVariables.headerGradientPrimary,
+          border: "none",
+          borderRadius: cssVariables.borderRadiusCard,
+          textAlign: "center",
+          boxShadow: cssVariables.shadowMedium,
+        }}
+        bodyStyle={{ padding: 48 }}
+      >
+        <Title
+          level={2}
+          style={{
+            color: cssVariables.colorWhite,
+            fontWeight: cssVariables.fontWeightBold,
+            marginBottom: 16,
+            textShadow: cssVariables.textShadow,
+          }}
+        >
+          Ready to Start Shopping?
+        </Title>
+        <Paragraph
+          style={{
+            color: cssVariables.colorWhite,
+            fontSize: cssVariables.fontSizeRegular,
+            marginBottom: 32,
+            textShadow: cssVariables.textShadow,
+            maxWidth: 600,
+            margin: "0 auto 32px",
+          }}
+        >
+          Join thousands of satisfied customers and discover amazing products at
+          unbeatable prices. Start your shopping journey today!
+        </Paragraph>
+        <Space size="large">
+          <Button
+            type="primary"
+            size="large"
+            style={{
+              background: cssVariables.colorWhite,
+              color: cssVariables.colorPrimary,
+              border: "none",
+              borderRadius: cssVariables.borderRadiusButton,
+              fontWeight: cssVariables.fontWeightBold,
+              boxShadow: cssVariables.shadowLight,
+              padding: "0 40px",
+              height: 48,
+            }}
+          >
+            Start Shopping <ShoppingCartOutlined />
+          </Button>
+          <Button
+            ghost
+            size="large"
+            style={{
+              color: cssVariables.colorWhite,
+              borderColor: cssVariables.colorWhite,
+              borderRadius: cssVariables.borderRadiusButton,
+              fontWeight: cssVariables.fontWeightMedium,
+              padding: "0 40px",
+              height: 48,
+            }}
+          >
+            Learn More
+          </Button>
+        </Space>
+      </Card>
     </div>
   );
 };

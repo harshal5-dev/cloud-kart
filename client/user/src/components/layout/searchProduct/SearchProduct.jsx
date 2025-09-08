@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback, useRef } from "react";
+import { useEffect, useState, useCallback } from "react";
 import {
   Input,
   AutoComplete,
@@ -11,101 +11,69 @@ import {
   Spin,
   Badge,
   Divider,
+  Button,
+  Empty,
 } from "antd";
 import {
   ShoppingOutlined,
   LoadingOutlined,
   StarFilled,
+  SearchOutlined,
+  CloseOutlined,
 } from "@ant-design/icons";
 import { useNavigate } from "react-router";
 import { useGetProductsInfoQuery } from "../../../pages/product/productApi";
 
-const { Text } = Typography;
 const { Search } = Input;
-
-// Mock search data
-const mockProducts = [
-  {
-    id: 1,
-    title: "iPhone 14 Pro",
-    brand: "Apple",
-    price: 999.99,
-    category: "Smartphones",
-    image: "https://m.media-amazon.com/images/I/61cwywLIfYL._AC_SL1500_.jpg",
-  },
-  {
-    id: 2,
-    title: "Samsung Galaxy S23",
-    brand: "Samsung",
-    price: 849.99,
-    category: "Smartphones",
-    image: "https://m.media-amazon.com/images/I/61VuytXZcXL._AC_SL1500_.jpg",
-  },
-  {
-    id: 3,
-    title: "MacBook Pro 14",
-    brand: "Apple",
-    price: 1999.99,
-    category: "Laptops",
-    image: "https://m.media-amazon.com/images/I/61GTWA1Z8FL._AC_SL1500_.jpg",
-  },
-  {
-    id: 4,
-    title: "Dell XPS 13",
-    brand: "Dell",
-    price: 1299.99,
-    category: "Laptops",
-    image: "https://m.media-amazon.com/images/I/71CqMJ0-P-L._AC_SL1500_.jpg",
-  },
-  {
-    id: 5,
-    title: "Sony WH-1000XM5",
-    brand: "Sony",
-    price: 399.99,
-    category: "Headphones",
-    image: "https://m.media-amazon.com/images/I/61NNEiM5BuL._AC_SL1500_.jpg",
-  },
-];
+const { Text } = Typography;
 
 const SearchProduct = ({ placeholder = "Search products..." }) => {
   const [searchValue, setSearchValue] = useState("");
   const [options, setOptions] = useState([]);
-  const [debouncedSearchValue, setDebouncedSearchValue] = useState("");
+  const [searchTrigger, setSearchTrigger] = useState("");
   const navigate = useNavigate();
 
-  // Debounce hook for search input
-  const debounceTimeoutRef = useRef(null);
-
+  // Only trigger API call when user explicitly searches
   const productResponse = useGetProductsInfoQuery(
     {
       page: 1,
-      pageSize: 10,
-      keyword: debouncedSearchValue,
+      pageSize: 8,
+      keyword: searchTrigger,
     },
     {
-      skip: !debouncedSearchValue, // Skip query if no search term
+      skip: !searchTrigger, // Skip query if no search term
     }
   );
 
   const { data, isFetching } = productResponse;
   const { content } = data || {};
 
-  // Debounce search input
-  useEffect(() => {
-    if (debounceTimeoutRef.current) {
-      clearTimeout(debounceTimeoutRef.current);
+  // Handle search button click or Enter key
+  const handleSearch = useCallback(() => {
+    if (searchValue.trim()) {
+      setSearchTrigger(searchValue.trim());
     }
-
-    debounceTimeoutRef.current = setTimeout(() => {
-      setDebouncedSearchValue(searchValue);
-    }, 500); // 500ms delay
-
-    return () => {
-      if (debounceTimeoutRef.current) {
-        clearTimeout(debounceTimeoutRef.current);
-      }
-    };
   }, [searchValue]);
+
+  // Handle input change
+  const handleInputChange = (value) => {
+    setSearchValue(value);
+    if (!value.trim()) {
+      setOptions([]);
+      setSearchTrigger("");
+    }
+  };
+
+  // Handle option select
+  const handleSelect = (value, option) => {
+    if (option.key === "view-all") {
+      navigate(`/search?q=${encodeURIComponent(searchTrigger)}`);
+    } else if (option.productId) {
+      navigate(`/product/${option.productId}`);
+    }
+    setSearchValue("");
+    setOptions([]);
+  };
 
   // Create enhanced product options
   const createProductOptions = useCallback(
@@ -253,9 +221,9 @@ const SearchProduct = ({ placeholder = "Search products..." }) => {
       }));
 
       // Add "View All Results" option if there are results
-      if (productOptions.length > 0 && debouncedSearchValue) {
+      if (productOptions.length > 0 && searchTrigger) {
         productOptions.push({
-          value: `View all results for "${debouncedSearchValue}"`,
+          value: `View all results for "${searchTrigger}"`,
           label: (
             <div>
               <Divider style={{ margin: "8px 0" }} />
@@ -275,9 +243,7 @@ const SearchProduct = ({ placeholder = "Search products..." }) => {
                 }}
                 hoverable
                 onClick={() =>
-                  navigate(
-                    `/search?q=${encodeURIComponent(debouncedSearchValue)}`
-                  )
+                  navigate(`/search?q=${encodeURIComponent(searchTrigger)}`)
                 }
               >
                 <Space>
@@ -285,8 +251,7 @@ const SearchProduct = ({ placeholder = "Search products..." }) => {
                     style={{ color: "#52c41a", fontSize: "16px" }}
                   />
                   <Text style={{ color: "#52c41a", fontWeight: 600 }}>
-                    View all {products.length}+ results for "
-                    {debouncedSearchValue}"
+                    View all {products.length}+ results for "{searchTrigger}"
                   </Text>
                 </Space>
               </Card>
@@ -298,68 +263,23 @@ const SearchProduct = ({ placeholder = "Search products..." }) => {
 
       return productOptions;
     },
-    [navigate, debouncedSearchValue]
+    [navigate, searchTrigger]
   );
-
-  const handleSearch = (value) => {
-    setSearchValue(value);
-
-    if (!value) {
-      setOptions([]);
-      return;
-    }
-
-    // For immediate feedback, show mock data while API loads
-    if (!content || content.length === 0) {
-      const filteredMockProducts = mockProducts.filter(
-        (product) =>
-          product.title.toLowerCase().includes(value.toLowerCase()) ||
-          product.brand.toLowerCase().includes(value.toLowerCase()) ||
-          product.category.toLowerCase().includes(value.toLowerCase())
-      );
-
-      if (filteredMockProducts.length > 0) {
-        setOptions(createProductOptions(filteredMockProducts));
-      }
-    }
-  };
-
-  const handleSelect = (value, option) => {
-    if (option.key === "view-all") {
-      navigate(
-        `/search?q=${encodeURIComponent(debouncedSearchValue || searchValue)}`
-      );
-    } else {
-      navigate(`/product/${option.key}`);
-    }
-    setSearchValue("");
-    setOptions([]);
-  };
 
   // Update options when API data changes
   useEffect(() => {
-    if (content && content.length > 0 && debouncedSearchValue) {
-      const enhancedProducts = content.map((product) => ({
-        ...product,
-        rating: 4.2 + Math.random() * 0.8, // Mock rating between 4.2-5.0
-        reviewCount: Math.floor(Math.random() * 500) + 10, // Mock review count
-        discount:
-          Math.random() > 0.7 ? Math.floor(Math.random() * 30) + 5 : null, // Random discount
-        originalPrice: Math.random() > 0.7 ? product.price * 1.2 : null, // Mock original price
-        inStock: Math.random() > 0.1, // 90% chance in stock
-      }));
-
-      setOptions(createProductOptions(enhancedProducts));
-    } else if (!debouncedSearchValue) {
+    if (content && content.length > 0 && searchTrigger) {
+      setOptions(createProductOptions(content));
+    } else if (!searchTrigger) {
       setOptions([]);
     }
-  }, [content, debouncedSearchValue, navigate, createProductOptions]);
+  }, [content, searchTrigger, createProductOptions]);
 
   // Clear options when search is cleared
   useEffect(() => {
     if (!searchValue) {
       setOptions([]);
-      setDebouncedSearchValue("");
+      setSearchTrigger("");
     }
   }, [searchValue]);
 
@@ -368,7 +288,7 @@ const SearchProduct = ({ placeholder = "Search products..." }) => {
       <AutoComplete
         value={searchValue}
         options={options}
-        onSearch={handleSearch}
+        onSearch={handleInputChange}
         onSelect={handleSelect}
         className="w-1/2"
         notFoundContent={
@@ -431,12 +351,9 @@ const SearchProduct = ({ placeholder = "Search products..." }) => {
           placeholder={placeholder}
           enterButton
           loading={isFetching && !!searchValue}
+          onSearch={handleSearch}
           onPressEnter={() => {
-            if (searchValue) {
-              navigate(`/search?q=${encodeURIComponent(searchValue)}`);
-              setSearchValue("");
-              setOptions([]);
-            }
+            handleSearch();
           }}
           style={{
             "& .ant-input": {

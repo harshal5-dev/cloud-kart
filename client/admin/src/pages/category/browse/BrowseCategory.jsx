@@ -28,7 +28,7 @@ import { MdCategory } from "react-icons/md";
 const { Text, Title } = Typography;
 
 const BrowseCategory = ({ categoryResponse }) => {
-  const { data, isLoading, isError } = categoryResponse;
+  const { data, isLoading, isError, isFetching } = categoryResponse;
 
   const columns = [
     {
@@ -160,7 +160,7 @@ const BrowseCategory = ({ categoryResponse }) => {
       <Table
         columns={columns}
         dataSource={data}
-        loading={isLoading}
+        loading={isLoading || isFetching}
         rowKey={(record) => record.slug}
         scroll={{ x: 800 }}
         size="small"

@@ -6,7 +6,6 @@ import ManageProduct from "./manage/ManageProduct";
 import { useGetProductsInfoQuery } from "./productApi";
 import { cssVariables } from "../../config/themeConfig";
 import { ReloadOutlined } from "@ant-design/icons";
-import { RiBox1Line } from "react-icons/ri";
 import { FaShoppingBag } from "react-icons/fa";
 
 const { Title, Text } = Typography;
@@ -17,12 +16,23 @@ const Product = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
 
+  // Custom function to handle search term change and reset page
+  const handleSearchTermChange = (newSearchTerm) => {
+    setSearchTerm(newSearchTerm);
+    if (currentPage !== 1) {
+      setCurrentPage(1);
+    }
+  };
+
   const productResponse = useGetProductsInfoQuery({
     page: currentPage,
     pageSize,
     keyword: searchTerm,
   });
-  const { refetch, isLoading } = productResponse;
+  const { refetch, isLoading, isFetching } = productResponse;
+
+  console.log("Product Loading: ", isLoading);
+  console.log("Product Fetching: ", isFetching);
 
   return (
     <Space direction="vertical" size="large" style={{ width: "100%" }}>
@@ -88,7 +98,7 @@ const Product = () => {
                 border: `1px solid ${cssVariables.whiteTransparent40}`,
                 color: cssVariables.colorWhite,
               }}
-              loading={isLoading}
+              loading={isLoading || isFetching}
             >
               Refresh
             </Button>
@@ -101,7 +111,7 @@ const Product = () => {
       <BrowseProduct
         productResponse={productResponse}
         setCurrentPage={setCurrentPage}
-        setSearchTerm={setSearchTerm}
+        setSearchTerm={handleSearchTermChange}
         pageSize={pageSize}
       />
     </Space>

@@ -11,15 +11,21 @@ export const adminApi = createApi({
 
   refetchOnMountOrArgChange: false,
   refetchOnFocus: false,
-  refetchOnReconnect: true,
+  refetchOnReconnect: false,
   endpoints: (builder) => ({
     getUsers: builder.query({
       query: ({ page, pageSize, searchTerm = "" }) =>
         `${adminBaseUrl}/users/search?searchTerm=${searchTerm}&page=${
           page - 1
         }&size=${pageSize}&sortBy=firstName&sortDir=asc`,
-      providesTags: ["Users"],
-      keepUnusedDataFor: 5555,
+      providesTags: (result, error, arg) => [
+        { type: "Users", id: "LIST" },
+        {
+          type: "Users",
+          id: `LIST-${arg.page}-${arg.pageSize}-${arg.searchTerm}`,
+        },
+      ],
+      keepUnusedDataFor: 600, // Keep cache for 10 minutes
     }),
     createUser: builder.mutation({
       query: (user) => ({
@@ -27,7 +33,7 @@ export const adminApi = createApi({
         method: "POST",
         body: user,
       }),
-      invalidatesTags: ["Users"],
+      invalidatesTags: [{ type: "Users", id: "LIST" }],
       transformErrorResponse: transformErrorResponse,
     }),
     updateUser: builder.mutation({
@@ -36,7 +42,7 @@ export const adminApi = createApi({
         method: "PUT",
         body: user,
       }),
-      invalidatesTags: ["Users"],
+      invalidatesTags: [{ type: "Users", id: "LIST" }],
       transformErrorResponse: transformErrorResponse,
     }),
     deleteUser: builder.mutation({
@@ -44,7 +50,7 @@ export const adminApi = createApi({
         url: `${adminBaseUrl}/users/${id}/delete`,
         method: "DELETE",
       }),
-      invalidatesTags: ["Users"],
+      invalidatesTags: [{ type: "Users", id: "LIST" }],
       transformErrorResponse: transformErrorResponse,
     }),
   }),

@@ -10,21 +10,27 @@ export const productApi = createApi({
 
   refetchOnMountOrArgChange: false,
   refetchOnFocus: false,
-  refetchOnReconnect: true,
+  refetchOnReconnect: false,
   endpoints: (builder) => ({
     getProductsInfo: builder.query({
       query: ({ page, pageSize, keyword = "" }) =>
         `${productBaseUrl}?page=${
           page - 1
         }&size=${pageSize}&keyword=${keyword}&sortBy=id&sortDir=desc`,
-      providesTags: ["Product"],
-      keepUnusedDataFor: 5555,
+      providesTags: (result, error, arg) => [
+        { type: "Product", id: "LIST" },
+        {
+          type: "Product",
+          id: `LIST-${arg.page}-${arg.pageSize}-${arg.keyword}`,
+        },
+      ],
+      keepUnusedDataFor: 600, // Keep cache for 10 minutes
     }),
     getProductCount: builder.query({
       query: () => `${productBaseUrl}/count`,
-      providesTags: ["Product"],
+      providesTags: [{ type: "Product", id: "COUNT" }],
       transformResponse: transformResponse,
-      keepUnusedDataFor: 5555,
+      keepUnusedDataFor: 600, // Keep cache for 10 minutes
     }),
     createProduct: builder.mutation({
       query: (product) => ({
@@ -32,7 +38,10 @@ export const productApi = createApi({
         method: "POST",
         body: product,
       }),
-      invalidatesTags: ["Product"],
+      invalidatesTags: [
+        { type: "Product", id: "LIST" },
+        { type: "Product", id: "COUNT" },
+      ],
     }),
     updateProduct: builder.mutation({
       query: (product) => ({
@@ -40,14 +49,20 @@ export const productApi = createApi({
         method: "PUT",
         body: product,
       }),
-      invalidatesTags: ["Product"],
+      invalidatesTags: [
+        { type: "Product", id: "LIST" },
+        { type: "Product", id: "COUNT" },
+      ],
     }),
     deleteProduct: builder.mutation({
       query: (sku) => ({
         url: `${productBaseUrl}/${sku}`,
         method: "DELETE",
       }),
-      invalidatesTags: ["Product"],
+      invalidatesTags: [
+        { type: "Product", id: "LIST" },
+        { type: "Product", id: "COUNT" },
+      ],
     }),
   }),
 });

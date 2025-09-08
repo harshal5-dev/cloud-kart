@@ -7,9 +7,9 @@ spring:
         jwt:
           jwk-set-uri: http://localhost:7080/realms/ecommerce/protocol/openid-connect/certs
   datasource:
-    url: jdbc:postgresql://localhost:5545/cloudkart_users_db
-    username: root
-    password: 12345
+    url: jdbc:postgresql://34.121.72.112:5432/cloudkart_users_db
+    username: postgres
+    password: Bounty321!@#
   jpa:
     hibernate:
       ddl-auto: update

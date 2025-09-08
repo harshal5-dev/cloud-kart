@@ -581,8 +581,6 @@ const AppLayout = () => {
             style={{
               cursor: item?.disabled ? "not-allowed" : "pointer",
               opacity: item?.disabled ? 0.6 : 1,
-              margin: "2px 0",
-              borderRadius: "6px",
               transition: "all 0.2s ease",
             }}
           >

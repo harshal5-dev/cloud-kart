@@ -47,7 +47,7 @@ const BrowseProduct = ({
   const [imageDrawerOpen, setImageDrawerOpen] = useState(false);
   const [product, setProduct] = useState(null);
 
-  const { isLoading, data, isError } = productResponse;
+  const { isLoading, data, isError, isFetching } = productResponse;
   const { totalElements, content } = data || {};
 
   const handleSearch = (value) => {
@@ -55,14 +55,12 @@ const BrowseProduct = ({
 
     if (trimmedValue !== "") {
       setSearchTerm(trimmedValue);
-      setCurrentPage(1);
     }
   };
 
   const handleOnClear = () => {
     setSearchText("");
     setSearchTerm("");
-    setCurrentPage(1);
   };
 
   const handleEditImages = (record) => {
@@ -320,7 +318,7 @@ const BrowseProduct = ({
               onChange={(e) => setSearchText(e.target.value)}
               style={{ width: 240 }}
               allowClear
-              loading={isLoading}
+              loading={isLoading || isFetching}
               onSearch={handleSearch}
               onClear={handleOnClear}
               enterButton
@@ -330,7 +328,7 @@ const BrowseProduct = ({
         <Table
           columns={columns}
           dataSource={content}
-          loading={isLoading}
+          loading={isLoading || isFetching}
           rowKey={(record) => record.sku}
           scroll={{ x: 800 }}
           size="small"
@@ -340,7 +338,7 @@ const BrowseProduct = ({
             total: totalElements,
             showTotal: (total, range) =>
               `${range[0]}-${range[1]} of ${total} products`,
-            current: (data?.currentPage || 0) + 1,
+            current: (data?.currentPage ?? 0) + 1,
             pageSizeOptions: ["5"],
             showSizeChanger: true,
             size: "default",

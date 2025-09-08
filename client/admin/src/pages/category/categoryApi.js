@@ -11,19 +11,22 @@ export const categoryApi = createApi({
 
   refetchOnMountOrArgChange: false,
   refetchOnFocus: false,
-  refetchOnReconnect: true,
+  refetchOnReconnect: false,
+  // Keep cache longer for categories since they don't change frequently
+  keepUnusedDataFor: 900, // 15 minutes
   endpoints: (builder) => ({
+    // Fetches all categories at once (no server-side pagination)
     getCategories: builder.query({
       query: () => categoryBaseUrl,
-      providesTags: ["Category"],
+      providesTags: [{ type: "Category", id: "LIST" }],
       transformResponse: transformResponse,
-      keepUnusedDataFor: 5555,
+      keepUnusedDataFor: 900, // Keep cache for 15 minutes (longer since no pagination)
     }),
     getCategoryCount: builder.query({
       query: () => `${categoryBaseUrl}/count`,
-      providesTags: ["Category"],
+      providesTags: [{ type: "Category", id: "COUNT" }],
       transformResponse: transformResponse,
-      keepUnusedDataFor: 5555,
+      keepUnusedDataFor: 900, // Keep cache for 15 minutes (longer since no pagination)
     }),
     createCategory: builder.mutation({
       query: (category) => ({
@@ -31,7 +34,10 @@ export const categoryApi = createApi({
         method: "POST",
         body: category,
       }),
-      invalidatesTags: ["Category"],
+      invalidatesTags: [
+        { type: "Category", id: "LIST" },
+        { type: "Category", id: "COUNT" },
+      ],
     }),
     updateCategory: builder.mutation({
       query: (category) => ({
@@ -39,14 +45,20 @@ export const categoryApi = createApi({
         method: "PUT",
         body: category,
       }),
-      invalidatesTags: ["Category"],
+      invalidatesTags: [
+        { type: "Category", id: "LIST" },
+        { type: "Category", id: "COUNT" },
+      ],
     }),
     deleteCategory: builder.mutation({
       query: (slug) => ({
         url: `${categoryBaseUrl}/${slug}`,
         method: "DELETE",
       }),
-      invalidatesTags: ["Category"],
+      invalidatesTags: [
+        { type: "Category", id: "LIST" },
+        { type: "Category", id: "COUNT" },
+      ],
     }),
   }),
 });

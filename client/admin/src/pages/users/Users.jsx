@@ -15,12 +15,21 @@ const pageSize = 5;
 const Users = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
+
+  // Custom function to handle search term change and reset page
+  const handleSearchTermChange = (newSearchTerm) => {
+    setSearchTerm(newSearchTerm);
+    if (currentPage !== 1) {
+      setCurrentPage(1);
+    }
+  };
+
   const usersResponse = useGetUsersQuery({
     page: currentPage,
     pageSize,
     searchTerm,
   });
-  const { refetch, isLoading } = usersResponse;
+  const { refetch, isLoading, isFetching } = usersResponse;
 
   return (
     <Space direction="vertical" size="large" style={{ width: "100%" }}>
@@ -86,7 +95,7 @@ const Users = () => {
                 border: `1px solid ${cssVariables.whiteTransparent40}`,
                 color: cssVariables.colorWhite,
               }}
-              loading={isLoading}
+              loading={isLoading || isFetching}
             >
               Refresh
             </Button>
@@ -100,7 +109,7 @@ const Users = () => {
         usersResponse={usersResponse}
         pageSize={pageSize}
         setCurrentPage={setCurrentPage}
-        setSearchTerm={setSearchTerm}
+        setSearchTerm={handleSearchTermChange}
       />
     </Space>
   );

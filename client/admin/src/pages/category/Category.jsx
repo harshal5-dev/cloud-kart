@@ -12,7 +12,7 @@ const { Title, Text } = Typography;
 
 const Category = () => {
   const categoryResponse = useGetCategoriesQuery();
-  const { refetch, isLoading } = categoryResponse;
+  const { refetch, isLoading, isFetching } = categoryResponse;
 
   return (
     <Space direction="vertical" size="large" style={{ width: "100%" }}>
@@ -78,7 +78,7 @@ const Category = () => {
                 border: `1px solid ${cssVariables.whiteTransparent40}`,
                 color: cssVariables.colorWhite,
               }}
-              loading={isLoading}
+              loading={isLoading || isFetching}
             >
               Refresh
             </Button>

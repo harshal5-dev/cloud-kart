@@ -43,21 +43,19 @@ const BrowseUsers = ({
 }) => {
   const [searchText, setSearchText] = useState("");
 
-  const { isLoading, data, isError } = usersResponse;
+  const { isLoading, data, isError, isFetching } = usersResponse;
   const { totalElements, content } = data || {};
 
   const handleSearch = (value) => {
     const trimmedValue = value.trim();
     if (trimmedValue !== "") {
       setSearchTerm(trimmedValue);
-      setCurrentPage(1);
     }
   };
 
   const handleOnClear = () => {
     setSearchText("");
     setSearchTerm("");
-    setCurrentPage(1);
   };
 
   const columns = [
@@ -298,7 +296,7 @@ const BrowseUsers = ({
               onChange={(e) => setSearchText(e.target.value)}
               style={{ width: 240 }}
               allowClear
-              loading={isLoading}
+              loading={isLoading || isFetching}
               onSearch={handleSearch}
               onClear={handleOnClear}
               enterButton
@@ -308,7 +306,7 @@ const BrowseUsers = ({
         <Table
           columns={columns}
           dataSource={content}
-          loading={isLoading}
+          loading={isLoading || isFetching}
           rowKey={(record) => record.id}
           scroll={{ x: 800 }}
           size="small"
