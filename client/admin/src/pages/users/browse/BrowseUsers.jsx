@@ -53,6 +53,14 @@ const BrowseUsers = ({
     }
   };
 
+  const handleOnChange = (e) => {
+    setSearchText(e.target.value);
+
+    if (e.target.value.trim() === "") {
+      setSearchTerm("");
+    }
+  };
+
   const handleOnClear = () => {
     setSearchText("");
     setSearchTerm("");
@@ -293,7 +301,7 @@ const BrowseUsers = ({
             <Search
               placeholder="Search users..."
               value={searchText}
-              onChange={(e) => setSearchText(e.target.value)}
+              onChange={handleOnChange}
               style={{ width: 240 }}
               allowClear
               loading={isLoading || isFetching}

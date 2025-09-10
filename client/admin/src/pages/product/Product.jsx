@@ -31,9 +31,6 @@ const Product = () => {
   });
   const { refetch, isLoading, isFetching } = productResponse;
 
-  console.log("Product Loading: ", isLoading);
-  console.log("Product Fetching: ", isFetching);
-
   return (
     <Space direction="vertical" size="large" style={{ width: "100%" }}>
       {/* Header Card */}

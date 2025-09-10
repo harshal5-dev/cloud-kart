@@ -63,6 +63,14 @@ const BrowseProduct = ({
     setSearchTerm("");
   };
 
+  const handleOnChange = (e) => {
+    setSearchText(e.target.value);
+
+    if (e.target.value.trim() === "") {
+      setSearchTerm("");
+    }
+  };
+
   const handleEditImages = (record) => {
     setImageDrawerOpen(true);
     setProduct(record);
@@ -315,7 +323,7 @@ const BrowseProduct = ({
             <Search
               placeholder="Search products..."
               value={searchText}
-              onChange={(e) => setSearchText(e.target.value)}
+              onChange={handleOnChange}
               style={{ width: 240 }}
               allowClear
               loading={isLoading || isFetching}
