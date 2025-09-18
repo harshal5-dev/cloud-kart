@@ -4,9 +4,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.5.3</version>
+		<groupId>com.cloudkart</groupId>
+		<artifactId>bom</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../bom/pom.xml</relativePath>
 	</parent>
 	<groupId>com.cloudkart</groupId>
 	<artifactId>config-server</artifactId>
@@ -14,79 +15,20 @@
 	<name>config-server</name>
 	<packaging>jar</packaging>
 	<description>Centralized Configuration Management Server for Cloud Kart Microservices</description>
-	<url>https://github.com/harshal5-dev/cloud-kart</url>
 
-	<!-- Developer Information -->
-	<developers>
-		<developer>
-			<id>harshal5-dev</id>
-			<name>Harshal</name>
-			<email>harshalganbote55@gmail.com</email>
-			<url>https://github.com/harshal5-dev</url>
-			<roles>
-				<role>Lead Developer</role>
-			</roles>
-		</developer>
-	</developers>
-
-	<!-- SCM Information -->
-	<scm>
-		<connection>scm:git:git://github.com/harshal5-dev/cloud-kart.git</connection>
-		<developerConnection>scm:git:ssh://github.com:harshal5-dev/cloud-kart.git</developerConnection>
-		<url>https://github.com/harshal5-dev/cloud-kart/tree/main</url>
-	</scm>
-
-	<properties>
-		<java.version>21</java.version>
-		<spring-cloud.version>2025.0.0</spring-cloud.version>
-
-		<!-- Docker -->
-		<jib-maven-plugin.version>3.4.6</jib-maven-plugin.version>
-
-		<!-- Docker Registry Configuration -->
-		<app.prefix>ck</app.prefix>
-		<docker.username>harshaldev55</docker.username>
-		<docker.tag.strategy>v1</docker.tag.strategy>
-	</properties>
 	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-config-server</artifactId>
 		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
 	</dependencies>
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>org.springframework.cloud</groupId>
-				<artifactId>spring-cloud-dependencies</artifactId>
-				<version>${spring-cloud.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
 
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-
-			<plugin>
 				<groupId>com.google.cloud.tools</groupId>
 				<artifactId>jib-maven-plugin</artifactId>
-				<version>3.4.5</version>
+				<version>${jib.version}</version>
 				<configuration>
 					<container>
 						<creationTime>USE_CURRENT_TIMESTAMP</creationTime>
@@ -104,7 +46,7 @@
 						</platforms>
 					</from>
 					<to>
-						<image>${docker.username}/${app.prefix}-${project.artifactId}:${docker.tag.strategy}</image>
+						<image>${docker.username}/${app.prefix}-${project.artifactId}:${image.tag}</image>
 					</to>
 					<allowInsecureRegistries>false</allowInsecureRegistries>
 					<skip>false</skip>
