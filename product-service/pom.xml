@@ -16,26 +16,6 @@
 	<description>Product Service for Cloud Kart - a microservice handling product management, built with Spring Boot and Spring Cloud.</description>
 	<url>https://github.com/harshal5-dev/cloud-kart</url>
 
-	<!-- Developer Information -->
-	<developers>
-		<developer>
-			<id>harshal5-dev</id>
-			<name>Harshal</name>
-			<email>harshalganbote55@gmail.com</email>
-			<url>https://github.com/harshal5-dev</url>
-			<roles>
-				<role>Lead Developer</role>
-			</roles>
-		</developer>
-	</developers>
-
-	<!-- SCM Information -->
-	<scm>
-		<connection>scm:git:git://github.com/harshal5-dev/cloud-kart.git</connection>
-		<developerConnection>scm:git:ssh://github.com:harshal5-dev/cloud-kart.git</developerConnection>
-		<url>https://github.com/harshal5-dev/cloud-kart/tree/main</url>
-	</scm>
-
 	<properties>
 		<java.version>21</java.version>
 		<spring-cloud.version>2025.0.0</spring-cloud.version>
