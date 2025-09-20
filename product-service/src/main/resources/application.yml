@@ -1,12 +1,7 @@
 spring:
   application:
     name: product-service
-  datasource:
-    url: jdbc:postgresql://34.121.72.112:5432/products_db
-    username: postgres
-    password: Bounty321!@#
-  jpa:
-    hibernate:
-      ddl-auto: update
+  profiles:
+    active: prod
   config:
     import: optional:configserver:http://localhost:5555/

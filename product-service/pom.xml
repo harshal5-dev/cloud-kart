@@ -4,9 +4,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.5.3</version>
+		<groupId>com.cloudkart</groupId>
+		<artifactId>bom</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../bom/pom.xml</relativePath>
 	</parent>
 	<groupId>com.cloudkart</groupId>
 	<artifactId>product-service</artifactId>
@@ -14,25 +15,8 @@
 	<name>product-service</name>
 	<packaging>jar</packaging>
 	<description>Product Service for Cloud Kart - a microservice handling product management, built with Spring Boot and Spring Cloud.</description>
-	<url>https://github.com/harshal5-dev/cloud-kart</url>
 
-	<properties>
-		<java.version>21</java.version>
-		<spring-cloud.version>2025.0.0</spring-cloud.version>
-
-		<!-- Docker -->
-		<jib-maven-plugin.version>3.4.6</jib-maven-plugin.version>
-
-		<!-- Docker Registry Configuration -->
-		<app.prefix>ck</app.prefix>
-		<docker.username>harshaldev55</docker.username>
-		<docker.tag.strategy>v1</docker.tag.strategy>
-	</properties>
 	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -56,7 +40,7 @@
 		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-			<version>2.8.8</version>
+			<version>${spring-doc.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -72,57 +56,18 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
 			<optional>true</optional>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
 	</dependencies>
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>org.springframework.cloud</groupId>
-				<artifactId>spring-cloud-dependencies</artifactId>
-				<version>${spring-cloud.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
 
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<annotationProcessorPaths>
-						<path>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-						</path>
-					</annotationProcessorPaths>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<excludes>
-						<exclude>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-						</exclude>
-					</excludes>
-				</configuration>
-			</plugin>
 
 			<plugin>
 				<groupId>com.google.cloud.tools</groupId>
 				<artifactId>jib-maven-plugin</artifactId>
-				<version>3.4.5</version>
+				<version>${jib.version}</version>
 				<configuration>
 					<container>
 						<creationTime>USE_CURRENT_TIMESTAMP</creationTime>
@@ -140,7 +85,7 @@
 						</platforms>
 					</from>
 					<to>
-						<image>${docker.username}/${app.prefix}-${project.artifactId}:${docker.tag.strategy}</image>
+						<image>${docker.username}/${app.prefix}-${project.artifactId}:${image.tag}</image>
 					</to>
 					<allowInsecureRegistries>false</allowInsecureRegistries>
 					<skip>false</skip>

@@ -4,58 +4,18 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.5.3</version>
-		<relativePath /> <!-- lookup parent from repository -->
+		<groupId>com.cloudkart</groupId>
+		<artifactId>bom</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../bom/pom.xml</relativePath>
 	</parent>
 	<groupId>com.cloudkart</groupId>
 	<artifactId>api-gateway</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>api-gateway</name>
 	<description>API Gateway for Cloud Kart microservices architecture. Routes and secures requests to backend services, provides centralized authentication, and supports service discovery and documentation.</description>
-	<url>https://github.com/harshal5-dev/cloud-kart</url>
 
-	<!-- Developer Information -->
-	<developers>
-		<developer>
-			<id>harshal5-dev</id>
-			<name>Harshal</name>
-			<email>harshalganbote55@gmail.com</email>
-			<url>https://github.com/harshal5-dev</url>
-			<roles>
-				<role>Lead Developer</role>
-			</roles>
-		</developer>
-	</developers>
-
-	<!-- SCM Information -->
-	<scm>
-		<connection>scm:git:git://github.com/harshal5-dev/cloud-kart.git</connection>
-		<developerConnection>scm:git:ssh://github.com:harshal5-dev/cloud-kart.git</developerConnection>
-		<url>https://github.com/harshal5-dev/cloud-kart/tree/main</url>
-	</scm>
-	<properties>
-		<java.version>21</java.version>
-		<spring-cloud.version>2025.0.0</spring-cloud.version>
-
-		<!-- Docker -->
-		<jib-maven-plugin.version>3.4.6</jib-maven-plugin.version>
-
-		<!-- Docker Registry Configuration -->
-		<app.prefix>ck</app.prefix>
-		<docker.username>harshaldev55</docker.username>
-		<docker.tag.strategy>v1</docker.tag.strategy>
-	</properties>
 	<dependencies>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-loadbalancer</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
@@ -71,7 +31,7 @@
 		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-starter-webflux-ui</artifactId>
-			<version>2.8.8</version>
+			<version>${spring-doc.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
@@ -81,17 +41,11 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
 			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>io.projectreactor</groupId>
@@ -104,25 +58,9 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>org.springframework.cloud</groupId>
-				<artifactId>spring-cloud-dependencies</artifactId>
-				<version>${spring-cloud.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
 
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-
 			<plugin>
 				<groupId>com.google.cloud.tools</groupId>
 				<artifactId>jib-maven-plugin</artifactId>
@@ -144,7 +82,7 @@
 						</platforms>
 					</from>
 					<to>
-						<image>${docker.username}/${app.prefix}-${project.artifactId}:${docker.tag.strategy}</image>
+						<image>${docker.username}/${app.prefix}-${project.artifactId}:${image.tag}</image>
 					</to>
 					<allowInsecureRegistries>false</allowInsecureRegistries>
 					<skip>false</skip>

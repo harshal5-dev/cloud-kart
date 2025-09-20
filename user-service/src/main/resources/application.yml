@@ -1,17 +1,7 @@
 spring:
   application:
     name: user-service
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          jwk-set-uri: http://localhost:7080/realms/ecommerce/protocol/openid-connect/certs
-  datasource:
-    url: jdbc:postgresql://34.121.72.112:5432/cloudkart_users_db
-    username: postgres
-    password: Bounty321!@#
-  jpa:
-    hibernate:
-      ddl-auto: update
+  profiles:
+    active: prod
   config:
     import: optional:configserver:http://localhost:5555/
