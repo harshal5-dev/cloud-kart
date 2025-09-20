@@ -46,6 +46,10 @@ import { FaUserCircle } from "react-icons/fa";
 import SearchProduct from "./searchProduct/SearchProduct";
 import HeaderCart from "../HeaderCart";
 import { cssVariables } from "../../config/themeConfig";
+import {
+  initializeLogoTheme,
+  injectLogoStyles,
+} from "../../utils/logoThemeAdapter";
 
 const { Footer } = Layout;
 const { Title, Text } = Typography;
@@ -383,6 +387,17 @@ const AppLayout = () => {
       onClick: handleLogout,
     },
   ];
+
+  // Set CSS variables for theme-adaptive logo
+  useEffect(() => {
+    const cleanupTheme = initializeLogoTheme(cssVariables);
+    const cleanupStyles = injectLogoStyles();
+
+    return () => {
+      cleanupTheme();
+      cleanupStyles();
+    };
+  }, []);
 
   useEffect(() => {
     if (location.pathname !== "#") {
