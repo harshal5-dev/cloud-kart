@@ -30,8 +30,7 @@ public class AddressService implements IAddressService {
    */
   @Override
   public List<AddressDto> getAddressByUserId(Long userId) {
-    List<Address> addresses = addressRepository.findByUser_Id(userId);
-    addresses.sort((a1, a2) -> Boolean.compare(a2.getIsDefault(), a1.getIsDefault()));
+    List<Address> addresses = addressRepository.findByUserId(userId);
     return addresses.stream().map(AddressMapper::toAddressDto).toList();
   }
 
@@ -55,7 +54,7 @@ public class AddressService implements IAddressService {
    */
   @Override
   public long countUserAddresses(Long userId) {
-    return addressRepository.countByUser_Id(userId);
+    return addressRepository.countByUserId(userId);
   }
 
   /**
@@ -70,7 +69,7 @@ public class AddressService implements IAddressService {
 
     User user = userService.getUserById(addressReqDto.getUserId());
 
-    long addressCount = addressRepository.countByUser_Id(user.getId());
+    long addressCount = addressRepository.countByUserId(user.getId());
     if (addressCount > AddressConstants.MAX_ADDRESS_COUNT) {
       throw new MaxAddressCountException(AddressConstants.MAX_ADDRESS_MSS);
     }
@@ -116,18 +115,14 @@ public class AddressService implements IAddressService {
   public void deleteAddress(Long id, Long userId) {
     addressRepository.findById(id)
         .orElseThrow(() -> new ResourceNotFoundException("Address", "id", id.toString()));
-    addressRepository.deleteByIdAndUser_Id(id, userId);
+    addressRepository.deleteByIdAndUserId(id, userId);
   }
 
   private void updateIsDefault(boolean isDefault, Long id, Long userId) {
     if (isDefault) {
-      List<Address> addresses = addressRepository.findByUser_IdAndIsDefault(userId, true);
-      for (Address address : addresses) {
-        if (!address.getId().equals(id)) {
-          address.setIsDefault(false);
-          addressRepository.save(address);
-        }
-      }
+      // Reset all default addresses for the user and set the new one as default
+      addressRepository.resetDefaultAddressForUser(userId);
+      addressRepository.setAsDefaultAddress(id, userId);
     }
   }
 }
