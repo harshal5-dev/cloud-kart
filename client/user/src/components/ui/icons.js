@@ -1,0 +1,22 @@
+// Common icons used throughout the application
+export {
+  ShoppingCart,
+  Search,
+  Menu,
+  User,
+  Heart,
+  MapPin,
+  Facebook,
+  Twitter,
+  Instagram,
+  Youtube,
+  Mail,
+  Phone,
+  CreditCard,
+  Shield,
+  Truck,
+  Star,
+  ArrowRight,
+  Zap,
+  HeadphonesIcon as Headphones,
+} from "lucide-react";
