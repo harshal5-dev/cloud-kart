@@ -1,6 +1,5 @@
 package com.cloudkart.product_service.dto;
 
-import java.util.UUID;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -12,9 +11,8 @@ import lombok.Setter;
 @Schema(name = "Product Image", description = "Schema to hold Product Image information")
 public class ProductImageDto {
 
-  @Schema(description = "Unique identifier for the product image",
-      example = "123e4567-e89b-12d3-a456-426614174000")
-  private UUID id;
+  @Schema(description = "Unique identifier for the product image", example = "12345")
+  private Long id;
 
   @Schema(description = "Product image name in Cloud kart shop",
       example = "apple-iphone-14-pro-max-front.jpg")

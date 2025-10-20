@@ -1,6 +1,5 @@
 package com.cloudkart.product_service.controller.v1;
 
-import java.util.UUID;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -45,7 +44,7 @@ public class ProductReviewController {
   @PostMapping
   public ResponseEntity<ResponseDto<String>> submitReview(
       @Valid @RequestBody ProductReviewCreateDto reviewDto) {
-    UUID reviewId = productReviewService.submitReview(reviewDto);
+    Long reviewId = productReviewService.submitReview(reviewDto);
     ResponseDto<String> responseDto = new ResponseDto<>(HttpStatus.CREATED, reviewId.toString(),
         "Review submitted successfully and is pending approval");
     return ResponseEntity.status(HttpStatus.CREATED).body(responseDto);

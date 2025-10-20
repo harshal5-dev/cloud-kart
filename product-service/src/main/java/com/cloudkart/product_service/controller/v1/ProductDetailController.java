@@ -1,7 +1,6 @@
 package com.cloudkart.product_service.controller.v1;
 
 import java.util.List;
-import java.util.UUID;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -40,7 +39,7 @@ public class ProductDetailController {
       @ApiResponse(responseCode = "500", description = "HTTP Status Internal Server Error",
           content = @Content(schema = @Schema(implementation = ErrorResponseDto.class)))})
   @GetMapping("/{productId}/details")
-  public ResponseEntity<ProductDetailResponseDto> getProductDetails(@PathVariable UUID productId) {
+  public ResponseEntity<ProductDetailResponseDto> getProductDetails(@PathVariable Long productId) {
     ProductDetailResponseDto productDetails = productDetailService.getProductDetails(productId);
     return ResponseEntity.ok(productDetails);
   }
@@ -54,7 +53,7 @@ public class ProductDetailController {
       @ApiResponse(responseCode = "500", description = "HTTP Status Internal Server Error",
           content = @Content(schema = @Schema(implementation = ErrorResponseDto.class)))})
   @GetMapping("/{productId}/reviews")
-  public ResponseEntity<List<ProductReviewDto>> getProductReviews(@PathVariable UUID productId) {
+  public ResponseEntity<List<ProductReviewDto>> getProductReviews(@PathVariable Long productId) {
     List<ProductReviewDto> reviews = productDetailService.getProductReviews(productId);
     return ResponseEntity.ok(reviews);
   }
@@ -68,7 +67,7 @@ public class ProductDetailController {
       @ApiResponse(responseCode = "500", description = "HTTP Status Internal Server Error",
           content = @Content(schema = @Schema(implementation = ErrorResponseDto.class)))})
   @GetMapping("/{productId}/images")
-  public ResponseEntity<List<String>> getProductImages(@PathVariable UUID productId) {
+  public ResponseEntity<List<String>> getProductImages(@PathVariable Long productId) {
     List<String> images = productDetailService.getProductImages(productId);
     return ResponseEntity.ok(images);
   }

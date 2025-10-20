@@ -2,7 +2,6 @@ package com.cloudkart.product_service.mapper;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.UUID;
 import java.util.stream.Collectors;
 import com.cloudkart.product_service.dto.ProductDetailResponseDto;
 import com.cloudkart.product_service.dto.ProductDimensionsDto;
@@ -16,7 +15,7 @@ public final class ProductDetailMapper {
     ProductDetailResponseDto dto = new ProductDetailResponseDto();
 
     // Map basic product data
-    dto.setId((UUID) productData[0]);
+    dto.setId((Long) productData[0]);
     dto.setTitle((String) productData[1]);
     dto.setDescription((String) productData[2]);
     dto.setCategory((String) productData[3]);

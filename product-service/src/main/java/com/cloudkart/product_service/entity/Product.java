@@ -8,6 +8,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.Index;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
@@ -18,7 +19,10 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "product")
+@Table(name = "product",
+    indexes = {@Index(name = "idx_product_title", columnList = "title"),
+        @Index(name = "idx_product_category", columnList = "category_id"),
+        @Index(name = "idx_product_brand", columnList = "brand")})
 public class Product extends BaseModel {
 
   // Basic Product Information

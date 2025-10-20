@@ -2,7 +2,6 @@ package com.cloudkart.product_service.service;
 
 
 import java.util.List;
-import java.util.UUID;
 import com.cloudkart.product_service.dto.ProductImageDto;
 
 public interface IProductImageService {
@@ -32,7 +31,7 @@ public interface IProductImageService {
    * @param productImageDto the updated product image data
    * @return the updated product image
    */
-  ProductImageDto updateProductImage(String sku, UUID id, ProductImageDto productImageDto);
+  ProductImageDto updateProductImage(String sku, Long id, ProductImageDto productImageDto);
 
   /**
    * Deletes a product image by its ID.
@@ -40,7 +39,7 @@ public interface IProductImageService {
    * @param sku the SKU of the product to which the image belongs
    * @param id the ID of the product image to delete
    */
-  void deleteProductImage(String sku, UUID id);
+  void deleteProductImage(String sku, Long id);
 
   /**
    * Creates sample product images based on the provided CreateDataDto.

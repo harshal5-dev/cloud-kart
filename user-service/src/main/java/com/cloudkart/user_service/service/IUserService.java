@@ -1,6 +1,5 @@
 package com.cloudkart.user_service.service;
 
-import java.util.UUID;
 import org.springframework.data.domain.Pageable;
 import com.cloudkart.user_service.dto.PagedResDto;
 import com.cloudkart.user_service.dto.UpdateUserDto;
@@ -41,17 +40,17 @@ public interface IUserService {
   UserDto updateUser(String keycloakId, UpdateUserDto updateUserDto);
 
   /**
-   * Retrieves a user by their UUID.
+   * Retrieves a user by their ID.
    *
-   * @param userId the UUID of the user
-   * @return the User object corresponding to the provided UUID
+   * @param userId the ID of the user
+   * @return the User object corresponding to the provided ID
    */
-  User getUserById(UUID userId);
+  User getUserById(Long userId);
 
   /**
-   * Deletes a user by their UUID.
+   * Deletes a user by their ID.
    *
-   * @param userId the UUID of the user to delete
+   * @param userId the ID of the user to delete
    */
   void deleteUserById(String userId);
 }

@@ -1,7 +1,6 @@
 package com.cloudkart.user_service.dto;
 
 import java.util.Set;
-import java.util.UUID;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,11 +10,10 @@ import lombok.Setter;
 @Schema(name = "UserDto", description = "Schema to represent user details in the system")
 public class UserDto {
 
-  @Schema(description = "Unique identifier for the user",
-      example = "123e4567-e89b-12d3-a456-426614174000")
-  private UUID id;
+  @Schema(description = "Unique identifier for the user", example = "12345")
+  private Long id;
 
-  @Schema(description = "Keycloak ID of the user", example = "123e4567-e89b-12d3-a456-426614174001")
+  @Schema(description = "Keycloak ID of the user", example = "12346789-89ab-cdef-0123-456789abcdef")
   private String keycloakId;
 
   @Schema(description = "Username of the user", example = "johndoe")

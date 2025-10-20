@@ -1,10 +1,6 @@
 package com.cloudkart.user_service.service.impl;
 
-import java.util.UUID;
 import java.util.stream.Collectors;
-
-import com.cloudkart.user_service.entity.Status;
-import com.cloudkart.user_service.entity.UserRole;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
@@ -14,7 +10,9 @@ import com.cloudkart.user_service.dto.PagedResDto;
 import com.cloudkart.user_service.dto.UpdateUserDto;
 import com.cloudkart.user_service.dto.UserDto;
 import com.cloudkart.user_service.dto.UserSearchCriteria;
+import com.cloudkart.user_service.entity.Status;
 import com.cloudkart.user_service.entity.User;
+import com.cloudkart.user_service.entity.UserRole;
 import com.cloudkart.user_service.exception.ResourceNotFoundException;
 import com.cloudkart.user_service.exception.UserAlreadyExistsException;
 import com.cloudkart.user_service.mapper.CommonMapper;
@@ -105,10 +103,10 @@ public class UserService implements IUserService {
   @Override
   public UserDto updateUser(String keycloakId, UpdateUserDto updateUserDto) {
     User user = userRepository.findByKeycloakId(keycloakId)
-            .orElseThrow(() -> new ResourceNotFoundException("User", "id", keycloakId));
+        .orElseThrow(() -> new ResourceNotFoundException("User", "id", keycloakId));
 
     if (userRepository.existsByPhoneNumberAndKeycloakIdNot(updateUserDto.getPhoneNumber(),
-            keycloakId)) {
+        keycloakId)) {
       throw new UserAlreadyExistsException("User with the same phone number already exists.");
     }
 
@@ -116,7 +114,7 @@ public class UserService implements IUserService {
 
     UserMapper.toUser(user, updateUserDto);
     user.setUserRoles(
-            updateUserDto.getRoles().stream().map(UserRole::valueOf).collect(Collectors.toSet()));
+        updateUserDto.getRoles().stream().map(UserRole::valueOf).collect(Collectors.toSet()));
     user.setStatus(Status.valueOf(updateUserDto.getStatus().toUpperCase()));
 
     User updatedUser = userRepository.save(user);
@@ -131,7 +129,7 @@ public class UserService implements IUserService {
    * @return the User object corresponding to the provided UUID
    */
   @Override
-  public User getUserById(UUID userId) {
+  public User getUserById(Long userId) {
     return userRepository.findById(userId)
         .orElseThrow(() -> new ResourceNotFoundException("User", "id", userId.toString()));
   }

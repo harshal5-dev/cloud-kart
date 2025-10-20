@@ -1,7 +1,6 @@
 package com.cloudkart.user_service.entity;
 
 import java.time.LocalDateTime;
-import java.util.UUID;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -25,7 +24,7 @@ public abstract class BaseEntity {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   @Column(name = "id", updatable = false, nullable = false)
-  private UUID id;
+  private Long id;
 
 
   @Column(name = "status", nullable = false)

@@ -1,7 +1,6 @@
 package com.cloudkart.user_service.service.impl;
 
 import java.util.List;
-import java.util.UUID;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.cloudkart.user_service.constants.AddressConstants;
@@ -26,11 +25,11 @@ public class AddressService implements IAddressService {
   /**
    * Retrieves a list of addresses associated with a specific user.
    *
-   * @param userId the UUID of the user whose addresses are to be retrieved
+   * @param userId the ID of the user whose addresses are to be retrieved
    * @return a list of AddressDto objects representing the user's addresses
    */
   @Override
-  public List<AddressDto> getAddressByUserId(UUID userId) {
+  public List<AddressDto> getAddressByUserId(Long userId) {
     List<Address> addresses = addressRepository.findByUser_Id(userId);
     addresses.sort((a1, a2) -> Boolean.compare(a2.getIsDefault(), a1.getIsDefault()));
     return addresses.stream().map(AddressMapper::toAddressDto).toList();
@@ -39,11 +38,11 @@ public class AddressService implements IAddressService {
   /**
    * Retrieves the default address for a specific user.
    *
-   * @param userId the UUID of the user whose default address is to be retrieved
+   * @param userId the ID of the user whose default address is to be retrieved
    * @return an AddressDto object representing the user's default address
    */
   @Override
-  public AddressDto getDefaultUserAddress(UUID userId) {
+  public AddressDto getDefaultUserAddress(Long userId) {
     return addressRepository.findDefaultAddressByUserId(userId).map(AddressMapper::toAddressDto)
         .orElse(null);
   }
@@ -51,11 +50,11 @@ public class AddressService implements IAddressService {
   /**
    * Counts the number of addresses associated with a specific user.
    *
-   * @param userId the UUID of the user whose addresses are to be counted
+   * @param userId the ID of the user whose addresses are to be counted
    * @return the count of addresses associated with the user
    */
   @Override
-  public long countUserAddresses(UUID userId) {
+  public long countUserAddresses(Long userId) {
     return addressRepository.countByUser_Id(userId);
   }
 
@@ -87,13 +86,13 @@ public class AddressService implements IAddressService {
   /**
    * Updates an existing address for a user.
    *
-   * @param id the UUID of the address to be updated
+   * @param id the ID of the address to be updated
    * @param addressReqDto the AddressReqDto containing the updated details of the address
    * @return an AddressDto object representing the updated address
    */
   @Transactional
   @Override
-  public AddressDto updateAddress(UUID id, AddressReqDto addressReqDto) {
+  public AddressDto updateAddress(Long id, AddressReqDto addressReqDto) {
     Address address = addressRepository.findById(id)
         .orElseThrow(() -> new ResourceNotFoundException("Address", "id", id.toString()));
 
@@ -109,18 +108,18 @@ public class AddressService implements IAddressService {
   /**
    * Deletes an address for a user.
    *
-   * @param id the UUID of the address to be deleted
-   * @param userId the UUID of the user associated with the address
+   * @param id the ID of the address to be deleted
+   * @param userId the ID of the user associated with the address
    */
   @Transactional
   @Override
-  public void deleteAddress(UUID id, UUID userId) {
+  public void deleteAddress(Long id, Long userId) {
     addressRepository.findById(id)
         .orElseThrow(() -> new ResourceNotFoundException("Address", "id", id.toString()));
     addressRepository.deleteByIdAndUser_Id(id, userId);
   }
 
-  private void updateIsDefault(boolean isDefault, UUID id, UUID userId) {
+  private void updateIsDefault(boolean isDefault, Long id, Long userId) {
     if (isDefault) {
       List<Address> addresses = addressRepository.findByUser_IdAndIsDefault(userId, true);
       for (Address address : addresses) {

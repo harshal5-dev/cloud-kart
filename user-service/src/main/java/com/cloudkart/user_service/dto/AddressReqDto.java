@@ -1,6 +1,5 @@
 package com.cloudkart.user_service.dto;
 
-import java.util.UUID;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
@@ -14,8 +13,8 @@ import lombok.Setter;
 public class AddressReqDto {
 
   @Schema(description = "Unique identifier for the user associated with this address",
-      example = "123e4567-e89b-12d3-a456-426614174001")
-  private UUID userId;
+      example = "12345")
+  private Long userId;
 
   @Schema(description = "Type of address, e.g., HOME, OFFICE, BILLING, SHIPPING", example = "HOME",
       allowableValues = "HOME, OFFICE, BILLING, SHIPPING")

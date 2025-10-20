@@ -1,6 +1,5 @@
 package com.cloudkart.product_service.dto;
 
-import java.util.UUID;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Max;
@@ -16,9 +15,9 @@ import lombok.Setter;
 @Schema(name = "ProductReviewCreate", description = "Schema to create a new product review")
 public class ProductReviewCreateDto {
 
-  @Schema(description = "Product ID", example = "123e4567-e89b-12d3-a456-426614174000")
+  @Schema(description = "Product ID", example = "12345")
   @NotNull(message = "Product ID is required")
-  private UUID productId;
+  private Long productId;
 
   @Schema(description = "Review rating (1-5)", example = "5")
   @NotNull(message = "Rating is required")

@@ -1,7 +1,6 @@
 package com.cloudkart.user_service.controller.v1;
 
 import java.util.List;
-import java.util.UUID;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -47,7 +46,7 @@ public class AddressController {
       @ApiResponse(responseCode = "500", description = "HTTP Status Internal Server Error",
           content = @Content(schema = @Schema(implementation = ErrorResponseDto.class)))})
   @GetMapping
-  public ResponseEntity<ResponseDto<List<AddressDto>>> getUserAddresses(@PathVariable UUID userId) {
+  public ResponseEntity<ResponseDto<List<AddressDto>>> getUserAddresses(@PathVariable Long userId) {
     List<AddressDto> addresses = addressService.getAddressByUserId(userId);
     ResponseDto<List<AddressDto>> response =
         new ResponseDto<>(HttpStatus.OK, addresses, "Addresses fetched successfully");
@@ -62,7 +61,7 @@ public class AddressController {
       @ApiResponse(responseCode = "500", description = "HTTP Status Internal Server Error",
           content = @Content(schema = @Schema(implementation = ErrorResponseDto.class)))})
   @GetMapping("/default")
-  public ResponseEntity<ResponseDto<AddressDto>> getDefaultUserAddress(@PathVariable UUID userId) {
+  public ResponseEntity<ResponseDto<AddressDto>> getDefaultUserAddress(@PathVariable Long userId) {
     AddressDto defaultAddress = addressService.getDefaultUserAddress(userId);
     ResponseDto<AddressDto> response =
         new ResponseDto<>(HttpStatus.OK, defaultAddress, "Default address fetched successfully");
@@ -77,7 +76,7 @@ public class AddressController {
       @ApiResponse(responseCode = "500", description = "HTTP Status Internal Server Error",
           content = @Content(schema = @Schema(implementation = ErrorResponseDto.class)))})
   @GetMapping("/count")
-  public ResponseEntity<ResponseDto<Long>> countUserAddresses(@PathVariable UUID userId) {
+  public ResponseEntity<ResponseDto<Long>> countUserAddresses(@PathVariable Long userId) {
     long count = addressService.countUserAddresses(userId);
     ResponseDto<Long> response =
         new ResponseDto<>(HttpStatus.OK, count, "Address count fetched successfully");
@@ -94,7 +93,7 @@ public class AddressController {
       @ApiResponse(responseCode = "500", description = "HTTP Status Internal Server Error",
           content = @Content(schema = @Schema(implementation = ErrorResponseDto.class)))})
   @PostMapping
-  public ResponseEntity<ResponseDto<AddressDto>> createAddress(@PathVariable UUID userId,
+  public ResponseEntity<ResponseDto<AddressDto>> createAddress(@PathVariable Long userId,
       @Valid @RequestBody AddressReqDto addressReqDto) {
     long addressCount = addressService.countUserAddresses(userId);
 
@@ -122,8 +121,8 @@ public class AddressController {
       @ApiResponse(responseCode = "500", description = "HTTP Status Internal Server Error",
           content = @Content(schema = @Schema(implementation = ErrorResponseDto.class)))})
   @PutMapping("/{id}")
-  public ResponseEntity<ResponseDto<AddressDto>> updateAddress(@PathVariable UUID userId,
-      @PathVariable UUID id, @Valid @RequestBody AddressReqDto addressReqDto) {
+  public ResponseEntity<ResponseDto<AddressDto>> updateAddress(@PathVariable Long userId,
+      @PathVariable Long id, @Valid @RequestBody AddressReqDto addressReqDto) {
     addressReqDto.setUserId(userId);
     AddressDto updatedAddress = addressService.updateAddress(id, addressReqDto);
     ResponseDto<AddressDto> response =
@@ -141,8 +140,8 @@ public class AddressController {
       @ApiResponse(responseCode = "500", description = "HTTP Status Internal Server Error",
           content = @Content(schema = @Schema(implementation = ErrorResponseDto.class)))})
   @DeleteMapping("/{id}")
-  public ResponseEntity<ResponseDto<Void>> deleteAddress(@PathVariable UUID userId,
-      @PathVariable UUID id) {
+  public ResponseEntity<ResponseDto<Void>> deleteAddress(@PathVariable Long userId,
+      @PathVariable Long id) {
     addressService.deleteAddress(id, userId);
     ResponseDto<Void> response =
         new ResponseDto<>(HttpStatus.OK, null, "Address deleted successfully");

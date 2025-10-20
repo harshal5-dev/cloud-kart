@@ -1,6 +1,5 @@
 package com.cloudkart.user_service.dto;
 
-import java.util.UUID;
 import com.cloudkart.user_service.entity.AddressType;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
@@ -11,13 +10,12 @@ import lombok.Setter;
 @Schema(name = "AddressDto", description = "Schema to represent user address details in the system")
 public class AddressDto {
 
-  @Schema(description = "Unique identifier for the address",
-      example = "123e4567-e89b-12d3-a456-426614174000")
-  private UUID id;
+  @Schema(description = "Unique identifier for the address", example = "12345")
+  private Long id;
 
   @Schema(description = "Unique identifier for the user associated with this address",
-      example = "123e4567-e89b-12d3-a456-426614174001")
-  private UUID userId;
+      example = "12345")
+  private Long userId;
 
   @Schema(description = "Type of address, e.g., HOME, OFFICE, BILLING, SHIPPING", example = "HOME")
   private AddressType addressType;

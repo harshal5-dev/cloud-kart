@@ -1,7 +1,6 @@
 package com.cloudkart.product_service.service;
 
 import java.util.List;
-import java.util.UUID;
 import com.cloudkart.product_service.dto.ProductDetailResponseDto;
 import com.cloudkart.product_service.dto.ProductReviewDto;
 
@@ -13,7 +12,7 @@ public interface IProductDetailService {
    * @param productId the ID of the product
    * @return detailed product information
    */
-  ProductDetailResponseDto getProductDetails(UUID productId);
+  ProductDetailResponseDto getProductDetails(Long productId);
 
   /**
    * Fetches all approved reviews for a product
@@ -21,7 +20,7 @@ public interface IProductDetailService {
    * @param productId the ID of the product
    * @return list of approved reviews
    */
-  List<ProductReviewDto> getProductReviews(UUID productId);
+  List<ProductReviewDto> getProductReviews(Long productId);
 
   /**
    * Fetches product images
@@ -29,5 +28,5 @@ public interface IProductDetailService {
    * @param productId the ID of the product
    * @return list of image URLs
    */
-  List<String> getProductImages(UUID productId);
+  List<String> getProductImages(Long productId);
 }

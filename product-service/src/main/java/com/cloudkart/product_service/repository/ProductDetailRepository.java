@@ -2,7 +2,6 @@ package com.cloudkart.product_service.repository;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -10,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.cloudkart.product_service.entity.Product;
 
 @Repository
-public interface ProductDetailRepository extends JpaRepository<Product, UUID> {
+public interface ProductDetailRepository extends JpaRepository<Product, Long> {
 
   @Query(value = """
       SELECT
@@ -39,7 +38,7 @@ public interface ProductDetailRepository extends JpaRepository<Product, UUID> {
       WHERE p.id = :productId
       AND p.availability_status != 'DISCONTINUED'
       """, nativeQuery = true)
-  Optional<Object[]> findProductDetailById(@Param("productId") UUID productId);
+  Optional<Object[]> findProductDetailById(@Param("productId") Long productId);
 
   @Query(value = """
       SELECT image_url
@@ -47,7 +46,7 @@ public interface ProductDetailRepository extends JpaRepository<Product, UUID> {
       WHERE product_id = :productId
       ORDER BY sort_order
       """, nativeQuery = true)
-  List<String> findProductImages(@Param("productId") UUID productId);
+  List<String> findProductImages(@Param("productId") Long productId);
 
   @Query(value = """
       SELECT
@@ -61,5 +60,5 @@ public interface ProductDetailRepository extends JpaRepository<Product, UUID> {
       AND approved = true
       ORDER BY review_date DESC
       """, nativeQuery = true)
-  List<Object[]> findApprovedProductReviews(@Param("productId") UUID productId);
+  List<Object[]> findApprovedProductReviews(@Param("productId") Long productId);
 }

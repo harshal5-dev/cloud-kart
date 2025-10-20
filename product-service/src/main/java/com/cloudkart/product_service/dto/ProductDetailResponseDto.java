@@ -1,7 +1,6 @@
 package com.cloudkart.product_service.dto;
 
 import java.util.List;
-import java.util.UUID;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,8 +11,8 @@ import lombok.Setter;
     description = "Schema to represent detailed product information with images and reviews")
 public class ProductDetailResponseDto {
 
-  @Schema(description = "Product ID", example = "123e4567-e89b-12d3-a456-426614174000")
-  private UUID id;
+  @Schema(description = "Product ID", example = "12345")
+  private Long id;
 
   @Schema(description = "Product title", example = "iPhone 14 Pro")
   private String title;

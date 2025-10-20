@@ -1,7 +1,6 @@
 package com.cloudkart.product_service.service.impl;
 
 import java.util.List;
-import java.util.UUID;
 import org.springframework.stereotype.Service;
 import com.cloudkart.product_service.constants.ProductImageConstants;
 import com.cloudkart.product_service.dto.ProductImageDto;
@@ -77,7 +76,7 @@ public class ProductImageService implements IProductImageService {
    * @return the updated product image
    */
   @Override
-  public ProductImageDto updateProductImage(String sku, UUID id, ProductImageDto productImageDto) {
+  public ProductImageDto updateProductImage(String sku, Long id, ProductImageDto productImageDto) {
 
     Product product = iProductService.fetchProductBySku(sku);
 
@@ -98,7 +97,7 @@ public class ProductImageService implements IProductImageService {
    * @param id the ID of the product image to delete
    */
   @Override
-  public void deleteProductImage(String sku, UUID id) {
+  public void deleteProductImage(String sku, Long id) {
     iProductService.fetchProductBySku(sku);
 
     ProductImage productImage = productImageRepository.findById(id)

@@ -2,7 +2,6 @@ package com.cloudkart.product_service.service.impl;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.UUID;
 import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,7 +24,7 @@ public class ProductReviewService implements IProductReviewService {
   private final ProductRepository productRepository;
 
   @Override
-  public UUID submitReview(ProductReviewCreateDto reviewDto) {
+  public Long submitReview(ProductReviewCreateDto reviewDto) {
     // Verify product exists
     Product product = productRepository.findById(reviewDto.getProductId()).orElseThrow(
         () -> new ResourceNotFoundException("Product", "ID", reviewDto.getProductId().toString()));
@@ -45,7 +44,7 @@ public class ProductReviewService implements IProductReviewService {
   }
 
   @Override
-  public void approveReview(UUID reviewId) {
+  public void approveReview(Long reviewId) {
     ProductReview review = productReviewRepository.findById(reviewId)
         .orElseThrow(() -> new ResourceNotFoundException("Review", "ID", reviewId.toString()));
 
@@ -57,7 +56,7 @@ public class ProductReviewService implements IProductReviewService {
   }
 
   @Override
-  public void rejectReview(UUID reviewId) {
+  public void rejectReview(Long reviewId) {
     ProductReview review = productReviewRepository.findById(reviewId)
         .orElseThrow(() -> new ResourceNotFoundException("Review", "ID", reviewId.toString()));
 
@@ -73,7 +72,7 @@ public class ProductReviewService implements IProductReviewService {
 
   @Override
   @Transactional(readOnly = true)
-  public List<ProductReviewDto> getReviewsByProductId(UUID productId, boolean approvedOnly) {
+  public List<ProductReviewDto> getReviewsByProductId(Long productId, boolean approvedOnly) {
     List<ProductReview> reviews;
     if (approvedOnly) {
       reviews =
@@ -85,7 +84,7 @@ public class ProductReviewService implements IProductReviewService {
     return reviews.stream().map(this::mapToDto).collect(Collectors.toList());
   }
 
-  private void updateProductRating(UUID productId) {
+  private void updateProductRating(Long productId) {
     List<ProductReview> approvedReviews =
         productReviewRepository.findByProductIdAndApprovedTrue(productId);
 

@@ -2,7 +2,6 @@ package com.cloudkart.product_service.service.impl;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.UUID;
 import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 import com.cloudkart.product_service.dto.ProductDetailResponseDto;
@@ -20,7 +19,7 @@ public class ProductDetailService implements IProductDetailService {
   private final ProductDetailRepository productDetailRepository;
 
   @Override
-  public ProductDetailResponseDto getProductDetails(UUID productId) {
+  public ProductDetailResponseDto getProductDetails(Long productId) {
     // Fetch product basic details
     Object[] productData = productDetailRepository.findProductDetailById(productId)
         .orElseThrow(() -> new ResourceNotFoundException("Product", "ID", productId.toString()));
@@ -36,7 +35,7 @@ public class ProductDetailService implements IProductDetailService {
   }
 
   @Override
-  public List<ProductReviewDto> getProductReviews(UUID productId) {
+  public List<ProductReviewDto> getProductReviews(Long productId) {
     List<Object[]> reviewsData = productDetailRepository.findApprovedProductReviews(productId);
 
     return reviewsData.stream().map(reviewData -> {
@@ -51,7 +50,7 @@ public class ProductDetailService implements IProductDetailService {
   }
 
   @Override
-  public List<String> getProductImages(UUID productId) {
+  public List<String> getProductImages(Long productId) {
     return productDetailRepository.findProductImages(productId);
   }
 }

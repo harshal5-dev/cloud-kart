@@ -1,7 +1,6 @@
 package com.cloudkart.product_service.controller.v1;
 
 import java.util.List;
-import java.util.UUID;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -89,7 +88,7 @@ public class AdminProductImageController {
   @PutMapping("/{id}")
   public ResponseEntity<ResponseDto<ProductImageDto>> updateProductImage(
       @PathVariable @NotNull(message = "product sku cannot be null or empty") String sku,
-      @PathVariable @NotNull(message = "id cannot be null or empty") UUID id,
+      @PathVariable @NotNull(message = "id cannot be null or empty") Long id,
       @Valid @RequestBody ProductImageDto productImageDto) {
     ProductImageDto updatedProductImage =
         iProductImageService.updateProductImage(sku, id, productImageDto);
@@ -108,7 +107,7 @@ public class AdminProductImageController {
   @DeleteMapping("/{id}")
   public ResponseEntity<ResponseDto<Void>> deleteProductImage(
       @PathVariable @NotNull(message = "product sku cannot be null or empty") String sku,
-      @PathVariable @NotNull(message = "id cannot be null or empty") UUID id) {
+      @PathVariable @NotNull(message = "id cannot be null or empty") Long id) {
     iProductImageService.deleteProductImage(sku, id);
     ResponseDto<Void> responseDto =
         new ResponseDto<>(HttpStatus.OK, null, ProductImageConstants.MESSAGE_DELETED);
