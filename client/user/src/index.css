@@ -175,6 +175,55 @@ html {
   -webkit-text-fill-color: transparent;
 }
 
+/* Navigation menu enhancements */
+.navigation-menu-content {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 107, 53, 0.1);
+}
+
+.navigation-menu-item:hover {
+  background: linear-gradient(
+    45deg,
+    rgba(255, 107, 53, 0.05),
+    rgba(247, 147, 30, 0.05)
+  );
+}
+
+/* Category hover effects */
+.category-item {
+  transition: all 0.2s ease-in-out;
+}
+
+.category-item:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.15);
+}
+
+/* Mobile menu animations */
+@keyframes slideInFromTop {
+  0% {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-in {
+  animation: slideInFromTop 0.3s ease-out;
+}
+
+/* Navigation menu viewport styling */
+[data-radix-navigation-menu-viewport] {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 107, 53, 0.1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
 /* Mobile optimizations */
 @media (max-width: 768px) {
   /* Improved touch targets */

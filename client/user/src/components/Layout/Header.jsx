@@ -12,6 +12,8 @@ import { Input } from "../ui/input";
 import { Badge } from "../ui/badge";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import MainNavigation from "../navigation/MainNavigation";
+import MobileMainMenu from "../navigation/MobileMainMenu";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -158,112 +160,39 @@ const Header = () => {
           </div>
         )}
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:block mt-4 border-t pt-4">
+        {/* Enhanced Desktop Navigation */}
+        <nav className="hidden md:block mt-6 border-t pt-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-6 lg:space-x-8">
-              <Button
-                variant="ghost"
-                className="font-medium text-sm lg:text-base"
-              >
-                Categories
-              </Button>
-              <Button
-                variant="ghost"
-                className="font-medium text-sm lg:text-base"
-              >
-                Electronics
-              </Button>
-              <Button
-                variant="ghost"
-                className="font-medium text-sm lg:text-base"
-              >
-                Fashion
-              </Button>
-              <Button
-                variant="ghost"
-                className="font-medium text-sm lg:text-base hidden lg:flex"
-              >
-                Home & Garden
-              </Button>
-              <Button
-                variant="ghost"
-                className="font-medium text-sm lg:text-base hidden lg:flex"
-              >
-                Sports
-              </Button>
-              <Button
-                variant="ghost"
-                className="font-medium text-sm lg:text-base hidden lg:flex"
-              >
-                Books
-              </Button>
-              <Button
-                variant="ghost"
-                className="font-medium text-sm lg:text-base"
-              >
-                Sale
-              </Button>
-            </div>
+            {/* Categories Navigation Menu */}
+            <MainNavigation />
 
-            <div className="flex items-center space-x-4">
-              <Button variant="outline" size="sm">
+            {/* Auth Buttons */}
+            <div className="flex items-center space-x-3">
+              <Button
+                variant="outline"
+                size="sm"
+                className="hover:bg-primary hover:text-primary-foreground transition-all duration-200 border-primary/20"
+              >
                 Sign In
               </Button>
-              <Button size="sm">Sign Up</Button>
+              <Button
+                size="sm"
+                className="bg-gradient-to-r from-primary to-chart-2 hover:from-primary/90 hover:to-chart-2/90 shadow-lg hover:shadow-xl transition-all duration-200"
+              >
+                Sign Up
+              </Button>
             </div>
           </div>
         </nav>
 
-        {/* Mobile Navigation Menu */}
+        {/* Enhanced Mobile Navigation Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden mt-4 border-t pt-4 pb-4">
-            <div className="space-y-2">
-              {/* Navigation Links */}
-              <div className="space-y-1">
-                <Button
-                  variant="ghost"
-                  className="w-full justify-start font-medium"
-                >
-                  Categories
-                </Button>
-                <Button
-                  variant="ghost"
-                  className="w-full justify-start font-medium"
-                >
-                  Electronics
-                </Button>
-                <Button
-                  variant="ghost"
-                  className="w-full justify-start font-medium"
-                >
-                  Fashion
-                </Button>
-                <Button
-                  variant="ghost"
-                  className="w-full justify-start font-medium"
-                >
-                  Home & Garden
-                </Button>
-                <Button
-                  variant="ghost"
-                  className="w-full justify-start font-medium"
-                >
-                  Sports
-                </Button>
-                <Button
-                  variant="ghost"
-                  className="w-full justify-start font-medium"
-                >
-                  Books
-                </Button>
-                <Button
-                  variant="ghost"
-                  className="w-full justify-start font-medium"
-                >
-                  Sale
-                </Button>
-              </div>
+          <div className="md:hidden mt-4 border-t pt-4 pb-4 animate-in slide-in-from-top duration-300">
+            <div className="space-y-3">
+              {/* Mobile Categories Navigation */}
+              <MobileMainMenu
+                onCategoryClick={() => setIsMobileMenuOpen(false)}
+              />
 
               {/* Mobile Auth Buttons */}
               <div className="pt-4 border-t space-y-2">
