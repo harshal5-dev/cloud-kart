@@ -158,6 +158,80 @@ html {
   background: oklch(var(--primary));
 }
 
+/* Simplified logo animations */
+.logo-container:hover .logo-icon {
+  transform: scale(1.05);
+}
+
+/* Simplified logo text gradient */
+.logo-text {
+  background: linear-gradient(
+    45deg,
+    oklch(var(--primary)),
+    oklch(var(--chart-2))
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  /* Improved touch targets */
+  button,
+  .button,
+  a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Prevent horizontal scroll */
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Better text readability on mobile */
+  p,
+  span,
+  div {
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+  }
+
+  /* Improved tap highlighting */
+  button,
+  a,
+  .clickable {
+    -webkit-tap-highlight-color: rgba(255, 107, 53, 0.2);
+  }
+
+  /* Better spacing for mobile */
+  .mobile-spacing {
+    padding: 0.75rem;
+  }
+
+  /* Prevent zoom on input focus */
+  input,
+  textarea,
+  select {
+    font-size: 16px;
+  }
+}
+
+/* Smooth transitions for better UX */
+* {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Focus states for accessibility */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid oklch(var(--primary));
+  outline-offset: 2px;
+}
+
 /* Mobile optimizations */
 @media (max-width: 768px) {
   /* Improved touch targets */

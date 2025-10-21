@@ -11,6 +11,7 @@ import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Badge } from "../ui/badge";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -40,15 +41,37 @@ const Header = () => {
       {/* Main Header */}
       <div className="container mx-auto px-4 py-3 md:py-4">
         <div className="flex items-center justify-between">
-          {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="flex h-7 w-7 md:h-8 md:w-8 items-center justify-center rounded-md bg-primary text-primary-foreground font-bold text-base md:text-lg">
+          {/* Clean Logo */}
+          <Link
+            to="/"
+            className="flex items-center space-x-3 group hover:no-underline"
+          >
+            {/* Logo Icon */}
+            <img
+              src="/logo-icon.svg"
+              alt="Cloud Kart Logo"
+              className="h-9 w-9 md:h-10 md:w-10 transition-transform duration-300 group-hover:scale-105"
+              onError={(e) => {
+                // Fallback to text logo if image fails to load
+                e.target.style.display = "none";
+                e.target.nextElementSibling.style.display = "flex";
+              }}
+            />
+            {/* Fallback text logo */}
+            <div className="hidden h-9 w-9 md:h-10 md:w-10 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-chart-2 text-primary-foreground font-bold text-lg md:text-xl">
               C
             </div>
-            <span className="text-xl md:text-2xl font-bold bg-gradient-to-r from-primary to-chart-2 bg-clip-text text-transparent">
-              Cloud Kart
-            </span>
-          </div>
+
+            {/* Logo Text */}
+            <div className="flex flex-col">
+              <span className="text-xl md:text-2xl font-bold bg-gradient-to-r from-primary to-chart-2 bg-clip-text text-transparent">
+                Cloud Kart
+              </span>
+              <span className="text-xs text-muted-foreground hidden sm:block">
+                Your Digital Shopping Hub
+              </span>
+            </div>
+          </Link>
 
           {/* Search Bar - Desktop only */}
           <div className="hidden lg:flex flex-1 max-w-xl mx-8">
