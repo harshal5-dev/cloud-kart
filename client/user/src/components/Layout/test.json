@@ -1,0 +1,56 @@
+{
+  "content": [
+    {
+      "title": "iPhone X",
+      "categorySlug": "smartphones",
+      "categoryName": "Smartphones",
+      "description": "The iPhone X is a flagship smartphone featuring a bezel-less OLED display, facial recognition technology (Face ID), and impressive performance. It represents a milestone in iPhone design and innovation.",
+      "price": 899.99,
+      "stock": 37,
+      "brand": "Apple",
+      "sku": "SMA-APP-IPH-124",
+      "featured": false,
+      "totalSales": 0,
+      "averageRating": 0.0,
+      "discountPercentage": 19.59,
+      "weight": 1.0,
+      "width": 21.88,
+      "height": 24.19,
+      "depth": 14.19,
+      "minimumOrderQuantity": 2,
+      "availabilityStatus": "IN_STOCK",
+      "shippingDetails": "Ships in 3-5 business days",
+      "warrantyDetails": "3 months warranty",
+      "returnPolicy": "7 days return policy",
+      "thumbnail": "https://cdn.dummyjson.com/product-images/smartphones/iphone-x/thumbnail.webp",
+      "productImages": [
+        {
+          "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/iphone-x/thumbnail.webp",
+          "altText": "iPhone X - Apple - Main product image",
+          "sortOrder": 1
+        },
+        {
+          "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/iphone-x/1.webp",
+          "altText": "iPhone X - Apple - Product image 2",
+          "sortOrder": 2
+        },
+        {
+          "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/iphone-x/2.webp",
+          "altText": "iPhone X - Apple - Product image 3",
+          "sortOrder": 3
+        },
+        {
+          "imageUrl": "https://cdn.dummyjson.com/product-images/smartphones/iphone-x/3.webp",
+          "altText": "iPhone X - Apple - Product image 4",
+          "sortOrder": 4
+        }
+      ]
+    }
+  ],
+  "currentPage": 0,
+  "totalPages": 1,
+  "totalElements": 8,
+  "pageSize": 8,
+  "last": true,
+  "first": true
+}

@@ -14,6 +14,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import MainNavigation from "../navigation/MainNavigation";
 import MobileMainMenu from "../navigation/MobileMainMenu";
+import ProductSearch from "./ProductSearch";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -76,16 +77,7 @@ const Header = () => {
           </Link>
 
           {/* Search Bar - Desktop only */}
-          <div className="hidden lg:flex flex-1 max-w-xl mx-8">
-            <div className="relative w-full">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-              <Input
-                type="search"
-                placeholder="Search for products..."
-                className="pl-10 pr-4 w-full"
-              />
-            </div>
-          </div>
+          <ProductSearch />
 
           {/* Action Buttons */}
           <div className="flex items-center space-x-2 md:space-x-4">
@@ -149,14 +141,35 @@ const Header = () => {
         {/* Mobile Search Bar */}
         {isMobileSearchOpen && (
           <div className="mt-3 lg:hidden">
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                const formData = new FormData(e.target);
+                const searchTerm = formData.get("search");
+                if (searchTerm?.trim()) {
+                  window.location.href = `/search?q=${encodeURIComponent(
+                    searchTerm
+                  )}`;
+                  setIsMobileSearchOpen(false);
+                }
+              }}
+              className="relative"
+            >
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground z-10" />
               <Input
+                name="search"
                 type="search"
-                placeholder="Search for products..."
-                className="pl-10 pr-4 w-full"
+                placeholder="Search for products, brands..."
+                className="pl-10 pr-20 w-full bg-background/80 backdrop-blur-sm"
               />
-            </div>
+              <Button
+                type="submit"
+                size="sm"
+                className="absolute right-2 top-1/2 transform -translate-y-1/2 h-7 px-3 bg-gradient-to-r from-primary to-chart-2 text-white text-xs"
+              >
+                Search
+              </Button>
+            </form>
           </div>
         )}
 
