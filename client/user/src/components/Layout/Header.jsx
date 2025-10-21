@@ -1,13 +1,25 @@
-import { ShoppingCart, Search, Menu, User, Heart, MapPin } from "lucide-react";
+import {
+  ShoppingCart,
+  Search,
+  Menu,
+  User,
+  Heart,
+  MapPin,
+  X,
+} from "lucide-react";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Badge } from "../ui/badge";
+import { useState } from "react";
 
 const Header = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
+
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      {/* Top Bar */}
-      <div className="bg-primary text-primary-foreground">
+      {/* Top Bar - Hidden on mobile */}
+      <div className="bg-primary text-primary-foreground hidden md:block">
         <div className="container mx-auto px-4 py-2">
           <div className="flex items-center justify-between text-sm">
             <div className="flex items-center space-x-4">
@@ -26,21 +38,21 @@ const Header = () => {
       </div>
 
       {/* Main Header */}
-      <div className="container mx-auto px-4 py-4">
+      <div className="container mx-auto px-4 py-3 md:py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-md bg-primary text-primary-foreground font-bold text-lg">
+            <div className="flex h-7 w-7 md:h-8 md:w-8 items-center justify-center rounded-md bg-primary text-primary-foreground font-bold text-base md:text-lg">
               C
             </div>
-            <span className="text-2xl font-bold bg-gradient-to-r from-primary to-chart-2 bg-clip-text text-transparent">
+            <span className="text-xl md:text-2xl font-bold bg-gradient-to-r from-primary to-chart-2 bg-clip-text text-transparent">
               Cloud Kart
             </span>
           </div>
 
-          {/* Search Bar */}
-          <div className="flex-1 max-w-xl mx-8">
-            <div className="relative">
+          {/* Search Bar - Desktop only */}
+          <div className="hidden lg:flex flex-1 max-w-xl mx-8">
+            <div className="relative w-full">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <Input
                 type="search"
@@ -51,60 +63,122 @@ const Header = () => {
           </div>
 
           {/* Action Buttons */}
-          <div className="flex items-center space-x-4">
-            <Button variant="ghost" size="icon" className="relative">
+          <div className="flex items-center space-x-2 md:space-x-4">
+            {/* Mobile Search Button */}
+            <Button
+              variant="ghost"
+              size="icon"
+              className="lg:hidden"
+              onClick={() => setIsMobileSearchOpen(!isMobileSearchOpen)}
+            >
+              <Search className="h-5 w-5" />
+            </Button>
+
+            {/* Wishlist - Hidden on small mobile */}
+            <Button
+              variant="ghost"
+              size="icon"
+              className="relative hidden sm:flex"
+            >
               <Heart className="h-5 w-5" />
               <Badge
                 variant="destructive"
-                className="absolute -top-2 -right-2 h-5 w-5 rounded-full p-0 flex items-center justify-center text-xs"
+                className="absolute -top-2 -right-2 h-4 w-4 md:h-5 md:w-5 rounded-full p-0 flex items-center justify-center text-xs"
               >
                 3
               </Badge>
             </Button>
 
+            {/* Shopping Cart */}
             <Button variant="ghost" size="icon" className="relative">
               <ShoppingCart className="h-5 w-5" />
               <Badge
                 variant="destructive"
-                className="absolute -top-2 -right-2 h-5 w-5 rounded-full p-0 flex items-center justify-center text-xs"
+                className="absolute -top-2 -right-2 h-4 w-4 md:h-5 md:w-5 rounded-full p-0 flex items-center justify-center text-xs"
               >
                 2
               </Badge>
             </Button>
 
-            <Button variant="ghost" size="icon">
+            {/* User - Hidden on small mobile */}
+            <Button variant="ghost" size="icon" className="hidden sm:flex">
               <User className="h-5 w-5" />
             </Button>
 
-            <Button variant="ghost" size="icon" className="md:hidden">
-              <Menu className="h-5 w-5" />
+            {/* Mobile Menu Button */}
+            <Button
+              variant="ghost"
+              size="icon"
+              className="md:hidden"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? (
+                <X className="h-5 w-5" />
+              ) : (
+                <Menu className="h-5 w-5" />
+              )}
             </Button>
           </div>
         </div>
 
-        {/* Navigation */}
-        <nav className="mt-4 border-t pt-4">
+        {/* Mobile Search Bar */}
+        {isMobileSearchOpen && (
+          <div className="mt-3 lg:hidden">
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+              <Input
+                type="search"
+                placeholder="Search for products..."
+                className="pl-10 pr-4 w-full"
+              />
+            </div>
+          </div>
+        )}
+
+        {/* Desktop Navigation */}
+        <nav className="hidden md:block mt-4 border-t pt-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-8">
-              <Button variant="ghost" className="font-medium">
+            <div className="flex items-center space-x-6 lg:space-x-8">
+              <Button
+                variant="ghost"
+                className="font-medium text-sm lg:text-base"
+              >
                 Categories
               </Button>
-              <Button variant="ghost" className="font-medium">
+              <Button
+                variant="ghost"
+                className="font-medium text-sm lg:text-base"
+              >
                 Electronics
               </Button>
-              <Button variant="ghost" className="font-medium">
+              <Button
+                variant="ghost"
+                className="font-medium text-sm lg:text-base"
+              >
                 Fashion
               </Button>
-              <Button variant="ghost" className="font-medium">
+              <Button
+                variant="ghost"
+                className="font-medium text-sm lg:text-base hidden lg:flex"
+              >
                 Home & Garden
               </Button>
-              <Button variant="ghost" className="font-medium">
+              <Button
+                variant="ghost"
+                className="font-medium text-sm lg:text-base hidden lg:flex"
+              >
                 Sports
               </Button>
-              <Button variant="ghost" className="font-medium">
+              <Button
+                variant="ghost"
+                className="font-medium text-sm lg:text-base hidden lg:flex"
+              >
                 Books
               </Button>
-              <Button variant="ghost" className="font-medium">
+              <Button
+                variant="ghost"
+                className="font-medium text-sm lg:text-base"
+              >
                 Sale
               </Button>
             </div>
@@ -117,6 +191,79 @@ const Header = () => {
             </div>
           </div>
         </nav>
+
+        {/* Mobile Navigation Menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden mt-4 border-t pt-4 pb-4">
+            <div className="space-y-2">
+              {/* Navigation Links */}
+              <div className="space-y-1">
+                <Button
+                  variant="ghost"
+                  className="w-full justify-start font-medium"
+                >
+                  Categories
+                </Button>
+                <Button
+                  variant="ghost"
+                  className="w-full justify-start font-medium"
+                >
+                  Electronics
+                </Button>
+                <Button
+                  variant="ghost"
+                  className="w-full justify-start font-medium"
+                >
+                  Fashion
+                </Button>
+                <Button
+                  variant="ghost"
+                  className="w-full justify-start font-medium"
+                >
+                  Home & Garden
+                </Button>
+                <Button
+                  variant="ghost"
+                  className="w-full justify-start font-medium"
+                >
+                  Sports
+                </Button>
+                <Button
+                  variant="ghost"
+                  className="w-full justify-start font-medium"
+                >
+                  Books
+                </Button>
+                <Button
+                  variant="ghost"
+                  className="w-full justify-start font-medium"
+                >
+                  Sale
+                </Button>
+              </div>
+
+              {/* Mobile Auth Buttons */}
+              <div className="pt-4 border-t space-y-2">
+                <Button variant="outline" className="w-full">
+                  Sign In
+                </Button>
+                <Button className="w-full">Sign Up</Button>
+              </div>
+
+              {/* Mobile User Actions */}
+              <div className="pt-4 border-t space-y-2 sm:hidden">
+                <Button variant="ghost" className="w-full justify-start">
+                  <User className="h-4 w-4 mr-3" />
+                  My Account
+                </Button>
+                <Button variant="ghost" className="w-full justify-start">
+                  <Heart className="h-4 w-4 mr-3" />
+                  Wishlist (3)
+                </Button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </header>
   );

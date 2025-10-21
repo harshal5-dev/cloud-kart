@@ -1,0 +1,25 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Clean gradient background matching your site's orange theme -->
+  <defs>
+    <linearGradient id="orange" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b35" />
+      <stop offset="100%" style="stop-color:#f7931e" />
+    </linearGradient>
+  </defs>
+
+  <!-- Modern rounded background -->
+  <rect width="32" height="32" rx="8" fill="url(#orange)" />
+
+  <!-- Simple, elegant shopping cart -->
+  <g stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Cart body -->
+    <rect x="10" y="13" width="10" height="7" rx="1" />
+
+    <!-- Cart handle -->
+    <path d="M8 11h3l1 10h8" />
+
+    <!-- Cart wheels -->
+    <circle cx="13" cy="25" r="1" />
+    <circle cx="18" cy="25" r="1" />
+  </g>
+</svg>

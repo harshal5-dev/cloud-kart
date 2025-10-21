@@ -1,0 +1,45 @@
+<svg width="120" height="40" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Matching orange gradient from favicon -->
+    <linearGradient id="logoOrange" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b35" />
+      <stop offset="100%" style="stop-color:#f7931e" />
+    </linearGradient>
+
+    <!-- Text gradient for premium look -->
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#2d3748" />
+      <stop offset="100%" style="stop-color:#4a5568" />
+    </linearGradient>
+  </defs>
+
+  <!-- Logo icon background (matching favicon style) -->
+  <rect x="4" y="8" width="24" height="24" rx="6" fill="url(#logoOrange)" />
+
+  <!-- Shopping cart icon (matching favicon) -->
+  <g stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Cart body -->
+    <rect x="11" y="17" width="8" height="5" rx="0.5" />
+
+    <!-- Cart handle -->
+    <path d="M9 15h2.5l0.7 8h6" />
+
+    <!-- Cart wheels -->
+    <circle cx="13.5" cy="27" r="0.8" />
+    <circle cx="17.5" cy="27" r="0.8" />
+  </g>
+
+  <!-- Cloud Kart Text -->
+  <g>
+    <!-- "Cloud" text -->
+    <text x="36" y="18" fill="url(#textGrad)" font-family="system-ui, -apple-system, sans-serif"
+      font-size="12" font-weight="600" letter-spacing="-0.02em">Cloud</text>
+
+    <!-- "Kart" text with orange accent -->
+    <text x="36" y="30" fill="url(#logoOrange)" font-family="system-ui, -apple-system, sans-serif"
+      font-size="12" font-weight="700" letter-spacing="-0.02em">Kart</text>
+  </g>
+
+  <!-- Subtle accent dot -->
+  <circle cx="75" cy="20" r="1.5" fill="url(#logoOrange)" opacity="0.6" />
+</svg>
