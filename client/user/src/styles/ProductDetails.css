@@ -1,0 +1,132 @@
+/* Custom scrollbar styling for thumbnail gallery */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+/* Text truncation utility */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Smooth transitions for image gallery */
+.product-image-gallery {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Enhanced button hover effects */
+.product-button {
+  transition: all 0.2s ease-in-out;
+}
+
+.product-button:hover {
+  transform: translateY(-1px);
+}
+
+/* Custom focus states */
+.product-thumbnail:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Loading spinner enhancement */
+.loading-spinner {
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    var(--primary) 360deg
+  );
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive text sizing */
+@media (max-width: 640px) {
+  .product-title {
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+
+  .product-price {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1023px) {
+  .product-title {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  .product-price {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .product-title {
+    font-size: 2.25rem;
+    line-height: 1.2;
+  }
+
+  .product-price {
+    font-size: 2.75rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .product-title {
+    font-size: 2.5rem;
+    line-height: 1.1;
+  }
+
+  .product-price {
+    font-size: 3rem;
+  }
+}
+
+/* Card hover effects */
+.product-info-card {
+  transition: all 0.2s ease-in-out;
+}
+
+.product-info-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Badge styling enhancements */
+.product-badge {
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Custom gradient overlay for featured badges */
+.featured-badge {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b, #d97706);
+  box-shadow: 0 4px 15px rgba(251, 191, 36, 0.3);
+}

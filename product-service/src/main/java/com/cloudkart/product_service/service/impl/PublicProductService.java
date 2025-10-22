@@ -8,8 +8,10 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import com.cloudkart.product_service.dto.PagedResDto;
+import com.cloudkart.product_service.dto.ProductDto;
 import com.cloudkart.product_service.dto.ProductResDto;
 import com.cloudkart.product_service.entity.Product;
+import com.cloudkart.product_service.exception.ResourceNotFoundException;
 import com.cloudkart.product_service.mapper.CommonMapper;
 import com.cloudkart.product_service.mapper.ProductMapper;
 import com.cloudkart.product_service.repository.ProductRepository;
@@ -73,5 +75,18 @@ public class PublicProductService implements IPublicProductService {
     }
 
     return products.stream().limit(limit).map(ProductMapper::toResDto).toList();
+  }
+
+  /**
+   * Retrieves a product by its SKU.
+   *
+   * @param sku the SKU of the product to retrieve
+   * @return the product with the specified SKU
+   */
+  @Override
+  public ProductDto fetchProduct(String sku) {
+    Product product = productRepository.findBySku(sku)
+        .orElseThrow(() -> new ResourceNotFoundException("Product", "sku", sku));
+    return ProductMapper.toDto(product);
   }
 }

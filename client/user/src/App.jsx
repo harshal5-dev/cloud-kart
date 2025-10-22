@@ -4,6 +4,7 @@ import { Toaster } from "sonner";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import SearchResults from "./pages/SearchResults";
+import ProductDetails from "./pages/ProductDetails";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/search" element={<SearchResults />} />
+        <Route path="/products/:sku" element={<ProductDetails />} />
         {/* Catch all unmatched routes */}
         <Route path="*" element={<NotFound />} />
       </Routes>

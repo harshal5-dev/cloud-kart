@@ -95,17 +95,14 @@ const ProductSearch = () => {
   const loading = isFetching;
 
   return (
-    <div
-      className="hidden lg:flex flex-1 max-w-2xl mx-8 relative"
-      ref={searchRef}
-    >
+    <div className="w-full relative" ref={searchRef}>
       <form onSubmit={handleSubmit} className="relative w-full">
         <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground z-10" />
 
         <Input
           type="search"
           placeholder="Search for products, brands, categories..."
-          className="pl-10 pr-20 w-full bg-background/80 backdrop-blur-sm border-border/40 focus:border-primary/50 focus:bg-background transition-all duration-200"
+          className="pl-10 pr-12 w-full bg-background/80 backdrop-blur-sm border-border/40 focus:border-primary focus:bg-background focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:outline-none transition-all duration-200 [&::-webkit-search-cancel-button]:appearance-none [&::-webkit-search-decoration]:appearance-none h-9"
           value={searchTerm}
           onChange={handleInputChange}
           onFocus={() => searchTerm && setShowResults(true)}
@@ -121,21 +118,12 @@ const ProductSearch = () => {
               type="button"
               variant="ghost"
               size="sm"
-              className="h-6 w-6 p-0 hover:bg-muted"
+              className="h-5 w-5 p-0 hover:bg-muted"
               onClick={clearSearch}
             >
               <X className="h-3 w-3" />
             </Button>
           )}
-
-          <Button
-            type="submit"
-            size="sm"
-            className="h-7 px-3 bg-gradient-to-r from-primary to-chart-2 hover:from-primary/90 hover:to-chart-2/90 text-white text-xs font-medium shadow-sm"
-            disabled={!searchTerm.trim() || loading}
-          >
-            Search
-          </Button>
         </div>
       </form>
 
