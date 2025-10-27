@@ -1,5 +1,9 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
-import { baseQuery, transformErrorResponse } from "../../lib/utils";
+import {
+  baseQuery,
+  transformErrorResponse,
+  transformResponse,
+} from "../../lib/utils";
 
 const productBaseUrl = "/products";
 
@@ -26,7 +30,14 @@ export const productApi = createApi({
       ],
       transformErrorResponse: transformErrorResponse,
     }),
+    getProductDetails: builder.query({
+      query: (sku) => `${productBaseUrl}/${sku}`,
+      providesTags: (result, error, arg) => [{ type: "Product", id: arg }],
+      transformErrorResponse: transformErrorResponse,
+      transformResponse: transformResponse,
+    }),
   }),
 });
 
-export const { useGetProductsInfoQuery } = productApi;
+export const { useGetProductsInfoQuery, useGetProductDetailsQuery } =
+  productApi;

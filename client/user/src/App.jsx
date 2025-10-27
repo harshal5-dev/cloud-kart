@@ -4,7 +4,7 @@ import { Toaster } from "sonner";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import SearchResults from "./pages/SearchResults";
-import ProductDetails from "./pages/ProductDetails";
+import ProductDetails from "./pages/product/ProductDetails";
 
 function App() {
   return (

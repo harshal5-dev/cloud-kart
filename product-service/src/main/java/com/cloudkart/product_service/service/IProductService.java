@@ -13,12 +13,6 @@ public interface IProductService {
    */
   long countProducts();
 
-  /**
-   * Retrieves all products.
-   *
-   * @return a list of all products
-   */
-  List<ProductDto> fetchProducts();
 
   /**
    * Retrieves a product by its SKU.

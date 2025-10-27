@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import {
   Star,
@@ -22,109 +22,91 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Header from "@/components/Layout/Header";
-import "../styles/ProductDetails.css";
+import "../../styles/ProductDetails.css";
+import { useGetProductDetailsQuery } from "./productApi";
 
 const ProductDetails = () => {
   const { sku } = useParams();
   const navigate = useNavigate();
-  const [product, setProduct] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [addingToCart, setAddingToCart] = useState(false);
   const [isInWishlist, setIsInWishlist] = useState(false);
 
-  useEffect(() => {
-    const fetchProductDetails = async () => {
-      setLoading(true);
-      setError(null);
+  // RTK Query for fetching product details
+  const {
+    data: productDetails,
+    isLoading,
+    isError,
+    error,
+  } = useGetProductDetailsQuery(sku, {
+    skip: !sku, // Skip query if no SKU provided
+  });
 
-      try {
-        // Replace with your actual API endpoint
-        const response = await fetch(
-          `https://api.cloudkart.com/products/${sku}`
-        );
+  // Use RTK Query data or fallback to mock data for demo
+  const product = productDetails || {
+    title: "iPhone X",
+    categorySlug: "smartphones",
+    categoryName: "Smartphones",
+    description:
+      "The iPhone X is a flagship smartphone featuring a bezel-less OLED display, facial recognition technology (Face ID), and impressive performance. It represents a milestone in iPhone design and innovation.",
+    price: 899.99,
+    stock: 37,
+    brand: "Apple",
+    sku: "SMA-APP-IPH-124",
+    featured: false,
+    totalSales: 0,
+    averageRating: 4.5,
+    discountPercentage: 19.59,
+    weight: 1.0,
+    width: 21.88,
+    height: 24.19,
+    depth: 14.19,
+    minimumOrderQuantity: 2,
+    availabilityStatus: "IN_STOCK",
+    shippingDetails: "Ships in 3-5 business days",
+    warrantyDetails: "3 months warranty",
+    returnPolicy: "7 days return policy",
+    thumbnail:
+      "https://cdn.dummyjson.com/product-images/smartphones/iphone-x/thumbnail.webp",
+    productImages: [
+      {
+        imageUrl:
+          "https://cdn.dummyjson.com/product-images/smartphones/iphone-x/thumbnail.webp",
+        altText: "iPhone X - Apple - Main product image",
+        sortOrder: 1,
+      },
+      {
+        imageUrl:
+          "https://cdn.dummyjson.com/product-images/smartphones/iphone-x/1.webp",
+        altText: "iPhone X - Apple - Product image 2",
+        sortOrder: 2,
+      },
+      {
+        imageUrl:
+          "https://cdn.dummyjson.com/product-images/smartphones/iphone-x/2.webp",
+        altText: "iPhone X - Apple - Product image 3",
+        sortOrder: 3,
+      },
+      {
+        imageUrl:
+          "https://cdn.dummyjson.com/product-images/smartphones/iphone-x/3.webp",
+        altText: "iPhone X - Apple - Product image 4",
+        sortOrder: 4,
+      },
+    ],
+  };
 
-        if (!response.ok) {
-          throw new Error("Product not found");
-        }
-
-        const data = await response.json();
-        setProduct(data);
-      } catch (err) {
-        console.error("Error fetching product:", err);
-        setError(err.message);
-
-        // Mock data for demo - based on your API structure
-        const mockProduct = {
-          title: "iPhone X",
-          categorySlug: "smartphones",
-          categoryName: "Smartphones",
-          description:
-            "The iPhone X is a flagship smartphone featuring a bezel-less OLED display, facial recognition technology (Face ID), and impressive performance. It represents a milestone in iPhone design and innovation.",
-          price: 899.99,
-          stock: 37,
-          brand: "Apple",
-          sku: "SMA-APP-IPH-124",
-          featured: false,
-          totalSales: 0,
-          averageRating: 4.5,
-          discountPercentage: 19.59,
-          weight: 1.0,
-          width: 21.88,
-          height: 24.19,
-          depth: 14.19,
-          minimumOrderQuantity: 2,
-          availabilityStatus: "IN_STOCK",
-          shippingDetails: "Ships in 3-5 business days",
-          warrantyDetails: "3 months warranty",
-          returnPolicy: "7 days return policy",
-          thumbnail:
-            "https://cdn.dummyjson.com/product-images/smartphones/iphone-x/thumbnail.webp",
-          productImages: [
-            {
-              imageUrl:
-                "https://cdn.dummyjson.com/product-images/smartphones/iphone-x/thumbnail.webp",
-              altText: "iPhone X - Apple - Main product image",
-              sortOrder: 1,
-            },
-            {
-              imageUrl:
-                "https://cdn.dummyjson.com/product-images/smartphones/iphone-x/1.webp",
-              altText: "iPhone X - Apple - Product image 2",
-              sortOrder: 2,
-            },
-            {
-              imageUrl:
-                "https://cdn.dummyjson.com/product-images/smartphones/iphone-x/2.webp",
-              altText: "iPhone X - Apple - Product image 3",
-              sortOrder: 3,
-            },
-            {
-              imageUrl:
-                "https://cdn.dummyjson.com/product-images/smartphones/iphone-x/3.webp",
-              altText: "iPhone X - Apple - Product image 4",
-              sortOrder: 4,
-            },
-          ],
-        };
-        setProduct(mockProduct);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchProductDetails();
-  }, [sku]);
+  console.log("Product Details:", product);
 
   const getDiscountedPrice = (price, discountPercentage) => {
+    if (!price || !discountPercentage) return "0.00";
     return (price - (price * discountPercentage) / 100).toFixed(2);
   };
 
   const handleQuantityChange = (change) => {
     const newQuantity = quantity + change;
-    if (newQuantity >= 1 && newQuantity <= product.stock) {
+    if (newQuantity >= 1 && newQuantity <= (product?.stock || 0)) {
       setQuantity(newQuantity);
     }
   };
@@ -134,7 +116,7 @@ const ProductDetails = () => {
     // Simulate API call
     await new Promise((resolve) => setTimeout(resolve, 1000));
     // Add your cart logic here
-    console.log(`Added ${quantity} ${product.title} to cart`);
+    console.log(`Added ${quantity} ${product?.title} to cart`);
     setAddingToCart(false);
   };
 
@@ -143,7 +125,8 @@ const ProductDetails = () => {
     // Add your wishlist logic here
   };
 
-  if (loading) {
+  // Loading state using RTK Query
+  if (isLoading) {
     return (
       <>
         <Header />
@@ -163,7 +146,8 @@ const ProductDetails = () => {
     );
   }
 
-  if (error && !product) {
+  // Error state using RTK Query
+  if (isError) {
     return (
       <>
         <Header />
@@ -173,8 +157,9 @@ const ProductDetails = () => {
               <AlertCircle className="h-16 w-16 text-red-500 mx-auto mb-4" />
               <h2 className="text-2xl font-semibold mb-2">Product Not Found</h2>
               <p className="text-muted-foreground mb-6">
-                The product you're looking for doesn't exist or has been
-                removed.
+                {error?.data?.message ||
+                  error?.message ||
+                  "The product you're looking for doesn't exist or has been removed."}
               </p>
               <div className="space-x-4">
                 <Button variant="outline" onClick={() => navigate(-1)}>
@@ -192,9 +177,9 @@ const ProductDetails = () => {
     );
   }
 
-  const currentImage = product.productImages?.[selectedImageIndex] || {
-    imageUrl: product.thumbnail,
-    altText: product.title,
+  const currentImage = product?.productImages?.[selectedImageIndex] || {
+    imageUrl: product?.thumbnail,
+    altText: product?.title,
   };
 
   return (
@@ -209,14 +194,14 @@ const ProductDetails = () => {
             </Link>
             <span>/</span>
             <Link
-              to={`/categories/${product.categorySlug}`}
+              to={`/categories/${product?.categorySlug}`}
               className="hover:text-primary transition-colors"
             >
-              {product.categoryName}
+              {product?.category}
             </Link>
             <span>/</span>
             <span className="text-foreground font-medium truncate">
-              {product.title}
+              {product?.title}
             </span>
           </div>
 
@@ -256,7 +241,7 @@ const ProductDetails = () => {
                       onClick={() =>
                         setSelectedImageIndex(
                           selectedImageIndex === 0
-                            ? product.productImages.length - 1
+                            ? (product?.productImages?.length || 1) - 1
                             : selectedImageIndex - 1
                         )
                       }
@@ -270,7 +255,7 @@ const ProductDetails = () => {
                       onClick={() =>
                         setSelectedImageIndex(
                           selectedImageIndex ===
-                            product.productImages.length - 1
+                            (product?.productImages?.length || 1) - 1
                             ? 0
                             : selectedImageIndex + 1
                         )
@@ -290,16 +275,16 @@ const ProductDetails = () => {
                   )}
                   {product.discountPercentage > 0 && (
                     <Badge className="bg-red-500 text-white">
-                      -{Math.round(product.discountPercentage)}% OFF
+                      -{Math.round(product?.discountPercentage || 0)}% OFF
                     </Badge>
                   )}
                 </div>
               </div>
 
               {/* Thumbnail Images */}
-              {product.productImages?.length > 1 && (
+              {(product?.productImages?.length || 0) > 1 && (
                 <div className="flex space-x-2 overflow-x-auto pb-2 scrollbar-hide">
-                  {product.productImages.map((image, index) => (
+                  {product?.productImages?.map((image, index) => (
                     <button
                       key={index}
                       onClick={() => setSelectedImageIndex(index)}
@@ -326,18 +311,18 @@ const ProductDetails = () => {
               <div className="space-y-3">
                 <div className="flex flex-wrap items-center gap-2 mb-2">
                   <Badge variant="secondary" className="text-xs">
-                    {product.brand}
+                    {product?.brand}
                   </Badge>
                   <Badge variant="outline" className="text-xs">
-                    {product.categoryName}
+                    {product?.categoryName}
                   </Badge>
                   <Badge className="text-xs bg-gray-100 text-gray-700">
-                    SKU: {product.sku}
+                    SKU: {product?.sku}
                   </Badge>
                 </div>
 
                 <h1 className="text-xl md:text-2xl lg:text-2xl xl:text-3xl font-bold text-foreground leading-tight">
-                  {product.title}
+                  {product?.title}
                 </h1>
 
                 <div className="flex flex-wrap items-center gap-3">
@@ -346,14 +331,14 @@ const ProductDetails = () => {
                       <Star
                         key={i}
                         className={`h-4 w-4 ${
-                          i < Math.floor(product.averageRating)
+                          i < Math.floor(product?.averageRating || 0)
                             ? "fill-yellow-400 text-yellow-400"
                             : "text-muted-foreground"
                         }`}
                       />
                     ))}
                     <span className="text-sm font-medium ml-2">
-                      {product.averageRating.toFixed(1)}
+                      {product?.averageRating?.toFixed(1) || "0.0"}
                     </span>
                     <span className="text-sm text-muted-foreground">
                       (0 reviews)
@@ -364,29 +349,30 @@ const ProductDetails = () => {
 
               {/* Price */}
               <div className="space-y-2 py-3 border-y border-gray-100">
-                {product.discountPercentage > 0 ? (
+                {(product?.discountPercentage || 0) > 0 ? (
                   <div className="flex flex-wrap items-baseline gap-3">
                     <span className="text-2xl md:text-3xl lg:text-3xl font-bold text-primary">
                       $
                       {getDiscountedPrice(
-                        product.price,
-                        product.discountPercentage
+                        product?.price,
+                        product?.discountPercentage
                       )}
                     </span>
                     <span className="text-lg md:text-xl text-muted-foreground line-through">
-                      ${product.price}
+                      ${product?.price || "0.00"}
                     </span>
                     <Badge className="bg-red-500 text-white text-sm">
                       Save $
                       {(
-                        (product.price * product.discountPercentage) /
+                        ((product?.price || 0) *
+                          (product?.discountPercentage || 0)) /
                         100
                       ).toFixed(2)}
                     </Badge>
                   </div>
                 ) : (
                   <span className="text-2xl md:text-3xl lg:text-3xl font-bold text-primary">
-                    ${product.price}
+                    ${product?.price || "0.00"}
                   </span>
                 )}
               </div>
@@ -397,17 +383,17 @@ const ProductDetails = () => {
                   Description
                 </h3>
                 <p className="text-muted-foreground leading-relaxed text-sm line-clamp-3">
-                  {product.description}
+                  {product?.description || "No description available."}
                 </p>
               </div>
 
               {/* Stock Status */}
               <div className="flex items-center space-x-2 py-2">
-                {product.availabilityStatus === "IN_STOCK" ? (
+                {product?.availabilityStatus === "IN_STOCK" ? (
                   <>
                     <Check className="h-5 w-5 text-green-500" />
                     <span className="text-green-600 font-medium text-sm">
-                      In Stock ({product.stock} available)
+                      In Stock ({product?.stock || 0} available)
                     </span>
                   </>
                 ) : (
@@ -441,15 +427,15 @@ const ProductDetails = () => {
                       variant="ghost"
                       size="sm"
                       onClick={() => handleQuantityChange(1)}
-                      disabled={quantity >= product.stock}
+                      disabled={quantity >= (product?.stock || 0)}
                       className="h-9 w-9 p-0 hover:bg-gray-50"
                     >
                       <Plus className="h-4 w-4" />
                     </Button>
                   </div>
-                  {product.minimumOrderQuantity > 1 && (
+                  {(product?.minimumOrderQuantity || 0) > 1 && (
                     <span className="text-xs text-muted-foreground">
-                      Min order: {product.minimumOrderQuantity}
+                      Min order: {product?.minimumOrderQuantity}
                     </span>
                   )}
                 </div>
@@ -458,7 +444,7 @@ const ProductDetails = () => {
                   <Button
                     onClick={handleAddToCart}
                     disabled={
-                      product.availabilityStatus !== "IN_STOCK" || addingToCart
+                      product?.availabilityStatus !== "IN_STOCK" || addingToCart
                     }
                     className="w-full bg-gradient-to-r from-primary to-chart-2 hover:from-primary/90 hover:to-chart-2/90 text-white font-medium shadow-lg hover:shadow-xl transition-all duration-300 h-11"
                     size="lg"

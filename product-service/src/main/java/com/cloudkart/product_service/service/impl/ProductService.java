@@ -31,16 +31,6 @@ public class ProductService implements IProductService {
     return productRepository.count();
   }
 
-  /**
-   * Retrieves all products.
-   *
-   * @return a list of all products
-   */
-  @Override
-  public List<ProductDto> fetchProducts() {
-    List<Product> products = productRepository.findAll();
-    return products.stream().map(ProductMapper::toDto).toList();
-  }
 
   /**
    * Retrieves a product by its SKU.
@@ -137,7 +127,7 @@ public class ProductService implements IProductService {
   /**
    * Creates sample products based on the provided data.
    *
-   * @param createDataDto the data containing sample products to create
+   * @param products the data containing sample products to create
    */
   @Override
   public void createSampleProducts(List<ProductDto> products) {

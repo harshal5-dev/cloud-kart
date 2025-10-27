@@ -2,7 +2,6 @@ package com.cloudkart.product_service.service;
 
 import java.util.List;
 import com.cloudkart.product_service.dto.PagedResDto;
-import com.cloudkart.product_service.dto.ProductDto;
 import com.cloudkart.product_service.dto.ProductResDto;
 
 public interface IPublicProductService {
@@ -40,6 +39,6 @@ public interface IPublicProductService {
    * @param sku the SKU of the product to retrieve
    * @return the product with the specified SKU
    */
-  ProductDto fetchProduct(String sku);
+  // ProductDetailResponseDto fetchProduct(String sku);
 
 }

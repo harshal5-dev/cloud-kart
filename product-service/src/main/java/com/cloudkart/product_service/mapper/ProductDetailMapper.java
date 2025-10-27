@@ -59,4 +59,41 @@ public final class ProductDetailMapper {
 
     return dto;
   }
+
+  // public static ProductDetailResponseDto toProductDetailResponseDto(Product product) {
+  // ProductDetailResponseDto dto = new ProductDetailResponseDto();
+
+  // dto.setId(product.getId());
+  // dto.setTitle(product.getTitle());
+  // dto.setDescription(product.getDescription());
+  // dto.setCategory(product.getCategory().getName());
+  // dto.setPrice(product.getPrice());
+  // dto.setDiscountPercentage(product.getDiscountPercentage());
+  // dto.setRating(product.getAverageRating());
+  // dto.setStock(product.getStock());
+  // dto.setBrand(product.getBrand());
+  // dto.setSku(product.getSku());
+  // dto.setWeight(product.getWeight());
+
+  // ProductDimensionsDto dimensions = new ProductDimensionsDto();
+  // dimensions.setWidth(product.getWidth());
+  // dimensions.setHeight(product.getHeight());
+  // dimensions.setDepth(product.getDepth());
+  // dto.setDimensions(dimensions);
+
+  // dto.setWarrantyInformation(product.getWarrantyDetails());
+  // dto.setShippingInformation(product.getShippingDetails());
+  // dto.setAvailabilityStatus(product.getAvailabilityStatus().name());
+  // dto.setReturnPolicy(product.getReturnPolicy());
+  // dto.setMinimumOrderQuantity(product.getMinimumOrderQuantity());
+  // dto.setThumbnail(product.getThumbnail());
+
+  // // Images and reviews would need to be set separately as they are not part of the Product
+  // entity
+  // dto.setImages(product.getProductImages().stream().map(ProductImageMapper::toResDto).toList());
+  // dto.setReviews(
+  // product.getProductReviews().stream().map(ProductReviewMapper::toResDto).toList());
+
+  // return dto;
+  // }
 }
