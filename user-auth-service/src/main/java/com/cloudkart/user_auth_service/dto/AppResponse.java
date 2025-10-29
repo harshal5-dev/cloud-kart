@@ -9,7 +9,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Schema(name = "Response", description = "Schema to hold successful response information")
-public class ApiResponse<T> {
+public class AppResponse<T> {
 
   @Schema(description = "Status code in the response")
   private HttpStatus status;
@@ -23,7 +23,7 @@ public class ApiResponse<T> {
   @Schema(description = "Status message in the response")
   private String statusMessage;
 
-  public ApiResponse(HttpStatus status, T data, String statusMessage) {
+  public AppResponse(HttpStatus status, T data, String statusMessage) {
     this.status = status;
     this.data = data;
     this.statusMessage = statusMessage;

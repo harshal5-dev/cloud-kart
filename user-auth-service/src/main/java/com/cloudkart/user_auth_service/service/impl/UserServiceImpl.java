@@ -3,6 +3,7 @@ package com.cloudkart.user_auth_service.service.impl;
 
 import java.util.UUID;
 import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import com.cloudkart.user_auth_service.dto.PagedResponse;
 import com.cloudkart.user_auth_service.dto.UserRequest;
@@ -20,6 +21,7 @@ import lombok.RequiredArgsConstructor;
 public class UserServiceImpl implements IUserService {
 
   private final UserRepository userRepository;
+  private final PasswordEncoder passwordEncoder;
 
   /**
    * Retrieves a user by their UUID.
@@ -38,6 +40,15 @@ public class UserServiceImpl implements IUserService {
     User user = userRepository.findByUserIdentifier(userIdentifier).orElseThrow(
         () -> new ResourceNotFoundException("User", "userIdentifier", userIdentifier.toString()));
     return UserMapper.toUserResponse(user);
+  }
+
+  @Override
+  public UserResponse createUser(UserRequest userRequest) {
+    User user = new User();
+    UserMapper.toUser(user, userRequest);
+    user.setPassword(passwordEncoder.encode(userRequest.getPassword()));
+    User createdUser = userRepository.save(user);
+    return UserMapper.toUserResponse(createdUser);
   }
 
   @Override

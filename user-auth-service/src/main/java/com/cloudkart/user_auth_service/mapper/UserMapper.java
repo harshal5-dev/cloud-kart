@@ -1,5 +1,6 @@
 package com.cloudkart.user_auth_service.mapper;
 
+import java.util.UUID;
 import java.util.stream.Collectors;
 import com.cloudkart.user_auth_service.dto.UserRequest;
 import com.cloudkart.user_auth_service.dto.UserResponse;
@@ -58,6 +59,7 @@ public final class UserMapper {
         userRequest.getRoles().stream().map(UserRole::valueOf).collect(Collectors.toSet()));
     user.setProfilePictureUrl(userRequest.getProfilePictureUrl());
     user.setStatus(Status.valueOf(userRequest.getStatus().toUpperCase()));
+    user.setUserIdentifier(UUID.randomUUID());
 
   }
 

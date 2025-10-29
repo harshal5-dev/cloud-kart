@@ -40,6 +40,11 @@ public class UserRequest {
       message = "Phone number should be valid and may include '+', digits, spaces, dashes, and parentheses")
   private String phoneNumber;
 
+
+  @Schema(description = "Password of the user", example = "StrongP@ssw0rd!")
+  @NotEmpty(message = "Password is required")
+  private String password;
+
   @Schema(description = "Status of the user", example = "ACTIVE")
   private String status = "ACTIVE";
 

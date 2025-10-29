@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
-import com.cloudkart.user_auth_service.dto.ErrorResponse;
+import com.cloudkart.user_auth_service.dto.AppErrorResponse;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
@@ -32,49 +32,49 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
       String validationMsg = error.getDefaultMessage();
       validationErrors.put(fieldName, validationMsg);
     });
-    ErrorResponse errorResponse = new ErrorResponse(request.getDescription(false),
+    AppErrorResponse errorResponse = new AppErrorResponse(request.getDescription(false),
         HttpStatus.BAD_REQUEST, "Validation failed for one or more fields", validationErrors);
 
     return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
   }
 
   @ExceptionHandler(ResourceNotFoundException.class)
-  public ResponseEntity<ErrorResponse> handleResourceNotFoundException(
+  public ResponseEntity<AppErrorResponse> handleResourceNotFoundException(
       ResourceNotFoundException exception, WebRequest webRequest) {
-    ErrorResponse errorResponse = new ErrorResponse(webRequest.getDescription(false),
+    AppErrorResponse errorResponse = new AppErrorResponse(webRequest.getDescription(false),
         HttpStatus.NOT_FOUND, exception.getMessage());
     return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
   }
 
 
   @ExceptionHandler(IllegalArgumentException.class)
-  public ResponseEntity<ErrorResponse> handleIllegalArgumentException(
+  public ResponseEntity<AppErrorResponse> handleIllegalArgumentException(
       IllegalArgumentException exception, WebRequest webRequest) {
-    ErrorResponse errorResponse = new ErrorResponse(webRequest.getDescription(false),
+    AppErrorResponse errorResponse = new AppErrorResponse(webRequest.getDescription(false),
         HttpStatus.BAD_REQUEST, exception.getMessage());
     return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
   }
 
   @ExceptionHandler(MaxAddressCountException.class)
-  public ResponseEntity<ErrorResponse> handleMaxAddressCountException(
+  public ResponseEntity<AppErrorResponse> handleMaxAddressCountException(
       MaxAddressCountException exception, WebRequest webRequest) {
-    ErrorResponse errorResponse = new ErrorResponse(webRequest.getDescription(false),
+    AppErrorResponse errorResponse = new AppErrorResponse(webRequest.getDescription(false),
         HttpStatus.BAD_REQUEST, exception.getMessage());
     return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
   }
 
   @ExceptionHandler(RuntimeException.class)
-  public ResponseEntity<ErrorResponse> handleRuntimeException(RuntimeException exception,
+  public ResponseEntity<AppErrorResponse> handleRuntimeException(RuntimeException exception,
       WebRequest webRequest) {
-    ErrorResponse errorResponse = new ErrorResponse(webRequest.getDescription(false),
+    AppErrorResponse errorResponse = new AppErrorResponse(webRequest.getDescription(false),
         HttpStatus.INTERNAL_SERVER_ERROR, exception.getMessage());
     return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
   }
 
   @ExceptionHandler(Exception.class)
-  public ResponseEntity<ErrorResponse> handleGlobalException(Exception exception,
+  public ResponseEntity<AppErrorResponse> handleGlobalException(Exception exception,
       WebRequest webRequest) {
-    ErrorResponse errorResponse = new ErrorResponse(webRequest.getDescription(false),
+    AppErrorResponse errorResponse = new AppErrorResponse(webRequest.getDescription(false),
         HttpStatus.INTERNAL_SERVER_ERROR, exception.getMessage());
     return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
   }

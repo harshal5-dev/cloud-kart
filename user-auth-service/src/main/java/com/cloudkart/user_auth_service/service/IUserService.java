@@ -28,6 +28,15 @@ public interface IUserService {
    */
   PagedResponse<UserResponse> fetchAllUsers(UserSearchCriteria criteria, Pageable pageable);
 
+
+  /**
+   * Creates a new user with the provided user data.
+   *
+   * @param userRequest the UserRequest containing user information
+   * @return the created UserResponse object
+   */
+  UserResponse createUser(UserRequest userRequest);
+
   /**
    * Updates the user profile with the provided update data.
    *

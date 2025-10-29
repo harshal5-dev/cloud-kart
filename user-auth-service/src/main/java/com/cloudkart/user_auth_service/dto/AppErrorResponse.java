@@ -9,8 +9,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@Schema(name = "ErrorResponse", description = "Schema to hold error response information")
-public class ErrorResponse {
+@Schema(name = "AppErrorResponse", description = "Schema to hold error response information")
+public class AppErrorResponse {
 
   @Schema(description = "API path invoked by client")
   private String apiPath;
@@ -27,14 +27,14 @@ public class ErrorResponse {
   @Schema(description = "Validation errors if any, in case of validation errors")
   private Map<String, String> validationErrors;
 
-  public ErrorResponse(String apiPath, HttpStatus errorCode, String errorMessage) {
+  public AppErrorResponse(String apiPath, HttpStatus errorCode, String errorMessage) {
     this.apiPath = apiPath;
     this.errorCode = errorCode;
     this.errorMessage = errorMessage;
     this.errorTime = LocalDateTime.now();
   }
 
-  public ErrorResponse(String apiPath, HttpStatus errorCode, String errorMessage,
+  public AppErrorResponse(String apiPath, HttpStatus errorCode, String errorMessage,
       Map<String, String> validationErrors) {
     this.apiPath = apiPath;
     this.errorCode = errorCode;
