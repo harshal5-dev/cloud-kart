@@ -1,9 +1,8 @@
 package com.cloudkart.user_auth_service.service;
 
+import java.util.List;
 import com.cloudkart.user_auth_service.dto.AddressRequest;
 import com.cloudkart.user_auth_service.dto.AddressResponse;
-
-import java.util.List;
 
 public interface IAddressService {
 
@@ -18,19 +17,19 @@ public interface IAddressService {
   /**
    * Creates a new address for a user.
    *
-   * @param addressReqDto the AddressReqDto containing the details of the address to be created
+   * @param addressRequest the addressRequest containing the details of the address to be created
    * @return an AddressDto object representing the created address
    */
-  AddressResponse createAddress(AddressRequest addressReqDto);
+  AddressResponse createAddress(AddressRequest addressRequest);
 
   /**
    * Updates an existing address for a user.
    *
    * @param id the ID of the address to be updated
-   * @param addressReqDto the AddressReqDto containing the updated details of the address
+   * @param addressRequest the addressRequest containing the updated details of the address
    * @return an AddressDto object representing the updated address
    */
-  AddressResponse updateAddress(Long id, AddressRequest addressReqDto);
+  AddressResponse updateAddress(Long id, AddressRequest addressRequest);
 
   /**
    * Deletes an address for a user.

@@ -1,5 +1,7 @@
 package com.cloudkart.user_auth_service.service.impl;
 
+import java.util.List;
+import org.springframework.stereotype.Service;
 import com.cloudkart.user_auth_service.constants.AddressConstants;
 import com.cloudkart.user_auth_service.dto.AddressRequest;
 import com.cloudkart.user_auth_service.dto.AddressResponse;
@@ -13,9 +15,6 @@ import com.cloudkart.user_auth_service.service.IAddressService;
 import com.cloudkart.user_auth_service.service.IUserService;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -49,7 +48,7 @@ public class AddressServiceImpl implements IAddressService {
 
     long addressCount = addressRepository.countByUserId(user.getId());
     if (addressCount > AddressConstants.MAX_ADDRESS_COUNT) {
-      throw new MaxAddressCountException(AddressConstants.MAX_ADDRESS_MSS);
+      throw new MaxAddressCountException(AddressConstants.MAX_ADDRESS_MESSAGE);
     }
 
     Address address = new Address();
@@ -71,7 +70,7 @@ public class AddressServiceImpl implements IAddressService {
   @Override
   public AddressResponse updateAddress(Long id, AddressRequest addressRequest) {
     Address address = addressRepository.findById(id)
-            .orElseThrow(() -> new ResourceNotFoundException("Address", "id", id.toString()));
+        .orElseThrow(() -> new ResourceNotFoundException("Address", "id", id.toString()));
 
     User user = userService.getUserById(addressRequest.getUserId());
     AddressMapper.toEntity(address, addressRequest, user);
@@ -92,7 +91,7 @@ public class AddressServiceImpl implements IAddressService {
   @Override
   public void deleteAddress(Long id, Long userId) {
     addressRepository.findById(id)
-            .orElseThrow(() -> new ResourceNotFoundException("Address", "id", id.toString()));
+        .orElseThrow(() -> new ResourceNotFoundException("Address", "id", id.toString()));
     addressRepository.deleteByIdAndUserId(id, userId);
   }
 

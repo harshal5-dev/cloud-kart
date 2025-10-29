@@ -8,6 +8,11 @@ import com.cloudkart.user_auth_service.entity.User;
 
 public final class AddressMapper {
 
+  private AddressMapper() {
+    // Private constructor to prevent instantiation
+  }
+
+
   public static AddressResponse toDto(Address address) {
 
     AddressResponse addressResponse = new AddressResponse();

@@ -7,8 +7,8 @@ public final class AddressConstants {
   public static final String MESSAGE_UPDATED = "Address updated successfully";
   public static final String MESSAGE_DELETED = "Address deleted successfully";
   public static final int MAX_ADDRESS_COUNT = 5;
-  public static final String MAX_ADDRESS_MSS =
-          "Maximum number of addresses allowed is " + MAX_ADDRESS_COUNT;
+  public static final String MAX_ADDRESS_MESSAGE =
+      "Maximum number of addresses allowed is " + MAX_ADDRESS_COUNT;
 
   private AddressConstants() {
     // Prevent instantiation
