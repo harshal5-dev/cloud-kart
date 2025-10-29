@@ -1,5 +1,11 @@
 package com.cloudkart.user_auth_service.service;
 
+import java.util.UUID;
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
+import com.cloudkart.user_auth_service.dto.PagedResponse;
+import com.cloudkart.user_auth_service.dto.UserRequest;
+import com.cloudkart.user_auth_service.dto.UserResponse;
+import com.cloudkart.user_auth_service.dto.UserSearchCriteria;
 import com.cloudkart.user_auth_service.entity.User;
 
 public interface IUserService {
@@ -7,32 +13,30 @@ public interface IUserService {
   /**
    * Gets a user profile by Keycloak ID.
    *
-   * @param keycloakId the Keycloak ID of the user
+   * @param userIdentifier the UUID of the user
    * @return the UserDto containing user profile information
    */
-  // UserDto getUserProfile(String keycloakId);
+  UserResponse getUserProfile(UUID userIdentifier);
 
 
-  // PagedResDto<UserDto> fetchAllUsers(String keycloakId, UserSearchCriteria criteria,
-   //                                   Pageable pageable);
+  /**
+   * Fetches all users based on search criteria and pagination details.
+   *
+   * @param criteria the UserSearchCriteria containing search filters
+   * @param pageable the Pageable object containing pagination details
+   * @return a PagedResponse containing a list of UserDto objects
+   */
+  PagedResponse<UserResponse> fetchAllUsers(UserSearchCriteria criteria, Pageable pageable);
 
   /**
    * Updates the user profile with the provided update data.
    *
-   * @param keycloakId the Keycloak ID of the user to update
-   * @param updateUserDto the UpdateUserDto containing updated user information
-   * @return the updated UserDto
+   * @param userIdentifier the UUID of the user to update
+   * @param userRequest the UserRequest containing updated user information
+   * @return the updated UserResponse object
    */
-  // UserDto updateUserProfile(String keycloakId, UpdateUserDto updateUserDto);
+  UserResponse updateUser(UUID userIdentifier, UserRequest userRequest);
 
-  /**
-   * Updates a user by their Keycloak ID.
-   *
-   * @param keycloakId the Keycloak ID of the user to update
-   * @param updateUserDto the UpdateUserDto containing updated user information
-   * @return the updated UserDto
-   */
-  // UserDto updateUser(String keycloakId, UpdateUserDto updateUserDto);
 
   /**
    * Retrieves a user by their ID.
@@ -47,5 +51,5 @@ public interface IUserService {
    *
    * @param userId the ID of the user to delete
    */
-  // void deleteUserById(String userId);
+  void deleteUserById(UUID userIdentifier);
 }

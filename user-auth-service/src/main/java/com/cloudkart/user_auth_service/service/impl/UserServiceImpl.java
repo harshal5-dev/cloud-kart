@@ -1,12 +1,19 @@
 package com.cloudkart.user_auth_service.service.impl;
 
 
+import java.util.UUID;
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
+import org.springframework.stereotype.Service;
+import com.cloudkart.user_auth_service.dto.PagedResponse;
+import com.cloudkart.user_auth_service.dto.UserRequest;
+import com.cloudkart.user_auth_service.dto.UserResponse;
+import com.cloudkart.user_auth_service.dto.UserSearchCriteria;
 import com.cloudkart.user_auth_service.entity.User;
 import com.cloudkart.user_auth_service.exception.ResourceNotFoundException;
+import com.cloudkart.user_auth_service.mapper.UserMapper;
 import com.cloudkart.user_auth_service.repository.UserRepository;
 import com.cloudkart.user_auth_service.service.IUserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
@@ -23,6 +30,31 @@ public class UserServiceImpl implements IUserService {
   @Override
   public User getUserById(Long userId) {
     return userRepository.findById(userId)
-            .orElseThrow(() -> new ResourceNotFoundException("User", "id", userId.toString()));
+        .orElseThrow(() -> new ResourceNotFoundException("User", "id", userId.toString()));
+  }
+
+  @Override
+  public UserResponse getUserProfile(UUID userIdentifier) {
+    User user = userRepository.findByUserIdentifier(userIdentifier).orElseThrow(
+        () -> new ResourceNotFoundException("User", "userIdentifier", userIdentifier.toString()));
+    return UserMapper.toUserResponse(user);
+  }
+
+  @Override
+  public PagedResponse<UserResponse> fetchAllUsers(UserSearchCriteria criteria, Pageable pageable) {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'fetchAllUsers'");
+  }
+
+  @Override
+  public UserResponse updateUser(UUID userIdentifier, UserRequest userRequest) {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'updateUser'");
+  }
+
+  @Override
+  public void deleteUserById(UUID userIdentifier) {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'deleteUserById'");
   }
 }
