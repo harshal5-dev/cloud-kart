@@ -47,6 +47,11 @@
             <version>${lombok.version}</version>
             <optional>true</optional>
         </dependency>
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>${spring-doc.version}</version>
+        </dependency>
 	</dependencies>
 
 	<build>
