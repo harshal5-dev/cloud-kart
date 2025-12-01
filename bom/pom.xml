@@ -32,8 +32,9 @@
 	</scm>
 
 	<properties>
+        <common-lib.version>1.0.0</common-lib.version>
 		<java.version>21</java.version>
-		<spring-boot.version>3.5.6</spring-boot.version>
+		<spring-boot.version>3.5.7</spring-boot.version>
 		<maven-compiler-version>3.14.1</maven-compiler-version>
 		<maven.compiler.source>21</maven.compiler.source>
 		<maven.compiler.target>21</maven.compiler.target>
@@ -44,8 +45,12 @@
 		<keycloak.client.version>26.0.5</keycloak.client.version>
 		<app.prefix>ck</app.prefix>
 		<docker.username>harshaldev55</docker.username>
-		<image.tag>v3</image.tag>
+		<image.tag>v1</image.tag>
 	</properties>
+
+    <modules>
+        <module>common</module>
+    </modules>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
